@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" fill="none">
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F5EAB"/>
+      <stop offset="100%" stop-color="#E8502A"/>
+    </linearGradient>
+    <linearGradient id="markGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F5EAB"/>
+      <stop offset="100%" stop-color="#1A8ED4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon mark: stylised N + connection nodes = Nexus -->
+  <!-- Outer rounded square -->
+  <rect x="0" y="4" width="48" height="48" rx="13" fill="url(#logoGrad)"/>
+
+  <!-- Inner icon: abstract "N" made of nodes + connectors -->
+  <!-- Left vertical bar -->
+  <rect x="12" y="14" width="5" height="28" rx="2.5" fill="white"/>
+  <!-- Right vertical bar -->
+  <rect x="31" y="14" width="5" height="28" rx="2.5" fill="white"/>
+  <!-- Diagonal stroke (N crossbar) -->
+  <path d="M17 14 L36 42" stroke="white" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Node dots at connection points -->
+  <circle cx="14.5" cy="14" r="3.5" fill="white"/>
+  <circle cx="33.5" cy="42" r="3.5" fill="white"/>
+  <!-- Small accent dot (the "nexus" point) -->
+  <circle cx="26" cy="28" r="2.5" fill="rgba(255,255,255,0.5)"/>
+
+  <!-- Wordmark -->
+  <!-- "AM" in bold navy -->
+  <text x="60" y="38" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-weight="800" font-size="22" letter-spacing="-0.5" fill="#0C2340">AM</text>
+  <!-- "Technexus" in gradient / accent -->
+  <text x="98" y="38" font-family="'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" font-weight="800" font-size="22" letter-spacing="-0.5" fill="url(#logoGrad)">Technexus</text>
+
+  <!-- Tagline -->
+  <text x="61" y="52" font-family="'Inter', -apple-system, sans-serif" font-weight="500" font-size="9.5" letter-spacing="1.8" fill="#7A8499">BUSINESS SOFTWARE</text>
+</svg>

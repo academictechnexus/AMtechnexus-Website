@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMTechnexus — Admin Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- React + Babel (no build step needed) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; background: #F9FAFB; }
+  input, textarea, select, button { font-family: inherit; }
+  /* Hide scrollbar on mobile nav */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(0,0,0,.15); border-radius: 2px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useEffect, useCallback } = React;
+
+// React loaded from CDN
+
+/* ─────────────────────────────────────────────────
+   ⚠️  PASTE YOUR SUPABASE CREDENTIALS HERE
+   Get from: supabase.com → your project → Settings → API
+──────────────────────────────────────────────────── */
+const SUPABASE_URL  = "https://YOUR_PROJECT_ID.supabase.co";   // ← paste your URL
+const SUPABASE_ANON = "YOUR_ANON_PUBLIC_KEY";                  // ← paste your anon key
+const ADMIN_PASS    = "amtech2024";                             // ← change this password
+
+/* ─── Tiny Supabase client (no npm needed in artifact) ─── */
+const sb = {
+  async get(table, opts = {}) {
+    let url = `${SUPABASE_URL}/rest/v1/${table}?select=*`;
+    if (opts.order) url += `&order=${opts.order}`;
+    const r = await fetch(url, { headers: { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}` } });
+    if (!r.ok) throw new Error(await r.text());
+    return r.json();
+  },
+  async getSingle(table, key) {
+    const url = `${SUPABASE_URL}/rest/v1/${table}?key=eq.${key}&select=*`;
+    const r = await fetch(url, { headers: { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}` } });
+    if (!r.ok) throw new Error(await r.text());
+    const rows = await r.json();
+    return rows[0] || null;
+  },
+  async upsert(table, data) {
+    const url = `${SUPABASE_URL}/rest/v1/${table}`;
+    const r = await fetch(url, {
+      method: "POST",
+      headers: { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}`, "Content-Type": "application/json", Prefer: "resolution=merge-duplicates,return=representation" },
+      body: JSON.stringify(Array.isArray(data) ? data : [data]),
+    });
+    if (!r.ok) throw new Error(await r.text());
+    return r.json();
+  },
+  async update(table, match, data) {
+    const [col, val] = Object.entries(match)[0];
+    const url = `${SUPABASE_URL}/rest/v1/${table}?${col}=eq.${encodeURIComponent(val)}`;
+    const r = await fetch(url, {
+      method: "PATCH",
+      headers: { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}`, "Content-Type": "application/json", Prefer: "return=representation" },
+      body: JSON.stringify(data),
+    });
+    if (!r.ok) throw new Error(await r.text());
+    return r.json();
+  },
+  async updateSetting(key, value) {
+    const url = `${SUPABASE_URL}/rest/v1/site_settings?key=eq.${key}`;
+    const r = await fetch(url, {
+      method: "PATCH",
+      headers: { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}`, "Content-Type": "application/json", Prefer: "return=representation" },
+      body: JSON.stringify({ value, updated_at: new Date().toISOString() }),
+    });
+    if (!r.ok) throw new Error(await r.text());
+    return r.json();
+  },
+  async deletRow(table, match) {
+    const [col, val] = Object.entries(match)[0];
+    const url = `${SUPABASE_URL}/rest/v1/${table}?${col}=eq.${encodeURIComponent(val)}`;
+    const r = await fetch(url, {
+      method: "DELETE",
+      headers: { apikey: SUPABASE_ANON, Authorization: `Bearer ${SUPABASE_ANON}` },
+    });
+    if (!r.ok) throw new Error(await r.text());
+  },
+};
+
+/* ─── DESIGN TOKENS ─── */
+const C = {
+  violet:"#5B21B6", blue:"#1D4ED8", teal:"#0891B2", rose:"#DC2626",
+  green:"#059669", amber:"#D97706", ink:"#111827", body:"#374151",
+  muted:"#6B7280", border:"#E5E7EB", pale:"#F9FAFB", lavender:"#EDE9FE", white:"#FFFFFF",
+};
+const Fs="'Inter',system-ui,sans-serif"; const Fd="'Plus Jakarta Sans',system-ui,sans-serif";
+
+/* ─── RESPONSIVE HOOK ─── */
+function useW(){ const [w,setW]=useState(typeof window!=="undefined"?window.innerWidth:1200); useEffect(()=>{const h=()=>setW(window.innerWidth);window.addEventListener("resize",h);return()=>window.removeEventListener("resize",h);},[]);return w; }
+
+/* ─── ORBIT LOGO ─── */
+function OrbitIcon({size=36}){
+  return(
+    <svg width={size} height={size} viewBox="0 0 44 44" fill="none">
+      <defs><linearGradient id="admlg" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stopColor="#0891B2"/><stop offset="100%" stopColor="#1D4ED8"/></linearGradient></defs>
+      <rect width="44" height="44" rx="11" fill="url(#admlg)"/>
+      <ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" strokeWidth="1.8" strokeOpacity=".55" fill="none" transform="rotate(-38 22 22)"/>
+      <ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" strokeWidth="1.8" strokeOpacity=".28" fill="none" transform="rotate(28 22 22)"/>
+      <circle cx="22" cy="22" r="5.5" fill="white"/>
+      <circle cx="34" cy="15" r="2.8" fill="white"/>
+      <circle cx="10" cy="30" r="1.8" fill="white" fillOpacity=".65"/>
+    </svg>
+  );
+}
+
+/* ─── SHARED UI ─── */
+function Field({label,value,onChange,type="text",help,rows=3,multi=false,placeholder=""}){
+  const base={width:"100%",padding:"10px 13px",border:`1.5px solid ${C.border}`,borderRadius:8,fontSize:14,fontFamily:Fs,outline:"none",color:C.ink,boxSizing:"border-box",transition:"border-color .15s",background:C.white};
+  return(
+    <div style={{marginBottom:14}}>
+      {label&&<label style={{fontSize:12,fontWeight:600,color:C.body,display:"block",marginBottom:5}}>{label}</label>}
+      {multi
+        ?<textarea value={value} onChange={e=>onChange(e.target.value)} rows={rows} placeholder={placeholder} style={{...base,resize:"vertical"}} onFocus={e=>e.target.style.borderColor=C.violet} onBlur={e=>e.target.style.borderColor=C.border}/>
+        :<input type={type} value={value} onChange={e=>onChange(e.target.value)} placeholder={placeholder} style={base} onFocus={e=>e.target.style.borderColor=C.violet} onBlur={e=>e.target.style.borderColor=C.border}/>
+      }
+      {help&&<div style={{fontSize:11.5,color:C.muted,marginTop:4}}>{help}</div>}
+    </div>
+  );
+}
+
+function Btn({onClick,children,variant="primary",size="md",full=false,disabled=false}){
+  const bg={primary:C.violet,success:"#ECFDF5",danger:"#FEF2F2",ghost:C.pale,outline:C.white}[variant];
+  const col={primary:"white",success:C.green,danger:C.rose,ghost:C.body,outline:C.violet}[variant];
+  const bd={outline:`1.5px solid ${C.violet}`,ghost:`1px solid ${C.border}`}[variant]||"none";
+  const pd=size==="sm"?"6px 14px":size==="lg"?"14px 32px":"10px 22px";
+  return(
+    <button onClick={onClick} disabled={disabled} style={{padding:pd,background:bg,color:col,border:bd,borderRadius:8,fontWeight:700,fontSize:size==="sm"?12:14,cursor:disabled?"not-allowed":"pointer",fontFamily:Fs,transition:"all .18s",width:full?"100%":"auto",opacity:disabled?.6:1,display:"inline-flex",alignItems:"center",gap:6,justifyContent:"center"}}
+      onMouseEnter={e=>{if(!disabled&&variant==="primary")e.currentTarget.style.background="#4C1D95";}}
+      onMouseLeave={e=>{if(!disabled&&variant==="primary")e.currentTarget.style.background=C.violet;}}>
+      {children}
+    </button>
+  );
+}
+
+function Card({children,style={}}){ return <div style={{background:C.white,border:`1px solid ${C.border}`,borderRadius:14,padding:20,boxShadow:"0 1px 8px rgba(0,0,0,.04)",marginBottom:16,...style}}>{children}</div>; }
+
+function SectionHead({icon,title,children}){
+  return(
+    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:20,flexWrap:"wrap",gap:10}}>
+      <div style={{display:"flex",alignItems:"center",gap:9}}>
+        <span style={{fontSize:22}}>{icon}</span>
+        <span style={{fontFamily:Fd,fontWeight:800,fontSize:18,color:C.ink,letterSpacing:"-.4px"}}>{title}</span>
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function Tag({col,children}){ return <span style={{fontSize:10,fontWeight:700,background:`${col}14`,color:col,padding:"2px 8px",borderRadius:100,letterSpacing:.3}}>{children}</span>; }
+
+function Alert({type="info",children}){
+  const styles={info:{bg:"#EFF6FF",border:"#BFDBFE",col:"#1E40AF"},warn:{bg:"#FFFBEB",border:"#FDE68A",col:"#92400E"},success:{bg:"#ECFDF5",border:"#A7F3D0",col:"#065F46"}};
+  const s=styles[type];
+  return <div style={{background:s.bg,border:`1px solid ${s.border}`,borderRadius:10,padding:"12px 16px",marginBottom:16,fontSize:13.5,color:s.col,lineHeight:1.65}}>{children}</div>;
+}
+
+function Spinner(){ return <div style={{width:18,height:18,border:`2px solid ${C.border}`,borderTop:`2px solid ${C.violet}`,borderRadius:"50%",animation:"spin 1s linear infinite"}}><style>{"@keyframes spin{to{transform:rotate(360deg)}}"}</style></div>; }
+
+function Toast({msg,type="success",onClose}){
+  useEffect(()=>{const t=setTimeout(onClose,3500);return()=>clearTimeout(t);},[]);
+  const col=type==="error"?C.rose:C.green;
+  return(
+    <div style={{position:"fixed",bottom:20,right:20,background:C.white,border:`1.5px solid ${col}`,color:col,borderRadius:12,padding:"13px 18px",fontWeight:600,fontSize:14,boxShadow:"0 8px 32px rgba(0,0,0,.12)",zIndex:9999,display:"flex",alignItems:"center",gap:9,fontFamily:Fs,maxWidth:320}}>
+      <span style={{fontSize:18}}>{type==="error"?"❌":"✅"}</span>{msg}
+    </div>
+  );
+}
+
+function ytId(url){ if(!url)return null; const m=url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&?\s]+)/); return m?m[1]:null; }
+
+/* ─── LOGIN ─── */
+function Login({onLogin}){
+  const [pw,setPw]=useState(""); const [err,setErr]=useState(false); const [show,setShow]=useState(false);
+  const go=()=>{ if(pw===ADMIN_PASS){onLogin();}else{setErr(true);setPw("");} };
+  const isDemo=SUPABASE_URL.includes("YOUR_PROJECT");
+  return(
+    <div style={{minHeight:"100vh",background:`linear-gradient(135deg,${C.lavender},#F5F3FF,#EEF2FF)`,display:"flex",alignItems:"center",justifyContent:"center",fontFamily:Fs,padding:16}}>
+      <div style={{background:C.white,borderRadius:20,padding:"36px 32px",width:"100%",maxWidth:380,boxShadow:"0 20px 60px rgba(91,33,182,.12)"}}>
+        <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:28}}>
+          <OrbitIcon/>
+          <div><div style={{fontFamily:Fd,fontWeight:800,fontSize:16,color:C.ink}}>AMTechnexus <span style={{fontSize:9,background:C.lavender,color:C.violet,borderRadius:4,padding:"2px 6px",fontWeight:800}}>AI</span></div><div style={{fontSize:9,fontWeight:600,color:C.muted,letterSpacing:"1.5px",textTransform:"uppercase",marginTop:1}}>Admin Panel</div></div>
+        </div>
+        {isDemo&&<Alert type="warn">⚠️ Supabase not connected yet. Enter password to preview the admin panel.</Alert>}
+        <h2 style={{fontFamily:Fd,fontSize:21,fontWeight:800,color:C.ink,marginBottom:5,letterSpacing:"-.5px"}}>Welcome back</h2>
+        <p style={{fontSize:13,color:C.muted,marginBottom:24}}>Sign in to manage your website content.</p>
+        <div style={{marginBottom:14}}>
+          <label style={{fontSize:12,fontWeight:600,color:C.body,display:"block",marginBottom:5}}>Password</label>
+          <div style={{position:"relative"}}>
+            <input type={show?"text":"password"} value={pw} onChange={e=>{setPw(e.target.value);setErr(false);}} onKeyDown={e=>e.key==="Enter"&&go()} placeholder="Enter admin password" style={{width:"100%",padding:"11px 44px 11px 13px",border:`1.5px solid ${err?C.rose:C.border}`,borderRadius:9,fontSize:14,fontFamily:Fs,outline:"none",color:C.ink,boxSizing:"border-box",background:err?"#FEF2F2":C.white}} onFocus={e=>{if(!err)e.target.style.borderColor=C.violet;}} onBlur={e=>{if(!err)e.target.style.borderColor=C.border;}}/>
+            <button onClick={()=>setShow(!show)} style={{position:"absolute",right:12,top:"50%",transform:"translateY(-50%)",background:"none",border:"none",cursor:"pointer",fontSize:15,color:C.muted}}>{show?"🙈":"👁"}</button>
+          </div>
+          {err&&<div style={{fontSize:12,color:C.rose,marginTop:5,fontWeight:500}}>❌ Wrong password. Try again.</div>}
+        </div>
+        <Btn onClick={go} full size="lg">Sign In →</Btn>
+        <div style={{marginTop:16,padding:"11px 13px",background:C.pale,borderRadius:9,border:`1px solid ${C.border}`,fontSize:12,color:C.muted,lineHeight:1.6}}>
+          🔒 Password: <code style={{background:C.lavender,color:C.violet,padding:"1px 6px",borderRadius:4}}>{ADMIN_PASS}</code> — change <code>ADMIN_PASS</code> before going live.
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ─── OVERVIEW ─── */
+function Overview({go,stats}){
+  const w=useW(); const mob=w<640;
+  return(
+    <div>
+      <div style={{marginBottom:24}}>
+        <h1 style={{fontFamily:Fd,fontSize:mob?20:26,fontWeight:800,color:C.ink,letterSpacing:"-.6px",marginBottom:5}}>Welcome back 👋</h1>
+        <p style={{fontSize:14,color:C.muted}}>Any change you save here goes live on your website instantly.</p>
+      </div>
+
+      {SUPABASE_URL.includes("YOUR_PROJECT")&&(
+        <Alert type="warn">
+          <strong>⚡ Connect Supabase to go live.</strong> See the setup guide below — takes 10 minutes.
+        </Alert>
+      )}
+
+      {/* Quick stats */}
+      <div style={{display:"grid",gridTemplateColumns:mob?"1fr 1fr":"repeat(4,1fr)",gap:12,marginBottom:20}}>
+        {(stats||[]).map(([v,l,ic,col])=>(
+          <div key={l} style={{background:C.white,border:`1px solid ${C.border}`,borderRadius:12,padding:"16px",boxShadow:"0 1px 6px rgba(0,0,0,.04)"}}>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:8}}><span style={{fontSize:20}}>{ic}</span><span style={{fontFamily:Fd,fontSize:22,fontWeight:800,color:col}}>{v}</span></div>
+            <div style={{fontSize:12,fontWeight:600,color:C.muted}}>{l}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Quick actions */}
+      <Card>
+        <div style={{fontFamily:Fd,fontWeight:700,fontSize:15,color:C.ink,marginBottom:14}}>Quick Actions</div>
+        <div style={{display:"grid",gridTemplateColumns:mob?"1fr 1fr":"repeat(3,1fr)",gap:10}}>
+          {[["📹","Add Demo Video","videos",C.blue],["💰","Update Pricing","pricing",C.green],["📞","Edit Contact","contact",C.violet],["✨","Edit Hero Text","hero",C.amber],["⭐","Testimonials","testimonials",C.rose],["📊","Update Stats","stats",C.teal]].map(([ic,l,sec,col])=>(
+            <button key={l} onClick={()=>go(sec)} style={{padding:"12px 10px",background:`${col}08`,border:`1.5px solid ${col}20`,borderRadius:10,cursor:"pointer",fontFamily:Fs,textAlign:"left",display:"flex",alignItems:"center",gap:8,transition:"all .18s"}} onMouseEnter={e=>{e.currentTarget.style.background=`${col}16`;e.currentTarget.style.borderColor=`${col}50`;}} onMouseLeave={e=>{e.currentTarget.style.background=`${col}08`;e.currentTarget.style.borderColor=`${col}20`;}}>
+              <span style={{fontSize:18}}>{ic}</span><span style={{fontSize:13,fontWeight:600,color:C.body,lineHeight:1.3}}>{l}</span>
+            </button>
+          ))}
+        </div>
+      </Card>
+
+      {/* Setup guide */}
+      <Card>
+        <div style={{fontFamily:Fd,fontWeight:700,fontSize:15,color:C.ink,marginBottom:14}}>📌 Setup Guide — Connect to Supabase (10 min)</div>
+        {[
+          ["1","Create free account","Go to supabase.com → Sign Up → Create new project → choose any region"],
+          ["2","Run the SQL","Open SQL Editor in your Supabase project → paste supabase_setup.sql → Run"],
+          ["3","Get your keys","Go to Settings → API → copy Project URL and anon/public key"],
+          ["4","Paste keys here","Open amt_admin_v3.jsx → replace SUPABASE_URL and SUPABASE_ANON at the top"],
+          ["5","Upload to GitHub","Replace the old admin file in your GitHub repo → Netlify auto-deploys"],
+          ["6","Done!","Every Save in admin now updates your live website instantly ✅"],
+        ].map(([n,t,d])=>(
+          <div key={n} style={{display:"flex",gap:12,marginBottom:14,alignItems:"flex-start"}}>
+            <div style={{width:26,height:26,borderRadius:"50%",background:C.violet,color:"white",display:"flex",alignItems:"center",justifyContent:"center",fontFamily:Fd,fontWeight:800,fontSize:12,flexShrink:0}}>{n}</div>
+            <div><div style={{fontSize:13.5,fontWeight:700,color:C.ink,marginBottom:2}}>{t}</div><div style={{fontSize:13,color:C.muted,lineHeight:1.5}}>{d}</div></div>
+          </div>
+        ))}
+      </Card>
+
+      {/* Adding new products */}
+      <Alert type="info">
+        <strong>📌 Adding a new product page?</strong><br/>
+        Ask Claude → get HTML page → upload to GitHub → add it here in Products section.
+      </Alert>
+    </div>
+  );
+}
+
+/* ─── HERO ─── */
+function HeroSection({onToast}){
+  const w=useW(); const mob=w<640;
+  const [d,setD]=useState({headline_1:"AI-powered software",headline_2:"for every business,",headline_3:"everywhere.",subtext:"",cta_primary:"Start Free Trial",cta_secondary:"See all products",badge:""});
+  const [loading,setLoading]=useState(true); const [saving,setSaving]=useState(false);
+  useEffect(()=>{ sb.getSingle("site_settings","hero").then(r=>{ if(r?.value)setD(r.value); }).catch(()=>{}).finally(()=>setLoading(false)); },[]);
+  const save=async()=>{ setSaving(true); try{ await sb.updateSetting("hero",d); onToast("Hero section saved — live on your website!"); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(false); };
+  if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
+  return(
+    <div>
+      <SectionHead icon="✨" title="Hero Section"><Btn onClick={save} disabled={saving}>{saving?"Saving…":"Save & Go Live"}</Btn></SectionHead>
+      <Card>
+        <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"1fr 1fr",gap:14}}>
+          <Field label="Headline Line 1" value={d.headline_1} onChange={v=>setD({...d,headline_1:v})} help='e.g. "AI-powered software"'/>
+          <Field label="Headline Line 2 (shown in violet)" value={d.headline_2} onChange={v=>setD({...d,headline_2:v})}/>
+        </div>
+        <Field label="Headline Line 3" value={d.headline_3} onChange={v=>setD({...d,headline_3:v})}/>
+        <Field label="Subtext" value={d.subtext} onChange={v=>setD({...d,subtext:v})} multi help="2–3 sentences below headline"/>
+        <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"1fr 1fr",gap:14}}>
+          <Field label="Primary Button" value={d.cta_primary} onChange={v=>setD({...d,cta_primary:v})}/>
+          <Field label="Secondary Button" value={d.cta_secondary} onChange={v=>setD({...d,cta_secondary:v})}/>
+        </div>
+        <Field label="Top Badge Text" value={d.badge} onChange={v=>setD({...d,badge:v})} help="The pill badge at the very top of the hero"/>
+      </Card>
+    </div>
+  );
+}
+
+/* ─── PRODUCTS ─── */
+function ProductsSection({onToast}){
+  const w=useW(); const mob=w<640;
+  const [prods,setProds]=useState([]); const [loading,setLoading]=useState(true); const [open,setOpen]=useState(null); const [saving,setSaving]=useState(null);
+  useEffect(()=>{ sb.get("products",{order:"sort_order"}).then(setProds).catch(()=>{}).finally(()=>setLoading(false)); },[]);
+  const upd=(id,f,v)=>setProds(ps=>ps.map(p=>p.id===id?{...p,[f]:v}:p));
+  const save=async(p)=>{ setSaving(p.id); try{ await sb.update("products",{id:p.id},{name:p.name,icon:p.icon,tagline:p.tagline,description:p.description,color:p.color,video_url:p.video_url,active:p.active,updated_at:new Date().toISOString()}); onToast(`${p.name} saved — live on website!`); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(null); };
+  if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
+  return(
+    <div>
+      <SectionHead icon="📦" title="Products"/>
+      <Alert type="info">💡 <strong>New product?</strong> Ask Claude for a new HTML page → upload to GitHub → it deploys automatically.</Alert>
+      {prods.map(p=>(
+        <Card key={p.id} style={{padding:0,overflow:"hidden"}}>
+          <div onClick={()=>setOpen(open===p.id?null:p.id)} style={{padding:"14px 18px",display:"flex",alignItems:"center",gap:12,background:open===p.id?`${p.color}06`:C.pale,cursor:"pointer",flexWrap:"wrap"}}>
+            <span style={{fontSize:22}}>{p.icon}</span>
+            <div style={{flex:1,minWidth:0}}>
+              <div style={{fontFamily:Fd,fontWeight:700,fontSize:14.5,color:C.ink,display:"flex",alignItems:"center",gap:8,flexWrap:"wrap"}}>
+                {p.name}{p.video_url&&<Tag col={C.green}>▶ Video</Tag>}{!p.active&&<Tag col={C.muted}>Hidden</Tag>}
+              </div>
+              <div style={{fontSize:12,color:C.muted,marginTop:2,overflow:"hidden",textOverflow:"ellipsis",whiteSpace:"nowrap"}}>{p.tagline}</div>
+            </div>
+            <span style={{fontSize:11,color:C.muted,flexShrink:0}}>{open===p.id?"▲ Close":"▼ Edit"}</span>
+          </div>
+          {open===p.id&&(
+            <div style={{padding:18,borderTop:`1px solid ${C.border}`}}>
+              <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"1fr 1fr",gap:14}}>
+                <Field label="Product Name" value={p.name} onChange={v=>upd(p.id,"name",v)}/>
+                <Field label="Icon / Emoji" value={p.icon} onChange={v=>upd(p.id,"icon",v)} help="e.g. 🍽️ 🤖 🚗 🏢"/>
+              </div>
+              <Field label="Tagline" value={p.tagline} onChange={v=>upd(p.id,"tagline",v)}/>
+              <Field label="Description" value={p.description} onChange={v=>upd(p.id,"description",v)} multi/>
+              {/* Video */}
+              <div style={{background:`${C.violet}06`,border:`1.5px solid ${C.violet}25`,borderRadius:10,padding:"14px 16px",marginBottom:14}}>
+                <div style={{fontFamily:Fd,fontWeight:700,fontSize:13.5,color:C.violet,marginBottom:10}}>📹 Demo Video</div>
+                <Field label="YouTube URL" value={p.video_url} onChange={v=>upd(p.id,"video_url",v)} help="https://youtu.be/XXXXXXX — can be Unlisted on YouTube"/>
+                {p.video_url&&ytId(p.video_url)&&(
+                  <div style={{borderRadius:10,overflow:"hidden",border:`1px solid ${C.border}`,aspectRatio:"16/9",maxWidth:mob?"100%":400,marginTop:8}}>
+                    <iframe src={`https://www.youtube.com/embed/${ytId(p.video_url)}`} style={{width:"100%",height:"100%",border:"none"}} allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowFullScreen title={p.name}/>
+                  </div>
+                )}
+                {p.video_url&&!ytId(p.video_url)&&<div style={{fontSize:12,color:C.rose,marginTop:4}}>⚠️ Invalid YouTube URL</div>}
+                {!p.video_url&&<div style={{fontSize:12,color:C.muted,padding:"10px 13px",background:C.pale,borderRadius:8,border:`1.5px dashed ${C.border}`,textAlign:"center"}}>No video yet — paste YouTube link above</div>}
+              </div>
+              {/* Visibility + save */}
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,flexWrap:"wrap"}}>
+                <div style={{display:"flex",alignItems:"center",gap:10}}>
+                  <span style={{fontSize:13.5,fontWeight:600,color:C.ink}}>Show on website:</span>
+                  <button onClick={()=>upd(p.id,"active",!p.active)} style={{padding:"7px 18px",background:p.active?C.green:"#E5E7EB",color:p.active?"white":C.muted,border:"none",borderRadius:7,fontWeight:700,fontSize:13,cursor:"pointer",fontFamily:Fs,transition:"all .2s"}}>
+                    {p.active?"● Visible":"○ Hidden"}
+                  </button>
+                </div>
+                <Btn onClick={()=>save(p)} disabled={saving===p.id}>{saving===p.id?"Saving…":"Save & Go Live ✓"}</Btn>
+              </div>
+            </div>
+          )}
+        </Card>
+      ))}
+    </div>
+  );
+}
+
+/* ─── VIDEOS ─── */
+function VideosSection({onToast}){
+  const w=useW(); const mob=w<640;
+  const [prods,setProds]=useState([]); const [loading,setLoading]=useState(true); const [saving,setSaving]=useState(null);
+  useEffect(()=>{ sb.get("products",{order:"sort_order"}).then(setProds).catch(()=>{}).finally(()=>setLoading(false)); },[]);
+  const upd=(id,v)=>setProds(ps=>ps.map(p=>p.id===id?{...p,video_url:v}:p));
+  const save=async(p)=>{ setSaving(p.id); try{ await sb.update("products",{id:p.id},{video_url:p.video_url,updated_at:new Date().toISOString()}); onToast(`${p.name} video saved — live on website!`); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(null); };
+  if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
+  return(
+    <div>
+      <SectionHead icon="📹" title="Demo Videos"/>
+      <Alert type="info"><strong>How to add a video:</strong> Upload your product demo to YouTube (set to <strong>Unlisted</strong>) → copy the link → paste below → Save.</Alert>
+      {prods.map(p=>(
+        <Card key={p.id}>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14,flexWrap:"wrap",gap:8}}>
+            <div style={{display:"flex",alignItems:"center",gap:9}}><span style={{fontSize:20}}>{p.icon}</span><span style={{fontFamily:Fd,fontWeight:700,fontSize:14.5,color:C.ink}}>{p.name}</span>{p.video_url&&ytId(p.video_url)?<Tag col={C.green}>✓ Video set</Tag>:<Tag col={C.muted}>No video</Tag>}</div>
+            <Btn onClick={()=>save(p)} disabled={saving===p.id} size="sm">{saving===p.id?"Saving…":"Save & Go Live"}</Btn>
+          </div>
+          <Field label={`${p.name} — YouTube URL`} value={p.video_url} onChange={v=>upd(p.id,v)} help="Paste: https://youtu.be/XXXXXXX or https://youtube.com/watch?v=XXXXXXX"/>
+          {p.video_url&&ytId(p.video_url)&&(
+            <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"1fr 1fr",gap:14,marginTop:4}}>
+              <div style={{borderRadius:10,overflow:"hidden",border:`1px solid ${C.border}`,aspectRatio:"16/9"}}>
+                <iframe src={`https://www.youtube.com/embed/${ytId(p.video_url)}`} style={{width:"100%",height:"100%",border:"none"}} allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowFullScreen title={p.name}/>
+              </div>
+              <div style={{padding:14,background:C.pale,borderRadius:10,border:`1px solid ${C.border}`}}>
+                <div style={{fontSize:12,fontWeight:700,color:C.green,marginBottom:8}}>✅ Valid video</div>
+                <div style={{fontSize:12.5,color:C.body,lineHeight:1.65}}>ID: <code style={{background:C.lavender,color:C.violet,padding:"1px 6px",borderRadius:4,fontSize:11}}>{ytId(p.video_url)}</code></div>
+                <div style={{fontSize:12,color:C.muted,marginTop:6,lineHeight:1.5}}>Shown on the {p.name} page as a demo video.</div>
+                <div style={{marginTop:12}}><Btn onClick={()=>upd(p.id,"")} variant="danger" size="sm">Remove</Btn></div>
+              </div>
+            </div>
+          )}
+          {p.video_url&&!ytId(p.video_url)&&<div style={{fontSize:12.5,color:C.rose,marginTop:4}}>⚠️ Can't detect YouTube ID — check the URL format</div>}
+          {!p.video_url&&<div style={{padding:14,background:C.pale,borderRadius:9,border:`1.5px dashed ${C.border}`,textAlign:"center",fontSize:13,color:C.muted}}>📹 No demo video yet for {p.name}</div>}
+        </Card>
+      ))}
+    </div>
+  );
+}
+
+/* ─── PRICING ─── */
+function PricingSection({onToast}){
+  const w=useW(); const mob=w<640;
+  const [plans,setPlans]=useState([]); const [loading,setLoading]=useState(true); const [saving,setSaving]=useState(false);
+  useEffect(()=>{ sb.get("pricing",{order:"sort_order"}).then(setPlans).catch(()=>{}).finally(()=>setLoading(false)); },[]);
+  const upd=(id,f,v)=>setPlans(ps=>ps.map(p=>p.id===id?{...p,[f]:v}:p));
+  const save=async()=>{ setSaving(true); try{ await Promise.all(plans.map(p=>sb.update("pricing",{id:p.id},{tier:p.tier,price:p.price,period:p.period,description:p.description,popular:p.popular,updated_at:new Date().toISOString()}))); onToast("Pricing saved — live on website!"); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(false); };
+  if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
+  return(
+    <div>
+      <SectionHead icon="💰" title="Pricing Plans"><Btn onClick={save} disabled={saving}>{saving?"Saving…":"Save & Go Live"}</Btn></SectionHead>
+      <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"repeat(3,1fr)",gap:14}}>
+        {plans.map(p=>(
+          <Card key={p.id} style={{border:`1.5px solid ${p.popular?C.violet:C.border}`,background:p.popular?C.lavender:C.white}}>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14,flexWrap:"wrap",gap:8}}>
+              <span style={{fontFamily:Fd,fontWeight:700,fontSize:14,color:p.popular?C.violet:C.ink}}>{p.tier}</span>
+              <button onClick={()=>upd(p.id,"popular",!p.popular)} style={{fontSize:10,fontWeight:700,background:p.popular?C.violet:C.white,color:p.popular?"white":C.muted,border:`1px solid ${p.popular?C.violet:C.border}`,borderRadius:100,padding:"3px 10px",cursor:"pointer"}}>
+                {p.popular?"★ Popular":"☆ Set Popular"}
+              </button>
+            </div>
+            <Field label="Price" value={p.price} onChange={v=>upd(p.id,"price",v)} help='e.g. "₹1,499" or "Custom"'/>
+            <Field label="Period" value={p.period} onChange={v=>upd(p.id,"period",v)} help='e.g. "/mo" or blank'/>
+            <Field label="Description" value={p.description} onChange={v=>upd(p.id,"description",v)} multi rows={2}/>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ─── CONTACT ─── */
+function ContactSection({onToast}){
+  const w=useW(); const mob=w<640;
+  const [d,setD]=useState({whatsapp:"",email_support:"",email_gmail:"",location:"",tagline:""}); const [loading,setLoading]=useState(true); const [saving,setSaving]=useState(false);
+  useEffect(()=>{ sb.getSingle("site_settings","contact").then(r=>{ if(r?.value)setD(r.value); }).catch(()=>{}).finally(()=>setLoading(false)); },[]);
+  const save=async()=>{ setSaving(true); try{ await sb.updateSetting("contact",d); onToast("Contact details saved — live on website!"); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(false); };
+  if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
+  return(
+    <div>
+      <SectionHead icon="📞" title="Contact Details"><Btn onClick={save} disabled={saving}>{saving?"Saving…":"Save & Go Live"}</Btn></SectionHead>
+      <Card>
+        <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"1fr 1fr",gap:14}}>
+          <Field label="WhatsApp Number" value={d.whatsapp} onChange={v=>setD({...d,whatsapp:v})} help="+91 88078 10394"/>
+          <Field label="Support Email" value={d.email_support} onChange={v=>setD({...d,email_support:v})}/>
+          <Field label="Gmail" value={d.email_gmail} onChange={v=>setD({...d,email_gmail:v})}/>
+          <Field label="Location" value={d.location} onChange={v=>setD({...d,location:v})}/>
+        </div>
+        <Field label="Contact Page Tagline" value={d.tagline} onChange={v=>setD({...d,tagline:v})} multi help="Shown below the headline on the contact page"/>
+      </Card>
+    </div>
+  );
+}
+
+/* ─── STATS ─── */
+function StatsSection({onToast}){
+  const w=useW(); const mob=w<640;
+  const [stats,setStats]=useState([]); const [loading,setLoading]=useState(true); const [saving,setSaving]=useState(false);
+  useEffect(()=>{ sb.getSingle("site_settings","stats").then(r=>{ if(r?.value)setStats(r.value); }).catch(()=>{}).finally(()=>setLoading(false)); },[]);
+  const upd=(i,f,v)=>setStats(ss=>ss.map((s,j)=>j===i?{...s,[f]:v}:s));
+  const save=async()=>{ setSaving(true); try{ await sb.updateSetting("stats",stats); onToast("Stats saved — live on website!"); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(false); };
+  if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
+  return(
+    <div>
+      <SectionHead icon="📊" title="Stats Bar"><Btn onClick={save} disabled={saving}>{saving?"Saving…":"Save & Go Live"}</Btn></SectionHead>
+      <Card>
+        <p style={{fontSize:13.5,color:C.muted,marginBottom:16}}>These 4 numbers appear in the violet band across the website.</p>
+        <div style={{display:"grid",gridTemplateColumns:mob?"1fr 1fr":"repeat(4,1fr)",gap:12}}>
+          {stats.map((s,i)=>(
+            <div key={i} style={{background:C.pale,border:`1px solid ${C.border}`,borderRadius:10,padding:14}}>
+              <Field label="Number" value={s.value} onChange={v=>upd(i,"value",v)} help='e.g. "500+"'/>
+              <Field label="Label" value={s.label} onChange={v=>upd(i,"label",v)} help='e.g. "Clients"'/>
+            </div>
+          ))}
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+/* ─── TESTIMONIALS ─── */
+function TestimonialsSection({onToast}){
+  const w=useW(); const mob=w<640;
+  const [list,setList]=useState([]); const [loading,setLoading]=useState(true); const [saving,setSaving]=useState(false);
+  useEffect(()=>{ sb.get("testimonials",{order:"sort_order"}).then(setList).catch(()=>{}).finally(()=>setLoading(false)); },[]);
+  const upd=(i,f,v)=>setList(ls=>ls.map((t,j)=>j===i?{...t,[f]:v}:t));
+  const add=()=>setList(ls=>[...ls,{id:Date.now(),quote:"",name:"",role:"",initials:"",product:"",color:C.blue,sort_order:ls.length+1}]);
+  const rem=async(t,i)=>{
+    if(t.id&&typeof t.id==="number"&&t.id>9999){ setList(ls=>ls.filter((_,j)=>j!==i)); return; }
+    try{ await sb.deletRow("testimonials",{id:t.id}); setList(ls=>ls.filter((_,j)=>j!==i)); onToast("Testimonial removed."); }catch(e){ onToast("Error: "+e.message,"error"); }
+  };
+  const save=async()=>{
+    setSaving(true);
+    try{
+      for(const t of list){
+        if(typeof t.id==="number"&&t.id>9999){
+          await sb.upsert("testimonials",[{quote:t.quote,name:t.name,role:t.role,initials:t.initials,product:t.product,color:t.color,sort_order:t.sort_order}]);
+        } else {
+          await sb.update("testimonials",{id:t.id},{quote:t.quote,name:t.name,role:t.role,initials:t.initials,product:t.product,color:t.color,updated_at:new Date().toISOString()});
+        }
+      }
+      const fresh=await sb.get("testimonials",{order:"sort_order"}); setList(fresh);
+      onToast("Testimonials saved — live on website!");
+    }catch(e){ onToast("Error: "+e.message,"error"); }
+    setSaving(false);
+  };
+  if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
+  return(
+    <div>
+      <SectionHead icon="⭐" title="Testimonials"><Btn onClick={save} disabled={saving}>{saving?"Saving…":"Save All & Go Live"}</Btn></SectionHead>
+      {list.map((t,i)=>(
+        <Card key={t.id||i}>
+          <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14,flexWrap:"wrap",gap:8}}>
+            <span style={{fontFamily:Fd,fontWeight:700,fontSize:14,color:C.ink}}>Review {i+1}</span>
+            <Btn onClick={()=>rem(t,i)} variant="danger" size="sm">Remove</Btn>
+          </div>
+          <Field label="Quote" value={t.quote} onChange={v=>upd(i,"quote",v)} multi rows={3} placeholder="What did this customer say?"/>
+          <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"1fr 1fr 1fr",gap:12}}>
+            <Field label="Customer Name" value={t.name} onChange={v=>upd(i,"name",v)} placeholder="Rajan Kumar"/>
+            <Field label="Role / Business" value={t.role} onChange={v=>upd(i,"role",v)} placeholder="SpiceGarden, Chennai"/>
+            <Field label="Initials" value={t.initials} onChange={v=>upd(i,"initials",v)} help="2 letters for avatar" placeholder="RK"/>
+          </div>
+          <Field label="Product Used" value={t.product} onChange={v=>upd(i,"product",v)} placeholder="NexusPOS"/>
+        </Card>
+      ))}
+      <button onClick={add} style={{width:"100%",padding:"13px",background:C.pale,color:C.violet,border:`1.5px dashed ${C.violet}50`,borderRadius:10,fontWeight:700,fontSize:14,cursor:"pointer",fontFamily:Fs,display:"flex",alignItems:"center",justifyContent:"center",gap:7}}>
+        + Add New Testimonial
+      </button>
+    </div>
+  );
+}
+
+/* ─── NAV ─── */
+const SECS=[{id:"overview",icon:"🏠",label:"Overview"},{id:"hero",icon:"✨",label:"Hero"},{id:"products",icon:"📦",label:"Products"},{id:"videos",icon:"📹",label:"Videos"},{id:"pricing",icon:"💰",label:"Pricing"},{id:"contact",icon:"📞",label:"Contact"},{id:"stats",icon:"📊",label:"Stats"},{id:"testimonials",icon:"⭐",label:"Reviews"}];
+
+function Sidebar({active,go,onLogout}){
+  return(
+    <div style={{width:210,background:C.ink,minHeight:"100vh",display:"flex",flexDirection:"column",flexShrink:0}}>
+      <div style={{padding:"20px 16px 14px",borderBottom:"1px solid rgba(255,255,255,.07)"}}>
+        <div style={{display:"flex",alignItems:"center",gap:9}}><OrbitIcon size={32}/><div><div style={{fontFamily:Fd,fontWeight:800,fontSize:13.5,color:"white"}}>AMTechnexus</div><div style={{fontSize:9,fontWeight:600,color:"rgba(255,255,255,.35)",letterSpacing:"1.5px",textTransform:"uppercase",marginTop:1}}>Admin Panel</div></div></div>
+      </div>
+      <nav style={{flex:1,padding:"10px 8px"}}>
+        {SECS.map(s=>(
+          <button key={s.id} onClick={()=>go(s.id)} style={{width:"100%",display:"flex",alignItems:"center",gap:9,padding:"10px 11px",background:active===s.id?"rgba(91,33,182,.5)":"none",border:"none",borderRadius:8,color:active===s.id?"white":"rgba(255,255,255,.5)",fontSize:13.5,fontWeight:active===s.id?600:500,cursor:"pointer",fontFamily:Fs,textAlign:"left",marginBottom:2,transition:"all .15s"}}
+            onMouseEnter={e=>{if(active!==s.id){e.currentTarget.style.background="rgba(255,255,255,.06)";e.currentTarget.style.color="rgba(255,255,255,.8)";}}}
+            onMouseLeave={e=>{if(active!==s.id){e.currentTarget.style.background="none";e.currentTarget.style.color="rgba(255,255,255,.5)";}}}
+          ><span style={{fontSize:16}}>{s.icon}</span>{s.label}</button>
+        ))}
+      </nav>
+      <div style={{padding:"12px 8px",borderTop:"1px solid rgba(255,255,255,.07)"}}>
+        <a href="/" target="_blank" rel="noreferrer" style={{display:"flex",alignItems:"center",gap:9,padding:"9px 11px",color:"rgba(255,255,255,.4)",fontSize:13,textDecoration:"none",borderRadius:8,marginBottom:3}} onMouseEnter={e=>{e.currentTarget.style.background="rgba(255,255,255,.06)";e.currentTarget.style.color="rgba(255,255,255,.7)";}} onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.color="rgba(255,255,255,.4)";}}>🌐 View Website</a>
+        <button onClick={onLogout} style={{width:"100%",display:"flex",alignItems:"center",gap:9,padding:"9px 11px",background:"none",border:"none",color:"rgba(255,255,255,.4)",fontSize:13,cursor:"pointer",fontFamily:Fs,borderRadius:8,textAlign:"left"}} onMouseEnter={e=>{e.currentTarget.style.background="rgba(220,38,38,.15)";e.currentTarget.style.color="#FCA5A5";}} onMouseLeave={e=>{e.currentTarget.style.background="none";e.currentTarget.style.color="rgba(255,255,255,.4)";}}>🚪 Sign Out</button>
+      </div>
+    </div>
+  );
+}
+
+function BottomNav({active,go}){
+  return(
+    <div style={{position:"fixed",bottom:0,left:0,right:0,background:C.ink,borderTop:"1px solid rgba(255,255,255,.1)",display:"flex",zIndex:200,paddingBottom:"env(safe-area-inset-bottom,0px)"}}>
+      {SECS.slice(0,6).map(s=>(
+        <button key={s.id} onClick={()=>go(s.id)} style={{flex:1,padding:"9px 2px 7px",background:"none",border:"none",cursor:"pointer",display:"flex",flexDirection:"column",alignItems:"center",gap:2.5,color:active===s.id?"white":"rgba(255,255,255,.38)",fontFamily:Fs,transition:"color .15s"}}>
+          <span style={{fontSize:17}}>{s.icon}</span><span style={{fontSize:9.5,fontWeight:active===s.id?700:500}}>{s.label}</span>
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function MobileHeader({section,onLogout}){
+  const sec=SECS.find(s=>s.id===section)||SECS[0];
+  return(
+    <div style={{position:"sticky",top:0,zIndex:100,background:C.white,borderBottom:`1px solid ${C.border}`,padding:"11px 16px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+      <div style={{display:"flex",alignItems:"center",gap:9}}><OrbitIcon size={28}/><div><div style={{fontFamily:Fd,fontWeight:800,fontSize:14,color:C.ink}}>AMTechnexus <span style={{fontSize:8,background:C.lavender,color:C.violet,borderRadius:3,padding:"1px 5px",fontWeight:800}}>AI</span></div><div style={{fontSize:10,color:C.muted,marginTop:1}}>{sec.icon} {sec.label}</div></div></div>
+      <button onClick={onLogout} style={{padding:"7px 13px",background:"#FEF2F2",color:C.rose,border:"1px solid #FECACA",borderRadius:7,fontSize:12,fontWeight:600,cursor:"pointer"}}>Sign Out</button>
+    </div>
+  );
+}
+
+/* ─── APP ─── */
+export default function App() {
+  const w=useW(); const mob=w<900;
+  const [loggedIn,setLoggedIn]=useState(false);
+  const [section,setSection]=useState("overview");
+  const [toast,setToast]=useState(null);
+  const [overviewStats,setOverviewStats]=useState([]);
+
+  const onToast=useCallback((msg,type="success")=>setToast({msg,type}),[]);
+  const go=useCallback((s)=>{ setSection(s); window.scrollTo?.(0,0); },[]);
+
+  // Load overview stats when logged in
+  useEffect(()=>{
+    if(!loggedIn) return;
+    Promise.all([sb.get("products"),sb.get("testimonials"),sb.get("pricing")]).then(([prods,testi,pricing])=>{
+      setOverviewStats([
+        [prods.filter(p=>p.active).length,"Active Products","📦",C.violet],
+        [prods.filter(p=>p.video_url).length,"Demo Videos","📹",C.blue],
+        [testi.length,"Testimonials","⭐",C.amber],
+        [pricing.length,"Pricing Plans","💰",C.green],
+      ]);
+    }).catch(()=>{});
+  },[loggedIn]);
+
+  if(!loggedIn) return <Login onLogin={()=>setLoggedIn(true)}/>;
+
+  const Page=()=>{
+    const props={onToast};
+    if(section==="overview")    return <Overview go={go} stats={overviewStats}/>;
+    if(section==="hero")        return <HeroSection {...props}/>;
+    if(section==="products")    return <ProductsSection {...props}/>;
+    if(section==="videos")      return <VideosSection {...props}/>;
+    if(section==="pricing")     return <PricingSection {...props}/>;
+    if(section==="contact")     return <ContactSection {...props}/>;
+    if(section==="stats")       return <StatsSection {...props}/>;
+    if(section==="testimonials")return <TestimonialsSection {...props}/>;
+    return null;
+  };
+
+  if(!mob) return(
+    <div style={{display:"flex",minHeight:"100vh",background:C.pale,fontFamily:Fs}}>
+      <Sidebar active={section} go={go} onLogout={()=>setLoggedIn(false)}/>
+      <div style={{flex:1,overflowY:"auto",padding:"28px 32px",maxHeight:"100vh"}}>
+        <div style={{maxWidth:900,margin:"0 auto"}}><Page/></div>
+      </div>
+      {toast&&<Toast key={toast.msg} msg={toast.msg} type={toast.type} onClose={()=>setToast(null)}/>}
+    </div>
+  );
+
+  return(
+    <div style={{minHeight:"100vh",background:C.pale,fontFamily:Fs,paddingBottom:72}}>
+      <MobileHeader section={section} onLogout={()=>setLoggedIn(false)}/>
+      <div style={{padding:"16px 14px",maxWidth:600,margin:"0 auto"}}><Page/></div>
+      <BottomNav active={section} go={go}/>
+      {toast&&<Toast key={toast.msg} msg={toast.msg} type={toast.type} onClose={()=>setToast(null)}/>}
+    </div>
+  );
+}
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+</body>
+</html>
