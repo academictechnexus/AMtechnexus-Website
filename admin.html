@@ -28,14 +28,8 @@
 <script type="text/babel">
 const { useState, useEffect, useCallback } = React;
 
-// React loaded from CDN
-
-/* ─────────────────────────────────────────────────
-   ⚠️  PASTE YOUR SUPABASE CREDENTIALS HERE
-   Get from: supabase.com → your project → Settings → API
-──────────────────────────────────────────────────── */
-const SUPABASE_URL  = "https://YOUR_PROJECT_ID.supabase.co";   // ← paste your URL
-const SUPABASE_ANON = "YOUR_ANON_PUBLIC_KEY";                  // ← paste your anon key
+const SUPABASE_URL  = "https://xmzavtksgfdcqyhqslta.supabase.co";   // ← paste your URL
+const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhtemF2dGtzZ2ZkY3F5aHFzbHRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5MjY1MDMsImV4cCI6MjA5ODUwMjUwM30.GSYloMHP-yFbYuW_cjVK5Z34qKiNihhRhTiNyvx2r7A";                  // ← paste your anon key
 const ADMIN_PASS    = "amtech2024";                             // ← change this password
 
 /* ─── Tiny Supabase client (no npm needed in artifact) ─── */
