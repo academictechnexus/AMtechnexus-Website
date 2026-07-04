@@ -25,10 +25,10 @@ body{font-family:var(--font-b);background:var(--white);color:var(--ink);line-hei
 .logo__icon{width:40px;height:40px;flex-shrink:0;}
 .logo__icon svg{width:40px;height:40px;}
 .logo__wordmark{display:flex;flex-direction:column;gap:2px;}
-.logo__name{font-family:var(--font-d);font-weight:800;font-size:1.05rem;line-height:1;display:flex;align-items:center;gap:5px;}
-.logo__name .am{color:#0891B2;}
-.logo__name .nexus{color:var(--ink);}
-.logo__name .ai-badge{font-size:8px;font-weight:800;letter-spacing:.5px;background:#EDE9FE;color:#5B21B6;border:1px solid rgba(91,33,182,.2);border-radius:4px;padding:2px 5px;line-height:1.5;}
+.logo__name{font-family:var(--font-d);font-weight:800;font-size:1.05rem;line-height:1;display:flex;align-items:center;gap:0;}
+.logo__name .am{color:#0891B2;letter-spacing:-.3px;}
+.logo__name .nexus{color:var(--ink);letter-spacing:-.3px;}
+.logo__name .ai-badge{font-size:8px;font-weight:800;letter-spacing:.5px;background:#EDE9FE;color:#5B21B6;border:1px solid rgba(91,33,182,.2);border-radius:4px;padding:2px 5px;line-height:1.5;margin-left:6px;}
 .logo__sub{font-size:7.5px;font-weight:600;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
 /* Light variant for dark backgrounds */
 .logo--light .logo__name .am{color:#7DD3FA;}
@@ -389,3 +389,19 @@ section{padding:88px 0;}
   /* wa-float */
   .wa-float{bottom:16px;right:16px;width:48px;height:48px;font-size:1.3rem;}
 }
+
+/* ── FOOTER UTILITY CLASSES (used in pricing/other pages) ── */
+.footer__heading{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px;}
+.footer__links{display:flex;flex-direction:column;gap:10px;}
+.footer__links a{font-size:.84rem;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;}
+.footer__links a:hover{color:rgba(255,255,255,.75);}
+.footer__links span{font-size:.84rem;color:rgba(255,255,255,.38);}
+.footer__tagline{font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.75;margin:12px 0;max-width:220px;}
+.footer__social{display:flex;gap:8px;margin-top:4px;}
+.footer__social a{width:32px;height:32px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.75rem;color:rgba(255,255,255,.35);transition:all .2s;}
+.footer__social a:hover{background:#5B21B6;color:#fff;border-color:#5B21B6;}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer__bottom span{font-size:.75rem;color:rgba(255,255,255,.22);}
+.footer__bottom div{display:flex;gap:18px;}
+.footer__bottom div a{font-size:.72rem;color:rgba(255,255,255,.22);text-decoration:none;transition:color .2s;}
+.footer__bottom div a:hover{color:rgba(255,255,255,.5);}
