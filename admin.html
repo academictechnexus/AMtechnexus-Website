@@ -20,13 +20,58 @@
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: rgba(0,0,0,.15); border-radius: 2px; }
   @keyframes spin { to { transform: rotate(360deg); } }
+  #loading {
+    position: fixed; inset: 0;
+    background: linear-gradient(135deg, #EDE9FE, #F5F3FF, #EEF2FF);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    font-family: 'Inter', system-ui, sans-serif;
+    z-index: 9999;
+    transition: opacity .4s ease;
+  }
+  #loading.hide { opacity: 0; pointer-events: none; }
+  .load-spinner {
+    width: 44px; height: 44px;
+    border: 3px solid #E5E7EB;
+    border-top: 3px solid #5B21B6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+  .load-logo { font-size: 15px; font-weight: 800; color: #111827; margin-bottom: 6px; }
+  .load-sub { font-size: 12px; color: #6B7280; }
 </style>
 </head>
 <body>
+<!-- Loading screen shown while Babel compiles -->
+<div id="loading">
+  <div class="load-spinner"></div>
+  <div class="load-logo">AMTechnexus Admin</div>
+  <div class="load-sub">Loading panel...</div>
+</div>
 <div id="root"></div>
+<script>
+  // Hide loading screen once React mounts
+  const _observer = new MutationObserver(() => {
+    const root = document.getElementById('root');
+    if (root && root.children.length > 0) {
+      document.getElementById('loading').classList.add('hide');
+      setTimeout(() => document.getElementById('loading').remove(), 500);
+      _observer.disconnect();
+    }
+  });
+  _observer.observe(document.getElementById('root'), { childList: true, subtree: true });
+  // Fallback: hide after 8 seconds regardless
+  setTimeout(() => {
+    const l = document.getElementById('loading');
+    if (l) l.classList.add('hide');
+  }, 8000);
+</script>
 
 <script type="text/babel">
 const { useState, useEffect, useCallback } = React;
+
+// React loaded from CDN
 
 const SUPABASE_URL  = "https://xmzavtksgfdcqyhqslta.supabase.co";   // ← paste your URL
 const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhtemF2dGtzZ2ZkY3F5aHFzbHRhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI5MjY1MDMsImV4cCI6MjA5ODUwMjUwM30.GSYloMHP-yFbYuW_cjVK5Z34qKiNihhRhTiNyvx2r7A";                  // ← paste your anon key
