@@ -35,6 +35,21 @@ body{font-family:var(--font-b);background:var(--white);color:var(--ink);line-hei
 .logo--light .logo__name .nexus{color:#fff;}
 .logo--light .logo__name .ai-badge{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.25);}
 .logo--light .logo__sub{color:rgba(255,255,255,.4);}
+/* ── MOBILE LOGO FIX ── */
+@media(max-width:900px){
+  .logo{gap:8px;margin-right:0;}
+  .logo__icon{width:34px;height:34px;}
+  .logo__icon svg{width:34px;height:34px;}
+  .logo__name{font-size:.82rem;white-space:nowrap;}
+  .logo__name .ai-badge{font-size:7px;padding:1.5px 4px;margin-left:4px;}
+  .logo__sub{font-size:6px;letter-spacing:1.2px;}
+  .nav__inner{padding:0 12px;}
+  .nav__ham{margin-left:8px;}
+}
+@media(max-width:380px){
+  .logo__sub{display:none;}
+  .logo__name{font-size:.76rem;}
+}
 .nav__links{display:flex;align-items:center;gap:1px;list-style:none;flex:1;}
 .nav__links>li>a{display:flex;align-items:center;gap:4px;padding:8px 14px;font-size:.875rem;font-weight:500;color:var(--slate);text-decoration:none;border-radius:8px;transition:all .15s;white-space:nowrap;}
 .nav__links>li>a:hover{color:var(--blue);background:var(--blue-lt);}
