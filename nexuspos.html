@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NexusPOS — AM Technexus Labs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0;margin-right:16px;}
+.logo__icon{width:40px;height:40px;flex-shrink:0;}.logo__icon svg{width:40px;height:40px;}
+.logo__wordmark{display:flex;flex-direction:column;gap:2px;}
+.logo__name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(.78rem,.9rem,1rem);line-height:1;display:flex;align-items:center;gap:0;white-space:nowrap;}
+.logo__name .am{color:#0891B2;letter-spacing:-.3px;}.logo__name .nexus{color:#111827;letter-spacing:-.3px;}
+.logo__name .ai-badge{font-size:8px;font-weight:800;letter-spacing:.5px;background:#EDE9FE;color:#5B21B6;border:1px solid rgba(91,33,182,.2);border-radius:4px;padding:2px 5px;line-height:1.5;margin-left:6px;flex-shrink:0;}
+.logo__sub{font-size:7px;font-weight:600;color:#718096;letter-spacing:1.8px;text-transform:uppercase;white-space:nowrap;}
+.logo--light .logo__name .am{color:#7DD3FA;}.logo--light .logo__name .nexus{color:#fff;}
+.logo--light .logo__name .ai-badge{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.25);}
+.logo--light .logo__sub{color:rgba(255,255,255,.4);}
+.footer__heading{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px;}
+.footer__links{display:flex;flex-direction:column;gap:10px;}
+.footer__links a,.footer__links span{font-size:.84rem;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;}
+.footer__links a:hover{color:rgba(255,255,255,.75);}
+.footer__tagline{font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.75;margin:12px 0;max-width:220px;}
+.footer__social{display:flex;gap:7px;margin-top:4px;flex-wrap:wrap;}
+.footer__social-btn{width:32px;height:32px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.75rem;color:rgba(255,255,255,.35);transition:all .2s;}
+.footer__social-btn:hover{background:#5B21B6;color:#fff;border-color:#5B21B6;}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);}
+.footer__bottom span{font-size:.72rem;color:rgba(255,255,255,.18);}
+.footer__bottom div{display:flex;gap:18px;}
+.footer__bottom div a{font-size:.7rem;color:rgba(255,255,255,.18);text-decoration:none;}
+@media(max-width:768px){.logo__icon{width:34px;height:34px;}.logo__icon svg{width:34px;height:34px;}.logo__name{font-size:.78rem;}.logo__sub{font-size:6px;letter-spacing:1.3px;}.logo{gap:8px;margin-right:0;}}
+</style>
+</head>
+<body>
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="logo">
+      <div class="logo__icon"><svg viewBox="0 0 44 44" fill="none"><defs><linearGradient id="lg1" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0891B2"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient></defs><rect width="44" height="44" rx="11" fill="url(#lg1)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".55" fill="none" transform="rotate(-38 22 22)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".28" fill="none" transform="rotate(28 22 22)"/><circle cx="22" cy="22" r="5.5" fill="white"/><circle cx="34" cy="15" r="2.8" fill="white"/><circle cx="10" cy="30" r="1.8" fill="white" fill-opacity=".65"/></svg></div>
+      <div class="logo__wordmark">
+        <div class="logo__name"><span class="am">AM</span><span class="nexus"> Technexus Labs</span><span class="ai-badge">AI</span></div>
+        <div class="logo__sub">AI &amp; Software Solutions</div>
+      </div>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li class="nav__drop">
+        <a href="products.html">Products <svg class="nav__drop-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></a>
+        <div class="nav__drop-menu">
+          <a href="nexuspos.html" class="drop-item"><div class="drop-icon" style="background:#EFF6FF;">🍽️</div><div><span class="drop-title">NexusPOS</span><span class="drop-desc">Food cart &amp; kiosk billing</span></div></a>
+          <a href="nexusai.html" class="drop-item"><div class="drop-icon" style="background:#EDE9FE;">🤖</div><div><span class="drop-title">NexusAI</span><span class="drop-desc">AI chatbot &amp; automation</span></div></a>
+          <a href="nexusbilling.html" class="drop-item"><div class="drop-icon" style="background:#FFF5F5;">🚗</div><div><span class="drop-title">NexusBilling</span><span class="drop-desc">Automobile workshop management</span></div></a>
+          <a href="nexusapartments.html" class="drop-item"><div class="drop-icon" style="background:#F0FFF4;">🏢</div><div><span class="drop-title">NexusApartments</span><span class="drop-desc">Society management</span></div></a>
+        </div>
+      </li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__right">
+      <a href="mailto:support@amtechnexus.com" class="btn-ghost">support@amtechnexus.com</a>
+      <a href="contact.html" class="btn-nav">Get Demo →</a>
+    </div>
+    <button class="nav__ham" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav__mob" id="mob">
+  <div class="nav__mob-sec">Products</div>
+  <a href="nexuspos.html">🍽️ NexusPOS</a>
+  <a href="nexusai.html">🤖 NexusAI</a>
+  <a href="nexusbilling.html">🚗 NexusBilling</a>
+  <a href="nexusapartments.html">🏢 NexusApartments</a>
+  <div class="nav__mob-sec">Company</div>
+  <a href="about.html">About Us</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="support.html">Support</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="btn-nav">Get a free demo →</a>
+</div>
+
+<section style="background:linear-gradient(160deg,#EFF6FF 0%,#F9FAFB 100%);padding:calc(var(--nav-h) + 64px) 0 52px;">
+  <div class="wrap">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;color:#1D4ED8;font-weight:600;font-size:.85rem;text-decoration:none;margin-bottom:22px;">← Back to Home</a>
+    <div style="width:56px;height:56px;background:#1D4ED81A;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;margin-bottom:18px;">🍽️</div>
+    <span class="eyebrow" style="color:#1D4ED8;">NEXUSPOS</span>
+    <h1 class="h1" style="margin-bottom:14px;">Food Cart & Kiosk Billing</h1>
+    <p class="lead" style="max-width:480px;margin-bottom:32px;">GST billing, KOT, multi-branch stock, offline mode — built for food carts and kiosks worldwide.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="contact.html" style="padding:13px 30px;background:#1D4ED8;color:white;border-radius:9px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 4px 18px #1D4ED840;">Start Free Trial</a>
+      <a href="contact.html" style="padding:12px 28px;background:white;color:#111827;border:1.5px solid #E5E7EB;border-radius:9px;font-weight:600;font-size:.92rem;text-decoration:none;">Book a Demo</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <!-- Stats -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:48px;">
+      <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;padding:20px 16px;text-align:center;"><div style="font-family:var(--font-d);font-size:1.6rem;font-weight:800;color:#1D4ED8;letter-spacing:-1px;">99.9%</div><div style="font-size:.72rem;color:#6B7280;margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Uptime SLA</div></div>
+      <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;padding:20px 16px;text-align:center;"><div style="font-family:var(--font-d);font-size:1.6rem;font-weight:800;color:#1D4ED8;letter-spacing:-1px;">24 hrs</div><div style="font-size:.72rem;color:#6B7280;margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Go-live</div></div>
+      <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;padding:20px 16px;text-align:center;"><div style="font-family:var(--font-d);font-size:1.6rem;font-weight:800;color:#1D4ED8;letter-spacing:-1px;">Free</div><div style="font-size:.72rem;color:#6B7280;margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Setup &amp; Training</div></div>
+      <div style="background:white;border:1px solid #E5E7EB;border-radius:12px;padding:20px 16px;text-align:center;"><div style="font-family:var(--font-d);font-size:1.6rem;font-weight:800;color:#1D4ED8;letter-spacing:-1px;">₹0</div><div style="font-size:.72rem;color:#6B7280;margin-top:4px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;">Hidden Fees</div></div>
+    </div>
+
+    <h2 style="font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:#111827;margin-bottom:24px;letter-spacing:-.6px;">What's included</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:48px;">
+      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #1D4ED8;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#1D4ED8" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#1D4ED8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">GST & e-invoicing built in</span></div><div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #1D4ED8;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#1D4ED8" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#1D4ED8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Branch-to-branch stock transfer</span></div><div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #1D4ED8;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#1D4ED8" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#1D4ED8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Works offline, syncs automatically</span></div><div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #1D4ED8;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#1D4ED8" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#1D4ED8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Multi-branch dashboard</span></div><div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #1D4ED8;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#1D4ED8" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#1D4ED8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">UPI, card & cash reconciled</span></div><div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #1D4ED8;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#1D4ED8" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#1D4ED8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Sales & category reports</span></div><div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #1D4ED8;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#1D4ED8" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#1D4ED8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">PIN-based role access</span></div><div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #1D4ED8;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#1D4ED8" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#1D4ED8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">CSV / PDF export</span></div>
+    </div>
+
+    <!-- CTA -->
+    <div style="background:#1D4ED8;border-radius:16px;padding:36px;text-align:center;margin-bottom:64px;">
+      <h3 style="font-family:var(--font-d);font-weight:800;font-size:1.4rem;color:white;margin-bottom:10px;">Ready to try NexusPOS?</h3>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.6);margin-bottom:24px;">14-day free trial · Free setup · Go live in 24 hours · No credit card needed</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a href="contact.html" style="padding:12px 28px;background:white;color:#1D4ED8;border-radius:9px;font-weight:700;font-size:.9rem;text-decoration:none;">Start Free Trial</a>
+        <a href="https://wa.me/918807810394?text=Hi! I want to know more about NexusPOS." style="padding:11px 24px;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25);border-radius:9px;font-weight:600;font-size:.9rem;text-decoration:none;" target="_blank" rel="noreferrer">💬 WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="logo logo--light" style="text-decoration:none;display:inline-flex;">
+          <div class="logo__icon"><svg viewBox="0 0 44 44" fill="none"><defs><linearGradient id="lg_f" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0891B2"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient></defs><rect width="44" height="44" rx="11" fill="url(#lg_f)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".55" fill="none" transform="rotate(-38 22 22)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".28" fill="none" transform="rotate(28 22 22)"/><circle cx="22" cy="22" r="5.5" fill="white"/><circle cx="34" cy="15" r="2.8" fill="white"/><circle cx="10" cy="30" r="1.8" fill="white" fill-opacity=".65"/></svg></div>
+          <div class="logo__wordmark">
+            <div class="logo__name"><span class="am">AM</span><span class="nexus"> Technexus Labs</span><span class="ai-badge">AI</span></div>
+            <div class="logo__sub">AI &amp; Software Solutions</div>
+          </div>
+        </a>
+        <p class="footer__tagline">AI-powered platforms for global businesses. Built for impact.</p>
+        <div class="footer__social">
+          <a href="https://wa.me/918807810394" class="footer__social-btn" title="WhatsApp" target="_blank" rel="noreferrer">💬</a>
+          <a href="mailto:amtechnexusofficial@gmail.com" class="footer__social-btn" title="Gmail" target="_blank" rel="noreferrer">✉</a>
+          <a href="https://www.instagram.com/amtechnexus/" class="footer__social-btn" title="Instagram" target="_blank" rel="noreferrer">📸</a>
+          <a href="https://www.facebook.com/profile.php?id=100073104771786" class="footer__social-btn" title="Facebook" target="_blank" rel="noreferrer">fb</a>
+          <a href="https://x.com/AMtechnexus" class="footer__social-btn" title="X / Twitter" target="_blank" rel="noreferrer">𝕏</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Products</div>
+        <div class="footer__links">
+          <a href="nexuspos.html">NexusPOS</a>
+          <a href="nexusai.html">NexusAI</a>
+          <a href="nexusbilling.html">NexusBilling</a>
+          <a href="nexusapartments.html">NexusApartments</a>
+          <a href="pricing.html">Pricing</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Company</div>
+        <div class="footer__links">
+          <a href="about.html">About Us</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="support.html">Support</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Follow Us</div>
+        <div class="footer__links">
+          <a href="https://www.instagram.com/amtechnexus/" target="_blank" rel="noreferrer">📸 Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=100073104771786" target="_blank" rel="noreferrer">Facebook</a>
+          <a href="https://x.com/AMtechnexus" target="_blank" rel="noreferrer">𝕏 Twitter / X</a>
+          <a href="https://wa.me/918807810394" target="_blank" rel="noreferrer">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Contact</div>
+        <div class="footer__links">
+          <a href="mailto:support@amtechnexus.com">support@amtechnexus.com</a>
+          <a href="mailto:amtechnexusofficial@gmail.com">amtechnexusofficial@gmail.com</a>
+          <a href="https://wa.me/918807810394">+91 88078 10394</a>
+          <span>Tamil Nadu, India 🇮🇳</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2024 AM Technexus Labs Private Limited · Made with ❤️ in India 🇮🇳 · Serving the world 🌍</span>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies</a></div>
+    </div>
+  </div>
+</footer>
+<script src="assets/main.js"></script>
+</body>
+</html>
