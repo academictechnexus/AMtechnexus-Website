@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NexusBusiness Suite — Review Management & Social Media AI | AM Technexus Labs</title>
+<meta name="description" content="All-in-one AI platform for Google reviews, social media publishing across 9 platforms, AI image studio, DM automation and business intelligence. Trusted by 500+ businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* ── LOGO & NAV ── */
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0;margin-right:16px;}
+.logo__icon{width:40px;height:40px;flex-shrink:0;}.logo__icon svg{width:40px;height:40px;}
+.logo__wordmark{display:flex;flex-direction:column;gap:2px;}
+.logo__name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(.78rem,.9rem,1rem);line-height:1;display:flex;align-items:center;gap:0;white-space:nowrap;}
+.logo__name .am{color:#0891B2;letter-spacing:-.3px;}.logo__name .nexus{color:#111827;letter-spacing:-.3px;}
+.logo__name .ai-badge{font-size:8px;font-weight:800;letter-spacing:.5px;background:#EDE9FE;color:#5B21B6;border:1px solid rgba(91,33,182,.2);border-radius:4px;padding:2px 5px;line-height:1.5;margin-left:6px;flex-shrink:0;}
+.logo__sub{font-size:7px;font-weight:600;color:#718096;letter-spacing:1.8px;text-transform:uppercase;white-space:nowrap;}
+.logo--light .logo__name .am{color:#7DD3FA;}.logo--light .logo__name .nexus{color:#fff;}
+.logo--light .logo__name .ai-badge{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.25);}
+.logo--light .logo__sub{color:rgba(255,255,255,.4);}
+@media(max-width:900px){.logo{gap:8px;margin-right:0;}.logo__icon{width:34px;height:34px;}.logo__icon svg{width:34px;height:34px;}.logo__name{font-size:.82rem;}.logo__sub{font-size:6px;letter-spacing:1.2px;}.nav__inner{padding:0 12px;}}
+
+/* ── FOOTER ── */
+.footer__heading{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px;}
+.footer__links{display:flex;flex-direction:column;gap:10px;}
+.footer__links a,.footer__links span{font-size:.84rem;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;}
+.footer__links a:hover{color:rgba(255,255,255,.75);}
+.footer__tagline{font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.75;margin:12px 0;max-width:220px;}
+.footer__social{display:flex;gap:7px;margin-top:4px;flex-wrap:wrap;}
+.footer__social-btn{width:32px;height:32px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.75rem;color:rgba(255,255,255,.35);transition:all .2s;}
+.footer__social-btn:hover{background:#5B21B6;color:#fff;border-color:#5B21B6;}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);}
+.footer__bottom span{font-size:.72rem;color:rgba(255,255,255,.18);}
+.footer__bottom div{display:flex;gap:18px;}
+.footer__bottom div a{font-size:.7rem;color:rgba(255,255,255,.18);text-decoration:none;}
+
+/* ── PAGE STYLES ── */
+:root{--amber:#F59E0B;--purple:#7C3AED;--pink:#EC4899;--cyan:#0891B2;}
+
+/* Hero */
+.nb-hero{background:linear-gradient(135deg,#0F172A 0%,#1E1B4B 40%,#0F172A 100%);padding:calc(68px + 80px) 0 80px;position:relative;overflow:hidden;text-align:center;}
+.nb-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(124,58,237,.25),transparent);}
+.nb-hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 50% 100%,rgba(8,145,178,.15),transparent);}
+.nb-hero .wrap{position:relative;z-index:1;}
+.nb-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 16px;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:28px;}
+.nb-badge .dot{width:7px;height:7px;border-radius:50%;background:#10B981;box-shadow:0 0 8px #10B981;}
+.nb-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:800;color:#fff;line-height:1.06;letter-spacing:-2px;margin-bottom:20px;}
+.nb-title .grad{background:linear-gradient(135deg,#A78BFA,#38BDF8,#34D399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nb-sub{font-size:1.05rem;color:rgba(255,255,255,.55);line-height:1.75;max-width:580px;margin:0 auto 40px;}
+.nb-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:56px;}
+.nb-btn-primary{padding:14px 32px;background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:'Inter',sans-serif;box-shadow:0 8px 28px rgba(124,58,237,.4);transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+.nb-btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(124,58,237,.5);}
+.nb-btn-ghost{padding:13px 28px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.75);border:1.5px solid rgba(255,255,255,.14);border-radius:10px;font-weight:600;font-size:.95rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+.nb-btn-ghost:hover{background:rgba(255,255,255,.12);color:#fff;}
+
+/* Platform badges */
+.platform-strip{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:60px;}
+.plat-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:100px;padding:5px 12px;font-size:.75rem;font-weight:600;color:rgba(255,255,255,.5);}
+.plat-badge .dot{width:6px;height:6px;border-radius:50%;}
+
+/* Dashboard preview */
+.dash-preview{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;max-width:900px;margin:0 auto;box-shadow:0 32px 80px rgba(0,0,0,.5);}
+.dash-bar{background:#1E293B;padding:11px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.06);}
+.dash-bar .dots{display:flex;gap:5px;}
+.dash-bar .dots span{width:9px;height:9px;border-radius:50%;}
+.dash-url{flex:1;background:rgba(255,255,255,.05);border-radius:5px;padding:4px 12px;font-size:.7rem;color:rgba(255,255,255,.25);font-family:monospace;display:flex;align-items:center;gap:6px;}
+.dash-url .green{width:5px;height:5px;border-radius:50%;background:#10B981;flex-shrink:0;}
+.dash-inner{display:flex;height:340px;}
+.dash-rail{width:56px;background:#0F172A;display:flex;flex-direction:column;align-items:center;padding:16px 0;gap:6px;border-right:1px solid rgba(255,255,255,.04);}
+.dash-rail-item{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:pointer;transition:background .15s;}
+.dash-rail-item.active{background:rgba(124,58,237,.4);}
+.dash-rail-item:not(.active):hover{background:rgba(255,255,255,.06);}
+.dash-main{flex:1;background:#0F172A;padding:20px;overflow-y:auto;}
+.dash-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
+.dash-stat{background:#1E293B;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 16px;}
+.dash-stat-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:3px;}
+.dash-stat-lbl{font-size:.72rem;color:rgba(255,255,255,.4);font-weight:600;text-transform:uppercase;letter-spacing:.5px;}
+.dash-stat-badge{display:inline-block;font-size:.65rem;font-weight:700;padding:1.5px 7px;border-radius:100px;margin-top:5px;}
+.review-item{background:#1E293B;border:1px solid rgba(255,255,255,.06);border-radius:11px;padding:13px;margin-bottom:8px;}
+.review-stars{color:#F59E0B;font-size:.75rem;margin-bottom:5px;}
+.review-text{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.5;margin-bottom:8px;}
+.review-ai-reply{background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.2);border-radius:8px;padding:9px 11px;font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.5;}
+.review-ai-reply strong{color:#A78BFA;font-weight:600;}
+
+/* Stats strip */
+.stats-strip{background:#0A0A14;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:32px 0;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);}
+.stat-item{padding:0 32px;text-align:center;border-right:1px solid rgba(255,255,255,.06);}
+.stat-item:last-child{border-right:none;}
+.stat-val{font-family:'Plus Jakarta Sans',sans-serif;font-size:2.2rem;font-weight:800;letter-spacing:-1.5px;margin-bottom:4px;}
+.stat-lbl{font-size:.78rem;color:rgba(255,255,255,.35);font-weight:500;}
+
+/* Feature sections */
+.feat-section{padding:96px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.feat-section.alt{background:#080810;}
+.feat-tag{display:inline-flex;align-items:center;gap:7px;font-size:.72rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:16px;padding:4px 12px;border-radius:100px;}
+.feat-h{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.6rem,2.5vw,2.2rem);font-weight:800;color:#fff;line-height:1.12;letter-spacing:-1px;margin-bottom:16px;}
+.feat-sub{font-size:.95rem;color:rgba(255,255,255,.45);line-height:1.78;margin-bottom:32px;max-width:440px;}
+.feat-list{display:flex;flex-direction:column;gap:12px;}
+.feat-item{display:flex;align-items:flex-start;gap:12px;}
+.feat-check{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:.7rem;}
+.feat-item-text{font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.55;}
+.feat-item-text strong{color:#fff;font-weight:600;}
+
+/* Mock UIs */
+.mock-card{background:#1A1A2E;border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;}
+.mock-header{background:#12122A;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:10px;}
+.mock-title{font-size:.82rem;font-weight:700;color:rgba(255,255,255,.6);}
+.mock-body{padding:16px;}
+
+/* Social platforms grid */
+.plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.plat-card{background:#1E293B;border:1px solid rgba(255,255,255,.06);border-radius:11px;padding:13px 14px;display:flex;align-items:center;gap:10px;}
+.plat-ic{font-size:1.3rem;flex-shrink:0;}
+.plat-name{font-size:.82rem;font-weight:700;color:rgba(255,255,255,.7);}
+.plat-status{font-size:.65rem;color:#10B981;font-weight:600;margin-top:1px;}
+
+/* AI Image Studio mock */
+.chat-bubble{border-radius:12px;padding:10px 13px;font-size:.78rem;line-height:1.55;margin-bottom:8px;max-width:85%;}
+.chat-user{background:rgba(124,58,237,.25);color:rgba(255,255,255,.8);margin-left:auto;}
+.chat-ai{background:#1E293B;color:rgba(255,255,255,.6);}
+.img-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+.img-placeholder{aspect-ratio:1;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;border:1px solid rgba(255,255,255,.06);}
+
+/* Pricing */
+.pricing-section{padding:96px 0;background:#080810;}
+.price-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;max-width:960px;margin:0 auto;}
+.price-card{background:#12122A;border:1.5px solid rgba(255,255,255,.08);border-radius:20px;padding:32px;position:relative;transition:all .2s;}
+.price-card.popular{border-color:#7C3AED;box-shadow:0 0 0 1px rgba(124,58,237,.3),0 24px 60px rgba(124,58,237,.15);}
+.price-card:hover{transform:translateY(-3px);}
+.pop-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;font-size:.7rem;font-weight:800;padding:3px 16px;border-radius:100px;white-space:nowrap;letter-spacing:.5px;}
+.price-tier{font-size:.72rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;margin-bottom:12px;}
+.price-amount{font-family:'Plus Jakarta Sans',sans-serif;font-size:3rem;font-weight:800;color:#fff;letter-spacing:-2px;line-height:1;margin-bottom:4px;}
+.price-amount sup{font-size:1.2rem;vertical-align:super;letter-spacing:0;}
+.price-period{font-size:.8rem;color:rgba(255,255,255,.35);margin-bottom:18px;}
+.price-desc{font-size:.84rem;color:rgba(255,255,255,.4);line-height:1.6;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.06);}
+.price-feats{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.price-feat{display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);}
+.price-feat svg{flex-shrink:0;}
+.price-feat.off{opacity:.35;text-decoration:line-through;}
+.price-btn{display:block;width:100%;padding:13px;text-align:center;border-radius:10px;font-weight:700;font-size:.9rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all .18s;text-decoration:none;}
+
+/* Comparison table */
+.comp-table{width:100%;border-collapse:collapse;font-size:.85rem;}
+.comp-table th{padding:14px 20px;text-align:left;font-size:.72rem;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.8px;border-bottom:1px solid rgba(255,255,255,.06);}
+.comp-table td{padding:13px 20px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.55);}
+.comp-table tr:hover td{background:rgba(255,255,255,.02);}
+.comp-table .check{color:#10B981;font-size:1rem;}
+.comp-table .cross{color:rgba(255,255,255,.15);}
+
+/* FAQ */
+.faq-item{border:1px solid rgba(255,255,255,.06);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+.faq-q{padding:18px 22px;font-weight:600;font-size:.92rem;color:rgba(255,255,255,.75);cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#12122A;transition:background .15s;}
+.faq-q:hover{background:#1A1A35;}
+.faq-a{display:none;padding:0 22px 18px;font-size:.88rem;color:rgba(255,255,255,.4);line-height:1.75;background:#12122A;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .faq-chevron{transform:rotate(180deg);}
+.faq-chevron{font-size:.75rem;transition:transform .25s;color:rgba(255,255,255,.3);}
+
+/* CTA bottom */
+.nb-cta-bottom{background:linear-gradient(135deg,#0F172A,#1E1B4B);padding:96px 0;text-align:center;position:relative;overflow:hidden;}
+.nb-cta-bottom::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(124,58,237,.2),transparent);}
+
+/* Responsive */
+@media(max-width:768px){
+  .nb-title{font-size:2rem;letter-spacing:-1px;}
+  .nb-sub{font-size:.9rem;}
+  .dash-inner{height:240px;}
+  .dash-row{grid-template-columns:1fr 1fr;}
+  .stats-grid{grid-template-columns:1fr 1fr;}
+  .stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.06);padding:20px 16px;}
+  .feat-section{padding:64px 0;}
+  .price-grid{grid-template-columns:1fr;}
+  .plat-grid{grid-template-columns:1fr 1fr;}
+  .img-grid{grid-template-columns:1fr 1fr;}
+  .wrap{padding:0 16px;}
+  .nb-cta-bottom{padding:64px 0;}
+}
+</style>
+</head>
+<body style="background:#0A0A14;color:#fff;">
+
+<!-- NAV -->
+<nav class="nav" id="nav" style="background:#0D0D1E;border-bottom:1px solid rgba(255,255,255,.06);">
+  <div class="nav__inner">
+    <a href="index.html" class="logo">
+      <div class="logo__icon"><svg viewBox="0 0 44 44" fill="none"><defs><linearGradient id="lg1" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0891B2"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient></defs><rect width="44" height="44" rx="11" fill="url(#lg1)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".55" fill="none" transform="rotate(-38 22 22)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".28" fill="none" transform="rotate(28 22 22)"/><circle cx="22" cy="22" r="5.5" fill="white"/><circle cx="34" cy="15" r="2.8" fill="white"/><circle cx="10" cy="30" r="1.8" fill="white" fill-opacity=".65"/></svg></div>
+      <div class="logo__wordmark"><div class="logo__name"><span class="am">AM</span><span class="nexus"> Technexus Labs</span><span class="ai-badge">AI</span></div><div class="logo__sub">AI &amp; Software Solutions</div></div>
+    </a>
+    <ul class="nav__links" style="flex:1;">
+      <li><a href="index.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.88rem;padding:8px 14px;">Home</a></li>
+      <li><a href="products.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.88rem;padding:8px 14px;">Products</a></li>
+      <li><a href="pricing.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.88rem;padding:8px 14px;">Pricing</a></li>
+      <li><a href="contact.html" style="color:rgba(255,255,255,.5);text-decoration:none;font-size:.88rem;padding:8px 14px;">Contact</a></li>
+    </ul>
+    <div class="nav__right">
+      <a href="https://google-review-nexusreviews.pages.dev/dashboard/inbox" target="_blank" style="padding:9px 18px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.1);border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;transition:all .18s;" onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.06)'">Log In</a>
+      <a href="contact.html" class="nb-btn-primary" style="padding:10px 22px;font-size:.85rem;">Start Free Trial →</a>
+    </div>
+    <button class="nav__ham" id="ham" style="border-color:rgba(255,255,255,.12);"><span style="background:rgba(255,255,255,.7)"></span><span style="background:rgba(255,255,255,.7)"></span><span style="background:rgba(255,255,255,.7)"></span></button>
+  </div>
+</nav>
+<div class="nav__mob" id="mob" style="background:#0D0D1E;border-top-color:rgba(255,255,255,.06);">
+  <a href="index.html" style="color:rgba(255,255,255,.6);">🏠 Home</a>
+  <a href="products.html" style="color:rgba(255,255,255,.6);">📦 All Products</a>
+  <a href="nexuspos.html" style="color:rgba(255,255,255,.6);">🍽️ NexusPOS</a>
+  <a href="nexusai.html" style="color:rgba(255,255,255,.6);">🤖 NexusAI</a>
+  <a href="pricing.html" style="color:rgba(255,255,255,.6);">💰 Pricing</a>
+  <a href="contact.html" style="color:rgba(255,255,255,.6);">📞 Contact</a>
+  <a href="contact.html" class="btn-nav" style="margin-top:16px;">Start Free Trial →</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="nb-hero">
+  <div class="wrap">
+    <div class="nb-badge"><span class="dot"></span> New Product · Now Live</div>
+
+    <h1 class="nb-title">
+      Your reputation.<br/>
+      Your audience.<br/>
+      <span class="grad">All in one AI suite.</span>
+    </h1>
+    <p class="nb-sub">NexusBusiness Suite combines AI-powered Google review management, social media publishing across 9 platforms, an AI image studio, autonomous DM agent and deep business intelligence — in one dashboard.</p>
+
+    <div class="nb-cta-row">
+      <a href="contact.html" class="nb-btn-primary">Start Free Trial — $49/mo →</a>
+      <a href="https://google-review-nexusreviews.pages.dev/dashboard/inbox" target="_blank" rel="noreferrer" class="nb-btn-ghost">View Live Demo ↗</a>
+    </div>
+
+    <!-- Platform strip -->
+    <div class="platform-strip">
+      <span style="font-size:.72rem;font-weight:600;color:rgba(255,255,255,.25);letter-spacing:1px;text-transform:uppercase;align-self:center;">Publishes to</span>
+      <div class="plat-badge"><span class="dot" style="background:#4285F4;"></span>Google Business</div>
+      <div class="plat-badge"><span class="dot" style="background:#E1306C;"></span>Instagram</div>
+      <div class="plat-badge"><span class="dot" style="background:#1877F2;"></span>Facebook</div>
+      <div class="plat-badge"><span class="dot" style="background:#000;border:1px solid rgba(255,255,255,.2);"></span>X / Twitter</div>
+      <div class="plat-badge"><span class="dot" style="background:#0A66C2;"></span>LinkedIn</div>
+      <div class="plat-badge"><span class="dot" style="background:#000;border:1px solid rgba(255,255,255,.2);"></span>Threads</div>
+      <div class="plat-badge"><span class="dot" style="background:#E60023;"></span>Pinterest</div>
+      <div class="plat-badge"><span class="dot" style="background:#0085FF;"></span>Bluesky</div>
+      <div class="plat-badge"><span class="dot" style="background:#2CA5E0;"></span>Telegram</div>
+    </div>
+
+    <!-- Dashboard preview -->
+    <div class="dash-preview">
+      <div class="dash-bar">
+        <div class="dots"><span style="background:#FF5F57;"></span><span style="background:#FFBD2E;"></span><span style="background:#28C840;"></span></div>
+        <div class="dash-url"><span class="green"></span>nexusbusiness.amtechnexus.com — Dashboard</div>
+        <span style="font-size:.7rem;color:rgba(255,255,255,.2);">NexusBusiness Suite</span>
+      </div>
+      <div class="dash-inner">
+        <!-- Rail -->
+        <div class="dash-rail">
+          <div class="dash-rail-item active" title="Dashboard">📊</div>
+          <div class="dash-rail-item" title="Reviews">⭐</div>
+          <div class="dash-rail-item" title="Social">📱</div>
+          <div class="dash-rail-item" title="AI Studio">🎨</div>
+          <div class="dash-rail-item" title="DM Agent">💬</div>
+          <div class="dash-rail-item" title="Intelligence">🧠</div>
+        </div>
+        <!-- Main -->
+        <div class="dash-main">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+            <div style="font-size:.85rem;font-weight:700;color:rgba(255,255,255,.7);">Overview · This Week</div>
+            <span style="font-size:.65rem;background:rgba(16,185,129,.15);color:#10B981;border:1px solid rgba(16,185,129,.2);border-radius:100px;padding:2px 10px;font-weight:700;">● All Systems Live</span>
+          </div>
+          <div class="dash-row">
+            <div class="dash-stat">
+              <div class="dash-stat-val" style="color:#A78BFA;">4.8 ★</div>
+              <div class="dash-stat-lbl">Google Rating</div>
+              <div class="dash-stat-badge" style="background:rgba(16,185,129,.12);color:#10B981;">↑ +0.3 this month</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-stat-val" style="color:#38BDF8;">127</div>
+              <div class="dash-stat-lbl">New Reviews</div>
+              <div class="dash-stat-badge" style="background:rgba(56,189,248,.12);color:#38BDF8;">84% AI-replied</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-stat-val" style="color:#10B981;">34</div>
+              <div class="dash-stat-lbl">Posts Published</div>
+              <div class="dash-stat-badge" style="background:rgba(16,185,129,.12);color:#10B981;">9 platforms</div>
+            </div>
+          </div>
+          <!-- Review items -->
+          <div class="review-item">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-text">"Absolutely loved the food! Quick service and the staff were really friendly. Will definitely be back!"</div>
+            <div class="review-ai-reply"><strong>🤖 AI Draft Ready:</strong> "Thank you so much for your kind words! We're thrilled you enjoyed your visit and we look forward to welcoming you back soon! 🙏"</div>
+          </div>
+          <div class="review-item">
+            <div class="review-stars" style="color:#F59E0B;">★★★★<span style="color:rgba(255,255,255,.2);">★</span></div>
+            <div class="review-text">"Good experience overall. The ambiance is great. Service could be a little faster during peak hours."</div>
+            <div class="review-ai-reply"><strong>🤖 AI Draft Ready:</strong> "Thank you for your feedback! We appreciate the suggestion about peak-hour service and we're actively working on it."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats-strip">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-val" style="background:linear-gradient(135deg,#A78BFA,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">9</div><div class="stat-lbl">Social platforms</div></div>
+      <div class="stat-item"><div class="stat-val" style="background:linear-gradient(135deg,#34D399,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">AI</div><div class="stat-lbl">Powered replies & content</div></div>
+      <div class="stat-item"><div class="stat-val" style="background:linear-gradient(135deg,#F59E0B,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">24/7</div><div class="stat-lbl">Autonomous DM agent</div></div>
+      <div class="stat-item"><div class="stat-val" style="background:linear-gradient(135deg,#A78BFA,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">100%</div><div class="stat-lbl">FTC-compliant reviews</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FEATURE 1: REVIEW COLLECTION ══ -->
+<section class="feat-section">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <div>
+        <div class="feat-tag" style="background:rgba(245,158,11,.1);color:#F59E0B;">⭐ Google Reviews</div>
+        <h2 class="feat-h">Turn every customer into a 5-star review.</h2>
+        <p class="feat-sub">AI guides customers through a smart review flow — from QR scan to posted review in under 60 seconds. Every rating adds private feedback too, so you never miss a complaint.</p>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-check" style="background:rgba(245,158,11,.12);color:#F59E0B;">✓</div><div class="feat-item-text"><strong>QR code kiosk</strong> — generate, download PNG, print or share link</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(245,158,11,.12);color:#F59E0B;">✓</div><div class="feat-item-text"><strong>AI-adaptive questions</strong> — 3 smart questions that change based on star rating</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(245,158,11,.12);color:#F59E0B;">✓</div><div class="feat-item-text"><strong>AI-drafted review text</strong> — customer edits and posts directly to Google</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(245,158,11,.12);color:#F59E0B;">✓</div><div class="feat-item-text"><strong>Private feedback channel</strong> — every rating captures private notes, FTC-compliant</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(245,158,11,.12);color:#F59E0B;">✓</div><div class="feat-item-text"><strong>AI inbox with reply drafts</strong> — respond to every Google review in one click</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(245,158,11,.12);color:#F59E0B;">✓</div><div class="feat-item-text"><strong>Policy-violation screening</strong> — flags real spam, never sentiment-based</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(245,158,11,.12);color:#F59E0B;">✓</div><div class="feat-item-text"><strong>Embeddable wall of love</strong> — one iframe shows your best reviews on your website</div></div>
+        </div>
+      </div>
+      <!-- Review flow mock -->
+      <div class="mock-card">
+        <div class="mock-header"><span style="font-size:1rem;">⭐</span><span class="mock-title">Review Collection Flow</span></div>
+        <div class="mock-body">
+          <!-- QR Step -->
+          <div style="background:#0F172A;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:14px;margin-bottom:10px;text-align:center;">
+            <div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;">Step 1 — Scan QR</div>
+            <div style="width:70px;height:70px;background:rgba(255,255,255,.06);border:2px dashed rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;font-size:1.8rem;">▦</div>
+            <div style="font-size:.72rem;color:rgba(255,255,255,.3);">Print · Share · Display at counter</div>
+          </div>
+          <!-- Rating step -->
+          <div style="background:#0F172A;border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:14px;margin-bottom:10px;">
+            <div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;">Step 2 — Rate &amp; Answer</div>
+            <div style="font-size:1.5rem;text-align:center;margin-bottom:8px;letter-spacing:4px;">★★★★★</div>
+            <div style="background:#1E293B;border-radius:8px;padding:10px;font-size:.75rem;color:rgba(255,255,255,.5);">💬 "What did you love most about your visit today?"</div>
+          </div>
+          <!-- AI Draft step -->
+          <div style="background:#0F172A;border:1px solid rgba(124,58,237,.2);border-radius:10px;padding:14px;">
+            <div style="font-size:.72rem;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.8px;margin-bottom:10px;">Step 3 — AI Drafts → Post to Google</div>
+            <div style="background:#1E293B;border-radius:8px;padding:10px;font-size:.75rem;color:rgba(255,255,255,.5);margin-bottom:8px;border-left:3px solid #A78BFA;">"Amazing experience! The food was fresh and flavorful. Staff were super welcoming. Highly recommend!"</div>
+            <div style="display:flex;gap:8px;">
+              <button style="flex:1;padding:8px;background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;border:none;border-radius:7px;font-size:.75rem;font-weight:700;cursor:pointer;">Post to Google →</button>
+              <button style="padding:8px 12px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.08);border-radius:7px;font-size:.75rem;cursor:pointer;">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURE 2: SOCIAL MEDIA ══ -->
+<section class="feat-section alt">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <!-- Mock -->
+      <div class="mock-card">
+        <div class="mock-header"><span style="font-size:1rem;">📱</span><span class="mock-title">Social Media Publisher — All Platforms</span></div>
+        <div class="mock-body">
+          <!-- Platform grid -->
+          <div class="plat-grid" style="margin-bottom:12px;">
+            <div class="plat-card"><span class="plat-ic">🔵</span><div><div class="plat-name">Google Business</div><div class="plat-status">● Connected</div></div></div>
+            <div class="plat-card"><span class="plat-ic">📸</span><div><div class="plat-name">Instagram</div><div class="plat-status">● Connected</div></div></div>
+            <div class="plat-card"><span class="plat-ic">👍</span><div><div class="plat-name">Facebook</div><div class="plat-status">● Connected</div></div></div>
+            <div class="plat-card"><span class="plat-ic">𝕏</span><div><div class="plat-name">X / Twitter</div><div class="plat-status">● Connected</div></div></div>
+            <div class="plat-card"><span class="plat-ic">💼</span><div><div class="plat-name">LinkedIn</div><div class="plat-status">● Connected</div></div></div>
+            <div class="plat-card"><span class="plat-ic">🔵</span><div><div class="plat-name">Threads</div><div class="plat-status">● Connected</div></div></div>
+          </div>
+          <!-- Composer -->
+          <div style="background:#0F172A;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:13px;">
+            <div style="display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap;">
+              <span style="font-size:.65rem;background:rgba(124,58,237,.2);color:#A78BFA;border-radius:100px;padding:2px 10px;font-weight:700;">All Platforms</span>
+              <span style="font-size:.65rem;background:rgba(255,255,255,.05);color:rgba(255,255,255,.35);border-radius:100px;padding:2px 10px;">Instagram</span>
+              <span style="font-size:.65rem;background:rgba(255,255,255,.05);color:rgba(255,255,255,.35);border-radius:100px;padding:2px 10px;">Facebook</span>
+            </div>
+            <textarea style="width:100%;background:transparent;border:none;color:rgba(255,255,255,.6);font-size:.78rem;line-height:1.6;resize:none;outline:none;font-family:Inter,sans-serif;" rows="3" placeholder="Compose your post... or let AI write it for you ✨">🍕 Fresh out of the oven! Our special weekend offer is live. Dine in today and get 20% off your entire bill. Valid Friday to Sunday only. 
+
+#WeekendSpecial #Chennai #FoodLovers</textarea>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:10px;flex-wrap:wrap;gap:8px;">
+              <div style="display:flex;gap:7px;">
+                <button style="padding:5px 10px;background:rgba(124,58,237,.15);color:#A78BFA;border:1px solid rgba(124,58,237,.2);border-radius:6px;font-size:.68rem;font-weight:700;cursor:pointer;">🤖 AI Write</button>
+                <button style="padding:5px 10px;background:rgba(255,255,255,.05);color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.07);border-radius:6px;font-size:.68rem;cursor:pointer;">🖼 Add Image</button>
+                <button style="padding:5px 10px;background:rgba(255,255,255,.05);color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.07);border-radius:6px;font-size:.68rem;cursor:pointer;">📅 Schedule</button>
+              </div>
+              <button style="padding:7px 16px;background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;border:none;border-radius:7px;font-size:.75rem;font-weight:700;cursor:pointer;">Publish All →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="feat-tag" style="background:rgba(167,139,250,.1);color:#A78BFA;">📱 Social Media</div>
+        <h2 class="feat-h">Post everywhere.<br/>In one click.</h2>
+        <p class="feat-sub">Compose once and publish to all 9 platforms simultaneously — or craft platform-specific posts. AI writes the caption. You approve and publish.</p>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-check" style="background:rgba(167,139,250,.12);color:#A78BFA;">✓</div><div class="feat-item-text"><strong>9 platforms</strong> — Google Business, Instagram, Facebook, X, LinkedIn, Threads, Pinterest, Bluesky, Telegram</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(167,139,250,.12);color:#A78BFA;">✓</div><div class="feat-item-text"><strong>All Platforms + per-platform tabs</strong> — compose for one or all at once</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(167,139,250,.12);color:#A78BFA;">✓</div><div class="feat-item-text"><strong>Carousel support</strong> — multi-image posts in sequence</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(167,139,250,.12);color:#A78BFA;">✓</div><div class="feat-item-text"><strong>Post scheduling</strong> — plan your content calendar in advance</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(167,139,250,.12);color:#A78BFA;">✓</div><div class="feat-item-text"><strong>Google Business formats</strong> — Standard, Event and Offer posts with coupon codes</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(167,139,250,.12);color:#A78BFA;">✓</div><div class="feat-item-text"><strong>Real location lookup</strong> — find your Google Business location automatically, no manual ID</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURE 3: AI IMAGE STUDIO ══ -->
+<section class="feat-section">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <div>
+        <div class="feat-tag" style="background:rgba(236,72,153,.1);color:#EC4899;">🎨 AI Image Studio</div>
+        <h2 class="feat-h">Professional visuals.<br/>Zero design skills needed.</h2>
+        <p class="feat-sub">Chat naturally with the AI to brainstorm, then generate stunning images for your posts. Upload your own photos and mix them into the same conversation.</p>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-check" style="background:rgba(236,72,153,.12);color:#EC4899;">✓</div><div class="feat-item-text"><strong>Chat-first interface</strong> — talk freely, brainstorm ideas, then generate</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(236,72,153,.12);color:#EC4899;">✓</div><div class="feat-item-text"><strong>Auto-fallback chain</strong> — Cloudflare AI → Gemini → OpenAI for best results</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(236,72,153,.12);color:#EC4899;">✓</div><div class="feat-item-text"><strong>Upload real photos</strong> — mix your own images into the AI conversation</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(236,72,153,.12);color:#EC4899;">✓</div><div class="feat-item-text"><strong>Multiple variations</strong> — generate different versions without losing chat history</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(236,72,153,.12);color:#EC4899;">✓</div><div class="feat-item-text"><strong>Independent selection</strong> — pick any image + any caption independently to finalise</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(236,72,153,.12);color:#EC4899;">✓</div><div class="feat-item-text"><strong>Captions free forever</strong> — on every plan. Images are metered by plan quota</div></div>
+        </div>
+      </div>
+      <!-- AI Studio mock -->
+      <div class="mock-card">
+        <div class="mock-header"><span style="font-size:1rem;">🎨</span><span class="mock-title">AI Image Studio</span></div>
+        <div class="mock-body">
+          <div style="height:220px;overflow-y:auto;margin-bottom:12px;">
+            <div class="chat-bubble chat-user">Create a vibrant social media post for our new mango lassi launch 🥭</div>
+            <div class="chat-bubble chat-ai">I love that! A vibrant summer feel with golden yellows and fresh greens would work perfectly. Let me generate a few options for you...</div>
+            <div class="img-grid">
+              <div class="img-placeholder" style="background:linear-gradient(135deg,#F59E0B22,#EF444422);">🥭</div>
+              <div class="img-placeholder" style="background:linear-gradient(135deg,#F59E0B33,#FCD34D22);">✨</div>
+              <div class="img-placeholder" style="background:linear-gradient(135deg,#10B98122,#34D39922);">🌿</div>
+              <div class="img-placeholder" style="background:linear-gradient(135deg,#F59E0B44,#FDBA7422);">⭐</div>
+            </div>
+            <div class="chat-bubble chat-ai" style="margin-top:8px;">Generated 4 variations! Select your favourite image, then pick a caption below to finalise your post. ✓</div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <input style="flex:1;background:#0F172A;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:9px 12px;color:rgba(255,255,255,.6);font-size:.78rem;outline:none;font-family:Inter,sans-serif;" placeholder="Describe the image you need..."/>
+            <button style="padding:9px 14px;background:linear-gradient(135deg,#7C3AED,#EC4899);color:#fff;border:none;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;">Generate ✨</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FEATURE 4: DM AGENT + INTELLIGENCE ══ -->
+<section class="feat-section alt">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;">
+      <!-- DM Agent -->
+      <div>
+        <div class="feat-tag" style="background:rgba(56,189,248,.1);color:#38BDF8;">💬 AI DM Agent</div>
+        <h2 class="feat-h">Your AI never sleeps.<br/>Your team never misses a message.</h2>
+        <p class="feat-sub">Autonomous DM agent handles Instagram, Facebook, Telegram and Bluesky inboxes. AI drafts replies for humans, or runs fully autonomous — and escalates anything uncertain immediately.</p>
+        <div class="feat-list" style="margin-bottom:32px;">
+          <div class="feat-item"><div class="feat-check" style="background:rgba(56,189,248,.12);color:#38BDF8;">✓</div><div class="feat-item-text"><strong>Manual inbox with AI drafts</strong> — human approves every reply</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(56,189,248,.12);color:#38BDF8;">✓</div><div class="feat-item-text"><strong>Autonomous auto-reply</strong> — escalates anything uncertain, never guesses</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(56,189,248,.12);color:#38BDF8;">✓</div><div class="feat-item-text"><strong>Knowledge base</strong> — paste your FAQs or auto-read your website</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(56,189,248,.12);color:#38BDF8;">✓</div><div class="feat-item-text"><strong>Status tracking</strong> — AI handling / Needs you / You're handling with Take over / Hand back</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(56,189,248,.12);color:#38BDF8;">✓</div><div class="feat-item-text"><strong>Real SMS + phone call</strong> on urgent escalations — not just a notification</div></div>
+        </div>
+
+        <div class="feat-tag" style="background:rgba(52,211,153,.1);color:#34D399;">🧠 Business Intelligence</div>
+        <h2 class="feat-h" style="font-size:1.5rem;margin-top:12px;">Know your business.<br/>Beat your competition.</h2>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-check" style="background:rgba(52,211,153,.12);color:#34D399;">✓</div><div class="feat-item-text"><strong>AI Advisor</strong> — chat about your own review data and get insights</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(52,211,153,.12);color:#34D399;">✓</div><div class="feat-item-text"><strong>AI Insights</strong> — trend summaries and weekly recommendations, automated</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(52,211,153,.12);color:#34D399;">✓</div><div class="feat-item-text"><strong>Employee mention tracking</strong> — know which staff are praised or flagged</div></div>
+          <div class="feat-item"><div class="feat-check" style="background:rgba(52,211,153,.12);color:#34D399;">✓</div><div class="feat-item-text"><strong>Competitor tracking</strong> — paste a Google Maps link, AI pulls ratings and compares</div></div>
+        </div>
+      </div>
+      <!-- DM Mock -->
+      <div>
+        <div class="mock-card" style="margin-bottom:16px;">
+          <div class="mock-header"><span style="font-size:1rem;">💬</span><span class="mock-title">AI DM Agent — Inbox</span></div>
+          <div class="mock-body">
+            <div style="display:flex;flex-direction:column;gap:9px;">
+              <div style="background:#0F172A;border:1px solid rgba(56,189,248,.15);border-radius:10px;padding:11px 13px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                  <span style="font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);">📸 @priya.sharma</span>
+                  <span style="font-size:.62rem;background:rgba(56,189,248,.12);color:#38BDF8;border-radius:100px;padding:2px 8px;font-weight:700;">🤖 AI Handling</span>
+                </div>
+                <div style="font-size:.75rem;color:rgba(255,255,255,.45);">"Hi! Do you have vegan options on your menu?"</div>
+                <div style="font-size:.72rem;color:#38BDF8;margin-top:6px;background:rgba(56,189,248,.06);border-radius:6px;padding:6px 8px;">AI Draft: "Yes! We have a full vegan menu including our popular Buddha Bowl and Avocado Toast. Would you like to see the full menu?"</div>
+              </div>
+              <div style="background:#0F172A;border:1px solid rgba(245,158,11,.15);border-radius:10px;padding:11px 13px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                  <span style="font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);">👍 Rahul M.</span>
+                  <span style="font-size:.62rem;background:rgba(245,158,11,.12);color:#F59E0B;border-radius:100px;padding:2px 8px;font-weight:700;">⚠️ Needs You</span>
+                </div>
+                <div style="font-size:.75rem;color:rgba(255,255,255,.45);">"I want to complain about my order from yesterday..."</div>
+                <div style="font-size:.7rem;color:#F59E0B;margin-top:5px;">🚨 SMS + Call Alert Sent to Owner</div>
+              </div>
+              <div style="background:#0F172A;border:1px solid rgba(52,211,153,.15);border-radius:10px;padding:11px 13px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;">
+                  <span style="font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);">📸 @foodie_chennai</span>
+                  <span style="font-size:.62rem;background:rgba(52,211,153,.12);color:#34D399;border-radius:100px;padding:2px 8px;font-weight:700;">✓ You're Handling</span>
+                </div>
+                <div style="font-size:.75rem;color:rgba(255,255,255,.45);">"Do you do catering for 50 people?"</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Competitor tracking mock -->
+        <div class="mock-card">
+          <div class="mock-header"><span style="font-size:1rem;">🧠</span><span class="mock-title">Competitor Intelligence</span></div>
+          <div class="mock-body">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;">
+              <div style="background:#0F172A;border:1px solid rgba(255,255,255,.06);border-radius:9px;padding:11px;text-align:center;">
+                <div style="font-size:.65rem;color:rgba(255,255,255,.3);margin-bottom:4px;">Your Business</div>
+                <div style="font-size:1.3rem;font-weight:800;color:#10B981;">4.8 ★</div>
+                <div style="font-size:.65rem;color:rgba(255,255,255,.3);">127 reviews</div>
+              </div>
+              <div style="background:#0F172A;border:1px solid rgba(255,255,255,.06);border-radius:9px;padding:11px;text-align:center;">
+                <div style="font-size:.65rem;color:rgba(255,255,255,.3);margin-bottom:4px;">Competitor</div>
+                <div style="font-size:1.3rem;font-weight:800;color:#F59E0B;">4.3 ★</div>
+                <div style="font-size:.65rem;color:rgba(255,255,255,.3);">89 reviews</div>
+              </div>
+            </div>
+            <div style="background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.12);border-radius:8px;padding:9px 11px;font-size:.72rem;color:rgba(255,255,255,.5);line-height:1.55;"><strong style="color:#34D399;">🧠 AI Insight:</strong> You lead on food quality mentions. Competitor scores higher on parking/location. Opportunity: promote your delivery service more.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PRICING ══ -->
+<section class="pricing-section">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:52px;">
+      <div style="display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#A78BFA;margin-bottom:14px;">Pricing</div>
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;color:#fff;letter-spacing:-1.2px;margin-bottom:12px;">Simple, transparent pricing.</h2>
+      <p style="font-size:.95rem;color:rgba(255,255,255,.4);max-width:440px;margin:0 auto;">14-day free trial on all plans. No credit card required. Cancel anytime.</p>
+    </div>
+    <div class="price-grid">
+
+      <!-- STARTER -->
+      <div class="price-card">
+        <div class="price-tier" style="color:#38BDF8;">Starter</div>
+        <div class="price-amount"><sup>$</sup>49</div>
+        <div class="price-period">per month · billed monthly</div>
+        <div class="price-desc">For small businesses ready to build their online reputation and social presence.</div>
+        <div class="price-feats">
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Google review collection (QR + AI flow)</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>AI reply drafts for Google reviews</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Social publishing — 3 platforms</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>AI caption generation (unlimited)</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>AI image generation — 30/mo</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Review wall of love widget</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>AI Insights — monthly summary</div>
+          <div class="price-feat off"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="rgba(255,255,255,.06)"/><path d="M5 10l5-5M10 10L5 5" stroke="rgba(255,255,255,.15)" stroke-width="1.5" stroke-linecap="round"/></svg>Autonomous DM Agent</div>
+          <div class="price-feat off"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="rgba(255,255,255,.06)"/><path d="M5 10l5-5M10 10L5 5" stroke="rgba(255,255,255,.15)" stroke-width="1.5" stroke-linecap="round"/></svg>Competitor tracking</div>
+        </div>
+        <a href="contact.html" class="price-btn" style="background:rgba(56,189,248,.1);color:#38BDF8;border:1.5px solid rgba(56,189,248,.2);" onmouseover="this.style.background='rgba(56,189,248,.2)'" onmouseout="this.style.background='rgba(56,189,248,.1)'">Start Free Trial →</a>
+      </div>
+
+      <!-- PRO -->
+      <div class="price-card popular">
+        <div class="pop-badge">MOST POPULAR</div>
+        <div class="price-tier" style="color:#A78BFA;">Pro</div>
+        <div class="price-amount"><sup>$</sup>149</div>
+        <div class="price-period">per month · billed monthly</div>
+        <div class="price-desc">For growing businesses serious about dominating local search and social media.</div>
+        <div class="price-feats">
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Starter</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Social publishing — all 9 platforms</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Post scheduling + carousels</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>AI image generation — 150/mo</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Autonomous DM Agent (4 platforms)</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Real SMS + call alerts on escalation</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Competitor tracking (3 competitors)</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>AI Advisor — chat with your data</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Employee mention tracking</div>
+        </div>
+        <a href="contact.html" class="price-btn" style="background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;box-shadow:0 8px 28px rgba(124,58,237,.4);" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Start Free Trial →</a>
+      </div>
+
+      <!-- AGENCY -->
+      <div class="price-card">
+        <div class="price-tier" style="color:#34D399;">Agency</div>
+        <div class="price-amount" style="font-size:2rem;letter-spacing:-1px;">Custom</div>
+        <div class="price-period">volume pricing available</div>
+        <div class="price-desc">For agencies managing multiple client businesses with full admin console access.</div>
+        <div class="price-feats">
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Pro</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Agency Admin Console</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>View / create / manage all clients</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>"Login as client" with audit log</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited competitor tracking</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited AI images</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated account manager</div>
+          <div class="price-feat"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>White-label options available</div>
+        </div>
+        <a href="contact.html" class="price-btn" style="background:rgba(52,211,153,.1);color:#34D399;border:1.5px solid rgba(52,211,153,.2);" onmouseover="this.style.background='rgba(52,211,153,.2)'" onmouseout="this.style.background='rgba(52,211,153,.1)'">Contact for Pricing →</a>
+      </div>
+
+    </div>
+
+    <!-- What's included in all plans -->
+    <div style="background:#12122A;border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:32px;margin-top:28px;text-align:center;">
+      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:1rem;color:rgba(255,255,255,.7);margin-bottom:20px;">✅ Included in every plan</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;">
+        <div style="display:flex;align-items:center;gap:8px;justify-content:center;"><span style="font-size:1.1rem;">🔒</span><span style="font-size:.84rem;color:rgba(255,255,255,.45);">FTC-compliant</span></div>
+        <div style="display:flex;align-items:center;gap:8px;justify-content:center;"><span style="font-size:1.1rem;">📱</span><span style="font-size:.84rem;color:rgba(255,255,255,.45);">Mobile-first UI</span></div>
+        <div style="display:flex;align-items:center;gap:8px;justify-content:center;"><span style="font-size:1.1rem;">📊</span><span style="font-size:.84rem;color:rgba(255,255,255,.45);">CSV export</span></div>
+        <div style="display:flex;align-items:center;gap:8px;justify-content:center;"><span style="font-size:1.1rem;">👥</span><span style="font-size:.84rem;color:rgba(255,255,255,.45);">Role-based access</span></div>
+        <div style="display:flex;align-items:center;gap:8px;justify-content:center;"><span style="font-size:1.1rem;">🆓</span><span style="font-size:.84rem;color:rgba(255,255,255,.45);">14-day free trial</span></div>
+        <div style="display:flex;align-items:center;gap:8px;justify-content:center;"><span style="font-size:1.1rem;">🚫</span><span style="font-size:.84rem;color:rgba(255,255,255,.45);">No credit card needed</span></div>
+        <div style="display:flex;align-items:center;gap:8px;justify-content:center;"><span style="font-size:1.1rem;">💬</span><span style="font-size:.84rem;color:rgba(255,255,255,.45);">WhatsApp support</span></div>
+        <div style="display:flex;align-items:center;gap:8px;justify-content:center;"><span style="font-size:1.1rem;">🔄</span><span style="font-size:.84rem;color:rgba(255,255,255,.45);">Cancel anytime</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section style="padding:80px 0;background:#0A0A14;">
+  <div class="wrap" style="max-width:720px;">
+    <div style="text-align:center;margin-bottom:40px;">
+      <div style="font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#A78BFA;margin-bottom:12px;">FAQ</div>
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:800;color:#fff;letter-spacing:-.8px;">Common questions</h2>
+    </div>
+    <div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is the review collection FTC-compliant? <span class="faq-chevron">▼</span></div><div class="faq-a">Yes. Every rating — 1 star to 5 stars — goes through the same review flow and every rating adds to a private feedback channel. We never block or filter customers from leaving public reviews based on their star rating. This makes NexusBusiness Suite fully compliant with FTC guidelines on review solicitation.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the AI DM Agent handle uncertain situations? <span class="faq-chevron">▼</span></div><div class="faq-a">The AI is trained to escalate anything it's not confident about. It never guesses or fabricates an answer. When it escalates, you receive a real SMS message and optionally a phone call — not just a push notification — so you never miss an urgent customer situation.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I publish different content to different social platforms? <span class="faq-chevron">▼</span></div><div class="faq-a">Yes. You can use the "All Platforms" composer to post identical content everywhere at once, or switch to a per-platform tab to craft platform-specific posts. Instagram, Facebook, LinkedIn, X, Threads, Pinterest, Bluesky, Telegram and Google Business are all supported, each with their own formatting.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does the AI image generation work? <span class="faq-chevron">▼</span></div><div class="faq-a">NexusBusiness Suite uses an auto-fallback chain: Cloudflare Workers AI first (free), then Gemini, then OpenAI — always finding the best available model. You can chat naturally to describe what you want, upload your own photos to mix in, and generate multiple variations without losing your conversation context.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What's the difference between Starter and Pro? <span class="faq-chevron">▼</span></div><div class="faq-a">Starter covers 3 social platforms, 30 AI images/month and monthly AI insights — perfect for a single-location business. Pro unlocks all 9 platforms, 150 AI images/month, the autonomous DM Agent, real SMS/call alerts, competitor tracking, and the AI Advisor for chatting with your review data.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I need to be technical to set this up? <span class="faq-chevron">▼</span></div><div class="faq-a">Not at all. Setup takes under 30 minutes with our guided onboarding. Connect your Google Business profile with one click, connect social platforms with OAuth, and print your QR code. Our team is available on WhatsApp to assist with any step.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BOTTOM CTA ══ -->
+<section class="nb-cta-bottom">
+  <div class="wrap" style="position:relative;z-index:1;">
+    <div style="font-size:3rem;margin-bottom:20px;">🚀</div>
+    <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:800;color:#fff;letter-spacing:-1.5px;margin-bottom:16px;line-height:1.06;">
+      More reviews. More reach.<br/><span style="background:linear-gradient(135deg,#A78BFA,#38BDF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">More business.</span>
+    </h2>
+    <p style="font-size:1rem;color:rgba(255,255,255,.4);line-height:1.75;margin-bottom:40px;max-width:460px;margin-left:auto;margin-right:auto;">Start your 14-day free trial today. No credit card needed. Our team sets you up and gets you live within 24 hours.</p>
+    <div class="nb-cta-row">
+      <a href="contact.html" class="nb-btn-primary">Start Free Trial — $49/mo →</a>
+      <a href="https://wa.me/918807810394?text=Hi! I want to know more about NexusBusiness Suite." target="_blank" rel="noreferrer" class="nb-btn-ghost">💬 WhatsApp Us</a>
+    </div>
+    <p style="font-size:.78rem;color:rgba(255,255,255,.2);margin-top:20px;">14-day free trial · No credit card · Cancel anytime · WhatsApp support in Tamil, Hindi, English & Arabic</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" style="background:#060610;">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a href="index.html" class="logo logo--light" style="text-decoration:none;display:inline-flex;margin-bottom:4px;">
+          <div class="logo__icon"><svg viewBox="0 0 44 44" fill="none"><defs><linearGradient id="lg_f" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0891B2"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient></defs><rect width="44" height="44" rx="11" fill="url(#lg_f)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".55" fill="none" transform="rotate(-38 22 22)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".28" fill="none" transform="rotate(28 22 22)"/><circle cx="22" cy="22" r="5.5" fill="white"/><circle cx="34" cy="15" r="2.8" fill="white"/><circle cx="10" cy="30" r="1.8" fill="white" fill-opacity=".65"/></svg></div>
+          <div class="logo__wordmark"><div class="logo__name"><span class="am">AM</span><span class="nexus"> Technexus Labs</span><span class="ai-badge">AI</span></div><div class="logo__sub">AI &amp; Software Solutions</div></div>
+        </a>
+        <p class="footer__tagline">AI-powered platforms for global businesses.</p>
+        <div class="footer__social">
+          <a href="https://wa.me/918807810394" class="footer__social-btn" title="WhatsApp" target="_blank" rel="noreferrer">💬</a>
+          <a href="mailto:amtechnexusofficial@gmail.com" class="footer__social-btn" title="Gmail">✉</a>
+          <a href="https://www.instagram.com/amtechnexus/" class="footer__social-btn" title="Instagram" target="_blank" rel="noreferrer">📸</a>
+          <a href="https://www.facebook.com/profile.php?id=100073104771786" class="footer__social-btn" title="Facebook" target="_blank" rel="noreferrer">fb</a>
+          <a href="https://x.com/AMtechnexus" class="footer__social-btn" title="X" target="_blank" rel="noreferrer">𝕏</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Products</div>
+        <div class="footer__links">
+          <a href="nexuspos.html">NexusPOS</a>
+          <a href="nexusai.html">NexusAI</a>
+          <a href="nexusbilling.html">NexusBilling</a>
+          <a href="nexusapartments.html">NexusApartments</a>
+          <a href="nexusbusiness.html">NexusBusiness Suite</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">NexusBusiness</div>
+        <div class="footer__links">
+          <a href="nexusbusiness.html#reviews">Review Management</a>
+          <a href="nexusbusiness.html#social">Social Publishing</a>
+          <a href="nexusbusiness.html#ai">AI Image Studio</a>
+          <a href="nexusbusiness.html#dm">DM Agent</a>
+          <a href="nexusbusiness.html#pricing">Pricing</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Company</div>
+        <div class="footer__links">
+          <a href="about.html">About Us</a>
+          <a href="support.html">Support</a>
+          <a href="contact.html">Contact</a>
+          <a href="pricing.html">All Pricing</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Contact</div>
+        <div class="footer__links">
+          <a href="mailto:support@amtechnexus.com">support@amtechnexus.com</a>
+          <a href="https://wa.me/918807810394">+91 88078 10394</a>
+          <span>Tamil Nadu, India 🇮🇳</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2024 AM Technexus Labs Private Limited · Made with ❤️ in India 🇮🇳</span>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
