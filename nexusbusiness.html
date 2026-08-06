@@ -162,8 +162,55 @@
 .nb-cta-bottom{background:linear-gradient(135deg,#0F172A,#1E1B4B);padding:96px 0;text-align:center;position:relative;overflow:hidden;}
 .nb-cta-bottom::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(124,58,237,.2),transparent);}
 
-/* Responsive */
+
 @media(max-width:768px){
+  .feat-two-col{grid-template-columns:1fr!important;gap:32px!important;}
+  .feat-two-col > *:first-child{order:1;}
+  .feat-two-col > *:last-child{order:2;}
+  .price-grid{grid-template-columns:1fr!important;}
+  .plat-grid{grid-template-columns:1fr 1fr!important;}
+  .stats-strip .stats-grid{grid-template-columns:1fr 1fr!important;}
+  .stats-strip .stat-item{border-right:none!important;border-bottom:1px solid rgba(255,255,255,.06)!important;padding:18px 12px!important;}
+  .nb-hero{padding-top:calc(68px + 48px)!important;padding-bottom:48px!important;}
+  .nb-title{font-size:1.9rem!important;letter-spacing:-1px!important;}
+  .dash-inner{height:200px!important;}
+  .dash-row{grid-template-columns:1fr 1fr!important;}
+  .img-grid{grid-template-columns:1fr 1fr!important;}
+  .feat-section{padding:56px 0!important;}
+  .feat-h{font-size:1.4rem!important;}
+  .feat-sub{font-size:.88rem!important;}
+  .mock-card{margin-bottom:0!important;}
+  .nb-cta-bottom{padding:64px 0!important;}
+  .pricing-section{padding:64px 0!important;}
+  .price-card{padding:24px!important;}
+  .price-amount{font-size:2.4rem!important;}
+  .wrap{padding:0 16px!important;}
+  /* Fix feat-section side by side on mobile */
+  .feat-two-col .feat-list{margin-bottom:0!important;}
+  /* DM + Intelligence on mobile */
+  .feat-section.alt .feat-two-col{grid-template-columns:1fr!important;}
+  /* Hero on mobile */
+  .nb-hero .nb-cta-row{flex-direction:column!important;align-items:center!important;}
+  .nb-btn-primary,.nb-btn-ghost{width:100%;max-width:320px;justify-content:center!important;}
+  /* Platform strip on mobile */
+  .platform-strip{gap:7px!important;}
+  .plat-badge{font-size:.68rem!important;padding:4px 9px!important;}
+  /* Stats on mobile */
+  .stats-grid{grid-template-columns:1fr 1fr!important;}
+  /* Pricing on mobile */
+  .price-grid{gap:14px!important;}
+  /* Inc grid on mobile */
+}
+@media(max-width:480px){
+  .nb-title{font-size:1.65rem!important;letter-spacing:-.8px!important;}
+  .feat-h{font-size:1.3rem!important;}
+  .price-amount{font-size:2rem!important;}
+  .dash-preview{border-radius:14px!important;}
+  .plat-grid{grid-template-columns:1fr!important;}
+}
+
+/* Responsive - OLD removed */
+@media(max-width:__768px_OLD){
   .nb-title{font-size:2rem;letter-spacing:-1px;}
   .nb-sub{font-size:.9rem;}
   .dash-inner{height:240px;}
@@ -229,7 +276,7 @@
     </div>
 
     <!-- Platform strip -->
-    <div class="platform-strip">
+    <div class="platform-strip" style="margin-bottom:40px;">
       <span style="font-size:.72rem;font-weight:600;color:rgba(255,255,255,.25);letter-spacing:1px;text-transform:uppercase;align-self:center;">Publishes to</span>
       <div class="plat-badge"><span class="dot" style="background:#4285F4;"></span>Google Business</div>
       <div class="plat-badge"><span class="dot" style="background:#E1306C;"></span>Instagram</div>
@@ -314,7 +361,7 @@
 <!-- ══ FEATURE 1: REVIEW COLLECTION ══ -->
 <section class="feat-section">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="feat-two-col">
       <div>
         <div class="feat-tag" style="background:rgba(245,158,11,.1);color:#F59E0B;">⭐ Google Reviews</div>
         <h2 class="feat-h">Turn every customer into a 5-star review.</h2>
@@ -363,7 +410,7 @@
 <!-- ══ FEATURE 2: SOCIAL MEDIA ══ -->
 <section class="feat-section alt">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="feat-two-col">
       <!-- Mock -->
       <div class="mock-card">
         <div class="mock-header"><span style="font-size:1rem;">📱</span><span class="mock-title">Social Media Publisher — All Platforms</span></div>
@@ -418,7 +465,7 @@
 <!-- ══ FEATURE 3: AI IMAGE STUDIO ══ -->
 <section class="feat-section">
   <div class="wrap">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="feat-two-col">
       <div>
         <div class="feat-tag" style="background:rgba(236,72,153,.1);color:#EC4899;">🎨 AI Image Studio</div>
         <h2 class="feat-h">Professional visuals.<br/>Zero design skills needed.</h2>

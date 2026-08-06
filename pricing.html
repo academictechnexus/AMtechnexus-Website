@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Pricing — AM Technexus Labs</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
@@ -11,8 +11,8 @@
 .logo__icon{width:40px;height:40px;flex-shrink:0;}.logo__icon svg{width:40px;height:40px;}
 .logo__wordmark{display:flex;flex-direction:column;gap:2px;}
 .logo__name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(.78rem,.9rem,1rem);line-height:1;display:flex;align-items:center;gap:0;white-space:nowrap;}
-.logo__name .am{color:#0891B2;letter-spacing:-.3px;}.logo__name .nexus{color:#111827;letter-spacing:-.3px;}
-.logo__name .ai-badge{font-size:8px;font-weight:800;letter-spacing:.5px;background:#EDE9FE;color:#5B21B6;border:1px solid rgba(91,33,182,.2);border-radius:4px;padding:2px 5px;line-height:1.5;margin-left:6px;flex-shrink:0;}
+.logo__name .am{color:#0891B2;}.logo__name .nexus{color:#111827;}
+.logo__name .ai-badge{font-size:8px;font-weight:800;background:#EDE9FE;color:#5B21B6;border:1px solid rgba(91,33,182,.2);border-radius:4px;padding:2px 5px;margin-left:6px;flex-shrink:0;}
 .logo__sub{font-size:7px;font-weight:600;color:#718096;letter-spacing:1.8px;text-transform:uppercase;white-space:nowrap;}
 .logo--light .logo__name .am{color:#7DD3FA;}.logo--light .logo__name .nexus{color:#fff;}
 .logo--light .logo__name .ai-badge{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.25);}
@@ -25,16 +25,30 @@
 .footer__social{display:flex;gap:7px;margin-top:4px;flex-wrap:wrap;}
 .footer__social-btn{width:32px;height:32px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.75rem;color:rgba(255,255,255,.35);transition:all .2s;}
 .footer__social-btn:hover{background:#5B21B6;color:#fff;border-color:#5B21B6;}
-.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);margin-top:32px;}
 .footer__bottom span{font-size:.72rem;color:rgba(255,255,255,.18);}
 .footer__bottom div{display:flex;gap:18px;}
 .footer__bottom div a{font-size:.7rem;color:rgba(255,255,255,.18);text-decoration:none;}
-@media(max-width:900px){.logo{gap:8px;margin-right:0;}.logo__icon{width:34px;height:34px;}.logo__icon svg{width:34px;height:34px;}.logo__name{font-size:.82rem;}.logo__sub{font-size:6px;letter-spacing:1.2px;}.nav__inner{padding:0 12px;}}
+@media(max-width:900px){.logo{gap:8px;margin-right:0;}.logo__icon{width:34px;height:34px;}.logo__icon svg{width:34px;height:34px;}.logo__name{font-size:.82rem;}.logo__sub{font-size:6px;}.nav__inner{padding:0 12px;}}
 @media(max-width:380px){.logo__sub{display:none;}.logo__name{font-size:.76rem;}}
+</style>
+<style>
+.ptab{padding:9px 18px;background:#fff;border:1.5px solid #E5E7EB;border-radius:100px;font-weight:600;font-size:.85rem;cursor:pointer;transition:all .2s;font-family:inherit;color:#374151;}
+.ptab.active-pos{background:#1D4ED8;color:#fff;border-color:#1D4ED8;}
+.ptab.active-ai{background:#5B21B6;color:#fff;border-color:#5B21B6;}
+.ptab.active-billing{background:#DC2626;color:#fff;border-color:#DC2626;}
+.ptab.active-apts{background:#059669;color:#fff;border-color:#059669;}
+.ptab.active-biz{background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;border-color:#7C3AED;}
+.ppanel{display:none;}.ppanel.active{display:block;}
+.pcard{background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:28px;position:relative;display:flex;flex-direction:column;}
+.pcard.popular{border-color:#5B21B6;box-shadow:0 0 0 1px rgba(91,33,182,.15),0 12px 36px rgba(91,33,182,.1);}
+.pcard-pop{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#5B21B6;color:#fff;font-size:.68rem;font-weight:800;padding:3px 14px;border-radius:100px;white-space:nowrap;}
+.pfeat{display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;padding:7px 0;border-bottom:1px solid #F3F4F6;}
+.pfeat:last-child{border-bottom:none;}
 </style>
 </head>
 <body>
-<nav class="nav" id="nav" style="background:var(--white);border-bottom:1px solid var(--border);">
+<nav class="nav" id="nav">
   <div class="nav__inner">
     <a href="index.html" class="logo">
       <div class="logo__icon"><svg viewBox="0 0 44 44" fill="none"><defs><linearGradient id="lg1" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0891B2"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient></defs><rect width="44" height="44" rx="11" fill="url(#lg1)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".55" fill="none" transform="rotate(-38 22 22)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".28" fill="none" transform="rotate(28 22 22)"/><circle cx="22" cy="22" r="5.5" fill="white"/><circle cx="34" cy="15" r="2.8" fill="white"/><circle cx="10" cy="30" r="1.8" fill="white" fill-opacity=".65"/></svg></div>
@@ -47,21 +61,21 @@
         <div class="nav__drop-menu">
           <a href="nexuspos.html" class="drop-item"><div class="drop-icon" style="background:#EFF6FF;">🍽️</div><div><span class="drop-title">NexusPOS</span><span class="drop-desc">Food cart &amp; kiosk billing</span></div></a>
           <a href="nexusai.html" class="drop-item"><div class="drop-icon" style="background:#EDE9FE;">🤖</div><div><span class="drop-title">NexusAI</span><span class="drop-desc">AI chatbot &amp; automation</span></div></a>
-          <a href="nexusbilling.html" class="drop-item"><div class="drop-icon" style="background:#FFF5F5;">🚗</div><div><span class="drop-title">NexusBilling</span><span class="drop-desc">Automobile workshop</span></div></a>
+          <a href="nexusbilling.html" class="drop-item"><div class="drop-icon" style="background:#FFF5F5;">🚗</div><div><span class="drop-title">NexusBilling</span><span class="drop-desc">Automobile workshop management</span></div></a>
           <a href="nexusapartments.html" class="drop-item"><div class="drop-icon" style="background:#F0FFF4;">🏢</div><div><span class="drop-title">NexusApartments</span><span class="drop-desc">Society management</span></div></a>
-          <a href="nexusbusiness.html" class="drop-item" style="border-top:1px solid #F3F4F6;margin-top:4px;padding-top:12px;"><div class="drop-icon" style="background:linear-gradient(135deg,#EDE9FE,#EFF6FF);">🌟</div><div><span class="drop-title">NexusBusiness Suite</span><span class="drop-desc">Reviews &amp; social media AI</span></div></a>
+          <a href="nexusbusiness.html" class="drop-item"><div class="drop-icon" style="background:#F5F3FF;">⭐</div><div><span class="drop-title">NexusBusiness Suite</span><span class="drop-desc">Reviews &amp; social media AI</span></div></a>
         </div>
       </li>
       <li><a href="about.html">About</a></li>
-      <li><a href="pricing.html" class="active">Pricing</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
       <li><a href="support.html">Support</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav__right">
-      <a href="mailto:support@amtechnexus.com" class="btn-ghost" style="color:var(--slate);">support@amtechnexus.com</a>
+      <a href="mailto:support@amtechnexus.com" class="btn-ghost">support@amtechnexus.com</a>
       <a href="contact.html" class="btn-nav">Get Demo →</a>
     </div>
-    <button class="nav__ham" id="ham" style="border-color:var(--border);"><span style="background:var(--ink);"></span><span style="background:var(--ink);"></span><span style="background:var(--ink);"></span></button>
+    <button class="nav__ham" id="ham"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="nav__mob" id="mob">
@@ -70,7 +84,7 @@
   <a href="nexusai.html">🤖 NexusAI</a>
   <a href="nexusbilling.html">🚗 NexusBilling</a>
   <a href="nexusapartments.html">🏢 NexusApartments</a>
-  <a href="nexusbusiness.html">🌟 NexusBusiness Suite</a>
+  <a href="nexusbusiness.html">⭐ NexusBusiness Suite</a>
   <div class="nav__mob-sec">Company</div>
   <a href="about.html">About Us</a>
   <a href="pricing.html">Pricing</a>
@@ -78,212 +92,151 @@
   <a href="contact.html">Contact</a>
   <a href="contact.html" class="btn-nav">Get a free demo →</a>
 </div>
-<style>
-.pricing-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:28px;}
-.pricing-tab{padding:9px 18px;background:#fff;color:#374151;border:1.5px solid #E5E7EB;border-radius:100px;font-weight:600;font-size:.84rem;cursor:pointer;transition:all .2s;font-family:Inter,sans-serif;}
-.pricing-tab.t-pos.active{background:#1D4ED8;color:#fff;border-color:#1D4ED8;}
-.pricing-tab.t-ai.active{background:#5B21B6;color:#fff;border-color:#5B21B6;}
-.pricing-tab.t-billing.active{background:#DC2626;color:#fff;border-color:#DC2626;}
-.pricing-tab.t-apts.active{background:#059669;color:#fff;border-color:#059669;}
-.pricing-tab.t-nb.active{background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;border-color:#7C3AED;}
-.sup-panel{display:none;}.sup-panel.active{display:block;}
-.plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px;}
-@media(max-width:860px){.plan-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:560px){.plan-grid{grid-template-columns:1fr;}}
-</style>
-<section style="background:linear-gradient(160deg,#EDE9FE,#F5F3FF,#EEF2FF);padding:calc(var(--nav-h) + 64px) 0 52px;text-align:center;">
+
+<section style="background:linear-gradient(160deg,#EDE9FE,#F5F3FF,#EEF2FF);padding:calc(68px + 64px) 0 52px;text-align:center;">
   <div class="wrap">
-    <span style="display:inline-block;font-size:.72rem;font-weight:700;color:#5B21B6;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;">Pricing</span>
-    <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#111827;letter-spacing:-1.8px;margin-bottom:14px;">Pricing tailored to<br/><span style="color:#5B21B6;">each product.</span></h1>
-    <p style="font-size:.95rem;color:#6B7280;max-width:460px;margin:0 auto;">Every product has 3 plans — contact us for a quote tailored to your business.</p>
-    <div class="pricing-tabs">
-      <button class="pricing-tab t-pos active" onclick="showPTab(event,'pos')">🍽️ NexusPOS</button>
-      <button class="pricing-tab t-ai" onclick="showPTab(event,'ai')">🤖 NexusAI</button>
-      <button class="pricing-tab t-billing" onclick="showPTab(event,'billing')">🚗 NexusBilling</button>
-      <button class="pricing-tab t-apts" onclick="showPTab(event,'apts')">🏢 NexusApartments</button>
-      <button class="pricing-tab t-nb" onclick="showPTab(event,'nb')">🌟 NexusBusiness Suite</button>
+    <span class="eyebrow" style="color:#5B21B6;">Pricing</span>
+    <h1 class="h1" style="margin-bottom:14px;">Pricing tailored to<br/><span style="color:#5B21B6;">each product.</span></h1>
+    <p class="lead" style="max-width:460px;margin:0 auto 28px;">Every product has 3 plans. Contact us for exact pricing tailored to your business size and location.</p>
+    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;">
+      <button class="ptab active-pos" id="tab-pos" onclick="showPlan('pos')">🍽️ NexusPOS</button>
+      <button class="ptab" id="tab-ai" onclick="showPlan('ai')">🤖 NexusAI</button>
+      <button class="ptab" id="tab-billing" onclick="showPlan('billing')">🚗 NexusBilling</button>
+      <button class="ptab" id="tab-apts" onclick="showPlan('apts')">🏢 NexusApartments</button>
+      <button class="ptab" id="tab-biz" onclick="showPlan('biz')">⭐ NexusBusiness Suite</button>
     </div>
   </div>
 </section>
-<section><div class="wrap"><div class="sup-panel active" id="ptab-pos">
-  <div style="background:#fff;border:1px solid #E5E7EB;border-left:4px solid #1D4ED8;border-radius:14px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;gap:14px;"><span style="font-size:1.5rem;">🍽️</span><div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:#111827;">NexusPOS — Food Carts &amp; Kiosks</div><div style="font-size:.84rem;color:#6B7280;margin-top:3px;">GST billing, KOT, multi-branch stock, offline mode.</div></div></div>
-  <div class="plan-grid"><div style="background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:26px;position:relative;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      
-      <div style="font-size:.68rem;font-weight:700;color:#1D4ED8;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Basic</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:4px;">Contact for Pricing</div>
-      <div style="font-size:.75rem;color:#6B7280;margin-bottom:8px;">Tailored to your business · No hidden fees</div>
-      <div style="font-size:.84rem;color:#6B7280;margin-bottom:14px;line-height:1.6;">For single-branch food carts just getting started.</div>
-      <div style="height:1px;background:#E5E7EB;margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#1D4ED8" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>1 branch / location</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#1D4ED8" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 3 users</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#1D4ED8" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Billing &amp; GST invoicing</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#1D4ED8" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Basic sales reports</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#1D4ED8" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsApp support</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:#F9FAFB;color:#111827;border:1.5px solid #E5E7EB;transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Get Basic Pricing →</a>
-    </div><div style="background:#fff;border:1.5px solid #E5E7EB;border-color:#1D4ED8;border-radius:16px;padding:26px;position:relative;box-shadow:0 0 0 1px #1D4ED840,0 12px 40px #1D4ED812;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#1D4ED8;color:#fff;font-size:10px;font-weight:800;padding:3px 16px;border-radius:100px;white-space:nowrap;letter-spacing:.6px;">MOST POPULAR</div>
-      <div style="font-size:.68rem;font-weight:700;color:#1D4ED8;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Pro</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:4px;">Contact for Pricing</div>
-      <div style="font-size:.75rem;color:#6B7280;margin-bottom:8px;">Tailored to your business · No hidden fees</div>
-      <div style="font-size:.84rem;color:#6B7280;margin-bottom:14px;line-height:1.6;">For growing businesses with multiple branches.</div>
-      <div style="height:1px;background:#E5E7EB;margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#1D4ED8" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 3 branches</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#1D4ED8" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 10 users</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#1D4ED8" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Basic</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#1D4ED8" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Branch stock transfer</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#1D4ED8" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Advanced reports</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#1D4ED8" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#1D4ED8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority support</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:#1D4ED8;color:#fff;border:1.5px solid #1D4ED8;transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Get Pro Pricing →</a>
-    </div><div style="background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:26px;position:relative;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      
-      <div style="font-size:.68rem;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Business</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:4px;">Contact for Pricing</div>
-      <div style="font-size:.75rem;color:#6B7280;margin-bottom:8px;">Tailored to your business · No hidden fees</div>
-      <div style="font-size:.84rem;color:#6B7280;margin-bottom:14px;line-height:1.6;">For large operations with custom needs.</div>
-      <div style="height:1px;background:#E5E7EB;margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited branches</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited users</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Pro</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom integrations</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated manager</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>On-site training</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:#F9FAFB;color:#111827;border:1.5px solid #E5E7EB;transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Get Business Pricing →</a>
-    </div></div></div><div class="sup-panel" id="ptab-ai">
-  <div style="background:#fff;border:1px solid #E5E7EB;border-left:4px solid #5B21B6;border-radius:14px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;gap:14px;"><span style="font-size:1.5rem;">🤖</span><div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:#111827;">NexusAI — AI Chatbot &amp; Automation</div><div style="font-size:.84rem;color:#6B7280;margin-top:3px;">Website, Shopify &amp; WhatsApp. 80% auto-resolved.</div></div></div>
-  <div class="plan-grid"><div style="background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:26px;position:relative;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      
-      <div style="font-size:.68rem;font-weight:700;color:#5B21B6;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Starter</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:4px;">Contact for Pricing</div>
-      <div style="font-size:.75rem;color:#6B7280;margin-bottom:8px;">Tailored to your business · No hidden fees</div>
-      <div style="font-size:.84rem;color:#6B7280;margin-bottom:14px;line-height:1.6;">For businesses launching their first AI chatbot.</div>
-      <div style="height:1px;background:#E5E7EB;margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#5B21B6" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#5B21B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Website chatbot</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#5B21B6" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#5B21B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>500 AI replies/mo</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#5B21B6" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#5B21B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Basic FAQ training</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#5B21B6" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#5B21B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Email support</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:#F9FAFB;color:#111827;border:1.5px solid #E5E7EB;transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Get Starter Pricing →</a>
-    </div><div style="background:#fff;border:1.5px solid #E5E7EB;border-color:#5B21B6;border-radius:16px;padding:26px;position:relative;box-shadow:0 0 0 1px #5B21B640,0 12px 40px #5B21B612;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#5B21B6;color:#fff;font-size:10px;font-weight:800;padding:3px 16px;border-radius:100px;white-space:nowrap;letter-spacing:.6px;">MOST POPULAR</div>
-      <div style="font-size:.68rem;font-weight:700;color:#5B21B6;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Growth</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:4px;">Contact for Pricing</div>
-      <div style="font-size:.75rem;color:#6B7280;margin-bottom:8px;">Tailored to your business · No hidden fees</div>
-      <div style="font-size:.84rem;color:#6B7280;margin-bottom:14px;line-height:1.6;">For businesses scaling with AI across channels.</div>
-      <div style="height:1px;background:#E5E7EB;margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#5B21B6" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#5B21B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Website + WhatsApp</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#5B21B6" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#5B21B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>5,000 AI replies/mo</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#5B21B6" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#5B21B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Shopify integration</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#5B21B6" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#5B21B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom AI training</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#5B21B6" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#5B21B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Analytics</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#5B21B6" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#5B21B6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority support</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:#5B21B6;color:#fff;border:1.5px solid #5B21B6;transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Get Growth Pricing →</a>
-    </div><div style="background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:26px;position:relative;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      
-      <div style="font-size:.68rem;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Enterprise</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:4px;">Contact for Pricing</div>
-      <div style="font-size:.75rem;color:#6B7280;margin-bottom:8px;">Tailored to your business · No hidden fees</div>
-      <div style="font-size:.84rem;color:#6B7280;margin-bottom:14px;line-height:1.6;">For large businesses needing full AI coverage.</div>
-      <div style="height:1px;background:#E5E7EB;margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited replies</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>All channels</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom AI model</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>API access</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated manager</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>SLA guarantee</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:#F9FAFB;color:#111827;border:1.5px solid #E5E7EB;transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Get Enterprise Pricing →</a>
-    </div></div></div><div class="sup-panel" id="ptab-billing">
-  <div style="background:#fff;border:1px solid #E5E7EB;border-left:4px solid #DC2626;border-radius:14px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;gap:14px;"><span style="font-size:1.5rem;">🚗</span><div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:#111827;">NexusBilling — Automobile Workshops</div><div style="font-size:.84rem;color:#6B7280;margin-top:3px;">Job cards, parts, vehicle history, GST billing.</div></div></div>
-  <div class="plan-grid"><div style="background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:26px;position:relative;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      
-      <div style="font-size:.68rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Basic</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:4px;">Contact for Pricing</div>
-      <div style="font-size:.75rem;color:#6B7280;margin-bottom:8px;">Tailored to your business · No hidden fees</div>
-      <div style="font-size:.84rem;color:#6B7280;margin-bottom:14px;line-height:1.6;">For single-workshop garages.</div>
-      <div style="height:1px;background:#E5E7EB;margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#DC2626" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#DC2626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>1 workshop</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#DC2626" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#DC2626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Job cards &amp; billing</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#DC2626" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#DC2626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Parts inventory</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#DC2626" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#DC2626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>GST invoicing</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#DC2626" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#DC2626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsApp support</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:#F9FAFB;color:#111827;border:1.5px solid #E5E7EB;transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Get Basic Pricing →</a>
-    </div><div style="background:#fff;border:1.5px solid #E5E7EB;border-color:#DC2626;border-radius:16px;padding:26px;position:relative;box-shadow:0 0 0 1px #DC262640,0 12px 40px #DC262612;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#DC2626;color:#fff;font-size:10px;font-weight:800;padding:3px 16px;border-radius:100px;white-space:nowrap;letter-spacing:.6px;">MOST POPULAR</div>
-      <div style="font-size:.68rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Pro</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:4px;">Contact for Pricing</div>
-      <div style="font-size:.75rem;color:#6B7280;margin-bottom:8px;">Tailored to your business · No hidden fees</div>
-      <div style="font-size:.84rem;color:#6B7280;margin-bottom:14px;line-height:1.6;">For garages with multiple locations.</div>
-      <div style="height:1px;background:#E5E7EB;margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#DC2626" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#DC2626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 3 workshops</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#DC2626" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#DC2626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Basic</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#DC2626" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#DC2626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Vehicle history</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#DC2626" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#DC2626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsApp updates</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#DC2626" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#DC2626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Technician reports</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#DC2626" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#DC2626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority support</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:#DC2626;color:#fff;border:1.5px solid #DC2626;transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Get Pro Pricing →</a>
-    </div><div style="background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:26px;position:relative;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      
-      <div style="font-size:.68rem;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Business</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:4px;">Contact for Pricing</div>
-      <div style="font-size:.75rem;color:#6B7280;margin-bottom:8px;">Tailored to your business · No hidden fees</div>
-      <div style="font-size:.84rem;color:#6B7280;margin-bottom:14px;line-height:1.6;">For chains and multi-city operations.</div>
-      <div style="height:1px;background:#E5E7EB;margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited workshops</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Pro</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom integrations</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated manager</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>On-site training</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>SLA guarantee</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:#F9FAFB;color:#111827;border:1.5px solid #E5E7EB;transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Get Business Pricing →</a>
-    </div></div></div><div class="sup-panel" id="ptab-apts">
-  <div style="background:#fff;border:1px solid #E5E7EB;border-left:4px solid #059669;border-radius:14px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;gap:14px;"><span style="font-size:1.5rem;">🏢</span><div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:#111827;">NexusApartments — Society Management</div><div style="font-size:.84rem;color:#6B7280;margin-top:3px;">Maintenance, visitors, complaints, resident app.</div></div></div>
-  <div class="plan-grid"><div style="background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:26px;position:relative;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      
-      <div style="font-size:.68rem;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Basic</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:4px;">Contact for Pricing</div>
-      <div style="font-size:.75rem;color:#6B7280;margin-bottom:8px;">Tailored to your business · No hidden fees</div>
-      <div style="font-size:.84rem;color:#6B7280;margin-bottom:14px;line-height:1.6;">For small societies up to 50 flats.</div>
-      <div style="height:1px;background:#E5E7EB;margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 50 flats</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Maintenance billing</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Visitor log</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Complaint tracking</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>WhatsApp support</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:#F9FAFB;color:#111827;border:1.5px solid #E5E7EB;transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Get Basic Pricing →</a>
-    </div><div style="background:#fff;border:1.5px solid #E5E7EB;border-color:#059669;border-radius:16px;padding:26px;position:relative;box-shadow:0 0 0 1px #05966940,0 12px 40px #05966912;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#059669;color:#fff;font-size:10px;font-weight:800;padding:3px 16px;border-radius:100px;white-space:nowrap;letter-spacing:.6px;">MOST POPULAR</div>
-      <div style="font-size:.68rem;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Pro</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:4px;">Contact for Pricing</div>
-      <div style="font-size:.75rem;color:#6B7280;margin-bottom:8px;">Tailored to your business · No hidden fees</div>
-      <div style="font-size:.84rem;color:#6B7280;margin-bottom:14px;line-height:1.6;">For mid-sized societies with a full resident app.</div>
-      <div style="height:1px;background:#E5E7EB;margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 250 flats</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Basic</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Resident mobile app</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Committee accounts</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Announcements</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority support</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:#059669;color:#fff;border:1.5px solid #059669;transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Get Pro Pricing →</a>
-    </div><div style="background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:26px;position:relative;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      
-      <div style="font-size:.68rem;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Business</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:4px;">Contact for Pricing</div>
-      <div style="font-size:.75rem;color:#6B7280;margin-bottom:8px;">Tailored to your business · No hidden fees</div>
-      <div style="font-size:.84rem;color:#6B7280;margin-bottom:14px;line-height:1.6;">For large societies and property managers.</div>
-      <div style="height:1px;background:#E5E7EB;margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited flats</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Pro</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Multi-society</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom integrations</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated manager</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:#374151;"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#059669" fill-opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="#059669" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>SLA guarantee</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:#F9FAFB;color:#111827;border:1.5px solid #E5E7EB;transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Get Business Pricing →</a>
-    </div></div></div><div class="sup-panel" id="ptab-nb">
-  <div style="background:linear-gradient(135deg,#0F172A,#1E1B4B);border:1px solid rgba(167,139,250,.25);border-radius:14px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
-    <span style="font-size:1.5rem;">🌟</span>
-    <div style="flex:1;"><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:#fff;">NexusBusiness Suite — Reviews &amp; Social Media AI</div><div style="font-size:.84rem;color:rgba(255,255,255,.5);margin-top:3px;">Google reviews, 9 platforms, AI image studio, DM agent &amp; intelligence.</div></div>
-    <a href="nexusbusiness.html" style="font-size:.82rem;font-weight:700;color:#A78BFA;text-decoration:none;white-space:nowrap;">Full product page →</a>
-  </div>
-  <div class="plan-grid"><div style="background:#0F172A;border:1.5px solid #E5E7EB;border-color:#38BDF840;border-radius:16px;padding:26px;position:relative;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      
-      <div style="font-size:.68rem;font-weight:700;color:#38BDF8;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Starter</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:800;color:#fff;letter-spacing:-1.5px;line-height:1;margin-bottom:4px;"><sup style='font-size:.9rem;vertical-align:super;'>$</sup>49</div>
-      <div style="font-size:.75rem;color:rgba(255,255,255,.3);margin-bottom:14px;">per month</div>
-      <div style="height:1px;background:rgba(255,255,255,.06);margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Google review collection + AI</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Social publishing — 3 platforms</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>AI captions (unlimited)</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>AI images — 30/month</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Wall of love widget</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#38BDF8" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#38BDF8" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>AI Insights — monthly summary</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:rgba(56,189,248,.12);color:#38BDF8;border:1.5px solid rgba(56,189,248,.25);transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Start Free Trial →</a>
-    </div><div style="background:#0F172A;border:1.5px solid #E5E7EB;border-color:#A78BFA;box-shadow:0 0 0 1px #A78BFA50,0 12px 40px #A78BFA20;border-radius:16px;padding:26px;position:relative;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;font-size:10px;font-weight:800;padding:3px 16px;border-radius:100px;white-space:nowrap;letter-spacing:.6px;">MOST POPULAR</div>
-      <div style="font-size:.68rem;font-weight:700;color:#A78BFA;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Pro</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:800;color:#fff;letter-spacing:-1.5px;line-height:1;margin-bottom:4px;"><sup style='font-size:.9rem;vertical-align:super;'>$</sup>149</div>
-      <div style="font-size:.75rem;color:rgba(255,255,255,.3);margin-bottom:14px;">per month</div>
-      <div style="height:1px;background:rgba(255,255,255,.06);margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Starter</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>All 9 social platforms</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Post scheduling + carousels</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>AI images — 150/month</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Autonomous DM Agent</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>SMS + call alerts on escalation</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Competitor tracking</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#A78BFA" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#A78BFA" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>AI Advisor — chat with your data</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;border:none;box-shadow:0 8px 28px rgba(124,58,237,.4);transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Start Free Trial →</a>
-    </div><div style="background:#0F172A;border:1.5px solid #E5E7EB;border-color:#34D39940;border-radius:16px;padding:26px;position:relative;display:flex;flex-direction:column;transition:all .2s;" onmouseover="this.style.transform='translateY(-2px)';" onmouseout="this.style.transform='none';">
-      
-      <div style="font-size:.68rem;font-weight:700;color:#34D399;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Agency</div>
-      <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:800;color:#fff;letter-spacing:-1.5px;line-height:1;margin-bottom:4px;">Custom</div>
-      <div style="font-size:.75rem;color:rgba(255,255,255,.3);margin-bottom:14px;">volume pricing available</div>
-      <div style="height:1px;background:rgba(255,255,255,.06);margin-bottom:14px;"></div>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:22px;flex:1;"><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Everything in Pro</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Agency Admin Console</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>View &amp; manage all clients</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Login as client (audit-logged)</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited AI images</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>White-label options</div><div style="display:flex;align-items:center;gap:9px;font-size:.84rem;color:rgba(255,255,255,.55);"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7.5" fill="#34D399" fill-opacity=".15"/><path d="M4.5 7.5l2 2 4-4" stroke="#34D399" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated account manager</div></div>
-      <a href="contact.html" style="display:block;padding:12px;text-align:center;font-family:Inter,sans-serif;font-size:.88rem;font-weight:700;border-radius:9px;cursor:pointer;text-decoration:none;background:rgba(52,211,153,.1);color:#34D399;border:1.5px solid rgba(52,211,153,.2);transition:all .18s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Contact for Pricing →</a>
-    </div></div></div>
-  <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:26px;margin-bottom:20px;text-align:center;">
-    <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.95rem;color:#111827;margin-bottom:18px;">✅ Included in every plan, every product</div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
-      <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">🚀</span><span style="font-size:.84rem;font-weight:600;color:#374151;">Free Setup</span></div>
-      <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">📚</span><span style="font-size:.84rem;font-weight:600;color:#374151;">Staff Training</span></div>
-      <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">📦</span><span style="font-size:.84rem;font-weight:600;color:#374151;">Data Migration</span></div>
-      <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">📞</span><span style="font-size:.84rem;font-weight:600;color:#374151;">WhatsApp Support</span></div>
-      <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">🔄</span><span style="font-size:.84rem;font-weight:600;color:#374151;">Free Updates</span></div>
-      <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">🔒</span><span style="font-size:.84rem;font-weight:600;color:#374151;">Daily Backups</span></div>
-      <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">📊</span><span style="font-size:.84rem;font-weight:600;color:#374151;">Full Analytics</span></div>
-      <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">🌐</span><span style="font-size:.84rem;font-weight:600;color:#374151;">GST / VAT Ready</span></div>
+
+<section style="padding:48px 0 80px;background:#F9FAFB;">
+  <div class="wrap">
+
+    <!-- NexusPOS -->
+    <div class="ppanel active" id="panel-pos">
+      <div style="background:#fff;border:1px solid #E5E7EB;border-left:4px solid #1D4ED8;border-radius:14px;padding:16px 20px;margin-bottom:28px;"><div style="font-family:var(--font-d);font-weight:700;color:#111827;">🍽️ NexusPOS — Food Carts &amp; Kiosks</div><div style="font-size:.84rem;color:#6B7280;margin-top:3px;">GST billing, KOT, multi-branch stock management and offline mode.</div></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+        <div class="pcard"><div style="font-size:.7rem;font-weight:700;color:#1D4ED8;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Basic</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Tailored to your business</div><div class="pfeat">✓ 1 branch</div><div class="pfeat">✓ Up to 3 users</div><div class="pfeat">✓ Billing &amp; GST invoicing</div><div class="pfeat">✓ Sales reports</div><div class="pfeat">✓ WhatsApp support</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#EFF6FF;color:#1D4ED8;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Get Pricing →</a></div></div>
+        <div class="pcard popular"><div class="pcard-pop">MOST POPULAR</div><div style="font-size:.7rem;font-weight:700;color:#1D4ED8;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Pro</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Tailored to your business</div><div class="pfeat">✓ Up to 3 branches</div><div class="pfeat">✓ Up to 10 users</div><div class="pfeat">✓ Everything in Basic</div><div class="pfeat">✓ Branch stock transfer</div><div class="pfeat">✓ Advanced reports</div><div class="pfeat">✓ Priority support</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#1D4ED8;color:#fff;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Get Pricing →</a></div></div>
+        <div class="pcard"><div style="font-size:.7rem;font-weight:700;color:#1D4ED8;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Business</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Tailored to your business</div><div class="pfeat">✓ Unlimited branches</div><div class="pfeat">✓ Unlimited users</div><div class="pfeat">✓ Everything in Pro</div><div class="pfeat">✓ Custom integrations</div><div class="pfeat">✓ Dedicated manager</div><div class="pfeat">✓ On-site training</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#EFF6FF;color:#1D4ED8;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Get Pricing →</a></div></div>
+      </div>
+    </div>
+
+    <!-- NexusAI -->
+    <div class="ppanel" id="panel-ai">
+      <div style="background:#fff;border:1px solid #E5E7EB;border-left:4px solid #5B21B6;border-radius:14px;padding:16px 20px;margin-bottom:28px;"><div style="font-family:var(--font-d);font-weight:700;color:#111827;">🤖 NexusAI — AI Chatbot &amp; Automation</div><div style="font-size:.84rem;color:#6B7280;margin-top:3px;">Website, Shopify &amp; WhatsApp AI. 80% of queries auto-resolved.</div></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+        <div class="pcard"><div style="font-size:.7rem;font-weight:700;color:#5B21B6;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Starter</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Tailored to your business</div><div class="pfeat">✓ Website chatbot</div><div class="pfeat">✓ 500 AI replies/mo</div><div class="pfeat">✓ Basic FAQ training</div><div class="pfeat">✓ Email support</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#EDE9FE;color:#5B21B6;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Get Pricing →</a></div></div>
+        <div class="pcard popular" style="border-color:#5B21B6;"><div class="pcard-pop" style="background:#5B21B6;">MOST POPULAR</div><div style="font-size:.7rem;font-weight:700;color:#5B21B6;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Growth</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Tailored to your business</div><div class="pfeat">✓ Website + WhatsApp</div><div class="pfeat">✓ 5,000 AI replies/mo</div><div class="pfeat">✓ Shopify integration</div><div class="pfeat">✓ Custom AI training</div><div class="pfeat">✓ Analytics dashboard</div><div class="pfeat">✓ Priority support</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#5B21B6;color:#fff;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Get Pricing →</a></div></div>
+        <div class="pcard"><div style="font-size:.7rem;font-weight:700;color:#5B21B6;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Enterprise</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Tailored to your business</div><div class="pfeat">✓ Unlimited replies</div><div class="pfeat">✓ All channels</div><div class="pfeat">✓ Custom AI model</div><div class="pfeat">✓ API access</div><div class="pfeat">✓ Dedicated manager</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#EDE9FE;color:#5B21B6;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Get Pricing →</a></div></div>
+      </div>
+    </div>
+
+    <!-- NexusBilling -->
+    <div class="ppanel" id="panel-billing">
+      <div style="background:#fff;border:1px solid #E5E7EB;border-left:4px solid #DC2626;border-radius:14px;padding:16px 20px;margin-bottom:28px;"><div style="font-family:var(--font-d);font-weight:700;color:#111827;">🚗 NexusBilling — Automobile Workshop Software</div><div style="font-size:.84rem;color:#6B7280;margin-top:3px;">Job cards, parts inventory, vehicle history and GST billing.</div></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+        <div class="pcard"><div style="font-size:.7rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Basic</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Tailored to your workshop</div><div class="pfeat">✓ 1 workshop</div><div class="pfeat">✓ Job cards &amp; billing</div><div class="pfeat">✓ Parts inventory</div><div class="pfeat">✓ GST invoicing</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#FFF5F5;color:#DC2626;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Get Pricing →</a></div></div>
+        <div class="pcard popular" style="border-color:#DC2626;"><div class="pcard-pop" style="background:#DC2626;">MOST POPULAR</div><div style="font-size:.7rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Pro</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Tailored to your workshop</div><div class="pfeat">✓ Up to 3 workshops</div><div class="pfeat">✓ Everything in Basic</div><div class="pfeat">✓ Vehicle history</div><div class="pfeat">✓ WhatsApp updates</div><div class="pfeat">✓ Technician reports</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#DC2626;color:#fff;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Get Pricing →</a></div></div>
+        <div class="pcard"><div style="font-size:.7rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Business</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Tailored to your workshop</div><div class="pfeat">✓ Unlimited workshops</div><div class="pfeat">✓ Everything in Pro</div><div class="pfeat">✓ Custom integrations</div><div class="pfeat">✓ On-site training</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#FFF5F5;color:#DC2626;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Get Pricing →</a></div></div>
+      </div>
+    </div>
+
+    <!-- NexusApartments -->
+    <div class="ppanel" id="panel-apts">
+      <div style="background:#fff;border:1px solid #E5E7EB;border-left:4px solid #059669;border-radius:14px;padding:16px 20px;margin-bottom:28px;"><div style="font-family:var(--font-d);font-weight:700;color:#111827;">🏢 NexusApartments — Society Management</div><div style="font-size:.84rem;color:#6B7280;margin-top:3px;">Maintenance billing, visitors, complaints and resident app.</div></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+        <div class="pcard"><div style="font-size:.7rem;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Basic</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Tailored to your society</div><div class="pfeat">✓ Up to 50 flats</div><div class="pfeat">✓ Maintenance billing</div><div class="pfeat">✓ Visitor log</div><div class="pfeat">✓ Complaint tracking</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#F0FFF4;color:#059669;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Get Pricing →</a></div></div>
+        <div class="pcard popular" style="border-color:#059669;"><div class="pcard-pop" style="background:#059669;">MOST POPULAR</div><div style="font-size:.7rem;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Pro</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Tailored to your society</div><div class="pfeat">✓ Up to 250 flats</div><div class="pfeat">✓ Everything in Basic</div><div class="pfeat">✓ Resident mobile app</div><div class="pfeat">✓ Committee accounts</div><div class="pfeat">✓ Announcements</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#059669;color:#fff;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Get Pricing →</a></div></div>
+        <div class="pcard"><div style="font-size:.7rem;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Business</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Tailored to your society</div><div class="pfeat">✓ Unlimited flats</div><div class="pfeat">✓ Everything in Pro</div><div class="pfeat">✓ Multi-society</div><div class="pfeat">✓ AGM-ready reports</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#F0FFF4;color:#059669;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Get Pricing →</a></div></div>
+      </div>
+    </div>
+
+    <!-- NexusBusiness Suite — DARK PANEL -->
+    <div class="ppanel" id="panel-biz">
+      <div style="background:linear-gradient(135deg,#0F172A,#1E1B4B);border:1px solid rgba(167,139,250,.2);border-radius:14px;padding:20px 24px;margin-bottom:28px;display:flex;align-items:center;gap:16px;">
+        <span style="font-size:1.5rem;">⭐</span>
+        <div><div style="font-family:var(--font-d);font-weight:700;color:#fff;">NexusBusiness Suite — Reviews &amp; Social Media AI</div><div style="font-size:.84rem;color:rgba(255,255,255,.45);margin-top:3px;">Google reviews, 9-platform social publishing, AI image studio, DM agent &amp; business intelligence.</div></div>
+        <a href="nexusbusiness.html" style="margin-left:auto;padding:9px 18px;background:rgba(167,139,250,.15);color:#A78BFA;border:1px solid rgba(167,139,250,.2);border-radius:8px;font-weight:700;font-size:.82rem;text-decoration:none;white-space:nowrap;flex-shrink:0;">View Full Page →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+        <!-- Starter -->
+        <div style="background:#12122A;border:1.5px solid rgba(56,189,248,.2);border-radius:16px;padding:28px;display:flex;flex-direction:column;">
+          <div style="font-size:.7rem;font-weight:700;color:#38BDF8;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Starter</div>
+          <div style="font-family:var(--font-d);font-size:2.2rem;font-weight:800;color:#fff;letter-spacing:-1.5px;line-height:1;margin-bottom:4px;"><sup style="font-size:1rem;vertical-align:super;">$</sup>49</div>
+          <div style="font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:16px;">per month</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.06);">For small businesses building their online reputation.</div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:24px;flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ Google review collection &amp; QR</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ AI reply drafts for reviews</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ Social publishing — 3 platforms</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ AI captions (unlimited)</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ AI images — 30/month</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:line-through;opacity:.4;">✗ Autonomous DM Agent</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.35);text-decoration:line-through;opacity:.4;">✗ Competitor tracking</div>
+          </div>
+          <a href="contact.html" style="display:block;padding:12px;text-align:center;background:rgba(56,189,248,.1);color:#38BDF8;border:1.5px solid rgba(56,189,248,.2);border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Start Free Trial →</a>
+        </div>
+        <!-- Pro -->
+        <div style="background:#12122A;border:1.5px solid #7C3AED;border-radius:16px;padding:28px;position:relative;display:flex;flex-direction:column;box-shadow:0 0 0 1px rgba(124,58,237,.2),0 20px 50px rgba(124,58,237,.15);">
+          <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;font-size:.68rem;font-weight:800;padding:3px 16px;border-radius:100px;white-space:nowrap;">MOST POPULAR</div>
+          <div style="font-size:.7rem;font-weight:700;color:#A78BFA;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Pro</div>
+          <div style="font-family:var(--font-d);font-size:2.2rem;font-weight:800;color:#fff;letter-spacing:-1.5px;line-height:1;margin-bottom:4px;"><sup style="font-size:1rem;vertical-align:super;">$</sup>149</div>
+          <div style="font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:16px;">per month</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.06);">For growing businesses serious about dominating online.</div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:24px;flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ Everything in Starter</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ All 9 social platforms</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ Post scheduling + carousels</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ AI images — 150/month</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ Autonomous DM Agent</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ SMS + call alerts</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ Competitor tracking</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ AI Advisor</div>
+          </div>
+          <a href="contact.html" style="display:block;padding:12px;text-align:center;background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;box-shadow:0 6px 20px rgba(124,58,237,.35);">Start Free Trial →</a>
+        </div>
+        <!-- Agency -->
+        <div style="background:#12122A;border:1.5px solid rgba(52,211,153,.2);border-radius:16px;padding:28px;display:flex;flex-direction:column;">
+          <div style="font-size:.7rem;font-weight:700;color:#34D399;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Agency</div>
+          <div style="font-family:var(--font-d);font-size:1.6rem;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1;margin-bottom:4px;">Custom</div>
+          <div style="font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:16px;">volume pricing</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.6;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.06);">For agencies managing multiple client businesses.</div>
+          <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:24px;flex:1;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ Everything in Pro</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ Agency Admin Console</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ Login as client</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ Unlimited AI images</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ White-label options</div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:.82rem;color:rgba(255,255,255,.55);">✓ Dedicated manager</div>
+          </div>
+          <a href="contact.html" style="display:block;padding:12px;text-align:center;background:rgba(52,211,153,.1);color:#34D399;border:1.5px solid rgba(52,211,153,.2);border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Contact for Pricing →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Included in all -->
+    <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:28px;margin-top:28px;text-align:center;">
+      <div style="font-family:var(--font-d);font-weight:700;font-size:1rem;color:#111827;margin-bottom:18px;">✅ Included in every plan, every product</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;">
+        <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">🚀</span><span style="font-size:.84rem;font-weight:500;color:#374151;">Free Setup</span></div>
+        <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">📚</span><span style="font-size:.84rem;font-weight:500;color:#374151;">Staff Training</span></div>
+        <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">📦</span><span style="font-size:.84rem;font-weight:500;color:#374151;">Data Migration</span></div>
+        <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">💬</span><span style="font-size:.84rem;font-weight:500;color:#374151;">WhatsApp Support</span></div>
+        <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">🔄</span><span style="font-size:.84rem;font-weight:500;color:#374151;">Free Updates</span></div>
+        <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">🔒</span><span style="font-size:.84rem;font-weight:500;color:#374151;">Daily Backups</span></div>
+        <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">📊</span><span style="font-size:.84rem;font-weight:500;color:#374151;">Full Analytics</span></div>
+        <div style="display:flex;align-items:center;gap:9px;"><span style="font-size:1.1rem;">🌐</span><span style="font-size:.84rem;font-weight:500;color:#374151;">GST / VAT Ready</span></div>
+      </div>
     </div>
   </div>
-  <div style="background:#5B21B6;border-radius:14px;padding:28px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:64px;">
-    <div><div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;margin-bottom:6px;">Not sure which plan is right?</div><div style="font-size:.84rem;color:rgba(255,255,255,.6);">WhatsApp us — free consultation, we'll find the best plan for you.</div></div>
-    <a href="https://wa.me/918807810394?text=Hi! I want to know more about pricing." style="padding:11px 22px;background:#fff;color:#5B21B6;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;white-space:nowrap;" target="_blank" rel="noreferrer">💬 WhatsApp for Pricing</a>
-  </div>
-</div></section>
-<script>
-function showPTab(e,id){
-  document.querySelectorAll('.sup-panel').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.pricing-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('ptab-'+id).classList.add('active');
-  e.currentTarget.classList.add('active');
-}
-</script>
+</section>
+
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
       <div>
-        <a href="index.html" class="logo logo--light" style="text-decoration:none;display:inline-flex;margin-bottom:4px;">
-          <div class="logo__icon"><svg viewBox="0 0 44 44" fill="none"><defs><linearGradient id="lg_f" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0891B2"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient></defs><rect width="44" height="44" rx="11" fill="url(#lg_f)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".55" fill="none" transform="rotate(-38 22 22)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".28" fill="none" transform="rotate(28 22 22)"/><circle cx="22" cy="22" r="5.5" fill="white"/><circle cx="34" cy="15" r="2.8" fill="white"/><circle cx="10" cy="30" r="1.8" fill="white" fill-opacity=".65"/></svg></div>
+        <a href="index.html" class="logo logo--light" style="text-decoration:none;display:inline-flex;">
+          <div class="logo__icon"><svg viewBox="0 0 44 44" fill="none"><defs><linearGradient id="lgf" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0891B2"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient></defs><rect width="44" height="44" rx="11" fill="url(#lgf)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".55" fill="none" transform="rotate(-38 22 22)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".28" fill="none" transform="rotate(28 22 22)"/><circle cx="22" cy="22" r="5.5" fill="white"/><circle cx="34" cy="15" r="2.8" fill="white"/><circle cx="10" cy="30" r="1.8" fill="white" fill-opacity=".65"/></svg></div>
           <div class="logo__wordmark"><div class="logo__name"><span class="am">AM</span><span class="nexus"> Technexus Labs</span><span class="ai-badge">AI</span></div><div class="logo__sub">AI &amp; Software Solutions</div></div>
         </a>
         <p class="footer__tagline">AI-powered platforms for global businesses. Built for impact.</p>
@@ -292,7 +245,7 @@ function showPTab(e,id){
           <a href="mailto:amtechnexusofficial@gmail.com" class="footer__social-btn" title="Gmail">✉</a>
           <a href="https://www.instagram.com/amtechnexus/" class="footer__social-btn" title="Instagram" target="_blank" rel="noreferrer">📸</a>
           <a href="https://www.facebook.com/profile.php?id=100073104771786" class="footer__social-btn" title="Facebook" target="_blank" rel="noreferrer">fb</a>
-          <a href="https://x.com/AMtechnexus" class="footer__social-btn" title="X / Twitter" target="_blank" rel="noreferrer">𝕏</a>
+          <a href="https://x.com/AMtechnexus" class="footer__social-btn" title="X" target="_blank" rel="noreferrer">𝕏</a>
         </div>
       </div>
       <div>
@@ -302,17 +255,7 @@ function showPTab(e,id){
           <a href="nexusai.html">NexusAI</a>
           <a href="nexusbilling.html">NexusBilling</a>
           <a href="nexusapartments.html">NexusApartments</a>
-          <a href="nexusbusiness.html">NexusBusiness Suite</a>
-          <a href="pricing.html">Pricing</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer__heading">Follow Us</div>
-        <div class="footer__links">
-          <a href="https://www.instagram.com/amtechnexus/" target="_blank" rel="noreferrer">📸 Instagram</a>
-          <a href="https://www.facebook.com/profile.php?id=100073104771786" target="_blank" rel="noreferrer">Facebook</a>
-          <a href="https://x.com/AMtechnexus" target="_blank" rel="noreferrer">𝕏 Twitter / X</a>
-          <a href="https://wa.me/918807810394" target="_blank" rel="noreferrer">💬 WhatsApp</a>
+          <a href="nexusbusiness.html">NexusBusiness Suite ✨</a>
         </div>
       </div>
       <div>
@@ -322,6 +265,15 @@ function showPTab(e,id){
           <a href="case-studies.html">Case Studies</a>
           <a href="support.html">Support</a>
           <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__heading">Follow Us</div>
+        <div class="footer__links">
+          <a href="https://www.instagram.com/amtechnexus/" target="_blank" rel="noreferrer">📸 Instagram</a>
+          <a href="https://www.facebook.com/profile.php?id=100073104771786" target="_blank" rel="noreferrer">Facebook</a>
+          <a href="https://x.com/AMtechnexus" target="_blank" rel="noreferrer">𝕏 Twitter / X</a>
+          <a href="https://wa.me/918807810394" target="_blank" rel="noreferrer">💬 WhatsApp</a>
         </div>
       </div>
       <div>
@@ -336,11 +288,20 @@ function showPTab(e,id){
     </div>
     <div class="footer__bottom">
       <span>© 2024 AM Technexus Labs Private Limited · Made with ❤️ in India 🇮🇳 · Serving the world 🌍</span>
-      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies</a></div>
+      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
   </div>
 </footer>
 <script src="assets/main.js"></script>
-
+<script>
+function showPlan(id) {
+  document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  ['pos','ai','billing','apts','biz'].forEach(t=>{
+    const btn=document.getElementById('tab-'+t);
+    btn.className='ptab'+(t===id?' active-'+t:'');
+  });
+}
+</script>
 </body>
 </html>
