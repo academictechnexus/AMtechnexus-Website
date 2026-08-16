@@ -3,67 +3,208 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Contact — AM Technexus Labs</title>
+<meta name="description" content="Get in touch with AM Technexus Labs. Book a free demo or ask us anything.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 <style>
-.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0;margin-right:16px;}
-.logo__icon{width:40px;height:40px;flex-shrink:0;}.logo__icon svg{width:40px;height:40px;}
-.logo__wordmark{display:flex;flex-direction:column;gap:2px;}
-.logo__name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(.78rem,.9rem,1rem);line-height:1;display:flex;align-items:center;gap:0;white-space:nowrap;}
-.logo__name .am{color:#0891B2;letter-spacing:-.3px;}.logo__name .nexus{color:#111827;letter-spacing:-.3px;}
-.logo__name .ai-badge{font-size:8px;font-weight:800;letter-spacing:.5px;background:#EDE9FE;color:#5B21B6;border:1px solid rgba(91,33,182,.2);border-radius:4px;padding:2px 5px;line-height:1.5;margin-left:6px;flex-shrink:0;}
-.logo__sub{font-size:7px;font-weight:600;color:#718096;letter-spacing:1.8px;text-transform:uppercase;white-space:nowrap;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.logo__icon{width:38px;height:38px;flex-shrink:0;}.logo__icon svg{width:38px;height:38px;display:block;}
+.logo__wordmark{display:flex;flex-direction:column;gap:1px;}
+.logo__name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:.95rem;line-height:1;display:flex;align-items:center;white-space:nowrap;}
+.logo__name .am{color:#0891B2;}.logo__name .nexus{color:#0F172A;}
+.logo__name .badge{font-size:7.5px;font-weight:800;background:#EDE9FE;color:#5B21B6;border-radius:4px;padding:2px 5px;margin-left:5px;flex-shrink:0;}
+.logo__sub{font-size:6.5px;font-weight:600;color:#718096;letter-spacing:1.8px;text-transform:uppercase;white-space:nowrap;}
 .logo--light .logo__name .am{color:#7DD3FA;}.logo--light .logo__name .nexus{color:#fff;}
-.logo--light .logo__name .ai-badge{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.25);}
-.logo--light .logo__sub{color:rgba(255,255,255,.4);}
-.footer__heading{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px;}
-.footer__links{display:flex;flex-direction:column;gap:10px;}
-.footer__links a,.footer__links span{font-size:.84rem;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;}
-.footer__links a:hover{color:rgba(255,255,255,.75);}
-.footer__tagline{font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.75;margin:12px 0;max-width:220px;}
-.footer__social{display:flex;gap:7px;margin-top:4px;flex-wrap:wrap;}
-.footer__social-btn{width:32px;height:32px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.75rem;color:rgba(255,255,255,.35);transition:all .2s;}
-.footer__social-btn:hover{background:#5B21B6;color:#fff;border-color:#5B21B6;}
-.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06);}
-.footer__bottom span{font-size:.72rem;color:rgba(255,255,255,.18);}
-.footer__bottom div{display:flex;gap:18px;}
-.footer__bottom div a{font-size:.7rem;color:rgba(255,255,255,.18);text-decoration:none;}
-@media(max-width:768px){.logo__icon{width:34px;height:34px;}.logo__icon svg{width:34px;height:34px;}.logo__name{font-size:.78rem;}.logo__sub{font-size:6px;letter-spacing:1.3px;}.logo{gap:8px;margin-right:0;}}
-</style>
-<style>
-.contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:44px;}
-.contact-form{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:34px;box-shadow:0 2px 16px rgba(0,0,0,.05);}
+.logo--light .logo__name .badge{background:rgba(255,255,255,.15);color:#fff;}
+.logo--light .logo__sub{color:rgba(255,255,255,.35);}
+@media(max-width:900px){
+  .logo__icon{width:33px;height:33px;}.logo__icon svg{width:33px;height:33px;}
+  .logo__name{font-size:.85rem;}.logo__sub{display:none;}
+}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;height:66px;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(12px);
+  border-bottom:1px solid #E2E8F0;transition:box-shadow .3s;}
+.nav.stuck{box-shadow:0 2px 20px rgba(0,0,0,.07);}
+.nav__inner{max-width:1200px;margin:0 auto;padding:0 24px;height:100%;
+  display:flex;align-items:center;gap:8px;}
+.nav__links{display:flex;align-items:center;list-style:none;flex:1;margin-left:10px;}
+.nav__links a{padding:7px 12px;font-size:.83rem;font-weight:500;color:#64748B;
+  border-radius:7px;transition:all .15s;}
+.nav__links a:hover{color:#5B21B6;background:#EDE9FE;}
+.nav__drop{position:relative;}
+.nav__drop-chevron{width:13px;height:13px;transition:transform .2s;}
+.nav__drop:hover .nav__drop-chevron{transform:rotate(180deg);}
+.nav__drop-menu{position:absolute;top:calc(100% + 8px);left:50%;transform:translateX(-50%);
+  background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:8px;min-width:260px;
+  box-shadow:0 16px 48px rgba(0,0,0,.12);opacity:0;visibility:hidden;pointer-events:none;transition:all .18s;}
+.nav__drop:hover .nav__drop-menu{opacity:1;visibility:visible;pointer-events:auto;}
+.drop-item{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:8px;transition:background .12s;}
+.drop-item:hover{background:#F8FAFC;}
+.drop-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.drop-title{font-size:.82rem;font-weight:600;color:#0F172A;display:block;line-height:1.2;margin-bottom:1px;}
+.drop-desc{font-size:.7rem;color:#64748B;}
+.drop-divider{height:1px;background:#E2E8F0;margin:5px 0;}
+.nav__right{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0;}
+.btn-ghost-nav{padding:8px 14px;font-size:.82rem;font-weight:500;color:#64748B;
+  background:none;border:none;border-radius:7px;cursor:pointer;text-decoration:none;transition:all .15s;}
+.btn-ghost-nav:hover{color:#5B21B6;background:#EDE9FE;}
+.btn-nav-cta{padding:9px 18px;font-size:.84rem;font-weight:700;color:#fff;
+  background:#5B21B6;border:none;border-radius:8px;cursor:pointer;text-decoration:none;transition:all .2s;}
+.btn-nav-cta:hover{background:#4C1D95;transform:translateY(-1px);}
+.nav__ham{display:none;flex-direction:column;gap:4.5px;width:36px;height:36px;
+  align-items:center;justify-content:center;background:none;border:1px solid #E2E8F0;
+  border-radius:7px;cursor:pointer;margin-left:8px;}
+.nav__ham span{display:block;width:16px;height:2px;background:#0F172A;border-radius:2px;transition:all .25s;}
+.nav__ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav__ham.open span:nth-child(2){opacity:0;}
+.nav__ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav__mob{display:none;position:fixed;top:66px;left:0;right:0;bottom:0;
+  background:#fff;z-index:998;overflow-y:auto;border-top:1px solid #E2E8F0;}
+.nav__mob.open{display:block;}
+.nav__mob-inner{padding:16px;}
+.nav__mob-sec{font-size:.68rem;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:1.2px;padding:14px 8px 6px;}
+.nav__mob a{display:flex;align-items:center;gap:10px;padding:12px 8px;font-size:.9rem;
+  font-weight:500;color:#334155;border-bottom:1px solid #F1F5F9;}
+.nav__mob a:hover{color:#5B21B6;}
+.nav__mob .mob-cta{display:block;margin-top:16px;padding:14px;text-align:center;
+  background:#5B21B6;color:#fff;border-radius:10px;font-weight:700;font-size:.95rem;}
+@media(max-width:900px){
+  .nav__links,.nav__right .btn-ghost-nav,.nav__right .btn-nav-cta{display:none;}
+  .nav__ham{display:flex;}
+}
+
+/* PAGE */
+.hero-section{background:linear-gradient(160deg,#EDE9FE,#F5F3FF,#EEF2FF);
+  padding:calc(66px + 64px) 0 52px;}
+.hero-section .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+.eyebrow{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:1.5px;
+  text-transform:uppercase;color:#5B21B6;margin-bottom:12px;}
+.page-h1{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2rem,4vw,3rem);
+  font-weight:800;color:#0F172A;letter-spacing:-1.5px;line-height:1.08;margin-bottom:14px;}
+.page-h1 span{color:#5B21B6;}
+.page-lead{font-size:1rem;color:#64748B;line-height:1.75;max-width:480px;}
+
+.content-section{padding:56px 0 80px;}
+.content-section .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+.contact-layout{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start;}
+
+/* Form */
+.form-card{background:#fff;border:1px solid #E2E8F0;border-radius:18px;
+  padding:36px;box-shadow:0 4px 24px rgba(0,0,0,.06);}
+.form-card h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.2rem;font-weight:800;
+  color:#0F172A;margin-bottom:6px;}
+.form-card p{font-size:.84rem;color:#64748B;margin-bottom:28px;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
 .form-group{margin-bottom:14px;}
-.form-group label{font-size:.75rem;font-weight:600;color:#374151;display:block;margin-bottom:5px;}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:11px 14px;background:#fff;border:1.5px solid #E5E7EB;border-radius:9px;font-size:.88rem;font-family:inherit;outline:none;color:#111827;box-sizing:border-box;transition:border-color .15s;}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#5B21B6;}
-.contact-card{display:flex;align-items:flex-start;gap:13px;background:#F9FAFB;border:1px solid #E5E7EB;border-radius:13px;padding:15px 17px;text-decoration:none;transition:all .18s;margin-bottom:11px;}
-.contact-card:hover{border-color:#5B21B6;transform:translateY(-1px);}
-@media(max-width:768px){.contact-grid{grid-template-columns:1fr;}.form-row{grid-template-columns:1fr;}}
+.form-group label{display:block;font-size:.75rem;font-weight:600;color:#374151;margin-bottom:5px;}
+.form-group input,.form-group select,.form-group textarea{
+  width:100%;padding:11px 14px;background:#F8FAFC;border:1.5px solid #E2E8F0;
+  border-radius:9px;font-size:.88rem;font-family:'Inter',sans-serif;outline:none;
+  color:#0F172A;transition:all .15s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{
+  border-color:#5B21B6;background:#fff;box-shadow:0 0 0 3px rgba(91,33,182,.08);}
+.form-group textarea{resize:vertical;min-height:100px;}
+.submit-btn{width:100%;padding:14px;background:#5B21B6;color:#fff;border:none;
+  border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;
+  font-family:'Inter',sans-serif;box-shadow:0 4px 20px rgba(91,33,182,.35);
+  transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.submit-btn:hover{background:#4C1D95;transform:translateY(-1px);}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+
+/* Success message */
+.success-msg{display:none;text-align:center;padding:44px 20px;}
+.success-msg.show{display:block;}
+.success-msg .emoji{font-size:3.5rem;margin-bottom:16px;}
+.success-msg h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;
+  font-weight:800;color:#0F172A;margin-bottom:10px;}
+.success-msg p{font-size:.9rem;color:#64748B;line-height:1.7;}
+
+/* Error message */
+.error-msg{display:none;background:#FFF1F2;border:1px solid #FECDD3;border-radius:9px;
+  padding:11px 14px;font-size:.84rem;color:#DC2626;margin-top:12px;}
+.error-msg.show{display:block;}
+
+/* Contact sidebar */
+.contact-sidebar{display:flex;flex-direction:column;gap:12px;}
+.contact-card{display:flex;align-items:flex-start;gap:13px;background:#F8FAFC;
+  border:1px solid #E2E8F0;border-radius:13px;padding:16px 18px;
+  text-decoration:none;transition:all .18s;}
+.contact-card:hover{border-color:#5B21B6;transform:translateY(-1px);
+  box-shadow:0 4px 16px rgba(91,33,182,.1);}
+.contact-card-ic{font-size:1.3rem;flex-shrink:0;margin-top:1px;}
+.contact-card-title{font-weight:700;font-size:.88rem;color:#0F172A;margin-bottom:3px;}
+.contact-card-val{font-size:.84rem;font-weight:600;margin-bottom:2px;}
+.contact-card-sub{font-size:.72rem;color:#94A3B8;}
+.demo-box{background:#5B21B6;border-radius:14px;padding:24px;margin-top:4px;}
+.demo-box h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;
+  font-size:1.05rem;color:#fff;margin-bottom:8px;}
+.demo-box p{font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:18px;}
+.demo-box a{display:inline-block;padding:10px 22px;background:#fff;color:#5B21B6;
+  border-radius:8px;font-weight:700;font-size:.84rem;text-decoration:none;transition:all .2s;}
+.demo-box a:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.15);}
+
+/* Footer */
+.footer{background:#060612;padding:56px 0 24px;}
+.footer .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+.footer__grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:32px;
+  padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:20px;}
+.footer__desc{font-size:.78rem;color:rgba(255,255,255,.28);line-height:1.7;max-width:190px;margin:10px 0 14px;}
+.footer__social{display:flex;gap:6px;flex-wrap:wrap;}
+.footer__social a{width:30px;height:30px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.07);
+  border-radius:7px;display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;color:rgba(255,255,255,.3);text-decoration:none;transition:all .2s;}
+.footer__social a:hover{background:#5B21B6;color:#fff;}
+.footer__col-title{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.3);
+  text-transform:uppercase;letter-spacing:1.2px;margin-bottom:12px;}
+.footer__col a,.footer__col span{display:block;font-size:.78rem;color:rgba(255,255,255,.28);
+  margin-bottom:8px;text-decoration:none;transition:color .15s;}
+.footer__col a:hover{color:rgba(255,255,255,.65);}
+.footer__new{display:inline-block;font-size:.55rem;font-weight:700;
+  background:rgba(167,139,250,.15);color:#A78BFA;border-radius:100px;
+  padding:1px 6px;margin-left:5px;vertical-align:middle;}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer__copy{font-size:.68rem;color:rgba(255,255,255,.14);}
+.footer__legal{display:flex;gap:16px;}
+.footer__legal a{font-size:.67rem;color:rgba(255,255,255,.14);text-decoration:none;}
+
+@media(max-width:900px){
+  .contact-layout{grid-template-columns:1fr;}
+  .footer__grid{grid-template-columns:1fr 1fr;gap:24px;}
+}
+@media(max-width:600px){
+  .form-row{grid-template-columns:1fr;}
+  .form-card{padding:22px;}
+  .footer__grid{grid-template-columns:1fr;}
+  .hero-section{padding:calc(66px + 40px) 0 36px;}
+}
 </style>
 </head>
 <body>
+
+<!-- NAV -->
 <nav class="nav" id="nav">
   <div class="nav__inner">
     <a href="index.html" class="logo">
       <div class="logo__icon"><svg viewBox="0 0 44 44" fill="none"><defs><linearGradient id="lg1" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0891B2"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient></defs><rect width="44" height="44" rx="11" fill="url(#lg1)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".55" fill="none" transform="rotate(-38 22 22)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".28" fill="none" transform="rotate(28 22 22)"/><circle cx="22" cy="22" r="5.5" fill="white"/><circle cx="34" cy="15" r="2.8" fill="white"/><circle cx="10" cy="30" r="1.8" fill="white" fill-opacity=".65"/></svg></div>
-      <div class="logo__wordmark">
-        <div class="logo__name"><span class="am">AM</span><span class="nexus"> Technexus Labs</span><span class="ai-badge">AI</span></div>
-        <div class="logo__sub">AI &amp; Software Solutions</div>
-      </div>
+      <div class="logo__wordmark"><div class="logo__name"><span class="am">AM</span><span class="nexus"> Technexus Labs</span><span class="badge">AI</span></div><div class="logo__sub">AI &amp; Software Solutions</div></div>
     </a>
     <ul class="nav__links">
       <li><a href="index.html">Home</a></li>
-      <li class="nav__drop">
-        <a href="products.html">Products <svg class="nav__drop-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></a>
+      <li class="nav__drop"><a href="products.html">Products <svg class="nav__drop-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></a>
         <div class="nav__drop-menu">
           <a href="nexuspos.html" class="drop-item"><div class="drop-icon" style="background:#EFF6FF;">🍽️</div><div><span class="drop-title">NexusPOS</span><span class="drop-desc">Food cart &amp; kiosk billing</span></div></a>
           <a href="nexusai.html" class="drop-item"><div class="drop-icon" style="background:#EDE9FE;">🤖</div><div><span class="drop-title">NexusAI</span><span class="drop-desc">AI chatbot &amp; automation</span></div></a>
-          <a href="nexusbilling.html" class="drop-item"><div class="drop-icon" style="background:#FFF5F5;">🚗</div><div><span class="drop-title">NexusBilling</span><span class="drop-desc">Automobile workshop management</span></div></a>
-          <a href="nexusapartments.html" class="drop-item"><div class="drop-icon" style="background:#F0FFF4;">🏢</div><div><span class="drop-title">NexusApartments</span><span class="drop-desc">Society management</span></div></a>
-          <a href="nexusbusiness.html" class="drop-item"><div class="drop-icon" style="background:#F5F3FF;">⭐</div><div><span class="drop-title">NexusBusiness Suite</span><span class="drop-desc">Reviews &amp; social media AI</span></div></a>
+          <a href="nexusbilling.html" class="drop-item"><div class="drop-icon" style="background:#FFF1F2;">🚗</div><div><span class="drop-title">NexusBilling</span><span class="drop-desc">Automobile workshop</span></div></a>
+          <a href="nexusapartments.html" class="drop-item"><div class="drop-icon" style="background:#F0FDF4;">🏢</div><div><span class="drop-title">NexusApartments</span><span class="drop-desc">Society management</span></div></a>
+          <div class="drop-divider"></div>
+          <a href="nexusbusiness.html" class="drop-item" style="background:linear-gradient(135deg,rgba(124,58,237,.04),rgba(37,99,235,.04));border-radius:8px;">
+            <div class="drop-icon" style="background:linear-gradient(135deg,#7C3AED22,#2563EB22);">⭐</div>
+            <div><span class="drop-title" style="color:#7C3AED;">NexusBusiness Suite <span style="font-size:.58rem;background:#EDE9FE;color:#5B21B6;border-radius:100px;padding:1px 7px;vertical-align:middle;margin-left:3px;">NEW</span></span><span class="drop-desc">Reviews &amp; social media AI</span></div>
+          </a>
         </div>
       </li>
       <li><a href="about.html">About</a></li>
@@ -72,157 +213,274 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <div class="nav__right">
-      <a href="https://wa.me/918807810394" class="btn-ghost" target="_blank" rel="noreferrer">💬 WhatsApp</a>
-      <a href="contact.html" class="btn-nav">Get Demo →</a>
+      <a href="mailto:support@amtechnexus.com" class="btn-ghost-nav">support@amtechnexus.com</a>
+      <a href="contact.html" class="btn-nav-cta">Get Demo →</a>
     </div>
     <button class="nav__ham" id="ham"><span></span><span></span><span></span></button>
   </div>
 </nav>
 <div class="nav__mob" id="mob">
-  <div class="nav__mob-sec">Products</div>
-  <a href="nexuspos.html">🍽️ NexusPOS</a>
-  <a href="nexusai.html">🤖 NexusAI</a>
-  <a href="nexusbilling.html">🚗 NexusBilling</a>
-  <a href="nexusapartments.html">🏢 NexusApartments</a>
-  <a href="nexusbusiness.html">⭐ NexusBusiness Suite</a>
-  <div class="nav__mob-sec">Company</div>
-  <a href="about.html">About Us</a>
-  <a href="pricing.html">Pricing</a>
-  <a href="support.html">Support</a>
-  <a href="contact.html">Contact</a>
-  <a href="contact.html" class="btn-nav">Get a free demo →</a>
+  <div class="nav__mob-inner">
+    <div class="nav__mob-sec">Products</div>
+    <a href="nexuspos.html">🍽️ NexusPOS</a>
+    <a href="nexusai.html">🤖 NexusAI</a>
+    <a href="nexusbilling.html">🚗 NexusBilling</a>
+    <a href="nexusapartments.html">🏢 NexusApartments</a>
+    <a href="nexusbusiness.html">⭐ NexusBusiness Suite</a>
+    <div class="nav__mob-sec">Company</div>
+    <a href="about.html">About Us</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="support.html">Support</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="mob-cta">Book a Free Demo →</a>
+  </div>
 </div>
 
-<section style="background:linear-gradient(160deg,#EDE9FE,#F5F3FF,#EEF2FF);padding:calc(var(--nav-h) + 64px) 0 52px;">
+<!-- HERO -->
+<section class="hero-section">
   <div class="wrap">
-    <span class="eyebrow" style="color:#5B21B6;">Contact Us</span>
-    <h1 class="h1" style="margin-bottom:14px;">Let's build something<br/><span style="color:#5B21B6;">great together.</span></h1>
-    <p class="lead" style="max-width:460px;">English, Tamil, Hindi, Arabic — we respond within 2 hours, wherever you are in the world.</p>
+    <div class="eyebrow">Contact Us</div>
+    <h1 class="page-h1">Let's build something<br/><span>great together.</span></h1>
+    <p class="page-lead">English, Tamil, Hindi, Arabic — we respond within 2 hours, wherever you are in the world.</p>
   </div>
 </section>
 
-<section>
+<!-- CONTENT -->
+<section class="content-section">
   <div class="wrap">
-    <div class="contact-grid">
-      <!-- Form -->
-      <div class="contact-form">
-        <h2 style="font-family:var(--font-d);font-size:1.25rem;font-weight:800;color:#111827;margin-bottom:24px;">Send a message</h2>
-        <div class="form-row">
-          <div class="form-group"><label>Name *</label><input type="text" placeholder="Your full name"/></div>
-          <div class="form-group"><label>Phone *</label><input type="tel" placeholder="+91 / +971 / +44..."/></div>
+    <div class="contact-layout">
+
+      <!-- FORM -->
+      <div class="form-card">
+        <!-- Success state -->
+        <div class="success-msg" id="successMsg">
+          <div class="emoji">🎉</div>
+          <h3>Message Sent!</h3>
+          <p>We'll get back to you within 2 hours.<br/>For the fastest response, WhatsApp us: <strong>+91 88078 10394</strong></p>
         </div>
-        <div class="form-group"><label>Email</label><input type="email" placeholder="you@business.com"/></div>
-        <div class="form-group"><label>Business Name &amp; Country</label><input type="text" placeholder="SpiceGarden Restaurant, India"/></div>
-        <div class="form-group"><label>Product Interest *</label>
-          <select>
-            <option value="">Select a product...</option>
-            <option>NexusPOS — Food Cart &amp; Kiosk Billing</option>
-            <option>NexusAI — AI Chatbot &amp; Automation</option>
-            <option>NexusBilling — Automobile Workshop</option>
-            <option>NexusApartments — Society Management</option>
-            <option>Multiple / Not sure yet</option>
-          </select>
+
+        <!-- Form state -->
+        <div id="formState">
+          <h2>Send us a message</h2>
+          <p>Fill in the form and we'll reply within 2 hours.</p>
+
+          <!--
+            FORMSPREE SETUP (takes 2 minutes):
+            1. Go to https://formspree.io and sign up free
+            2. Click "New Form" → name it "AM Technexus Contact"
+            3. Copy your form ID (looks like: xrgopqwk)
+            4. Replace YOUR_FORM_ID below with that ID
+            Emails will go to: amtechnexusofficial@gmail.com
+          -->
+          <form id="contactForm"
+                action="https://formspree.io/f/xjybeeqr"
+                method="POST">
+
+            <!-- Hidden fields for email routing -->
+            <input type="hidden" name="_replyto" value="amtechnexusofficial@gmail.com">
+            <input type="hidden" name="_subject" value="New Enquiry — AM Technexus Labs Website">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" name="name" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label>Phone *</label>
+                <input type="tel" name="phone" placeholder="+91 / +971 / +44..." required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="you@yourbusiness.com">
+            </div>
+            <div class="form-group">
+              <label>Business Name &amp; Country</label>
+              <input type="text" name="business" placeholder="e.g. SpiceGarden Restaurant, Chennai, India">
+            </div>
+            <div class="form-group">
+              <label>Product Interest *</label>
+              <select name="product" required>
+                <option value="">Select a product...</option>
+                <option>NexusPOS — Food Cart &amp; Kiosk Billing</option>
+                <option>NexusAI — AI Chatbot &amp; Automation</option>
+                <option>NexusBilling — Automobile Workshop</option>
+                <option>NexusApartments — Society Management</option>
+                <option>NexusBusiness Suite — Reviews &amp; Social Media AI</option>
+                <option>Multiple products / Not sure yet</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea name="message" placeholder="Tell us about your business and what you need..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <span id="btnText">Send Message →</span>
+            </button>
+            <div class="error-msg" id="errorMsg">Something went wrong. Please WhatsApp us directly at +91 88078 10394.</div>
+          </form>
         </div>
-        <div class="form-group"><label>Message</label><textarea rows="4" placeholder="Tell us about your business and what you need..."></textarea></div>
-        <button onclick="this.textContent='✓ Message Sent! We will reply within 2 hours.';this.style.background='#059669';" style="width:100%;padding:14px;background:#5B21B6;color:white;border:none;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:inherit;box-shadow:0 4px 20px rgba(91,33,182,.35);transition:all .18s;">Send Message →</button>
       </div>
-      <!-- Contact details -->
-      <div>
+
+      <!-- SIDEBAR -->
+      <div class="contact-sidebar">
         <a href="https://wa.me/918807810394" class="contact-card" target="_blank" rel="noreferrer">
-          <span style="font-size:1.3rem;flex-shrink:0;margin-top:1px;">💬</span>
-          <div><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:3px;">WhatsApp (Fastest)</div><div style="font-size:.85rem;color:#059669;font-weight:600;">+91 88078 10394</div><div style="font-size:.75rem;color:#6B7280;margin-top:2px;">Reply under 15 min · any language</div></div>
+          <span class="contact-card-ic">💬</span>
+          <div>
+            <div class="contact-card-title">WhatsApp (Fastest)</div>
+            <div class="contact-card-val" style="color:#059669;">+91 88078 10394</div>
+            <div class="contact-card-sub">Reply under 15 min · any language</div>
+          </div>
         </a>
         <a href="mailto:support@amtechnexus.com" class="contact-card">
-          <span style="font-size:1.3rem;flex-shrink:0;margin-top:1px;">📧</span>
-          <div><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:3px;">Support Email</div><div style="font-size:.85rem;color:#5B21B6;font-weight:600;">support@amtechnexus.com</div></div>
+          <span class="contact-card-ic">📧</span>
+          <div>
+            <div class="contact-card-title">Support Email</div>
+            <div class="contact-card-val" style="color:#5B21B6;">support@amtechnexus.com</div>
+            <div class="contact-card-sub">Reply within 2 hours</div>
+          </div>
         </a>
         <a href="mailto:amtechnexusofficial@gmail.com" class="contact-card">
-          <span style="font-size:1.3rem;flex-shrink:0;margin-top:1px;">✉️</span>
-          <div><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:3px;">Gmail</div><div style="font-size:.85rem;color:#DC2626;font-weight:600;">amtechnexusofficial@gmail.com</div></div>
+          <span class="contact-card-ic">✉️</span>
+          <div>
+            <div class="contact-card-title">Gmail</div>
+            <div class="contact-card-val" style="color:#DC2626;">amtechnexusofficial@gmail.com</div>
+          </div>
         </a>
         <a href="https://www.instagram.com/amtechnexus/" class="contact-card" target="_blank" rel="noreferrer">
-          <span style="font-size:1.3rem;flex-shrink:0;margin-top:1px;">📸</span>
-          <div><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:3px;">Instagram</div><div style="font-size:.85rem;color:#E1306C;font-weight:600;">@amtechnexus</div></div>
+          <span class="contact-card-ic">📸</span>
+          <div>
+            <div class="contact-card-title">Instagram</div>
+            <div class="contact-card-val" style="color:#E1306C;">@amtechnexus</div>
+          </div>
         </a>
         <a href="https://x.com/AMtechnexus" class="contact-card" target="_blank" rel="noreferrer">
-          <span style="font-size:1.3rem;flex-shrink:0;margin-top:1px;">𝕏</span>
-          <div><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:3px;">X / Twitter</div><div style="font-size:.85rem;color:#111827;font-weight:600;">@AMtechnexus</div></div>
+          <span class="contact-card-ic">𝕏</span>
+          <div>
+            <div class="contact-card-title">X / Twitter</div>
+            <div class="contact-card-val" style="color:#0F172A;">@AMtechnexus</div>
+          </div>
         </a>
         <a href="https://www.facebook.com/profile.php?id=100073104771786" class="contact-card" target="_blank" rel="noreferrer">
-          <span style="font-size:1.3rem;flex-shrink:0;margin-top:1px;">👍</span>
-          <div><div style="font-weight:700;font-size:.9rem;color:#111827;margin-bottom:3px;">Facebook</div><div style="font-size:.85rem;color:#1877F2;font-weight:600;">AM Technexus Labs</div></div>
+          <span class="contact-card-ic">👍</span>
+          <div>
+            <div class="contact-card-title">Facebook</div>
+            <div class="contact-card-val" style="color:#1877F2;">AM Technexus Labs</div>
+          </div>
         </a>
-        <div style="background:#5B21B6;border-radius:14px;padding:22px;margin-top:4px;">
-          <div style="font-family:var(--font-d);font-weight:800;font-size:1.05rem;color:white;margin-bottom:8px;">Book a Live Demo</div>
-          <p style="font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:18px;">30-minute personalised walkthrough — we'll show exactly how it works for your business, live.</p>
-          <a href="https://wa.me/918807810394?text=Hi! I want to book a free demo." style="display:inline-block;padding:10px 22px;background:white;color:#5B21B6;border-radius:8px;font-weight:700;font-size:.84rem;text-decoration:none;" target="_blank" rel="noreferrer">WhatsApp to Book →</a>
+        <div class="demo-box">
+          <h3>Book a Live Demo</h3>
+          <p>30-minute personalised walkthrough — we'll show exactly how the product works for your specific business, live on screen.</p>
+          <a href="https://wa.me/918807810394?text=Hi! I want to book a free demo of AM Technexus Labs." target="_blank" rel="noreferrer">WhatsApp to Book →</a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
       <div>
-        <a href="index.html" class="logo logo--light" style="text-decoration:none;display:inline-flex;">
+        <a href="index.html" class="logo logo--light" style="display:inline-flex;text-decoration:none;margin-bottom:2px;">
           <div class="logo__icon"><svg viewBox="0 0 44 44" fill="none"><defs><linearGradient id="lgf" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#0891B2"/><stop offset="100%" stop-color="#1D4ED8"/></linearGradient></defs><rect width="44" height="44" rx="11" fill="url(#lgf)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".55" fill="none" transform="rotate(-38 22 22)"/><ellipse cx="22" cy="22" rx="14" ry="6.5" stroke="white" stroke-width="1.8" stroke-opacity=".28" fill="none" transform="rotate(28 22 22)"/><circle cx="22" cy="22" r="5.5" fill="white"/><circle cx="34" cy="15" r="2.8" fill="white"/><circle cx="10" cy="30" r="1.8" fill="white" fill-opacity=".65"/></svg></div>
-          <div class="logo__wordmark"><div class="logo__name"><span class="am">AM</span><span class="nexus"> Technexus Labs</span><span class="ai-badge">AI</span></div><div class="logo__sub">AI &amp; Software Solutions</div></div>
+          <div class="logo__wordmark"><div class="logo__name"><span class="am">AM</span><span class="nexus"> Technexus Labs</span><span class="badge">AI</span></div><div class="logo__sub">AI &amp; Software Solutions</div></div>
         </a>
-        <p class="footer__tagline">AI-powered platforms for global businesses. Built for impact.</p>
+        <p class="footer__desc">AI-powered platforms for global businesses. Built for impact, built in India.</p>
         <div class="footer__social">
-          <a href="https://wa.me/918807810394" class="footer__social-btn" title="WhatsApp" target="_blank" rel="noreferrer">💬</a>
-          <a href="mailto:amtechnexusofficial@gmail.com" class="footer__social-btn" title="Gmail">✉</a>
-          <a href="https://www.instagram.com/amtechnexus/" class="footer__social-btn" title="Instagram" target="_blank" rel="noreferrer">📸</a>
-          <a href="https://www.facebook.com/profile.php?id=100073104771786" class="footer__social-btn" title="Facebook" target="_blank" rel="noreferrer">fb</a>
-          <a href="https://x.com/AMtechnexus" class="footer__social-btn" title="X" target="_blank" rel="noreferrer">𝕏</a>
+          <a href="https://wa.me/918807810394" target="_blank" rel="noreferrer">💬</a>
+          <a href="mailto:amtechnexusofficial@gmail.com">✉</a>
+          <a href="https://www.instagram.com/amtechnexus/" target="_blank" rel="noreferrer">📸</a>
+          <a href="https://www.facebook.com/profile.php?id=100073104771786" target="_blank" rel="noreferrer">fb</a>
+          <a href="https://x.com/AMtechnexus" target="_blank" rel="noreferrer">𝕏</a>
         </div>
       </div>
-      <div>
-        <div class="footer__heading">Products</div>
-        <div class="footer__links">
-          <a href="nexuspos.html">NexusPOS</a>
-          <a href="nexusai.html">NexusAI</a>
-          <a href="nexusbilling.html">NexusBilling</a>
-          <a href="nexusapartments.html">NexusApartments</a>
-          <a href="nexusbusiness.html">NexusBusiness Suite ✨</a>
-        </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Products</div>
+        <a href="nexuspos.html">NexusPOS</a>
+        <a href="nexusai.html">NexusAI</a>
+        <a href="nexusbilling.html">NexusBilling</a>
+        <a href="nexusapartments.html">NexusApartments</a>
+        <a href="nexusbusiness.html">NexusBusiness Suite <span class="footer__new">NEW</span></a>
       </div>
-      <div>
-        <div class="footer__heading">Company</div>
-        <div class="footer__links">
-          <a href="about.html">About Us</a>
-          <a href="case-studies.html">Case Studies</a>
-          <a href="support.html">Support</a>
-          <a href="contact.html">Contact</a>
-        </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <a href="about.html">About Us</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
       </div>
-      <div>
-        <div class="footer__heading">Follow Us</div>
-        <div class="footer__links">
-          <a href="https://www.instagram.com/amtechnexus/" target="_blank" rel="noreferrer">📸 Instagram</a>
-          <a href="https://www.facebook.com/profile.php?id=100073104771786" target="_blank" rel="noreferrer">Facebook</a>
-          <a href="https://x.com/AMtechnexus" target="_blank" rel="noreferrer">𝕏 Twitter / X</a>
-          <a href="https://wa.me/918807810394" target="_blank" rel="noreferrer">💬 WhatsApp</a>
-        </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Follow Us</div>
+        <a href="https://www.instagram.com/amtechnexus/" target="_blank" rel="noreferrer">📸 Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=100073104771786" target="_blank" rel="noreferrer">Facebook</a>
+        <a href="https://x.com/AMtechnexus" target="_blank" rel="noreferrer">𝕏 Twitter / X</a>
+        <a href="https://wa.me/918807810394" target="_blank" rel="noreferrer">💬 WhatsApp</a>
       </div>
-      <div>
-        <div class="footer__heading">Contact</div>
-        <div class="footer__links">
-          <a href="mailto:support@amtechnexus.com">support@amtechnexus.com</a>
-          <a href="mailto:amtechnexusofficial@gmail.com">amtechnexusofficial@gmail.com</a>
-          <a href="https://wa.me/918807810394">+91 88078 10394</a>
-          <span>Tamil Nadu, India 🇮🇳</span>
-        </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Contact</div>
+        <a href="mailto:support@amtechnexus.com">support@amtechnexus.com</a>
+        <a href="mailto:amtechnexusofficial@gmail.com">amtechnexusofficial@gmail.com</a>
+        <a href="https://wa.me/918807810394">+91 88078 10394</a>
+        <span>Tamil Nadu, India 🇮🇳</span>
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© 2024 AM Technexus Labs Private Limited · Made with ❤️ in India 🇮🇳 · Serving the world 🌍</span>
-      <div><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+      <span class="footer__copy">© 2024 AM Technexus Labs Private Limited · Made with ❤️ in India 🇮🇳 · Serving the world 🌍</span>
+      <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
     </div>
   </div>
 </footer>
-<script src="assets/main.js"></script>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('stuck',window.scrollY>8);},{passive:true});
+// Hamburger
+const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
+document.querySelectorAll('.nav__mob a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow='';}));
+
+// Form submission via Formspree
+const form = document.getElementById('contactForm');
+const btnText = document.getElementById('btnText');
+const submitBtn = document.getElementById('submitBtn');
+const successMsg = document.getElementById('successMsg');
+const formState = document.getElementById('formState');
+const errorMsg = document.getElementById('errorMsg');
+
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  // Button loading state
+  submitBtn.disabled = true;
+  btnText.textContent = 'Sending...';
+  errorMsg.classList.remove('show');
+
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      // Show success
+      formState.style.display = 'none';
+      successMsg.classList.add('show');
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    // Show error
+    submitBtn.disabled = false;
+    btnText.textContent = 'Send Message →';
+    errorMsg.classList.add('show');
+  }
+});
+</script>
 </body>
 </html>
