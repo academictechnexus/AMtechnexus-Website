@@ -6,7 +6,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<title>Contact — AM Technexus Labs</title>
+<title>Contact  |  AM Technexus Labs</title>
 <meta name="description" content="Get in touch with AM Technexus Labs. Book a free demo or ask us anything.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -48,7 +48,9 @@
 .nav__drop:hover .nav__drop-menu{opacity:1;visibility:visible;pointer-events:auto;}
 .drop-item{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:8px;transition:background .12s;}
 .drop-item:hover{background:#F8FAFC;}
-.drop-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.drop-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;background:transparent;}
+.drop-icon img{width:100%;height:100%;object-fit:contain;display:block;}
+.nav__mob a img.nav__mob-icon{width:24px;height:24px;object-fit:contain;flex-shrink:0;}
 .drop-title{font-size:.82rem;font-weight:600;color:#0F172A;display:block;line-height:1.2;margin-bottom:1px;}
 .drop-desc{font-size:.7rem;color:#64748B;}
 .drop-divider{height:1px;background:#E2E8F0;margin:5px 0;}
@@ -199,13 +201,13 @@
       <li><a href="index.html">Home</a></li>
       <li class="nav__drop"><a href="products.html">Products <svg class="nav__drop-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></a>
         <div class="nav__drop-menu">
-          <a href="nexuspos.html" class="drop-item"><div class="drop-icon" style="background:#EFF6FF;">🍽️</div><div><span class="drop-title">NexusPOS</span><span class="drop-desc">Food cart &amp; kiosk billing</span></div></a>
-          <a href="nexusai.html" class="drop-item"><div class="drop-icon" style="background:#EDE9FE;">🤖</div><div><span class="drop-title">NexusAI</span><span class="drop-desc">AI chatbot &amp; automation</span></div></a>
-          <a href="nexusbilling.html" class="drop-item"><div class="drop-icon" style="background:#FFF1F2;">🚗</div><div><span class="drop-title">NexusBilling</span><span class="drop-desc">Automobile workshop</span></div></a>
-          <a href="nexusapartments.html" class="drop-item"><div class="drop-icon" style="background:#F0FDF4;">🏢</div><div><span class="drop-title">NexusApartments</span><span class="drop-desc">Society management</span></div></a>
+          <a href="nexuspos.html" class="drop-item"><div class="drop-icon"><img src="assets/nexuspos-icon.png" alt=""></div><div><span class="drop-title">NexusPOS</span><span class="drop-desc">Food cart &amp; kiosk billing</span></div></a>
+          <a href="nexusai.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusai-icon.png" alt=""></div><div><span class="drop-title">NexusAI</span><span class="drop-desc">AI chatbot &amp; automation</span></div></a>
+          <a href="nexusbilling.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusbilling-icon.png" alt=""></div><div><span class="drop-title">NexusBilling</span><span class="drop-desc">Automobile workshop</span></div></a>
+          <a href="nexusapartments.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusapartments-icon.png" alt=""></div><div><span class="drop-title">NexusApartments</span><span class="drop-desc">Society management</span></div></a>
           <div class="drop-divider"></div>
           <a href="nexusbusiness.html" class="drop-item" style="background:linear-gradient(135deg,rgba(124,58,237,.04),rgba(37,99,235,.04));border-radius:8px;">
-            <div class="drop-icon" style="background:linear-gradient(135deg,#7C3AED22,#2563EB22);">⭐</div>
+            <div class="drop-icon"><img src="assets/nexus-business-suite-icon.png" alt=""></div>
             <div><span class="drop-title" style="color:#7C3AED;">NexusBusiness Suite <span style="font-size:.58rem;background:#EDE9FE;color:#5B21B6;border-radius:100px;padding:1px 7px;vertical-align:middle;margin-left:3px;">NEW</span></span><span class="drop-desc">Reviews &amp; social media AI</span></div>
           </a>
         </div>
@@ -225,11 +227,11 @@
 <div class="nav__mob" id="mob">
   <div class="nav__mob-inner">
     <div class="nav__mob-sec">Products</div>
-    <a href="nexuspos.html">🍽️ NexusPOS</a>
-    <a href="nexusai.html">🤖 NexusAI</a>
-    <a href="nexusbilling.html">🚗 NexusBilling</a>
-    <a href="nexusapartments.html">🏢 NexusApartments</a>
-    <a href="nexusbusiness.html">⭐ NexusBusiness Suite</a>
+    <a href="nexuspos.html"><img src="assets/nexuspos-icon.png" alt="" class="nav__mob-icon"> NexusPOS</a>
+    <a href="nexusai.html"><img src="assets/nexusai-icon.png" alt="" class="nav__mob-icon"> NexusAI</a>
+    <a href="nexusbilling.html"><img src="assets/nexusbilling-icon.png" alt="" class="nav__mob-icon"> NexusBilling</a>
+    <a href="nexusapartments.html"><img src="assets/nexusapartments-icon.png" alt="" class="nav__mob-icon"> NexusApartments</a>
+    <a href="nexusbusiness.html"><img src="assets/nexus-business-suite-icon.png" alt="" class="nav__mob-icon"> NexusBusiness Suite</a>
     <div class="nav__mob-sec">Company</div>
     <a href="about.html">About Us</a>
     <a href="pricing.html">Pricing</a>
@@ -244,7 +246,7 @@
   <div class="wrap">
     <div class="eyebrow">Contact Us</div>
     <h1 class="page-h1">Let's build something<br/><span>great together.</span></h1>
-    <p class="page-lead">English, Tamil, Hindi, Arabic — we respond within 2 hours, wherever you are in the world.</p>
+    <p class="page-lead">English, Tamil, Hindi, Arabic, we respond within 2 hours, wherever you are in the world.</p>
   </div>
 </section>
 
@@ -281,7 +283,7 @@
 
             <!-- Hidden fields for email routing -->
             <input type="hidden" name="_replyto" value="amtechnexusofficial@gmail.com">
-            <input type="hidden" name="_subject" value="New Enquiry — AM Technexus Labs Website">
+            <input type="hidden" name="_subject" value="New Enquiry, AM Technexus Labs Website">
 
             <div class="form-row">
               <div class="form-group">
@@ -305,11 +307,11 @@
               <label>Product Interest *</label>
               <select name="product" required>
                 <option value="">Select a product...</option>
-                <option>NexusPOS — Food Cart &amp; Kiosk Billing</option>
-                <option>NexusAI — AI Chatbot &amp; Automation</option>
-                <option>NexusBilling — Automobile Workshop</option>
-                <option>NexusApartments — Society Management</option>
-                <option>NexusBusiness Suite — Reviews &amp; Social Media AI</option>
+                <option>NexusPOS, Food Cart &amp; Kiosk Billing</option>
+                <option>NexusAI, AI Chatbot &amp; Automation</option>
+                <option>NexusBilling, Automobile Workshop</option>
+                <option>NexusApartments, Society Management</option>
+                <option>NexusBusiness Suite, Reviews &amp; Social Media AI</option>
                 <option>Multiple products / Not sure yet</option>
               </select>
             </div>
@@ -374,7 +376,7 @@
         </a>
         <div class="demo-box">
           <h3>Book a Live Demo</h3>
-          <p>30-minute personalised walkthrough — we'll show exactly how the product works for your specific business, live on screen.</p>
+          <p>30-minute personalised walkthrough, we'll show exactly how the product works for your specific business, live on screen.</p>
           <a href="https://wa.me/918807810394?text=Hi! I want to book a free demo of AM Technexus Labs." target="_blank" rel="noreferrer">WhatsApp to Book →</a>
         </div>
       </div>
@@ -392,7 +394,7 @@
         <p class="footer__desc">AI-powered platforms for global businesses. Built for impact, built in India.</p>
         <div class="footer__social">
           <a href="https://wa.me/918807810394" target="_blank" rel="noreferrer">💬</a>
-          <a href="mailto:amtechnexusofficial@gmail.com">✉</a>
+          <a href="mailto:support@amtechnexus.com">✉</a>
           <a href="https://www.instagram.com/amtechnexus/" target="_blank" rel="noreferrer">📸</a>
           <a href="https://www.facebook.com/profile.php?id=100073104771786" target="_blank" rel="noreferrer">fb</a>
           <a href="https://x.com/AMtechnexus" target="_blank" rel="noreferrer">𝕏</a>

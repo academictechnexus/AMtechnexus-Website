@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<title>AMTechnexus — Admin Panel</title>
+<title>AMTechnexus  |  Admin Panel</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -259,7 +259,7 @@ function Login({onLogin}){
         </div>
         <Btn onClick={go} full size="lg">Sign In →</Btn>
         <div style={{marginTop:16,padding:"11px 13px",background:C.pale,borderRadius:9,border:`1px solid ${C.border}`,fontSize:12,color:C.muted,lineHeight:1.6}}>
-          🔒 Password: <code style={{background:C.lavender,color:C.violet,padding:"1px 6px",borderRadius:4}}>{ADMIN_PASS}</code> — change <code>ADMIN_PASS</code> before going live.
+          🔒 Password: <code style={{background:C.lavender,color:C.violet,padding:"1px 6px",borderRadius:4}}>{ADMIN_PASS}</code>, change <code>ADMIN_PASS</code> before going live.
         </div>
       </div>
     </div>
@@ -278,7 +278,7 @@ function Overview({go,stats}){
 
       {SUPABASE_URL.includes("YOUR_PROJECT")&&(
         <Alert type="warn">
-          <strong>⚡ Connect Supabase to go live.</strong> See the setup guide below — takes 10 minutes.
+          <strong>⚡ Connect Supabase to go live.</strong> See the setup guide below, takes 10 minutes.
         </Alert>
       )}
 
@@ -306,7 +306,7 @@ function Overview({go,stats}){
 
       {/* Setup guide */}
       <Card>
-        <div style={{fontFamily:Fd,fontWeight:700,fontSize:15,color:C.ink,marginBottom:14}}>📌 Setup Guide — Connect to Supabase (10 min)</div>
+        <div style={{fontFamily:Fd,fontWeight:700,fontSize:15,color:C.ink,marginBottom:14}}>📌 Setup Guide, Connect to Supabase (10 min)</div>
         {[
           ["1","Create free account","Go to supabase.com → Sign Up → Create new project → choose any region"],
           ["2","Run the SQL","Open SQL Editor in your Supabase project → paste supabase_setup.sql → Run"],
@@ -337,7 +337,7 @@ function HeroSection({onToast}){
   const [d,setD]=useState({headline_1:"AI-powered software",headline_2:"for every business,",headline_3:"everywhere.",subtext:"",cta_primary:"Start Free Trial",cta_secondary:"See all products",badge:""});
   const [loading,setLoading]=useState(true); const [saving,setSaving]=useState(false);
   useEffect(()=>{ sb.getSingle("site_settings","hero").then(r=>{ if(r?.value)setD(r.value); }).catch(()=>{}).finally(()=>setLoading(false)); },[]);
-  const save=async()=>{ setSaving(true); try{ await sb.updateSetting("hero",d); onToast("Hero section saved — live on your website!"); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(false); };
+  const save=async()=>{ setSaving(true); try{ await sb.updateSetting("hero",d); onToast("Hero section saved, live on your website!"); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(false); };
   if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
   return(
     <div>
@@ -365,7 +365,7 @@ function ProductsSection({onToast}){
   const [prods,setProds]=useState([]); const [loading,setLoading]=useState(true); const [open,setOpen]=useState(null); const [saving,setSaving]=useState(null);
   useEffect(()=>{ sb.get("products",{order:"sort_order"}).then(setProds).catch(()=>{}).finally(()=>setLoading(false)); },[]);
   const upd=(id,f,v)=>setProds(ps=>ps.map(p=>p.id===id?{...p,[f]:v}:p));
-  const save=async(p)=>{ setSaving(p.id); try{ await sb.update("products",{id:p.id},{name:p.name,icon:p.icon,tagline:p.tagline,description:p.description,color:p.color,video_url:p.video_url,active:p.active,updated_at:new Date().toISOString()}); onToast(`${p.name} saved — live on website!`); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(null); };
+  const save=async(p)=>{ setSaving(p.id); try{ await sb.update("products",{id:p.id},{name:p.name,icon:p.icon,tagline:p.tagline,description:p.description,color:p.color,video_url:p.video_url,active:p.active,updated_at:new Date().toISOString()}); onToast(`${p.name} saved, live on website!`); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(null); };
   if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
   return(
     <div>
@@ -394,14 +394,14 @@ function ProductsSection({onToast}){
               {/* Video */}
               <div style={{background:`${C.violet}06`,border:`1.5px solid ${C.violet}25`,borderRadius:10,padding:"14px 16px",marginBottom:14}}>
                 <div style={{fontFamily:Fd,fontWeight:700,fontSize:13.5,color:C.violet,marginBottom:10}}>📹 Demo Video</div>
-                <Field label="YouTube URL" value={p.video_url} onChange={v=>upd(p.id,"video_url",v)} help="https://youtu.be/XXXXXXX — can be Unlisted on YouTube"/>
+                <Field label="YouTube URL" value={p.video_url} onChange={v=>upd(p.id,"video_url",v)} help="https://youtu.be/XXXXXXX, can be Unlisted on YouTube"/>
                 {p.video_url&&ytId(p.video_url)&&(
                   <div style={{borderRadius:10,overflow:"hidden",border:`1px solid ${C.border}`,aspectRatio:"16/9",maxWidth:mob?"100%":400,marginTop:8}}>
                     <iframe src={`https://www.youtube.com/embed/${ytId(p.video_url)}`} style={{width:"100%",height:"100%",border:"none"}} allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowFullScreen title={p.name}/>
                   </div>
                 )}
                 {p.video_url&&!ytId(p.video_url)&&<div style={{fontSize:12,color:C.rose,marginTop:4}}>⚠️ Invalid YouTube URL</div>}
-                {!p.video_url&&<div style={{fontSize:12,color:C.muted,padding:"10px 13px",background:C.pale,borderRadius:8,border:`1.5px dashed ${C.border}`,textAlign:"center"}}>No video yet — paste YouTube link above</div>}
+                {!p.video_url&&<div style={{fontSize:12,color:C.muted,padding:"10px 13px",background:C.pale,borderRadius:8,border:`1.5px dashed ${C.border}`,textAlign:"center"}}>No video yet, paste YouTube link above</div>}
               </div>
               {/* Visibility + save */}
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,flexWrap:"wrap"}}>
@@ -427,7 +427,7 @@ function VideosSection({onToast}){
   const [prods,setProds]=useState([]); const [loading,setLoading]=useState(true); const [saving,setSaving]=useState(null);
   useEffect(()=>{ sb.get("products",{order:"sort_order"}).then(setProds).catch(()=>{}).finally(()=>setLoading(false)); },[]);
   const upd=(id,v)=>setProds(ps=>ps.map(p=>p.id===id?{...p,video_url:v}:p));
-  const save=async(p)=>{ setSaving(p.id); try{ await sb.update("products",{id:p.id},{video_url:p.video_url,updated_at:new Date().toISOString()}); onToast(`${p.name} video saved — live on website!`); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(null); };
+  const save=async(p)=>{ setSaving(p.id); try{ await sb.update("products",{id:p.id},{video_url:p.video_url,updated_at:new Date().toISOString()}); onToast(`${p.name} video saved, live on website!`); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(null); };
   if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
   return(
     <div>
@@ -439,7 +439,7 @@ function VideosSection({onToast}){
             <div style={{display:"flex",alignItems:"center",gap:9}}><span style={{fontSize:20}}>{p.icon}</span><span style={{fontFamily:Fd,fontWeight:700,fontSize:14.5,color:C.ink}}>{p.name}</span>{p.video_url&&ytId(p.video_url)?<Tag col={C.green}>✓ Video set</Tag>:<Tag col={C.muted}>No video</Tag>}</div>
             <Btn onClick={()=>save(p)} disabled={saving===p.id} size="sm">{saving===p.id?"Saving…":"Save & Go Live"}</Btn>
           </div>
-          <Field label={`${p.name} — YouTube URL`} value={p.video_url} onChange={v=>upd(p.id,v)} help="Paste: https://youtu.be/XXXXXXX or https://youtube.com/watch?v=XXXXXXX"/>
+          <Field label={`${p.name}, YouTube URL`} value={p.video_url} onChange={v=>upd(p.id,v)} help="Paste: https://youtu.be/XXXXXXX or https://youtube.com/watch?v=XXXXXXX"/>
           {p.video_url&&ytId(p.video_url)&&(
             <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"1fr 1fr",gap:14,marginTop:4}}>
               <div style={{borderRadius:10,overflow:"hidden",border:`1px solid ${C.border}`,aspectRatio:"16/9"}}>
@@ -453,7 +453,7 @@ function VideosSection({onToast}){
               </div>
             </div>
           )}
-          {p.video_url&&!ytId(p.video_url)&&<div style={{fontSize:12.5,color:C.rose,marginTop:4}}>⚠️ Can't detect YouTube ID — check the URL format</div>}
+          {p.video_url&&!ytId(p.video_url)&&<div style={{fontSize:12.5,color:C.rose,marginTop:4}}>⚠️ Can't detect YouTube ID, check the URL format</div>}
           {!p.video_url&&<div style={{padding:14,background:C.pale,borderRadius:9,border:`1.5px dashed ${C.border}`,textAlign:"center",fontSize:13,color:C.muted}}>📹 No demo video yet for {p.name}</div>}
         </Card>
       ))}
@@ -467,7 +467,7 @@ function PricingSection({onToast}){
   const [plans,setPlans]=useState([]); const [loading,setLoading]=useState(true); const [saving,setSaving]=useState(false);
   useEffect(()=>{ sb.get("pricing",{order:"sort_order"}).then(setPlans).catch(()=>{}).finally(()=>setLoading(false)); },[]);
   const upd=(id,f,v)=>setPlans(ps=>ps.map(p=>p.id===id?{...p,[f]:v}:p));
-  const save=async()=>{ setSaving(true); try{ await Promise.all(plans.map(p=>sb.update("pricing",{id:p.id},{tier:p.tier,price:p.price,period:p.period,description:p.description,popular:p.popular,updated_at:new Date().toISOString()}))); onToast("Pricing saved — live on website!"); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(false); };
+  const save=async()=>{ setSaving(true); try{ await Promise.all(plans.map(p=>sb.update("pricing",{id:p.id},{tier:p.tier,price:p.price,period:p.period,description:p.description,popular:p.popular,updated_at:new Date().toISOString()}))); onToast("Pricing saved, live on website!"); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(false); };
   if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
   return(
     <div>
@@ -496,7 +496,7 @@ function ContactSection({onToast}){
   const w=useW(); const mob=w<640;
   const [d,setD]=useState({whatsapp:"",email_support:"",email_gmail:"",location:"",tagline:""}); const [loading,setLoading]=useState(true); const [saving,setSaving]=useState(false);
   useEffect(()=>{ sb.getSingle("site_settings","contact").then(r=>{ if(r?.value)setD(r.value); }).catch(()=>{}).finally(()=>setLoading(false)); },[]);
-  const save=async()=>{ setSaving(true); try{ await sb.updateSetting("contact",d); onToast("Contact details saved — live on website!"); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(false); };
+  const save=async()=>{ setSaving(true); try{ await sb.updateSetting("contact",d); onToast("Contact details saved, live on website!"); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(false); };
   if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
   return(
     <div>
@@ -520,7 +520,7 @@ function StatsSection({onToast}){
   const [stats,setStats]=useState([]); const [loading,setLoading]=useState(true); const [saving,setSaving]=useState(false);
   useEffect(()=>{ sb.getSingle("site_settings","stats").then(r=>{ if(r?.value)setStats(r.value); }).catch(()=>{}).finally(()=>setLoading(false)); },[]);
   const upd=(i,f,v)=>setStats(ss=>ss.map((s,j)=>j===i?{...s,[f]:v}:s));
-  const save=async()=>{ setSaving(true); try{ await sb.updateSetting("stats",stats); onToast("Stats saved — live on website!"); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(false); };
+  const save=async()=>{ setSaving(true); try{ await sb.updateSetting("stats",stats); onToast("Stats saved, live on website!"); }catch(e){ onToast("Error: "+e.message,"error"); } setSaving(false); };
   if(loading) return <div style={{display:"flex",justifyContent:"center",padding:40}}><Spinner/></div>;
   return(
     <div>
@@ -562,7 +562,7 @@ function TestimonialsSection({onToast}){
         }
       }
       const fresh=await sb.get("testimonials",{order:"sort_order"}); setList(fresh);
-      onToast("Testimonials saved — live on website!");
+      onToast("Testimonials saved, live on website!");
     }catch(e){ onToast("Error: "+e.message,"error"); }
     setSaving(false);
   };

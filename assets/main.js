@@ -1,4 +1,4 @@
-// AM Technexus Labs — main.js
+// AM Technexus Labs, main.js
 document.addEventListener('DOMContentLoaded', () => {
   const nav = document.getElementById('nav');
   const ham = document.getElementById('ham');

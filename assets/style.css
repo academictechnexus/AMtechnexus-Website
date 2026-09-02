@@ -1,4 +1,4 @@
-/* AMTechnexus — Global Design System v3 */
+/* AMTechnexus, Global Design System v3 */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 :root{
@@ -62,7 +62,11 @@ body{font-family:var(--font-b);background:var(--white);color:var(--ink);line-hei
 .nav__drop:hover .nav__drop-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);}
 .drop-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;text-decoration:none;transition:background .15s;}
 .drop-item:hover{background:var(--bg);}
-.drop-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.drop-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;overflow:hidden;background:transparent;}
+.drop-icon img,.prod-icon img,.product-icon img{width:100%;height:100%;object-fit:contain;display:block;}
+.prod-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;background:transparent;}
+.product-icon{display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;background:transparent;}
+.nav__mob a img.nav__mob-icon{width:24px;height:24px;object-fit:contain;flex-shrink:0;}
 .drop-title{font-size:.85rem;font-weight:600;color:var(--ink);display:block;line-height:1.2;margin-bottom:2px;}
 .drop-desc{font-size:.72rem;color:var(--muted);}
 /* Nav actions */

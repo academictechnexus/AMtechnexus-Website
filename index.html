@@ -7,8 +7,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<title>AM Technexus Labs — AI & Software Solutions</title>
-<meta name="description" content="Purpose-built AI software for restaurants, automobile workshops, apartment communities and businesses. 500+ clients. 30+ countries.">
+<title>AM Technexus Labs  |  Software for Restaurants, Workshops & Societies</title>
+<meta name="description" content="Billing and management software for restaurants, automobile workshops, apartment societies, and small businesses. Based in Tamil Nadu.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -55,7 +55,12 @@ img{max-width:100%;}
 .nav__drop:hover .nav__drop-menu{opacity:1;visibility:visible;pointer-events:auto;}
 .drop-item{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:8px;transition:background .12s;}
 .drop-item:hover{background:var(--pale);}
-.drop-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+.drop-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;background:transparent;}
+.drop-icon img,.prod-icon img,.product-icon img{width:100%;height:100%;object-fit:contain;display:block;}
+.prod-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;overflow:hidden;background:transparent;}
+.product-icon{display:flex;align-items:center;justify-content:center;overflow:hidden;background:transparent;}
+.nav__mob a img.nav__mob-icon{width:24px;height:24px;object-fit:contain;flex-shrink:0;}
+.prod-icon{font-family:var(--fd);}
 .drop-title{font-size:.82rem;font-weight:600;color:var(--ink);display:block;line-height:1.2;margin-bottom:1px;}
 .drop-desc{font-size:.7rem;color:var(--muted);}
 .drop-divider{height:1px;background:var(--border);margin:5px 0;}
@@ -90,75 +95,60 @@ img{max-width:100%;}
 }
 
 /* ── HERO ── */
-.hero{padding:calc(var(--nav-h) + 80px) 0 0;background:var(--white);overflow:hidden;}
-.hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding-bottom:80px;}
-.hero__eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--pale);border:1px solid var(--border);border-radius:100px;padding:5px 14px 5px 10px;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:24px;}
-.hero__eyebrow .dot{width:7px;height:7px;border-radius:50%;background:#10B981;flex-shrink:0;}
-.hero__h1{font-family:var(--fd);font-size:clamp(2.2rem,4vw,3.4rem);font-weight:800;color:var(--ink);line-height:1.08;letter-spacing:-1.8px;margin-bottom:20px;}
-.hero__h1 em{font-style:normal;color:var(--violet);}
-.hero__p{font-size:1rem;color:var(--muted);line-height:1.78;max-width:480px;margin-bottom:36px;}
-.hero__btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px;}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;font-family:var(--fd);font-size:.9rem;font-weight:700;color:#fff;background:var(--violet);border:none;border-radius:9px;cursor:pointer;text-decoration:none;box-shadow:0 4px 20px rgba(91,33,182,.35);transition:all .2s;}
-.btn-primary:hover{background:#4C1D95;transform:translateY(-2px);box-shadow:0 8px 28px rgba(91,33,182,.45);}
-.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;font-family:var(--fd);font-size:.9rem;font-weight:600;color:var(--ink);background:var(--white);border:1.5px solid var(--border);border-radius:9px;cursor:pointer;text-decoration:none;transition:all .2s;}
+.hero{padding:calc(var(--nav-h) + 72px) 0 88px;background:linear-gradient(180deg,var(--pale) 0%,var(--white) 45%);}
+.hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+.hero__content{max-width:520px;}
+.hero__h1{font-family:var(--fd);font-size:clamp(2.2rem,3.8vw,3.35rem);font-weight:800;color:var(--ink);line-height:1.06;letter-spacing:-2px;margin-bottom:22px;text-align:left;}
+.hero__h1 span{display:block;color:var(--violet);margin-top:6px;}
+.hero__p{font-size:1.05rem;color:var(--body);line-height:1.72;margin:0 0 32px;text-align:left;}
+.hero__actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-start;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;font-family:var(--fd);font-size:.9rem;font-weight:700;color:#fff;background:var(--violet);border:none;border-radius:9px;cursor:pointer;text-decoration:none;box-shadow:0 4px 18px rgba(91,33,182,.28);transition:all .2s;}
+.btn-primary:hover{background:#4C1D95;transform:translateY(-1px);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;font-family:var(--fd);font-size:.9rem;font-weight:600;color:var(--ink);background:var(--white);border:1.5px solid var(--border);border-radius:9px;cursor:pointer;text-decoration:none;transition:all .2s;}
 .btn-outline:hover{border-color:var(--violet);color:var(--violet);}
-.hero__trust{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--muted);}
-.hero__trust-avatars{display:flex;}
-.hero__trust-avatars span{width:28px;height:28px;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;margin-left:-7px;first-child{margin-left:0;}}
-/* Hero visual */
-.hero__visual{position:relative;}
-.hero__dashboard{background:var(--white);border:1px solid var(--border);border-radius:16px;box-shadow:0 4px 6px rgba(0,0,0,.04),0 20px 60px rgba(0,0,0,.08);overflow:hidden;}
-.dash__titlebar{background:var(--pale);border-bottom:1px solid var(--border);padding:10px 16px;display:flex;align-items:center;gap:8px;}
-.dash__dots{display:flex;gap:5px;}
-.dash__dots span{width:9px;height:9px;border-radius:50%;}
-.dash__url{flex:1;background:var(--white);border:1px solid var(--border);border-radius:5px;padding:3px 10px;font-size:.68rem;color:var(--muted);font-family:monospace;display:flex;align-items:center;gap:5px;}
-.dash__url .live{width:5px;height:5px;border-radius:50%;background:#10B981;flex-shrink:0;}
-.dash__body{display:grid;grid-template-columns:48px 1fr;}
-.dash__rail{background:var(--ink);display:flex;flex-direction:column;align-items:center;padding:12px 0;gap:5px;}
-.dash__rail-item{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem;cursor:pointer;color:rgba(255,255,255,.4);transition:all .15s;}
-.dash__rail-item.on{background:rgba(91,33,182,.5);color:#fff;}
-.dash__rail-item:hover:not(.on){background:rgba(255,255,255,.06);}
-.dash__content{padding:16px;background:var(--pale);}
-.dash__kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;}
-.kpi{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
-.kpi__val{font-family:var(--fd);font-size:1.3rem;font-weight:800;color:var(--ink);line-height:1;margin-bottom:3px;}
-.kpi__lbl{font-size:.65rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
-.kpi__tag{display:inline-block;font-size:.62rem;font-weight:700;padding:2px 7px;border-radius:100px;}
-.dash__table{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
-.dash__table-head{display:grid;grid-template-columns:1.5fr 2fr 1fr 1fr;padding:7px 12px;border-bottom:1px solid var(--border);background:var(--pale);}
-.dash__table-head span{font-size:.6rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;}
-.dash__row{display:grid;grid-template-columns:1.5fr 2fr 1fr 1fr;padding:9px 12px;border-bottom:1px solid var(--border);align-items:center;font-size:.72rem;}
-.dash__row:last-child{border-bottom:none;}
-.dash__row .tag{font-size:.6rem;font-weight:700;padding:2px 8px;border-radius:100px;display:inline-block;}
-/* Hero floating badges */
-.hero__badge{position:absolute;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:10px 14px;box-shadow:0 8px 28px rgba(0,0,0,.1);display:flex;align-items:center;gap:9px;white-space:nowrap;}
-.badge-1{top:40px;left:-32px;animation:float1 4s ease-in-out infinite;}
-.badge-2{bottom:60px;left:-28px;animation:float2 3.5s ease-in-out infinite;}
-.badge-3{top:80px;right:-28px;animation:float1 4.5s ease-in-out infinite;}
-@keyframes float1{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-@keyframes float2{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
-.badge-ico{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
-.badge-txt-main{font-size:.78rem;font-weight:700;color:var(--ink);}
-.badge-txt-sub{font-size:.65rem;color:var(--muted);margin-top:1px;}
-
-@media(max-width:900px){
-  .hero__inner{grid-template-columns:1fr;gap:40px;padding-bottom:60px;}
-  .hero__visual{display:none;}
-  .hero__h1{font-size:clamp(1.9rem,8vw,2.8rem);letter-spacing:-1.2px;}
+.hero__visual{position:relative;width:100%;max-width:520px;margin-left:auto;}
+.hero__slot{
+  --slot-item:116px;
+  --slot-gap:12px;
+  --slot-step:calc(var(--slot-item) + var(--slot-gap));
+  --slot-window:calc(var(--slot-step) * 2.65);
+  --slot-count:5;
+  --slot-duration:20s;
 }
-
-/* ── STATS ── */
-.stats{background:var(--violet);padding:36px 0;}
-.stats__grid{display:grid;grid-template-columns:repeat(4,1fr);}
-.stat{padding:0 20px;text-align:center;border-right:1px solid rgba(255,255,255,.15);}
-.stat:last-child{border-right:none;}
-.stat__val{font-family:var(--fd);font-size:2rem;font-weight:800;color:#fff;letter-spacing:-1.2px;line-height:1.1;}
-.stat__lbl{font-size:.78rem;color:rgba(255,255,255,.6);margin-top:5px;font-weight:500;}
-@media(max-width:640px){
-  .stats__grid{grid-template-columns:1fr 1fr;gap:1px;}
-  .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.1);padding:20px 16px;}
-  .stat:nth-child(1),.stat:nth-child(2){border-right:1px solid rgba(255,255,255,.1);}
-  .stat:last-child,.stat:nth-last-child(2){border-bottom:none;}
+.hero__slot-window{
+  height:var(--slot-window);overflow:hidden;position:relative;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.5) 10%,#000 26%,#000 74%,rgba(0,0,0,.5) 90%,transparent 100%);
+  mask-image:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.5) 10%,#000 26%,#000 74%,rgba(0,0,0,.5) 90%,transparent 100%);
+}
+.hero__slot-track{
+  display:flex;flex-direction:column;gap:var(--slot-gap);
+  --slot-offset:calc((var(--slot-window) - var(--slot-item)) / 2 - var(--slot-step));
+  will-change:transform;
+  animation:heroSlotScroll var(--slot-duration) linear infinite;
+}
+.hero__slot:hover .hero__slot-track{animation-play-state:paused;}
+.hero__slot-item{
+  height:var(--slot-item);flex-shrink:0;display:flex;align-items:center;gap:18px;
+  padding:0 4px;text-decoration:none;color:inherit;border-radius:10px;
+}
+.hero__slot-item img{width:64px;height:64px;object-fit:contain;flex-shrink:0;}
+.hero__slot-name{font-family:var(--fd);font-size:1.12rem;font-weight:800;color:var(--ink);line-height:1.2;margin-bottom:5px;}
+.hero__slot-desc{font-size:.86rem;color:var(--muted);line-height:1.45;}
+@keyframes heroSlotScroll{
+  from{transform:translate3d(0,var(--slot-offset),0);}
+  to{transform:translate3d(0,calc(var(--slot-offset) - var(--slot-step) * var(--slot-count)),0);}
+}
+@media(max-width:900px){
+  .hero{padding:calc(var(--nav-h) + 56px) 0 64px;}
+  .hero__inner{grid-template-columns:1fr;gap:40px;}
+  .hero__content{max-width:none;}
+  .hero__h1{font-size:clamp(2rem,8vw,2.75rem);letter-spacing:-1.4px;text-align:center;}
+  .hero__p{text-align:center;}
+  .hero__actions{justify-content:center;}
+  .hero__visual{max-width:100%;margin:0 auto;}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero__slot-track{animation:none!important;}
 }
 
 /* ── SECTION COMMONS ── */
@@ -177,39 +167,27 @@ img{max-width:100%;}
 .prod-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:transparent;transition:background .18s;}
 .prod-card:hover{background:#FAFBFF;}
 .prod-card:hover::before{background:var(--prod-col,var(--violet));}
-.prod-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:18px;}
 .prod-tag{font-size:.65rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;}
 .prod-name{font-family:var(--fd);font-size:1.1rem;font-weight:800;color:var(--ink);margin-bottom:9px;}
 .prod-desc{font-size:.84rem;color:var(--muted);line-height:1.68;margin-bottom:18px;}
 .prod-link{display:inline-flex;align-items:center;gap:5px;font-size:.82rem;font-weight:700;transition:gap .15s;}
 .prod-card:hover .prod-link{gap:9px;}
-/* NexusBusiness Suite — full width featured */
-.prod-featured{background:linear-gradient(135deg,#0F172A 0%,#1E1B4B 60%,#0F172A 100%);border-radius:18px;padding:36px 40px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;position:relative;overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s;border:1px solid rgba(167,139,250,.2);}
-.prod-featured::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(124,58,237,.2),transparent);pointer-events:none;}
-.prod-featured:hover{transform:translateY(-3px);box-shadow:0 20px 60px rgba(124,58,237,.25);}
-.prod-featured__left{}
-.prod-featured__badge{display:inline-flex;align-items:center;gap:7px;background:rgba(167,139,250,.15);border:1px solid rgba(167,139,250,.2);border-radius:100px;padding:4px 12px;font-size:.68rem;font-weight:700;color:#A78BFA;margin-bottom:14px;letter-spacing:.3px;}
-.prod-featured__tag{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:7px;}
-.prod-featured__name{font-family:var(--fd);font-size:1.4rem;font-weight:800;color:#fff;margin-bottom:10px;}
-.prod-featured__desc{font-size:.88rem;color:rgba(255,255,255,.45);line-height:1.68;margin-bottom:18px;max-width:520px;}
-.prod-featured__pills{display:flex;gap:7px;flex-wrap:wrap;}
-.prod-featured__pill{font-size:.68rem;font-weight:700;border-radius:100px;padding:3px 10px;}
-.prod-featured__right{text-align:right;flex-shrink:0;}
-.prod-featured__price{font-family:var(--fd);font-size:2rem;font-weight:800;color:#fff;letter-spacing:-1px;line-height:1;margin-bottom:4px;}
-.prod-featured__price-sub{font-size:.75rem;color:rgba(255,255,255,.3);margin-bottom:16px;}
-.prod-featured__cta{display:inline-block;padding:11px 22px;background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;border-radius:9px;font-weight:700;font-size:.84rem;box-shadow:0 6px 20px rgba(124,58,237,.4);}
+/* NexusBusiness Suite, full width, matches product grid */
+.prod-featured{display:flex;align-items:flex-start;gap:20px;background:var(--white);border:1px solid var(--border);border-radius:18px;padding:32px;text-decoration:none;transition:background .18s,box-shadow .18s;position:relative;margin-top:2px;}
+.prod-featured::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#7C3AED;border-radius:18px 18px 0 0;}
+.prod-featured:hover{background:#FAFBFF;box-shadow:0 8px 28px rgba(0,0,0,.06);}
+.prod-featured .prod-icon{width:52px;height:52px;flex-shrink:0;margin-bottom:0;}
+.prod-featured__body{flex:1;min-width:0;}
+.prod-featured__new{font-size:.65rem;font-weight:700;color:var(--violet);text-transform:uppercase;letter-spacing:1px;margin-bottom:7px;}
 @media(max-width:768px){
   .prods-grid{grid-template-columns:1fr;}
-  .prod-featured{grid-template-columns:1fr;padding:24px;}
-  .prod-featured__right{text-align:left;}
-  .prod-featured__price{font-size:1.5rem;}
+  .prod-featured{flex-direction:column;padding:24px;}
 }
 
 /* ── WHY US ── */
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 .why-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all .2s;}
 .why-card:hover{transform:translateY(-3px);box-shadow:0 12px 36px rgba(0,0,0,.08);}
-.why-ic{width:44px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:14px;}
 .why-h{font-family:var(--fd);font-weight:700;font-size:.95rem;color:var(--ink);margin-bottom:7px;}
 .why-p{font-size:.84rem;color:var(--muted);line-height:1.7;}
 @media(max-width:900px){.why-grid{grid-template-columns:1fr 1fr;}}
@@ -218,7 +196,6 @@ img{max-width:100%;}
 /* ── TESTIMONIALS ── */
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
 .testi-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;display:flex;flex-direction:column;}
-.testi-stars{color:#F59E0B;font-size:.85rem;letter-spacing:2px;margin-bottom:14px;}
 .testi-quote{font-size:.9rem;color:var(--body);line-height:1.75;flex:1;margin-bottom:20px;font-style:italic;}
 .testi-author{display:flex;align-items:center;gap:10px;}
 .testi-avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.8rem;flex-shrink:0;}
@@ -227,26 +204,17 @@ img{max-width:100%;}
 .testi-prod{display:inline-block;font-size:.65rem;font-weight:700;padding:2px 9px;border-radius:100px;margin-top:14px;}
 @media(max-width:900px){.testi-grid{grid-template-columns:1fr;}}
 
-/* ── CTA SECTION ── */
-.cta-section{background:var(--ink);padding:96px 0;text-align:center;position:relative;overflow:hidden;}
-.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 110%,rgba(91,33,182,.25),transparent);pointer-events:none;}
-.cta-inner{position:relative;z-index:1;max-width:560px;margin:0 auto;}
-.cta-h2{font-family:var(--fd);font-size:clamp(1.8rem,4vw,3rem);font-weight:800;color:#fff;letter-spacing:-1.5px;line-height:1.06;margin-bottom:16px;}
-.cta-h2 span{color:#C4B5FD;}
-.cta-p{font-size:.95rem;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:40px;}
-.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn-white{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;font-family:var(--fd);font-size:.9rem;font-weight:700;color:var(--violet);background:#fff;border:none;border-radius:9px;cursor:pointer;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,.15);transition:all .2s;}
-.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.2);}
-.btn-ghost-dark{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;font-family:var(--fd);font-size:.9rem;font-weight:600;color:rgba(255,255,255,.7);background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);border-radius:9px;text-decoration:none;transition:all .2s;}
-.btn-ghost-dark:hover{background:rgba(255,255,255,.12);color:#fff;}
-
 /* ── FOOTER ── */
 .footer{background:#060612;padding:64px 0 28px;}
-.footer__grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:36px;margin-bottom:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06);}
+.footer__grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:36px;margin-bottom:48px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06);}
 .footer__brand-desc{font-size:.82rem;color:rgba(255,255,255,.3);line-height:1.75;margin:12px 0;max-width:200px;}
-.footer__social{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px;}
-.footer__social a{width:32px;height:32px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:rgba(255,255,255,.3);text-decoration:none;transition:all .2s;}
-.footer__social a:hover{background:var(--violet);color:#fff;border-color:var(--violet);}
+.footer__social{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;}
+.footer__social a{width:36px;height:36px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:9px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);text-decoration:none;transition:all .2s;}
+.footer__social a:hover{background:var(--violet);color:#fff;border-color:var(--violet);transform:translateY(-1px);}
+.footer__social svg{width:17px;height:17px;display:block;flex-shrink:0;}
+.footer__contact-line{font-size:.82rem;color:rgba(255,255,255,.3);text-decoration:none;margin-bottom:9px;display:block;transition:color .15s;}
+.footer__contact-line:hover{color:rgba(255,255,255,.7);}
+.footer__contact-line--muted{color:rgba(255,255,255,.25);cursor:default;}
 .footer__col-title{font-size:.68rem;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1.3px;margin-bottom:14px;}
 .footer__col a,.footer__col span{display:block;font-size:.82rem;color:rgba(255,255,255,.3);text-decoration:none;margin-bottom:9px;transition:color .15s;}
 .footer__col a:hover{color:rgba(255,255,255,.7);}
@@ -284,14 +252,14 @@ img{max-width:100%;}
       <li class="nav__drop">
         <a href="products.html">Products <svg class="nav__drop-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg></a>
         <div class="nav__drop-menu">
-          <a href="nexuspos.html" class="drop-item"><div class="drop-icon" style="background:#EFF6FF;">🍽️</div><div><span class="drop-title">NexusPOS</span><span class="drop-desc">Food cart &amp; kiosk billing</span></div></a>
-          <a href="nexusai.html" class="drop-item"><div class="drop-icon" style="background:#EDE9FE;">🤖</div><div><span class="drop-title">NexusAI</span><span class="drop-desc">AI chatbot &amp; automation</span></div></a>
-          <a href="nexusbilling.html" class="drop-item"><div class="drop-icon" style="background:#FFF1F2;">🚗</div><div><span class="drop-title">NexusBilling</span><span class="drop-desc">Automobile workshop</span></div></a>
-          <a href="nexusapartments.html" class="drop-item"><div class="drop-icon" style="background:#F0FDF4;">🏢</div><div><span class="drop-title">NexusApartments</span><span class="drop-desc">Society management</span></div></a>
+          <a href="nexuspos.html" class="drop-item"><div class="drop-icon"><img src="assets/nexuspos-icon.png" alt=""></div><div><span class="drop-title">NexusPOS</span><span class="drop-desc">Food cart &amp; kiosk billing</span></div></a>
+          <a href="nexusai.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusai-icon.png" alt=""></div><div><span class="drop-title">NexusAI</span><span class="drop-desc">Website &amp; WhatsApp chatbot</span></div></a>
+          <a href="nexusbilling.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusbilling-icon.png" alt=""></div><div><span class="drop-title">NexusBilling</span><span class="drop-desc">Automobile workshop</span></div></a>
+          <a href="nexusapartments.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusapartments-icon.png" alt=""></div><div><span class="drop-title">NexusApartments</span><span class="drop-desc">Society management</span></div></a>
           <div class="drop-divider"></div>
           <a href="nexusbusiness.html" class="drop-item" style="background:linear-gradient(135deg,rgba(124,58,237,.05),rgba(37,99,235,.05));border-radius:8px;">
-            <div class="drop-icon" style="background:linear-gradient(135deg,#7C3AED22,#2563EB22);">⭐</div>
-            <div><span class="drop-title" style="color:#7C3AED;">NexusBusiness Suite <span style="font-size:.6rem;background:#EDE9FE;color:#5B21B6;border-radius:100px;padding:1px 7px;vertical-align:middle;margin-left:4px;">NEW</span></span><span class="drop-desc">Reviews &amp; social media AI</span></div>
+            <div class="drop-icon"><img src="assets/nexus-business-suite-icon.png" alt=""></div>
+            <div><span class="drop-title" style="color:#7C3AED;">NexusBusiness Suite <span style="font-size:.6rem;background:#EDE9FE;color:#5B21B6;border-radius:100px;padding:1px 7px;vertical-align:middle;margin-left:4px;">NEW</span></span><span class="drop-desc">Reviews &amp; social media</span></div>
           </a>
         </div>
       </li>
@@ -312,11 +280,11 @@ img{max-width:100%;}
 <div class="nav__mob" id="mob">
   <div class="nav__mob-inner">
     <div class="nav__mob-sec">Products</div>
-    <a href="nexuspos.html">🍽️ NexusPOS</a>
-    <a href="nexusai.html">🤖 NexusAI</a>
-    <a href="nexusbilling.html">🚗 NexusBilling</a>
-    <a href="nexusapartments.html">🏢 NexusApartments</a>
-    <a href="nexusbusiness.html">⭐ NexusBusiness Suite <span style="font-size:.6rem;background:#EDE9FE;color:#5B21B6;border-radius:100px;padding:1px 7px;margin-left:4px;">NEW</span></a>
+    <a href="nexuspos.html"><img src="assets/nexuspos-icon.png" alt="" class="nav__mob-icon"> NexusPOS</a>
+    <a href="nexusai.html"><img src="assets/nexusai-icon.png" alt="" class="nav__mob-icon"> NexusAI</a>
+    <a href="nexusbilling.html"><img src="assets/nexusbilling-icon.png" alt="" class="nav__mob-icon"> NexusBilling</a>
+    <a href="nexusapartments.html"><img src="assets/nexusapartments-icon.png" alt="" class="nav__mob-icon"> NexusApartments</a>
+    <a href="nexusbusiness.html"><img src="assets/nexus-business-suite-icon.png" alt="" class="nav__mob-icon"> NexusBusiness Suite <span style="font-size:.6rem;background:#EDE9FE;color:#5B21B6;border-radius:100px;padding:1px 7px;margin-left:4px;">NEW</span></a>
     <div class="nav__mob-sec">Company</div>
     <a href="about.html">About Us</a>
     <a href="pricing.html">Pricing</a>
@@ -330,71 +298,18 @@ img{max-width:100%;}
 <section class="hero">
   <div class="wrap">
     <div class="hero__inner">
-      <div>
-        <div class="hero__eyebrow fade-up"><span class="dot"></span> 500+ businesses · 30+ countries</div>
-        <h1 class="hero__h1 fade-up">Software built<br/>for <em>your</em> business,<br/>not adapted to it.</h1>
-        <p class="hero__p fade-up">AM Technexus Labs builds purpose-built AI platforms for restaurants, automobile workshops, apartment communities and growing businesses — from Tamil Nadu to Dubai to London.</p>
-        <div class="hero__btns fade-up">
-          <a href="contact.html" class="btn-primary">Start Free Trial →</a>
-          <a href="products.html" class="btn-outline">See all products</a>
-        </div>
-        <div class="hero__trust fade-up">
-          <div class="hero__trust-avatars">
-            <span style="background:#1D4ED8;color:#fff;margin-left:0;">RK</span>
-            <span style="background:#059669;color:#fff;">PS</span>
-            <span style="background:#DC2626;color:#fff;">MV</span>
-            <span style="background:#5B21B6;color:#fff;">AN</span>
-          </div>
-          <span>Loved by 500+ business owners across India &amp; the world</span>
+      <div class="hero__content">
+        <h1 class="hero__h1 fade-up">You grow the business.<span>We handle the rest.</span></h1>
+        <p class="hero__p fade-up">Smart software that automates the everyday work, saves your team time, and keeps your business moving.</p>
+        <div class="hero__actions fade-up">
+          <a href="products.html" class="btn-primary">Explore products →</a>
+          <a href="contact.html" class="btn-outline">Get in touch</a>
         </div>
       </div>
-      <!-- Dashboard visual -->
-      <div class="hero__visual">
-        <!-- Floating badges -->
-        <div class="hero__badge badge-1">
-          <div class="badge-ico" style="background:#ECFDF5;">✅</div>
-          <div><div class="badge-txt-main">Bill Generated</div><div class="badge-txt-sub">₹3,240 · NexusPOS · just now</div></div>
-        </div>
-        <div class="hero__badge badge-2">
-          <div class="badge-ico" style="background:var(--violet-lt);">🤖</div>
-          <div><div class="badge-txt-main">AI Reply Sent</div><div class="badge-txt-sub">Review replied · 0.3s</div></div>
-        </div>
-        <div class="hero__badge badge-3">
-          <div class="badge-ico" style="background:#FFF7ED;">📦</div>
-          <div><div class="badge-txt-main">Stock Synced</div><div class="badge-txt-sub">Branch 1 → Branch 2</div></div>
-        </div>
-        <div class="hero__dashboard">
-          <div class="dash__titlebar">
-            <div class="dash__dots"><span style="background:#FF5F57;"></span><span style="background:#FFBD2E;"></span><span style="background:#28C840;"></span></div>
-            <div class="dash__url"><span class="live"></span>app.amtechnexus.com — Dashboard</div>
-          </div>
-          <div class="dash__body">
-            <div class="dash__rail">
-              <div class="dash__rail-item on">📊</div>
-              <div class="dash__rail-item">🍽️</div>
-              <div class="dash__rail-item">🚗</div>
-              <div class="dash__rail-item">🏢</div>
-              <div class="dash__rail-item">⭐</div>
-              <div class="dash__rail-item">🤖</div>
-            </div>
-            <div class="dash__content">
-              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-                <span style="font-size:.8rem;font-weight:700;color:var(--ink);">Overview · Today</span>
-                <span style="font-size:.62rem;background:#ECFDF5;color:#059669;border:1px solid #D1FAE5;border-radius:100px;padding:2px 9px;font-weight:700;">● All systems live</span>
-              </div>
-              <div class="dash__kpis">
-                <div class="kpi"><div class="kpi__lbl">Revenue</div><div class="kpi__val">₹1,24,890</div><div class="kpi__tag" style="background:#ECFDF5;color:#059669;">↑ 18.4%</div></div>
-                <div class="kpi"><div class="kpi__lbl">Reviews</div><div class="kpi__val">4.8 ★</div><div class="kpi__tag" style="background:var(--violet-lt);color:var(--violet);">AI replied</div></div>
-                <div class="kpi"><div class="kpi__lbl">AI Chats</div><div class="kpi__val">127</div><div class="kpi__tag" style="background:#EFF6FF;color:#1D4ED8;">80% auto</div></div>
-              </div>
-              <div class="dash__table">
-                <div class="dash__table-head"><span>Type</span><span>Detail</span><span>Amount</span><span>Status</span></div>
-                <div class="dash__row"><span style="color:var(--muted);">🍽️ Table 4</span><span style="color:var(--muted);">2× Brownie, Lassi</span><span style="font-weight:700;color:var(--ink);">₹480</span><span class="tag" style="background:#ECFDF5;color:#059669;">Done</span></div>
-                <div class="dash__row"><span style="color:var(--muted);">🚗 TN09AB</span><span style="color:var(--muted);">Oil change + filter</span><span style="font-weight:700;color:var(--ink);">₹2,100</span><span class="tag" style="background:#ECFDF5;color:#059669;">Done</span></div>
-                <div class="dash__row"><span style="color:var(--muted);">🏢 Flat 204</span><span style="color:var(--muted);">Maintenance June</span><span style="font-weight:700;color:var(--ink);">₹2,500</span><span class="tag" style="background:#ECFDF5;color:#059669;">Paid</span></div>
-                <div class="dash__row"><span style="color:var(--muted);">⭐ Review</span><span style="color:var(--muted);">5★ AI reply drafted</span><span style="font-weight:700;color:#7C3AED;">Google</span><span class="tag" style="background:var(--violet-lt);color:var(--violet);">AI ✓</span></div>
-              </div>
-            </div>
+      <div class="hero__visual fade-up">
+        <div class="hero__slot" id="heroSlot">
+          <div class="hero__slot-window">
+            <div class="hero__slot-track" id="heroSlotTrack"></div>
           </div>
         </div>
       </div>
@@ -402,76 +317,54 @@ img{max-width:100%;}
   </div>
 </section>
 
-<!-- ══ STATS ══ -->
-<div class="stats">
-  <div class="wrap">
-    <div class="stats__grid">
-      <div class="stat"><div class="stat__val">500+</div><div class="stat__lbl">Clients worldwide</div></div>
-      <div class="stat"><div class="stat__val">5</div><div class="stat__lbl">AI products</div></div>
-      <div class="stat"><div class="stat__val">30+</div><div class="stat__lbl">Countries</div></div>
-      <div class="stat"><div class="stat__val">24hr</div><div class="stat__lbl">Go-live guarantee</div></div>
-    </div>
-  </div>
-</div>
-
 <!-- ══ PRODUCTS ══ -->
 <section class="section section--grey">
   <div class="wrap">
     <div class="sec-head center fade-up">
       <div class="sec-eyebrow">Our Products</div>
-      <h2 class="sec-h2">Five AI products.<br/>One for every industry.</h2>
-      <p class="sec-lead">Each product is built for a specific industry from the ground up — no generic tools that your business has to adapt to.</p>
+      <h2 class="sec-h2">Software built for the way you work.</h2>
+      <p class="sec-lead">Different businesses have different problems. Your software should understand that.</p>
     </div>
     <!-- 2×2 grid -->
     <div class="prods-grid fade-up">
       <a href="nexuspos.html" class="prod-card" style="--prod-col:#1D4ED8;text-decoration:none;">
-        <div class="prod-icon" style="background:#EFF6FF;">🍽️</div>
+        <div class="prod-icon"><img src="assets/nexuspos-icon.png" alt=""></div>
         <div class="prod-tag">Food Carts &amp; Kiosks</div>
         <div class="prod-name">NexusPOS</div>
-        <div class="prod-desc">GST billing, KOT, multi-branch stock management, offline mode and sales reports — purpose-built for food carts and kiosks.</div>
+        <div class="prod-desc">GST billing, kitchen order tickets, stock across branches, offline mode, and daily sales reports, for food carts and kiosks.</div>
         <div class="prod-link" style="color:#1D4ED8;">Explore NexusPOS <span>→</span></div>
       </a>
       <a href="nexusai.html" class="prod-card" style="--prod-col:#5B21B6;text-decoration:none;">
-        <div class="prod-icon" style="background:#EDE9FE;">🤖</div>
-        <div class="prod-tag">AI Chatbot &amp; Automation</div>
+        <div class="prod-icon"><img src="assets/nexusai-icon.png" alt=""></div>
+        <div class="prod-tag">Website &amp; WhatsApp Chatbot</div>
         <div class="prod-name">NexusAI</div>
-        <div class="prod-desc">Deploy AI on your website, Shopify and WhatsApp in 48 hours. 80% of customer queries resolved automatically, 24/7.</div>
+        <div class="prod-desc">A chatbot for your website, Shopify store, or WhatsApp. Handles common customer questions so you don't have to answer the same ones all day.</div>
         <div class="prod-link" style="color:#5B21B6;">Explore NexusAI <span>→</span></div>
       </a>
       <a href="nexusbilling.html" class="prod-card" style="--prod-col:#DC2626;text-decoration:none;">
-        <div class="prod-icon" style="background:#FFF1F2;">🚗</div>
+        <div class="prod-icon"><img src="assets/nexusbilling-icon.png" alt=""></div>
         <div class="prod-tag">Automobile Workshops</div>
         <div class="prod-name">NexusBilling</div>
-        <div class="prod-desc">Job cards, spare parts inventory, vehicle history by plate number, GST billing and WhatsApp job updates for garages.</div>
+        <div class="prod-desc">Job cards, spare parts inventory, vehicle history by plate number, GST billing, and WhatsApp updates to customers when work is done.</div>
         <div class="prod-link" style="color:#DC2626;">Explore NexusBilling <span>→</span></div>
       </a>
       <a href="nexusapartments.html" class="prod-card" style="--prod-col:#059669;text-decoration:none;">
-        <div class="prod-icon" style="background:#F0FDF4;">🏢</div>
+        <div class="prod-icon"><img src="assets/nexusapartments-icon.png" alt=""></div>
         <div class="prod-tag">Society Management</div>
         <div class="prod-name">NexusApartments</div>
-        <div class="prod-desc">Maintenance billing with UPI, visitor management, complaint tracking, resident app and committee accounts — fully automated.</div>
+        <div class="prod-desc">Maintenance billing with UPI, visitor logs, complaint tracking, and a simple app for residents and committee members.</div>
         <div class="prod-link" style="color:#059669;">Explore NexusApartments <span>→</span></div>
       </a>
     </div>
-    <!-- NexusBusiness Suite — Featured -->
-    <a href="nexusbusiness.html" class="prod-featured fade-up" style="margin-top:2px;">
-      <div class="prod-featured__left">
-        <div class="prod-featured__badge">✨ New Product · Now Live</div>
-        <div class="prod-featured__tag">Reviews &amp; Social Media AI</div>
-        <div class="prod-featured__name">NexusBusiness Suite</div>
-        <div class="prod-featured__desc">AI-powered Google review management, social publishing across 9 platforms, AI image studio, autonomous DM agent and competitor intelligence — all in one dashboard.</div>
-        <div class="prod-featured__pills">
-          <span class="prod-featured__pill" style="background:rgba(245,158,11,.12);color:#F59E0B;">⭐ Google Reviews</span>
-          <span class="prod-featured__pill" style="background:rgba(167,139,250,.12);color:#A78BFA;">📱 9 Platforms</span>
-          <span class="prod-featured__pill" style="background:rgba(236,72,153,.12);color:#EC4899;">🎨 AI Images</span>
-          <span class="prod-featured__pill" style="background:rgba(56,189,248,.12);color:#38BDF8;">💬 DM Agent</span>
-          <span class="prod-featured__pill" style="background:rgba(52,211,153,.12);color:#34D399;">🧠 Intelligence</span>
-        </div>
-      </div>
-      <div class="prod-featured__right">
-        <div class="prod-featured__price">from $49<span style="font-size:1rem;font-weight:500;color:rgba(255,255,255,.35);">/mo</span></div>
-        <div class="prod-featured__price-sub">14-day free trial</div>
-        <div class="prod-featured__cta">Explore Suite →</div>
+    <!-- NexusBusiness Suite -->
+    <a href="nexusbusiness.html" class="prod-featured fade-up">
+      <div class="prod-icon"><img src="assets/nexus-business-suite-icon.png" alt=""></div>
+      <div class="prod-featured__body">
+        <div class="prod-featured__new">New</div>
+        <div class="prod-tag">Reviews &amp; Social Media</div>
+        <div class="prod-name">NexusBusiness Suite</div>
+        <div class="prod-desc">Reply to Google reviews, schedule social posts, and handle Instagram DMs, without switching between five different apps.</div>
+        <div class="prod-link" style="color:#7C3AED;">Explore NexusBusiness Suite <span>→</span></div>
       </div>
     </a>
   </div>
@@ -482,38 +375,32 @@ img{max-width:100%;}
   <div class="wrap">
     <div class="sec-head center fade-up">
       <div class="sec-eyebrow">Why AM Technexus Labs</div>
-      <h2 class="sec-h2">AI-native. Global-ready.<br/>Industry-specific.</h2>
+      <h2 class="sec-h2">More than software. We handle the hard parts.</h2>
     </div>
     <div class="why-grid">
       <div class="why-card fade-up">
-        <div class="why-ic" style="background:#EDE9FE;">🌍</div>
-        <div class="why-h">Global &amp; Compliant</div>
-        <div class="why-p">India GST, UAE VAT, UK accounting — handled automatically. Multi-currency, multi-language, built in from day one.</div>
+        <div class="why-h">Built for your business</div>
+        <div class="why-p">Your software is configured around how your business actually works, not the other way around.</div>
       </div>
       <div class="why-card fade-up">
-        <div class="why-ic" style="background:#EFF6FF;">🤖</div>
-        <div class="why-h">AI-Native Architecture</div>
-        <div class="why-p">Every product uses AI for smart insights, anomaly detection, automated support and predictive inventory management.</div>
+        <div class="why-h">We set it up for you</div>
+        <div class="why-p">We migrate your data, configure the system, and train your team. Get up and running without the hassle.</div>
       </div>
       <div class="why-card fade-up">
-        <div class="why-ic" style="background:#F0FDF4;">⚡</div>
-        <div class="why-h">Live in 24 Hours</div>
-        <div class="why-p">Remote setup, full data migration and staff training included. We get any business running within one working day.</div>
+        <div class="why-h">Speak to a real person</div>
+        <div class="why-p">Need help? Reach us directly on WhatsApp in English, Tamil or Hindi. No endless support tickets.</div>
       </div>
       <div class="why-card fade-up">
-        <div class="why-ic" style="background:#FFF1F2;">🔒</div>
-        <div class="why-h">Enterprise Security</div>
-        <div class="why-p">Encrypted daily backups, 99.9% uptime SLA and role-based access control across all products and users.</div>
+        <div class="why-h">Your data stays protected</div>
+        <div class="why-p">Daily encrypted backups and role-based access keep your business data safe and in the right hands.</div>
       </div>
       <div class="why-card fade-up">
-        <div class="why-ic" style="background:#EFF6FF;">💬</div>
-        <div class="why-h">5 Language Support</div>
-        <div class="why-p">English, Tamil, Hindi, Arabic and Telugu. Real humans on WhatsApp. We reply in under 2 hours, any language.</div>
+        <div class="why-h">Help when you need it</div>
+        <div class="why-p">Questions during setup or everyday use? Message us and we'll help you get unstuck.</div>
       </div>
       <div class="why-card fade-up">
-        <div class="why-ic" style="background:#FFFBEB;">📊</div>
-        <div class="why-h">Actionable AI Insights</div>
-        <div class="why-p">Real-time dashboards, AI-powered trend reports and weekly business summaries — automatically delivered.</div>
+        <div class="why-h">Reports you can actually use</div>
+        <div class="why-p">See sales, stock, maintenance and other key numbers without wrestling with spreadsheets.</div>
       </div>
     </div>
   </div>
@@ -523,53 +410,34 @@ img{max-width:100%;}
 <section class="section section--grey">
   <div class="wrap">
     <div class="sec-head center fade-up">
-      <div class="sec-eyebrow">Customer Results</div>
+      <div class="sec-eyebrow">What customers say</div>
       <h2 class="sec-h2">Real businesses. Real results.</h2>
     </div>
     <div class="testi-grid">
       <div class="testi-card fade-up">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"NexusPOS transformed our cart operations. Billing is 4× faster, GST is automated and stock is managed perfectly across both branches."</div>
+        <div class="testi-quote">"Billing takes much less time now. GST is handled automatically, and we can see stock across both branches without the usual confusion."</div>
         <div class="testi-author">
           <div class="testi-avatar" style="background:#EFF6FF;color:#1D4ED8;">RK</div>
           <div><div class="testi-name">Rajan Kumar</div><div class="testi-role">SpiceGarden Food Cart, Chennai</div></div>
         </div>
-        <span class="testi-prod" style="background:#EFF6FF;color:#1D4ED8;">🍽️ NexusPOS</span>
+        <span class="testi-prod" style="background:#EFF6FF;color:#1D4ED8;">NexusPOS</span>
       </div>
       <div class="testi-card fade-up">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"NexusBilling is exactly what our garage needed. 2,000+ parts tracked, WhatsApp updates to customers — we do 30% more jobs every month now."</div>
+        <div class="testi-quote">"We manage over 2,000 spare parts and send WhatsApp updates without adding more staff. It's made handling more work much easier."</div>
         <div class="testi-author">
           <div class="testi-avatar" style="background:#FFF1F2;color:#DC2626;">MV</div>
           <div><div class="testi-name">Mohan Venkat</div><div class="testi-role">AutoCare Garage, Coimbatore</div></div>
         </div>
-        <span class="testi-prod" style="background:#FFF1F2;color:#DC2626;">🚗 NexusBilling</span>
+        <span class="testi-prod" style="background:#FFF1F2;color:#DC2626;">NexusBilling</span>
       </div>
       <div class="testi-card fade-up">
-        <div class="testi-stars">★★★★★</div>
-        <div class="testi-quote">"240 flats, fully automated. Maintenance collected digitally, complaints resolved fast. NexusApartments paid for itself in the first month."</div>
+        <div class="testi-quote">"Managing maintenance used to take hours. Now complaints are logged and tracked properly, and the committee can see what's happening at a glance."</div>
         <div class="testi-author">
           <div class="testi-avatar" style="background:#F0FDF4;color:#059669;">PS</div>
           <div><div class="testi-name">Priya Sundaram</div><div class="testi-role">GreenLeaf Residency, Bangalore</div></div>
         </div>
-        <span class="testi-prod" style="background:#F0FDF4;color:#059669;">🏢 NexusApartments</span>
+        <span class="testi-prod" style="background:#F0FDF4;color:#059669;">NexusApartments</span>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CTA ══ -->
-<section class="cta-section">
-  <div class="wrap">
-    <div class="cta-inner">
-      <div style="font-size:2.8rem;margin-bottom:20px;">🌍</div>
-      <h2 class="cta-h2">Start building smarter.<br/><span>Start free today.</span></h2>
-      <p class="cta-p">14-day free trial on all products. Free setup and training included. Our team gets you live within 24 hours — wherever you are in the world.</p>
-      <div class="cta-btns">
-        <a href="contact.html" class="btn-white">Start Free Trial →</a>
-        <a href="https://wa.me/918807810394" class="btn-ghost-dark" target="_blank" rel="noreferrer">💬 WhatsApp Us</a>
-      </div>
-      <p style="font-size:.75rem;color:rgba(255,255,255,.2);margin-top:20px;">No credit card required · Cancel anytime · Support in Tamil, Hindi, English &amp; Arabic</p>
     </div>
   </div>
 </section>
@@ -580,13 +448,23 @@ img{max-width:100%;}
     <div class="footer__grid">
       <div>
         <a href="index.html" class="logo logo--light" style="display:inline-flex;text-decoration:none;margin-bottom:8px;"><img src="assets/amtechnexus-labs-logo.png" alt="AMtechnexus Labs" style="height:34px;width:auto;display:block;filter:brightness(0) invert(1);"></a>
-        <p class="footer__brand-desc">AI-powered platforms for global businesses. Built for impact, built in India.</p>
+        <p class="footer__brand-desc">Billing and management software for restaurants, workshops, and societies. Built in Tamil Nadu.</p>
         <div class="footer__social">
-          <a href="https://wa.me/918807810394" title="WhatsApp" target="_blank" rel="noreferrer">💬</a>
-          <a href="mailto:amtechnexusofficial@gmail.com" title="Gmail">✉</a>
-          <a href="https://www.instagram.com/amtechnexus/" title="Instagram" target="_blank" rel="noreferrer">📸</a>
-          <a href="https://www.facebook.com/profile.php?id=100073104771786" title="Facebook" target="_blank" rel="noreferrer">fb</a>
-          <a href="https://x.com/AMtechnexus" title="X / Twitter" target="_blank" rel="noreferrer">𝕏</a>
+          <a href="https://wa.me/918807810394" title="WhatsApp" target="_blank" rel="noreferrer" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+          <a href="mailto:support@amtechnexus.com" title="Email" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          </a>
+          <a href="https://www.instagram.com/amtechnexus/" title="Instagram" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=100073104771786" title="Facebook" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 9.5V7.7c0-.8.2-1.2 1.1-1.2H16V4h-2.1C11.8 4 10.5 5.4 10.5 7.4V9.5H8v2.9h2.5V20h2.9v-7.6H18l.5-2.9h-3z"/></svg>
+          </a>
+          <a href="https://x.com/AMtechnexus" title="X" target="_blank" rel="noreferrer" aria-label="X">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 5h3.1l-6.8 7.8L21 19h-6.3l-4.9-6.4L4 19H.9l7.3-8.4L3 5h6.4l4.4 5.8L16.6 5zm-1.1 12.6h1.7L7.9 6.4H6.1l9.4 11.2z"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer__col">
@@ -595,7 +473,7 @@ img{max-width:100%;}
         <a href="nexusai.html">NexusAI</a>
         <a href="nexusbilling.html">NexusBilling</a>
         <a href="nexusapartments.html">NexusApartments</a>
-        <a href="nexusbusiness.html">NexusBusiness Suite <span class="new">NEW</span></a>
+        <a href="nexusbusiness.html">NexusBusiness Suite</a>
       </div>
       <div class="footer__col">
         <div class="footer__col-title">Company</div>
@@ -606,22 +484,14 @@ img{max-width:100%;}
         <a href="contact.html">Contact</a>
       </div>
       <div class="footer__col">
-        <div class="footer__col-title">Follow Us</div>
-        <a href="https://www.instagram.com/amtechnexus/" target="_blank" rel="noreferrer">📸 Instagram</a>
-        <a href="https://www.facebook.com/profile.php?id=100073104771786" target="_blank" rel="noreferrer">Facebook</a>
-        <a href="https://x.com/AMtechnexus" target="_blank" rel="noreferrer">𝕏 Twitter / X</a>
-        <a href="https://wa.me/918807810394" target="_blank" rel="noreferrer">💬 WhatsApp</a>
-      </div>
-      <div class="footer__col">
         <div class="footer__col-title">Contact</div>
-        <a href="mailto:support@amtechnexus.com">support@amtechnexus.com</a>
-        <a href="mailto:amtechnexusofficial@gmail.com">amtechnexusofficial@gmail.com</a>
-        <a href="https://wa.me/918807810394">+91 88078 10394</a>
-        <span>Tamil Nadu, India 🇮🇳</span>
+        <a href="mailto:support@amtechnexus.com" class="footer__contact-line">support@amtechnexus.com</a>
+        <a href="https://wa.me/918807810394" class="footer__contact-line">+91 88078 10394</a>
+        <span class="footer__contact-line footer__contact-line--muted">Tamil Nadu, India</span>
       </div>
     </div>
     <div class="footer__bottom">
-      <span class="footer__copy">© 2024 AM Technexus Labs Private Limited · Made with ❤️ in India 🇮🇳 · Serving the world 🌍</span>
+      <span class="footer__copy">© 2024 AM Technexus Labs Private Limited · Made in Tamil Nadu · Serving India and abroad</span>
       <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="#">Cookies</a></div>
     </div>
   </div>
@@ -647,6 +517,27 @@ const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
 },{threshold:.08});
 document.querySelectorAll('.fade-up').forEach(el=>io.observe(el));
+
+// Hero product slot — continuous vertical scroll
+(function(){
+  const products=[
+    {href:'nexuspos.html',icon:'assets/nexuspos-icon.png',name:'NexusPOS',desc:'Food carts & kiosks'},
+    {href:'nexusai.html',icon:'assets/nexusai-icon.png',name:'NexusAI',desc:'Website & WhatsApp chatbot'},
+    {href:'nexusbilling.html',icon:'assets/nexusbilling-icon.png',name:'NexusBilling',desc:'Automobile workshops'},
+    {href:'nexusapartments.html',icon:'assets/nexusapartments-icon.png',name:'NexusApartments',desc:'Society management'},
+    {href:'nexusbusiness.html',icon:'assets/nexus-business-suite-icon.png',name:'NexusBusiness Suite',desc:'Reviews, social media & messages'}
+  ];
+  const track=document.getElementById('heroSlotTrack');
+  if(!track)return;
+
+  const itemHTML=p=>`<a href="${p.href}" class="hero__slot-item"><img src="${p.icon}" alt=""><div><div class="hero__slot-name">${p.name}</div><div class="hero__slot-desc">${p.desc}</div></div></a>`;
+  const loop=[products[products.length-1],...products,...products];
+  track.innerHTML=loop.map(itemHTML).join('');
+
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    track.innerHTML=products.slice(0,3).map(itemHTML).join('');
+  }
+})();
 </script>
 </body>
 </html>
