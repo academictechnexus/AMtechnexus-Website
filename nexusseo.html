@@ -96,26 +96,33 @@ button{font-family:inherit;cursor:pointer;}
 .plat-pill .dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
 
 /* Dashboard mockup */
-.hero__dash{max-width:860px;margin:0 auto;background:#111827;border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;box-shadow:0 2px 4px rgba(0,0,0,.3),0 24px 64px rgba(0,0,0,.5);}
-.dash-bar{background:#1E293B;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.06);}
+.hero__dash{max-width:860px;margin:0 auto;background:#131F35;border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden;box-shadow:0 2px 4px rgba(0,0,0,.3),0 24px 70px rgba(37,99,235,.18);}
+.dash-bar{background:#1E2C4A;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.08);}
 .dash-dots{display:flex;gap:5px;}
 .dash-dots span{width:9px;height:9px;border-radius:50%;}
-.dash-url{flex:1;background:rgba(255,255,255,.05);border-radius:5px;padding:3px 10px;font-size:.65rem;color:rgba(255,255,255,.25);font-family:monospace;display:flex;align-items:center;gap:5px;}
-.dash-url .live{width:5px;height:5px;border-radius:50%;background:#34D399;flex-shrink:0;}
+.dash-url{flex:1;background:rgba(255,255,255,.07);border-radius:5px;padding:3px 10px;font-size:.65rem;color:rgba(255,255,255,.35);font-family:monospace;display:flex;align-items:center;gap:5px;}
+.dash-url .live{width:5px;height:5px;border-radius:50%;background:#34D399;box-shadow:0 0 6px #34D399;flex-shrink:0;}
 .dash-body{display:grid;grid-template-columns:52px 1fr;}
-.dash-rail{background:#0A0F1E;display:flex;flex-direction:column;align-items:center;padding:12px 0;gap:4px;border-right:1px solid rgba(255,255,255,.04);}
-.dash-rail-ic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:rgba(255,255,255,.3);}
-.dash-rail-ic.on{background:linear-gradient(135deg,#2563EB,#10B981);color:#fff;}
-.dash-content{padding:16px;background:#0F172A;}
+.dash-rail{background:#0E1830;display:flex;flex-direction:column;align-items:center;padding:12px 0;gap:4px;border-right:1px solid rgba(255,255,255,.06);}
+.dash-rail-ic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.85rem;color:rgba(255,255,255,.4);}
+.dash-rail-ic.on{background:linear-gradient(135deg,#2563EB,#10B981);color:#fff;box-shadow:0 4px 14px rgba(16,185,129,.4);}
+.dash-content{padding:16px;background:#101B33;}
 .kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px;}
-.kpi{background:#1E293B;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 14px;}
+.kpi{background:#1C2C4C;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 14px;}
 .kpi__val{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.25rem;font-weight:800;color:#fff;line-height:1;margin-bottom:3px;}
-.kpi__lbl{font-size:.6rem;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+.kpi__lbl{font-size:.6rem;font-weight:700;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
 .kpi__tag{display:inline-block;font-size:.58rem;font-weight:700;padding:2px 7px;border-radius:100px;}
-.activity{background:#1E293B;border:1px solid rgba(255,255,255,.06);border-radius:10px;overflow:hidden;}
-.activity__head{display:grid;grid-template-columns:1.3fr 2.2fr 1fr;padding:7px 12px;border-bottom:1px solid rgba(255,255,255,.05);background:#0F172A;}
-.activity__head span{font-size:.58rem;font-weight:700;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.5px;}
-.activity__row{display:grid;grid-template-columns:1.3fr 2.2fr 1fr;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.04);align-items:center;font-size:.68rem;color:rgba(255,255,255,.5);}
+.dash-chart{background:#1C2C4C;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 14px;margin-bottom:12px;}
+.dash-chart__head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.dash-chart__title{font-size:.66rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.5px;}
+.dash-chart__val{font-size:.78rem;font-weight:800;color:#34D399;}
+.dash-chart svg{width:100%;height:64px;display:block;}
+.dash-chart__axis{display:flex;justify-content:space-between;margin-top:6px;}
+.dash-chart__axis span{font-size:.58rem;color:rgba(255,255,255,.32);}
+.activity{background:#1C2C4C;border:1px solid rgba(255,255,255,.1);border-radius:10px;overflow:hidden;}
+.activity__head{display:grid;grid-template-columns:1.3fr 2.2fr 1fr;padding:7px 12px;border-bottom:1px solid rgba(255,255,255,.07);background:#182746;}
+.activity__head span{font-size:.58rem;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.5px;}
+.activity__row{display:grid;grid-template-columns:1.3fr 2.2fr 1fr;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05);align-items:center;font-size:.68rem;color:rgba(255,255,255,.6);}
 .activity__row:last-child{border-bottom:none;}
 .activity__tag{font-size:.58rem;font-weight:700;padding:2px 8px;border-radius:100px;display:inline-block;}
 
@@ -156,11 +163,6 @@ button{font-family:inherit;cursor:pointer;}
 .pstep__num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.6rem;background:linear-gradient(135deg,#38BDF8,#34D399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px;}
 .pstep__h{font-size:.86rem;font-weight:700;color:#fff;margin-bottom:6px;}
 .pstep__p{font-size:.74rem;color:rgba(255,255,255,.4);line-height:1.55;}
-.days{background:#12122A;border:1px solid rgba(255,255,255,.07);border-radius:16px;overflow:hidden;max-width:900px;margin:0 auto;}
-.days__row{display:grid;grid-template-columns:120px 1fr;border-bottom:1px solid rgba(255,255,255,.05);}
-.days__row:last-child{border-bottom:none;}
-.days__month{padding:18px 20px;background:#0F0F22;display:flex;align-items:center;font-weight:800;font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;background-image:linear-gradient(135deg,#38BDF8,#34D399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.days__desc{padding:18px 20px;font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.6;display:flex;align-items:center;}
 
 /* ═══ PRICING ═══ */
 .pricing{padding:80px 0;background:#0A0A14;}
@@ -236,7 +238,6 @@ button{font-family:inherit;cursor:pointer;}
   .footer__grid{grid-template-columns:1fr 1fr;gap:24px;}
   .included__grid{grid-template-columns:1fr 1fr;}
   .process__steps{grid-template-columns:1fr 1fr;}
-  .days__row{grid-template-columns:100px 1fr;}
   .compare{overflow-x:auto;}
 }
 @media(max-width:640px){
@@ -260,8 +261,6 @@ button{font-family:inherit;cursor:pointer;}
   .feat__h{font-size:1.3rem;}
   .process{padding:56px 0;}
   .process__steps{grid-template-columns:1fr;}
-  .days__row{grid-template-columns:1fr;}
-  .days__month{padding-bottom:6px;}
   .pricing{padding:56px 0;}
   .pricing__cards{grid-template-columns:1fr;}
   .p-card__price{font-size:2rem;}
@@ -354,19 +353,38 @@ button{font-family:inherit;cursor:pointer;}
           </div>
           <div class="dash-content">
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
-              <span style="font-size:.78rem;font-weight:700;color:rgba(255,255,255,.65);">Visibility Overview · This Month</span>
-              <span style="font-size:.6rem;background:rgba(52,211,153,.12);color:#34D399;border:1px solid rgba(52,211,153,.18);border-radius:100px;padding:2px 9px;font-weight:700;">● Tracking Live</span>
+              <span style="font-size:.78rem;font-weight:700;color:rgba(255,255,255,.8);">Visibility Overview · This Month</span>
+              <span style="font-size:.6rem;background:rgba(52,211,153,.18);color:#34D399;border:1px solid rgba(52,211,153,.3);border-radius:100px;padding:2px 9px;font-weight:700;">● Tracking Live</span>
             </div>
             <div class="kpi-row">
-              <div class="kpi"><div class="kpi__lbl">Keywords, Top 10</div><div class="kpi__val" style="color:#38BDF8;">28</div><div class="kpi__tag" style="background:rgba(56,189,248,.12);color:#38BDF8;">↑ +19 this qtr</div></div>
-              <div class="kpi"><div class="kpi__lbl">AI Answer Mentions</div><div class="kpi__val" style="color:#2DD4BF;">14</div><div class="kpi__tag" style="background:rgba(45,212,191,.12);color:#2DD4BF;">ChatGPT, Gemini</div></div>
-              <div class="kpi"><div class="kpi__lbl">Organic Traffic</div><div class="kpi__val" style="color:#34D399;">+340%</div><div class="kpi__tag" style="background:rgba(52,211,153,.12);color:#34D399;">vs baseline</div></div>
+              <div class="kpi"><div class="kpi__lbl">Keywords, Top 10</div><div class="kpi__val" style="color:#38BDF8;">28</div><div class="kpi__tag" style="background:rgba(56,189,248,.18);color:#38BDF8;">↑ +19 this qtr</div></div>
+              <div class="kpi"><div class="kpi__lbl">AI Answer Mentions</div><div class="kpi__val" style="color:#2DD4BF;">14</div><div class="kpi__tag" style="background:rgba(45,212,191,.18);color:#2DD4BF;">ChatGPT, Gemini</div></div>
+              <div class="kpi"><div class="kpi__lbl">Organic Traffic</div><div class="kpi__val" style="color:#34D399;">+340%</div><div class="kpi__tag" style="background:rgba(52,211,153,.18);color:#34D399;">vs baseline</div></div>
+            </div>
+            <div class="dash-chart">
+              <div class="dash-chart__head"><span class="dash-chart__title">Organic Traffic, Last 6 Months</span><span class="dash-chart__val">↑ +340%</span></div>
+              <svg viewBox="0 0 300 64" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="seoTrendLine" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0" stop-color="#38BDF8"/>
+                    <stop offset="1" stop-color="#34D399"/>
+                  </linearGradient>
+                  <linearGradient id="seoTrendFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#34D399" stop-opacity=".4"/>
+                    <stop offset="1" stop-color="#34D399" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <polygon points="0,56 50,49 100,42 150,32 200,22 250,12 300,5 300,64 0,64" fill="url(#seoTrendFill)"/>
+                <polyline points="0,56 50,49 100,42 150,32 200,22 250,12 300,5" fill="none" stroke="url(#seoTrendLine)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="300" cy="5" r="4" fill="#34D399" stroke="#101B33" stroke-width="2"/>
+              </svg>
+              <div class="dash-chart__axis"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div>
             </div>
             <div class="activity">
               <div class="activity__head"><span>Pillar</span><span>Activity</span><span>Status</span></div>
-              <div class="activity__row"><span>🔍 SEO</span><span>"Bangkok tailoring" moved #14 → #4</span><span class="activity__tag" style="background:rgba(56,189,248,.12);color:#38BDF8;">Live</span></div>
-              <div class="activity__row"><span>💬 AEO</span><span>FAQ schema published, 12 questions</span><span class="activity__tag" style="background:rgba(45,212,191,.12);color:#2DD4BF;">Done</span></div>
-              <div class="activity__row"><span>📱 Social</span><span>Weekly content calendar, 6 posts</span><span class="activity__tag" style="background:rgba(251,191,36,.12);color:#FBBF24;">Scheduled</span></div>
+              <div class="activity__row"><span>🔍 SEO</span><span>Priority keyword moved #14 → #4</span><span class="activity__tag" style="background:rgba(56,189,248,.18);color:#38BDF8;">Live</span></div>
+              <div class="activity__row"><span>💬 AEO</span><span>FAQ schema published, 12 questions</span><span class="activity__tag" style="background:rgba(45,212,191,.18);color:#2DD4BF;">Done</span></div>
+              <div class="activity__row"><span>📱 Social</span><span>Weekly content calendar, 6 posts</span><span class="activity__tag" style="background:rgba(251,191,36,.18);color:#FBBF24;">Scheduled</span></div>
             </div>
           </div>
         </div>
@@ -539,11 +557,6 @@ button{font-family:inherit;cursor:pointer;}
       <div class="pstep"><div class="pstep__num">03</div><div class="pstep__h">Research &amp; Strategy</div><div class="pstep__p">Keyword research and a prioritised roadmap, immediate, short-term and longer-term.</div></div>
       <div class="pstep"><div class="pstep__num">04</div><div class="pstep__h">Implementation</div><div class="pstep__p">Technical fixes, page optimisation, content, local SEO, AEO/GEO and social media.</div></div>
       <div class="pstep"><div class="pstep__num">05</div><div class="pstep__h">Measure &amp; Improve</div><div class="pstep__p">Monthly review, reporting of completed work and continuous refinement.</div></div>
-    </div>
-    <div class="days">
-      <div class="days__row"><div class="days__month">Month 1</div><div class="days__desc">Complete audit, baseline measurement, keyword research, competitor review and a prioritised roadmap.</div></div>
-      <div class="days__row"><div class="days__month">Month 2</div><div class="days__desc">Technical and on-page optimisation, content work, local SEO improvements and AEO/GEO foundations.</div></div>
-      <div class="days__row"><div class="days__month">Month 3</div><div class="days__desc">Further content opportunities, authority development, AI visibility refinement and next-quarter planning.</div></div>
     </div>
   </div>
 </section>
