@@ -44,6 +44,7 @@
 .ptab.active-apts{background:#059669;color:#fff;border-color:#059669;}
 .ptab.active-biz{background:linear-gradient(135deg,#7C3AED,#2563EB);color:#fff;border-color:#7C3AED;}
 .ptab.active-seo{background:linear-gradient(135deg,#2563EB,#10B981);color:#fff;border-color:#2563EB;}
+.ptab.active-play{background:linear-gradient(135deg,#7C3AED,#EC4899,#F97316);color:#fff;border-color:#DB2777;}
 .ppanel{display:none;}.ppanel.active{display:block;}
 .pcard{background:#fff;border:1.5px solid #E5E7EB;border-radius:16px;padding:28px;position:relative;display:flex;flex-direction:column;}
 .pcard.popular{border-color:#5B21B6;box-shadow:0 0 0 1px rgba(91,33,182,.15),0 12px 36px rgba(91,33,182,.1);}
@@ -69,6 +70,7 @@
           <a href="nexusapartments.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusapartments-icon.png" alt=""></div><div><span class="drop-title">NexusApartments</span><span class="drop-desc">Society management</span></div></a>
           <a href="nexusbusiness.html" class="drop-item"><div class="drop-icon"><img src="assets/nexus-business-suite-icon.png" alt=""></div><div><span class="drop-title">NexusBusiness Suite</span><span class="drop-desc">Reviews &amp; social media AI</span></div></a>
           <a href="nexusseo.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusseo-icon.svg" alt=""></div><div><span class="drop-title">NexusSEO+</span><span class="drop-desc">SEO, AEO, GEO &amp; social media</span></div></a>
+          <a href="nexusplay.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusplay-icon.png" alt=""></div><div><span class="drop-title">NexusPlay</span><span class="drop-desc">Turf &amp; arena booking</span></div></a>
         </div>
       </li>
       <li><a href="about.html">About</a></li>
@@ -91,6 +93,7 @@
   <a href="nexusapartments.html"><img src="assets/nexusapartments-icon.png" alt="" class="nav__mob-icon"> NexusApartments</a>
   <a href="nexusbusiness.html"><img src="assets/nexus-business-suite-icon.png" alt="" class="nav__mob-icon"> NexusBusiness Suite</a>
   <a href="nexusseo.html"><img src="assets/nexusseo-icon.svg" alt="" class="nav__mob-icon"> NexusSEO+</a>
+  <a href="nexusplay.html"><img src="assets/nexusplay-icon.png" alt="" class="nav__mob-icon"> NexusPlay</a>
   <div class="nav__mob-sec">Company</div>
   <a href="about.html">About Us</a>
   <a href="pricing.html">Pricing</a>
@@ -111,6 +114,7 @@
       <button class="ptab" id="tab-apts" onclick="showPlan('apts')"><img src="assets/nexusapartments-icon.png" alt="" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:6px;"> NexusApartments</button>
       <button class="ptab" id="tab-biz" onclick="showPlan('biz')"><img src="assets/nexus-business-suite-icon.png" alt="" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:6px;"> NexusBusiness Suite</button>
       <button class="ptab" id="tab-seo" onclick="showPlan('seo')"><img src="assets/nexusseo-icon.svg" alt="" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:6px;"> NexusSEO+</button>
+      <button class="ptab" id="tab-play" onclick="showPlan('play')"><img src="assets/nexusplay-icon.png" alt="" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:6px;"> NexusPlay</button>
     </div>
   </div>
 </section>
@@ -234,6 +238,19 @@
       </div>
     </div>
 
+    <!-- NexusPlay -->
+    <div class="ppanel" id="panel-play">
+      <div style="background:#fff;border:1px solid #E5E7EB;border-left:4px solid #DB2777;border-radius:14px;padding:16px 20px;margin-bottom:28px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <div><div style="font-family:var(--font-d);font-weight:700;color:#111827;display:flex;align-items:center;gap:8px;"><img src="assets/nexusplay-icon.png" alt="" style="width:28px;height:28px;object-fit:contain;"> NexusPlay, Turf &amp; Sports Arena Booking</div><div style="font-size:.84rem;color:#6B7280;margin-top:3px;">Live slot booking, split payments and open games for players. A full venue dashboard for owners.</div></div>
+        <a href="nexusplay.html" style="margin-left:auto;padding:9px 18px;background:#FCE7F3;color:#BE185D;border:1px solid #F9A8D4;border-radius:8px;font-weight:700;font-size:.82rem;text-decoration:none;white-space:nowrap;flex-shrink:0;">View Full Page →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;">
+        <div class="pcard"><div style="font-size:.7rem;font-weight:700;color:#2563EB;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Players</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Free</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Browsing &amp; booking, always free</div><div class="pfeat">✓ Live slot search &amp; booking</div><div class="pfeat">✓ Open Games Hub</div><div class="pfeat">✓ Split payments with friends</div><div class="pfeat">✓ Reviews &amp; personal dashboard</div><div style="margin-top:20px;"><a href="nexusplay.html" style="display:block;padding:11px;text-align:center;background:#EFF6FF;color:#2563EB;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Find a Turf →</a></div></div>
+        <div class="pcard popular" style="border-color:#DB2777;"><div class="pcard-pop" style="background:linear-gradient(135deg,#7C3AED,#EC4899,#F97316);">MOST POPULAR</div><div style="font-size:.7rem;font-weight:700;color:#DB2777;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Single Venue</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">Zero fee on direct UPI</div><div class="pfeat">✓ Full arena management dashboard</div><div class="pfeat">✓ Real-time slot &amp; court control</div><div class="pfeat">✓ Customer CRM + reports &amp; billing</div><div class="pfeat">✓ Shareable QR &amp; booking link</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:linear-gradient(135deg,#7C3AED,#EC4899,#F97316);color:#fff;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">List Your Venue →</a></div></div>
+        <div class="pcard"><div style="font-size:.7rem;font-weight:700;color:#F97316;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:10px;">Multi-Venue</div><div style="font-family:var(--font-d);font-size:1.5rem;font-weight:800;color:#111827;margin-bottom:3px;">Contact for Pricing</div><div style="font-size:.78rem;color:#6B7280;margin-bottom:16px;">For chains &amp; multi-location owners</div><div class="pfeat">✓ Everything in Single Venue</div><div class="pfeat">✓ One dashboard, every venue</div><div class="pfeat">✓ Consolidated reporting</div><div class="pfeat">✓ Priority onboarding</div><div style="margin-top:20px;"><a href="contact.html" style="display:block;padding:11px;text-align:center;background:#FFF7ED;color:#F97316;border-radius:9px;font-weight:700;font-size:.88rem;text-decoration:none;">Contact for Pricing →</a></div></div>
+      </div>
+    </div>
+
     <!-- Included in all -->
     <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:28px;margin-top:28px;text-align:center;">
       <div style="font-family:var(--font-d);font-weight:700;font-size:1rem;color:#111827;margin-bottom:18px;">✅ Included in every plan, every product</div>
@@ -274,6 +291,7 @@
           <a href="nexusapartments.html">NexusApartments</a>
           <a href="nexusbusiness.html">NexusBusiness Suite ✨</a>
           <a href="nexusseo.html">NexusSEO+ ✨</a>
+          <a href="nexusplay.html">NexusPlay ✨</a>
         </div>
       </div>
       <div>
@@ -317,7 +335,7 @@
 function showPlan(id) {
   document.querySelectorAll('.ppanel').forEach(p=>p.classList.remove('active'));
   document.getElementById('panel-'+id).classList.add('active');
-  ['pos','ai','billing','apts','biz','seo'].forEach(t=>{
+  ['pos','ai','billing','apts','biz','seo','play'].forEach(t=>{
     const btn=document.getElementById('tab-'+t);
     btn.className='ptab'+(t===id?' active-'+t:'');
   });

@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/nexusplay-icon.png">
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<link rel="apple-touch-icon" href="assets/nexusplay-icon.png">
+<title>NexusPlay  |  Turf &amp; Sports Arena Booking System | AM Technexus Labs</title>
+<meta name="description" content="NexusPlay is a turf and sports arena booking system. Players find and book verified turfs instantly, split payments with friends, and join open games. Venue owners manage every court, slot and booking from one dashboard.">
+<meta property="og:title" content="NexusPlay | Turf &amp; Sports Arena Booking System">
+<meta property="og:description" content="Book. Play. Split the bill. Sports turf and arena booking made simple, for players and venue owners.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/nexusplay-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "NexusPlay",
+  "applicationCategory": "SportsApplication",
+  "operatingSystem": "Web, Android, iOS",
+  "description": "Turf and sports arena booking system for players and venue owners.",
+  "provider": {"@type": "Organization", "name": "AM Technexus Labs", "url": "https://amtechnexus.com"}
+}
+</script>
+<style>
+/* ═══ RESET & BASE ═══ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;}
+body{font-family:'Inter',sans-serif;background:#FFFFFF;color:#374151;overflow-x:hidden;line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+@media(max-width:600px){.wrap{padding:0 16px;}}
+
+/* ═══ NAV ═══ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:999;height:64px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid #E5E7EB;}
+.nav__inner{max-width:1160px;margin:0 auto;height:100%;padding:0 24px;display:flex;align-items:center;gap:8px;}
+.nlogo{display:flex;align-items:center;gap:8px;text-decoration:none;flex-shrink:0;}
+.nlogo img{height:32px;width:auto;display:block;}
+.nlogo__name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:.95rem;line-height:1;white-space:nowrap;}
+.nlogo__name .nx{color:#111827;}
+.nlogo__name .play{background:linear-gradient(135deg,#7C3AED,#EC4899 55%,#F97316);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.nav__links{display:flex;align-items:center;list-style:none;flex:1;gap:2px;margin-left:14px;}
+.nav__links a{padding:7px 12px;font-size:.82rem;font-weight:500;color:#4B5563;border-radius:6px;transition:all .15s;}
+.nav__links a:hover{color:#111827;background:#F3F4F6;}
+.nav__right{display:flex;align-items:center;gap:8px;margin-left:auto;flex-shrink:0;}
+.nav__ghost{padding:7px 14px;background:#F3F4F6;color:#374151;border:1px solid #E5E7EB;border-radius:7px;font-size:.8rem;font-weight:600;transition:all .18s;white-space:nowrap;}
+.nav__ghost:hover{background:#E5E7EB;color:#111827;}
+.nav__cta{padding:8px 16px;background:linear-gradient(135deg,#2563EB,#8B5CF6 45%,#EC4899 75%,#F97316);color:#fff;border-radius:7px;font-size:.8rem;font-weight:700;white-space:nowrap;box-shadow:0 4px 14px rgba(139,92,246,.25);transition:all .2s;}
+.nav__cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(236,72,153,.35);}
+.nav__ham{display:none;flex-direction:column;gap:4px;width:34px;height:34px;align-items:center;justify-content:center;background:#F3F4F6;border:1px solid #E5E7EB;border-radius:7px;margin-left:8px;}
+.nav__ham span{display:block;width:15px;height:1.8px;background:#374151;border-radius:2px;transition:all .25s;}
+.nav__ham.open span:nth-child(1){transform:translateY(5.8px) rotate(45deg);}
+.nav__ham.open span:nth-child(2){opacity:0;}
+.nav__ham.open span:nth-child(3){transform:translateY(-5.8px) rotate(-45deg);}
+.nav__drawer{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:#fff;z-index:998;overflow-y:auto;border-top:1px solid #E5E7EB;}
+.nav__drawer.open{display:block;}
+.nav__drawer-inner{padding:16px;}
+.nav__drawer-sec{font-size:.65rem;font-weight:700;color:#9CA3AF;text-transform:uppercase;letter-spacing:1.2px;padding:14px 8px 6px;}
+.nav__drawer a{display:flex;align-items:center;gap:10px;padding:13px 8px;font-size:.9rem;color:#374151;border-bottom:1px solid #F3F4F6;}
+.nav__drawer a:hover{color:#111827;}
+.nav__drawer-cta{display:block;margin-top:16px;padding:14px;text-align:center;background:linear-gradient(135deg,#2563EB,#8B5CF6 45%,#EC4899 75%,#F97316);color:#fff;border-radius:10px;font-weight:700;font-size:.9rem;}
+@media(max-width:880px){.nav__links,.nav__ghost{display:none;}.nav__ham{display:flex;}}
+
+/* ═══ HERO ═══ */
+.hero{padding:calc(64px + 60px) 0 56px;background:linear-gradient(160deg,#EFF6FF 0%,#F5F3FF 35%,#FDF2F8 70%,#FFF7ED 100%);position:relative;overflow:hidden;text-align:center;}
+.hero__inner{position:relative;z-index:1;}
+.hero__icon{width:76px;height:auto;margin:0 auto 18px;}
+.hero__icon img{width:100%;height:auto;display:block;}
+.hero__pill{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #E5E7EB;border-radius:100px;padding:5px 14px;font-size:.75rem;font-weight:600;color:#4B5563;margin-bottom:22px;box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.hero__pill .dot{width:6px;height:6px;border-radius:50%;background:#EC4899;flex-shrink:0;}
+.hero__h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(1.9rem,5vw,3.3rem);color:#111827;line-height:1.15;letter-spacing:-1.5px;margin-bottom:16px;}
+.hero__h1 .grad{background:linear-gradient(135deg,#2563EB 0%,#8B5CF6 40%,#EC4899 70%,#F97316 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero__sub{font-size:clamp(.9rem,2vw,1.02rem);color:#4B5563;line-height:1.72;max-width:580px;margin:0 auto 30px;}
+.hero__btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;}
+.btn-primary{display:inline-flex;align-items:center;gap:7px;padding:13px 26px;background:linear-gradient(135deg,#2563EB,#8B5CF6 45%,#EC4899 75%,#F97316);color:#fff;border:none;border-radius:9px;font-weight:700;font-size:.88rem;box-shadow:0 8px 22px rgba(139,92,246,.28);transition:all .2s;white-space:nowrap;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(236,72,153,.35);}
+.btn-ghost{display:inline-flex;align-items:center;gap:7px;padding:12px 24px;background:#fff;color:#374151;border:1.5px solid #D1D5DB;border-radius:9px;font-weight:600;font-size:.88rem;transition:all .2s;white-space:nowrap;}
+.btn-ghost:hover{background:#F9FAFB;border-color:#9CA3AF;}
+.pillars__pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.plat-pill{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #E5E7EB;border-radius:100px;padding:5px 13px;font-size:.72rem;font-weight:600;color:#374151;box-shadow:0 1px 2px rgba(0,0,0,.03);}
+.plat-pill .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+
+/* ═══ STATS STRIP ═══ */
+.stats{background:#fff;border-top:1px solid #E5E7EB;border-bottom:1px solid #E5E7EB;padding:26px 0;}
+.stats__row{display:grid;grid-template-columns:repeat(4,1fr);}
+.stats__item{padding:0 24px;text-align:center;border-right:1px solid #E5E7EB;}
+.stats__item:last-child{border-right:none;}
+.stats__val{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:-.5px;margin-bottom:3px;background:linear-gradient(135deg,#2563EB,#EC4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stats__lbl{font-size:.72rem;color:#6B7280;font-weight:500;}
+
+/* ═══ AUDIENCE SECTIONS ═══ */
+.audience{padding:76px 0;}
+.audience.alt{background:#F8FAFC;}
+.aud__head{text-align:center;max-width:640px;margin:0 auto 44px;}
+.aud__tag{display:inline-flex;align-items:center;gap:6px;font-size:.65rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:14px;}
+.aud__h{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:800;color:#111827;letter-spacing:-.8px;margin-bottom:10px;}
+.aud__sub{font-size:.92rem;color:#6B7280;line-height:1.7;}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.fcard{background:#fff;border:1px solid #E5E7EB;border-radius:16px;padding:24px;box-shadow:0 2px 10px rgba(15,23,42,.04);transition:transform .18s,box-shadow .18s;}
+.fcard:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(15,23,42,.08);}
+.fcard__ic{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:14px;}
+.fcard__h{font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;font-weight:800;color:#111827;margin-bottom:7px;letter-spacing:-.2px;}
+.fcard__p{font-size:.84rem;color:#6B7280;line-height:1.65;}
+
+/* ═══ PLATFORM-WIDE ═══ */
+.platform{padding:56px 0;background:#111827;}
+.platform__head{text-align:center;margin-bottom:32px;}
+.platform__eye{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#A78BFA;margin-bottom:10px;}
+.platform__h{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;letter-spacing:-.6px;}
+.platform__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.pcard2{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:22px;}
+.pcard2__ic{font-size:1.3rem;margin-bottom:10px;}
+.pcard2__h{font-size:.92rem;font-weight:700;color:#fff;margin-bottom:6px;}
+.pcard2__p{font-size:.8rem;color:rgba(255,255,255,.55);line-height:1.6;}
+
+/* ═══ DUAL CTA ═══ */
+.dual-cta{padding:76px 0;background:#fff;}
+.dual-cta__grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.dc-card{border-radius:20px;padding:40px 34px;position:relative;overflow:hidden;}
+.dc-card.players{background:linear-gradient(135deg,#EFF6FF,#F5F3FF);border:1px solid #DBEAFE;}
+.dc-card.owners{background:linear-gradient(135deg,#FDF2F8,#FFF7ED);border:1px solid #FBCFE8;}
+.dc-card__ic{font-size:1.8rem;margin-bottom:14px;}
+.dc-card__h{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800;color:#111827;margin-bottom:10px;letter-spacing:-.4px;}
+.dc-card__p{font-size:.88rem;color:#4B5563;line-height:1.7;margin-bottom:22px;}
+
+/* ═══ FAQ ═══ */
+.faq{padding:72px 0;background:#F8FAFC;}
+.faq__inner{max-width:680px;margin:0 auto;}
+.faq__head{text-align:center;margin-bottom:36px;}
+.sec-eye{display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#7C3AED;margin-bottom:12px;}
+.sec-h{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.6rem,3vw,2.1rem);font-weight:800;color:#111827;letter-spacing:-1px;}
+.faq-item{border:1px solid #E5E7EB;border-radius:11px;margin-bottom:9px;overflow:hidden;background:#fff;}
+.faq-q{padding:16px 20px;font-weight:600;font-size:.88rem;color:#1F2937;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background .15s;gap:12px;}
+.faq-q:hover{background:#F9FAFB;}
+.faq-chev{font-size:.7rem;color:#9CA3AF;flex-shrink:0;transition:transform .25s;}
+.faq-a{display:none;padding:0 20px 16px;font-size:.84rem;color:#6B7280;line-height:1.75;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .faq-chev{transform:rotate(180deg);}
+
+/* ═══ BOTTOM CTA ═══ */
+.cta-bottom{background:linear-gradient(135deg,#2563EB,#8B5CF6 40%,#EC4899 70%,#F97316);padding:76px 0;text-align:center;position:relative;overflow:hidden;}
+.cta-bottom__inner{position:relative;z-index:1;max-width:540px;margin:0 auto;}
+.cta-bottom__icon{width:60px;height:auto;margin:0 auto 18px;background:#fff;border-radius:16px;padding:10px;box-shadow:0 8px 24px rgba(0,0,0,.15);}
+.cta-bottom__icon img{width:100%;height:auto;display:block;}
+.cta-bottom__h{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(1.6rem,4vw,2.5rem);font-weight:800;color:#fff;letter-spacing:-1px;line-height:1.1;margin-bottom:14px;}
+.cta-bottom__p{font-size:.9rem;color:rgba(255,255,255,.9);line-height:1.75;margin-bottom:30px;}
+.cta-bottom__btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.cta-bottom .btn-primary{background:#fff;color:#7C3AED;box-shadow:0 8px 22px rgba(0,0,0,.15);}
+.cta-bottom .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(0,0,0,.2);}
+.cta-bottom .btn-ghost{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4);}
+.cta-bottom .btn-ghost:hover{background:rgba(255,255,255,.24);}
+.cta-bottom__note{font-size:.72rem;color:rgba(255,255,255,.8);margin-top:16px;}
+
+/* ═══ FOOTER ═══ */
+.footer{background:#0B1220;padding:56px 0 24px;}
+.footer__grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr 1fr;gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:20px;}
+.footer__desc{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.7;max-width:200px;margin-bottom:14px;}
+.footer__social{display:flex;gap:6px;flex-wrap:wrap;}
+.footer__social a{width:30px;height:30px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:rgba(255,255,255,.4);transition:all .2s;}
+.footer__social a:hover{background:#7C3AED;color:#fff;border-color:#7C3AED;}
+.footer__col-title{font-size:.62rem;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:12px;}
+.footer__col a,.footer__col span{display:block;font-size:.78rem;color:rgba(255,255,255,.4);margin-bottom:8px;transition:color .15s;}
+.footer__col a:hover{color:#fff;}
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.footer__copy{font-size:.68rem;color:rgba(255,255,255,.25);}
+.footer__legal{display:flex;gap:16px;}
+.footer__legal a{font-size:.67rem;color:rgba(255,255,255,.25);}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:900px){
+  .feat-grid{grid-template-columns:1fr 1fr;}
+  .platform__grid{grid-template-columns:1fr;}
+  .dual-cta__grid{grid-template-columns:1fr;}
+  .stats__row{grid-template-columns:1fr 1fr;}
+  .stats__item{border-right:none;border-bottom:1px solid #E5E7EB;padding:18px 16px;}
+  .stats__item:last-child,.stats__item:nth-last-child(2){border-bottom:none;}
+  .footer__grid{grid-template-columns:1fr 1fr;gap:24px;}
+}
+@media(max-width:640px){
+  .hero{padding:calc(64px + 40px) 0 40px;}
+  .hero__h1{font-size:1.75rem;letter-spacing:-.8px;}
+  .hero__sub{font-size:.86rem;margin-bottom:24px;}
+  .btn-primary{padding:11px 18px;font-size:.82rem;}
+  .btn-ghost{padding:10px 16px;font-size:.82rem;}
+  .stats{padding:20px 0;}
+  .feat-grid{grid-template-columns:1fr;}
+  .audience{padding:52px 0;}
+  .platform{padding:44px 0;}
+  .dual-cta{padding:52px 0;}
+  .dc-card{padding:28px 22px;}
+  .footer__grid{grid-template-columns:1fr;}
+  .footer{padding:40px 0 20px;}
+  .cta-bottom{padding:52px 0;}
+  .cta-bottom__btns{flex-direction:column;align-items:center;}
+  .cta-bottom__btns .btn-primary,.cta-bottom__btns .btn-ghost{width:100%;max-width:280px;justify-content:center;}
+}
+@media(max-width:400px){
+  .hero__h1{font-size:1.5rem;}
+  .hero__btns{flex-direction:column;align-items:center;}
+  .btn-primary,.btn-ghost{width:100%;max-width:260px;justify-content:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="nlogo">
+      <img src="assets/nexusplay-icon.png" alt="NexusPlay">
+      <span class="nlogo__name"><span class="nx">Nexus</span><span class="play">Play</span></span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="support.html">Support</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__right">
+      <a href="https://wa.me/918807810394?text=Hi! I'd like to list my turf/arena on NexusPlay." target="_blank" rel="noreferrer" class="nav__ghost">💬 WhatsApp</a>
+      <a href="contact.html" class="nav__cta">Get Started →</a>
+    </div>
+    <button class="nav__ham" id="ham"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="nav__drawer" id="drawer">
+  <div class="nav__drawer-inner">
+    <div class="nav__drawer-sec">Navigation</div>
+    <a href="index.html">🏠 Home</a>
+    <a href="products.html">📦 All Products</a>
+    <a href="pricing.html">💰 Pricing</a>
+    <a href="support.html">🆘 Support</a>
+    <a href="contact.html">📞 Contact</a>
+    <a href="contact.html" class="nav__drawer-cta">Get Started →</a>
+  </div>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__inner">
+      <div class="hero__icon"><img src="assets/nexusplay-icon.png" alt="NexusPlay"></div>
+      <div class="hero__pill"><span class="dot"></span> New from AM Technexus Labs · Turf &amp; arena booking</div>
+      <h1 class="hero__h1">Book. Play.<br/><span class="grad">Split the bill.</span></h1>
+      <p class="hero__sub">NexusPlay is India's smart way to book sports turfs and arenas. Players find a court and lock in a slot in seconds. Venue owners run every court, booking and payment from one dashboard.</p>
+      <div class="hero__btns">
+        <a href="contact.html" class="btn-primary">Find a Turf Near You →</a>
+        <a href="contact.html" class="btn-ghost">🏟️ List Your Venue</a>
+      </div>
+      <div class="pillars__pills">
+        <span class="plat-pill"><span class="dot" style="background:#2563EB;"></span>Live Slot Booking</span>
+        <span class="plat-pill"><span class="dot" style="background:#7C3AED;"></span>Open Games Hub</span>
+        <span class="plat-pill"><span class="dot" style="background:#DB2777;"></span>Split Payments</span>
+        <span class="plat-pill"><span class="dot" style="background:#F97316;"></span>Venue Dashboard</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS ══ -->
+<div class="stats">
+  <div class="wrap">
+    <div class="stats__row">
+      <div class="stats__item"><div class="stats__val">Instant</div><div class="stats__lbl">Live slot booking</div></div>
+      <div class="stats__item"><div class="stats__val">Split</div><div class="stats__lbl">Pay your share, not the whole bill</div></div>
+      <div class="stats__item"><div class="stats__val">Verified</div><div class="stats__lbl">Real reviews from real players</div></div>
+      <div class="stats__item"><div class="stats__val">Mobile-first</div><div class="stats__lbl">Built for use at the turf</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOR PLAYERS ══ -->
+<section class="audience">
+  <div class="wrap">
+    <div class="aud__head">
+      <div class="aud__tag" style="background:#EFF6FF;color:#1D4ED8;">🙋 For Players</div>
+      <h2 class="aud__h">From booking to kickoff, in one app.</h2>
+      <p class="aud__sub">No phone calls, no waiting on a confirmation, no chasing friends for their share of the bill.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#EFF6FF;color:#1D4ED8;">🔍</div>
+        <div class="fcard__h">Find &amp; Book Instantly</div>
+        <div class="fcard__p">Search verified turfs and arenas near you, check live slot availability, and lock in your booking in seconds.</div>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#EEF2FF;color:#4338CA;">⚡</div>
+        <div class="fcard__h">Live Slot Booking</div>
+        <div class="fcard__p">See exactly which time slots are open right now for any court, updated live, no double-bookings.</div>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#F5F3FF;color:#7C3AED;">🤝</div>
+        <div class="fcard__h">Open Games Hub</div>
+        <div class="fcard__p">Short a player? Join a game someone's already organised, or host your own and let others fill the empty spots.</div>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#FDF2F8;color:#DB2777;">💸</div>
+        <div class="fcard__h">Split Payments with Friends</div>
+        <div class="fcard__p">Split the cost of a booking evenly and send each player their own payment link, no fronting the money and chasing it back.</div>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#FAF5FF;color:#C026D3;">💳</div>
+        <div class="fcard__h">Flexible Payments</div>
+        <div class="fcard__p">Pay online instantly via UPI, cards or netbanking, or pay the venue directly by UPI QR code, whichever it offers.</div>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#FFFBEB;color:#B45309;">⭐</div>
+        <div class="fcard__h">Reviews &amp; Ratings</div>
+        <div class="fcard__p">Read genuine reviews from players who've actually booked and played at a venue before you commit, then leave your own.</div>
+      </div>
+      <div class="fcard" style="grid-column:span 1;">
+        <div class="fcard__ic" style="background:#FFF7ED;color:#C2410C;">📱</div>
+        <div class="fcard__h">Personal Dashboard</div>
+        <div class="fcard__p">Track upcoming and past bookings, manage the games you're hosting, and rebook your favourite venues, all in one place.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOR VENUE OWNERS ══ -->
+<section class="audience alt">
+  <div class="wrap">
+    <div class="aud__head">
+      <div class="aud__tag" style="background:#FDF2F8;color:#DB2777;">🏟️ For Venue Owners</div>
+      <h2 class="aud__h">Every venue, every court, one dashboard.</h2>
+      <p class="aud__sub">Whether you run one turf or five across the city, it's all managed from a single login, built for turf owners and arena managers, not developers.</p>
+    </div>
+    <div class="feat-grid">
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#EFF6FF;color:#1D4ED8;">🖥️</div>
+        <div class="fcard__h">One Dashboard, Every Venue</div>
+        <div class="fcard__p">Manage multiple turfs or arenas from a single login. Switch between locations without juggling separate accounts.</div>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#EEF2FF;color:#4338CA;">🏟️</div>
+        <div class="fcard__h">Full Arena Management</div>
+        <div class="fcard__p">Manage every court, every slot and every booking for your venue(s), all from one screen.</div>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#F5F3FF;color:#7C3AED;">📅</div>
+        <div class="fcard__h">Real-Time Slot &amp; Court Control</div>
+        <div class="fcard__p">Open, block or price slots exactly how you want. Changes reflect instantly on your public booking page.</div>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#FDF2F8;color:#DB2777;">👥</div>
+        <div class="fcard__h">Customer CRM</div>
+        <div class="fcard__p">See who's booked with you, how often, and their contact details, so you build repeat business, not one-off visits.</div>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#FAF5FF;color:#C026D3;">💰</div>
+        <div class="fcard__h">Reports &amp; Billing</div>
+        <div class="fcard__p">Date-range transaction reports, payment-method breakdowns, exportable CSVs and printable receipts, no separate POS needed.</div>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#FFFBEB;color:#B45309;">📍</div>
+        <div class="fcard__h">One-Click Location Setup</div>
+        <div class="fcard__p">Paste a Google Maps link and NexusPlay auto-detects your venue's exact coordinates, no manual pin-dropping.</div>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#FFF7ED;color:#C2410C;">🔗</div>
+        <div class="fcard__h">Shareable QR &amp; Direct Links</div>
+        <div class="fcard__p">Every venue gets its own QR code and direct booking link, print it at the front desk or share it on Instagram.</div>
+      </div>
+      <div class="fcard">
+        <div class="fcard__ic" style="background:#ECFDF5;color:#047857;">🧾</div>
+        <div class="fcard__h">Get Paid Your Way</div>
+        <div class="fcard__p">Accept direct UPI payments with zero platform fee, or offer online card/UPI checkout through the platform, your choice per venue.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PLATFORM-WIDE ══ -->
+<section class="platform">
+  <div class="wrap">
+    <div class="platform__head">
+      <div class="platform__eye">Platform-Wide</div>
+      <h2 class="platform__h">Built to be trusted, and used, from a phone.</h2>
+    </div>
+    <div class="platform__grid">
+      <div class="pcard2">
+        <div class="pcard2__ic">🔐</div>
+        <div class="pcard2__h">Secure Sign-In</div>
+        <div class="pcard2__p">Phone-OTP and email/password sign-in for players and venue owners alike.</div>
+      </div>
+      <div class="pcard2">
+        <div class="pcard2__ic">✅</div>
+        <div class="pcard2__h">Verified Admin Oversight</div>
+        <div class="pcard2__p">Every venue on the platform goes through admin review, for quality and trust.</div>
+      </div>
+      <div class="pcard2">
+        <div class="pcard2__ic">📲</div>
+        <div class="pcard2__h">Mobile-First</div>
+        <div class="pcard2__p">Built to be used from a phone at the turf, not just from a desk.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DUAL CTA ══ -->
+<section class="dual-cta">
+  <div class="wrap">
+    <div class="dual-cta__grid">
+      <div class="dc-card players">
+        <div class="dc-card__ic">⚽</div>
+        <div class="dc-card__h">Playing this week?</div>
+        <div class="dc-card__p">Find a verified turf near you, check live availability, and get your team booked in under a minute.</div>
+        <a href="contact.html" class="btn-primary">Find a Turf →</a>
+      </div>
+      <div class="dc-card owners">
+        <div class="dc-card__ic">🏟️</div>
+        <div class="dc-card__h">Own a turf or arena?</div>
+        <div class="dc-card__p">List your venue, take bookings online, and manage every court from one dashboard, even if you run more than one location.</div>
+        <a href="contact.html" class="btn-primary">List Your Venue →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section class="faq">
+  <div class="wrap">
+    <div class="faq__inner">
+      <div class="faq__head">
+        <div class="sec-eye">FAQ</div>
+        <h2 class="sec-h">Common questions</h2>
+      </div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does split payment work? <span class="faq-chev">▼</span></div><div class="faq-a">When you book, you can split the total evenly among your group. Each player gets their own payment link on WhatsApp or SMS, so nobody has to front the money and chase everyone else afterward.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What's the Open Games Hub? <span class="faq-chev">▼</span></div><div class="faq-a">It's a board of games other players have organised and still have open spots in. Short a player for your own game? Post it there. Looking for a game to join? Browse what's already happening near you.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I manage more than one venue? <span class="faq-chev">▼</span></div><div class="faq-a">Yes. The venue owner dashboard supports multiple turfs or arenas under one login, so you can switch between locations, courts and bookings without separate accounts for each one.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How do venue owners get paid? <span class="faq-chev">▼</span></div><div class="faq-a">Your choice per venue: accept direct UPI payments with zero platform fee, or offer online card/UPI checkout through NexusPlay for a smoother customer experience.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Is booking free for players? <span class="faq-chev">▼</span></div><div class="faq-a">Yes, browsing and booking is free for players. You pay the venue for your slot, either online through the app or directly at the venue, depending on what that venue offers.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What sports and venues does NexusPlay support? <span class="faq-chev">▼</span></div><div class="faq-a">Football turfs, cricket nets and box cricket, badminton and pickleball courts, and multi-sport arenas, anywhere courts and slots need to be booked and managed.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BOTTOM CTA ══ -->
+<section class="cta-bottom">
+  <div class="wrap">
+    <div class="cta-bottom__inner">
+      <div class="cta-bottom__icon"><img src="assets/nexusplay-icon.png" alt="NexusPlay"></div>
+      <h2 class="cta-bottom__h">Your game. Booked in seconds.</h2>
+      <p class="cta-bottom__p">Whether you're booking a court or managing one, NexusPlay is built to get out of your way and let you play.</p>
+      <div class="cta-bottom__btns">
+        <a href="contact.html" class="btn-primary">Get Started →</a>
+        <a href="https://wa.me/918807810394?text=Hi! I want to know more about NexusPlay." target="_blank" rel="noreferrer" class="btn-ghost">💬 WhatsApp Us</a>
+      </div>
+      <div class="cta-bottom__note">Free for players · Zero platform fee on direct UPI for venues · Mobile-first</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo-wrap">
+          <a href="index.html" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;margin-bottom:8px;">
+            <img src="assets/nexusplay-icon.png" alt="NexusPlay" style="height:28px;width:auto;display:block;">
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:.95rem;color:#fff;">Nexus<span style="color:#EC4899;">Play</span></span>
+          </a>
+        </div>
+        <p class="footer__desc">Turf &amp; sports arena booking, made simple, from AM Technexus Labs.</p>
+        <div class="footer__social">
+          <a href="https://wa.me/918807810394" target="_blank" rel="noreferrer" title="WhatsApp">💬</a>
+          <a href="mailto:support@amtechnexus.com" title="Email">✉</a>
+          <a href="https://www.instagram.com/amtechnexus/" target="_blank" rel="noreferrer" title="Instagram">📸</a>
+          <a href="https://www.facebook.com/profile.php?id=100073104771786" target="_blank" rel="noreferrer" title="Facebook">fb</a>
+          <a href="https://x.com/AMtechnexus" target="_blank" rel="noreferrer" title="X">𝕏</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Products</div>
+        <a href="nexuspos.html">NexusPOS</a>
+        <a href="nexusai.html">NexusAI</a>
+        <a href="nexusbilling.html">NexusBilling</a>
+        <a href="nexusapartments.html">NexusApartments</a>
+        <a href="nexusbusiness.html">NexusBusiness Suite</a>
+        <a href="nexusseo.html">NexusSEO+</a>
+        <a href="nexusplay.html">NexusPlay</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">NexusPlay</div>
+        <a href="nexusplay.html#">For Players</a>
+        <a href="nexusplay.html#">For Venue Owners</a>
+        <a href="contact.html">List Your Venue</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Company</div>
+        <a href="about.html">About Us</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
+        <a href="pricing.html">All Pricing</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Contact</div>
+        <a href="mailto:support@amtechnexus.com">support@amtechnexus.com</a>
+        <a href="https://wa.me/918807810394">+91 88078 10394</a>
+        <a href="https://wa.me/917010762956">+91 70107 62956</a>
+        <a href="https://wa.me/918072263675">+91 80722 63675</a>
+        <span>Tamil Nadu, India 🇮🇳</span>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span class="footer__copy">© 2024 AM Technexus Labs Private Limited · Made with ❤️ in India 🇮🇳</span>
+      <div class="footer__legal"><a href="#">Privacy Policy</a><a href="#">Terms of Service</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.boxShadow=window.scrollY>8?'0 2px 20px rgba(15,23,42,.08)':'none';
+},{passive:true});
+const ham=document.getElementById('ham'),drawer=document.getElementById('drawer');
+ham.addEventListener('click',()=>{
+  const o=drawer.classList.toggle('open');
+  ham.classList.toggle('open',o);
+  document.body.style.overflow=o?'hidden':'';
+});
+document.querySelectorAll('.nav__drawer a').forEach(a=>a.addEventListener('click',()=>{
+  drawer.classList.remove('open');
+  ham.classList.remove('open');
+  document.body.style.overflow='';
+}));
+</script>
+</body>
+</html>
