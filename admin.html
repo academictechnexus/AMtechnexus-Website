@@ -348,7 +348,7 @@ function HeroSection({onToast}){
           <Field label="Headline Line 2 (shown in violet)" value={d.headline_2} onChange={v=>setD({...d,headline_2:v})}/>
         </div>
         <Field label="Headline Line 3" value={d.headline_3} onChange={v=>setD({...d,headline_3:v})}/>
-        <Field label="Subtext" value={d.subtext} onChange={v=>setD({...d,subtext:v})} multi help="2–3 sentences below headline"/>
+        <Field label="Subtext" value={d.subtext} onChange={v=>setD({...d,subtext:v})} multi help="2-3 sentences below headline"/>
         <div style={{display:"grid",gridTemplateColumns:mob?"1fr":"1fr 1fr",gap:14}}>
           <Field label="Primary Button" value={d.cta_primary} onChange={v=>setD({...d,cta_primary:v})}/>
           <Field label="Secondary Button" value={d.cta_secondary} onChange={v=>setD({...d,cta_secondary:v})}/>

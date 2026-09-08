@@ -1,7 +1,7 @@
-/* NexusBusiness Suite — page styles (light theme) */
+/* NexusBusiness Suite, page styles (light theme) */
 
 /* ═══════════════════════════════════════
-   HERO (dashboard mockup — typography via Tailwind)
+   HERO (dashboard mockup, typography via Tailwind)
 ═══════════════════════════════════════ */
 .nb-page .hero{background:var(--white);position:relative;overflow:visible;}
 .nb-page .hero__inner{position:relative;z-index:1;}
