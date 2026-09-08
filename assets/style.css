@@ -254,24 +254,7 @@ section{padding:88px 0;}
 .prod-hero{padding:calc(var(--nav-h) + 72px) 0 72px;position:relative;overflow:hidden;}
 
 /* ── FOOTER ── */
-.footer{background:var(--ink2);border-top:1px solid rgba(255,255,255,.06);padding:64px 0 32px;}
-.footer__grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr 1fr;gap:48px;padding-bottom:52px;border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:28px;}
-.footer__desc{font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.75;margin-top:14px;max-width:240px;}
-.footer__social{display:flex;gap:8px;margin-top:18px;}
-.footer__social-btn{width:32px;height:32px;background:rgba(255,255,255,.07);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.72rem;color:rgba(255,255,255,.4);transition:all .2s;}
-.footer__social-btn:hover{background:var(--accent);color:#fff;}
-.footer__col h5{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;}
-.footer__col ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
-.footer__col ul a{font-size:.82rem;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;}
-.footer__col ul a:hover{color:rgba(255,255,255,.75);}
-.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer__copy{font-size:.75rem;color:rgba(255,255,255,.25);}
-.footer__legal{display:flex;gap:18px;}
-.footer__legal a{font-size:.72rem;color:rgba(255,255,255,.25);text-decoration:none;transition:color .2s;}
-.footer__legal a:hover{color:rgba(255,255,255,.5);}
-@media(max-width:900px){.footer__grid{grid-template-columns:1fr 1fr 1fr;}}
-@media(max-width:600px){.footer__grid{grid-template-columns:1fr 1fr;gap:28px;}}
-@media(max-width:400px){.footer__grid{grid-template-columns:1fr;}}
+/* Footer: shared Tailwind component via assets/footer.js */
 
 /* ── WA FLOAT ── */
 .wa-float{position:fixed;bottom:24px;right:24px;z-index:900;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.5rem;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s;}
@@ -397,8 +380,6 @@ section{padding:88px 0;}
   div[style*="grid-template-columns:repeat(4,1fr)"]{
     grid-template-columns:1fr 1fr !important;
   }
-  /* Footer */
-  .footer__grid{grid-template-columns:1fr !important;}
   /* Trusted logos - scroll */
   div[style*="display:flex;gap:24px;flex-wrap:wrap;align-items:center"]{
     display:none !important;
@@ -408,19 +389,3 @@ section{padding:88px 0;}
   /* wa-float */
   .wa-float{bottom:16px;right:16px;width:48px;height:48px;font-size:1.3rem;}
 }
-
-/* ── FOOTER UTILITY CLASSES (used in pricing/other pages) ── */
-.footer__heading{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px;}
-.footer__links{display:flex;flex-direction:column;gap:10px;}
-.footer__links a{font-size:.84rem;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;}
-.footer__links a:hover{color:rgba(255,255,255,.75);}
-.footer__links span{font-size:.84rem;color:rgba(255,255,255,.38);}
-.footer__tagline{font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.75;margin:12px 0;max-width:220px;}
-.footer__social{display:flex;gap:8px;margin-top:4px;}
-.footer__social a{width:32px;height:32px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);border-radius:8px;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.75rem;color:rgba(255,255,255,.35);transition:all .2s;}
-.footer__social a:hover{background:#5B21B6;color:#fff;border-color:#5B21B6;}
-.footer__bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer__bottom span{font-size:.75rem;color:rgba(255,255,255,.22);}
-.footer__bottom div{display:flex;gap:18px;}
-.footer__bottom div a{font-size:.72rem;color:rgba(255,255,255,.22);text-decoration:none;transition:color .2s;}
-.footer__bottom div a:hover{color:rgba(255,255,255,.5);}
