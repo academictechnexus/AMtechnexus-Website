@@ -221,7 +221,7 @@
 .nb-page .feat__grid.flip .feat__text{order:1;}
 .nb-page .feat__grid.flip .feat__mock{order:2;}
 .nb-page .feat__sub{max-width:100%;}
-.nb-page .pricing__cards{grid-template-columns:1fr 1fr;gap:14px;}
+.nb-page .pricing__cards{grid-template-columns:1fr;gap:14px;max-width:420px;}
 .nb-page .stats__row{grid-template-columns:1fr 1fr;}
 .nb-page .stats__item{border-right:none;border-bottom:1px solid rgba(255,255,255,.05);
     padding:18px 16px;}
@@ -251,7 +251,7 @@
 .nb-page .pricing{padding:56px 0;}
 .nb-page .pricing__cards{grid-template-columns:1fr;}
 .nb-page .p-card__price{font-size:2.2rem;}
-.nb-page .included__grid{grid-template-columns:1fr 1fr;}
+.nb-page .included__grid{grid-template-columns:1fr;}
   /* Footer */
 .nb-page .footer__grid{grid-template-columns:1fr;}
 .nb-page .footer{padding:40px 0 20px;}

@@ -57,6 +57,12 @@
 .faq-item.open .faq-a{display:block;}
 .faq-item.open .faq-chevron{transform:rotate(180deg);}
 .faq-chevron{font-size:.75rem;transition:transform .25s;color:#6B7280;}
+.sup-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
+@media(max-width:640px){
+  .sup-tabs{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch;}
+  .prod-tab{flex-shrink:0;padding:8px 14px;font-size:.78rem;}
+  .prod-tab img{width:16px!important;height:16px!important;margin-right:4px!important;}
+}
 </style>
 </head>
 <body>
@@ -124,7 +130,7 @@
 
 <section style="padding:48px 0 72px;">
   <div class="wrap">
-    <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
+    <div class="sup-tabs">
       <button class="prod-tab t-pos active" onclick="showTab('pos',this,'t-pos')"><img src="assets/nexuspos-icon.png" alt="" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:6px;"> NexusPOS</button>
       <button class="prod-tab t-ai" onclick="showTab('ai',this,'t-ai')"><img src="assets/nexusai-icon.png" alt="" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:6px;"> NexusAI</button>
       <button class="prod-tab t-billing" onclick="showTab('billing',this,'t-billing')"><img src="assets/nexusbilling-icon.png" alt="" style="width:20px;height:20px;object-fit:contain;vertical-align:middle;margin-right:6px;"> NexusBilling</button>

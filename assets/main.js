@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Scroll shadow on nav
   window.addEventListener('scroll', () => {
-    if (nav) nav.classList.toggle('scrolled', window.scrollY > 8);
+    if (nav) nav.classList.toggle('stuck', window.scrollY > 8);
   }, { passive: true });
 
   // Hamburger toggle
