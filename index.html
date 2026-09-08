@@ -97,17 +97,18 @@ img{max-width:100%;}
 
 /* ── HERO ── */
 .hero{padding:calc(var(--nav-h) + 72px) 0 88px;background:linear-gradient(180deg,var(--pale) 0%,var(--white) 45%);}
-.hero__inner{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
-.hero__content{max-width:520px;}
-.hero__h1{font-family:var(--fd);font-size:clamp(2.2rem,3.8vw,3.35rem);font-weight:800;color:var(--ink);line-height:1.06;letter-spacing:-2px;margin-bottom:22px;text-align:left;}
-.hero__h1 span{display:block;color:var(--violet);margin-top:6px;}
-.hero__p{font-size:1.05rem;color:var(--body);line-height:1.72;margin:0 0 32px;text-align:left;}
+.hero__inner{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.85fr);gap:28px;align-items:center;}
+.hero__content{max-width:none;min-width:0;}
+.hero__h1{font-family:var(--fd);font-size:clamp(2.2rem,3.6vw,3.2rem);font-weight:800;color:var(--ink);line-height:1.06;letter-spacing:-2px;margin-bottom:22px;text-align:left;}
+.hero__h1-main{display:block;white-space:nowrap;}
+.hero__h1-sub{display:block;color:var(--violet);margin-top:6px;}
+.hero__p{font-size:1.05rem;color:var(--body);line-height:1.72;margin:0 0 32px;text-align:left;max-width:480px;}
 .hero__actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-start;}
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;font-family:var(--fd);font-size:.9rem;font-weight:700;color:#fff;background:var(--violet);border:none;border-radius:9px;cursor:pointer;text-decoration:none;box-shadow:0 4px 18px rgba(91,33,182,.28);transition:all .2s;}
 .btn-primary:hover{background:#4C1D95;transform:translateY(-1px);}
 .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;font-family:var(--fd);font-size:.9rem;font-weight:600;color:var(--ink);background:var(--white);border:1.5px solid var(--border);border-radius:9px;cursor:pointer;text-decoration:none;transition:all .2s;}
 .btn-outline:hover{border-color:var(--violet);color:var(--violet);}
-.hero__visual{position:relative;width:100%;max-width:520px;margin-left:auto;}
+.hero__visual{position:relative;width:100%;max-width:400px;margin-left:auto;justify-self:end;}
 .hero__slot{
   --slot-item:116px;
   --slot-gap:12px;
@@ -144,9 +145,10 @@ img{max-width:100%;}
   .hero__inner{grid-template-columns:1fr;gap:40px;}
   .hero__content{max-width:none;}
   .hero__h1{font-size:clamp(2rem,8vw,2.75rem);letter-spacing:-1.4px;text-align:center;}
-  .hero__p{text-align:center;}
+  .hero__h1-main{white-space:normal;}
+  .hero__p{text-align:center;max-width:none;margin-left:auto;margin-right:auto;}
   .hero__actions{justify-content:center;}
-  .hero__visual{max-width:100%;margin:0 auto;}
+  .hero__visual{max-width:100%;margin:0 auto;justify-self:center;}
 }
 @media(prefers-reduced-motion:reduce){
   .hero__slot-track{animation:none!important;}
@@ -295,7 +297,7 @@ img{max-width:100%;}
   <div class="wrap">
     <div class="hero__inner">
       <div class="hero__content">
-        <h1 class="hero__h1 fade-up">You grow the business.<span>We handle the rest.</span></h1>
+        <h1 class="hero__h1 fade-up"><span class="hero__h1-main">You grow the business.</span><span class="hero__h1-sub">We handle the rest.</span></h1>
         <p class="hero__p fade-up">Smart software that automates the everyday work, saves your team time, and keeps your business moving.</p>
         <div class="hero__actions fade-up">
           <a href="products.html" class="btn-primary">Explore products →</a>
