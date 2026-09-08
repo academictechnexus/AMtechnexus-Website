@@ -136,23 +136,82 @@
 .error-msg.show{display:block;}
 
 /* Contact sidebar */
-.contact-sidebar{display:flex;flex-direction:column;gap:12px;}
-.contact-card{display:flex;align-items:flex-start;gap:13px;background:#F8FAFC;
-  border:1px solid #E2E8F0;border-radius:13px;padding:16px 18px;
-  text-decoration:none;transition:all .18s;}
-.contact-card:hover{border-color:#5B21B6;transform:translateY(-1px);
-  box-shadow:0 4px 16px rgba(91,33,182,.1);}
-.contact-card-ic{font-size:1.3rem;flex-shrink:0;margin-top:1px;}
-.contact-card-title{font-weight:700;font-size:.88rem;color:#0F172A;margin-bottom:3px;}
-.contact-card-val{font-size:.84rem;font-weight:600;margin-bottom:2px;}
-.contact-card-sub{font-size:.72rem;color:#94A3B8;}
-.demo-box{background:#5B21B6;border-radius:14px;padding:24px;margin-top:4px;}
-.demo-box h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;
-  font-size:1.05rem;color:#fff;margin-bottom:8px;}
-.demo-box p{font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.65;margin-bottom:18px;}
-.demo-box a{display:inline-block;padding:10px 22px;background:#fff;color:#5B21B6;
-  border-radius:8px;font-weight:700;font-size:.84rem;text-decoration:none;transition:all .2s;}
-.demo-box a:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.15);}
+.contact-sidebar{
+  display:flex;flex-direction:column;gap:18px;padding:22px;
+  background:linear-gradient(165deg,#F8FAFC 0%,#F1F5F9 100%);
+  border:1px solid #E2E8F0;border-radius:18px;
+}
+.sidebar-label{
+  font-size:.68rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;
+  color:#64748B;margin-bottom:10px;
+}
+.sidebar-featured{
+  display:block;text-decoration:none;color:inherit;
+  background:#fff;border:1px solid #BBF7D0;border-radius:14px;padding:18px 18px 16px;
+  box-shadow:0 8px 24px rgba(5,150,105,.08);
+  transition:border-color .18s,box-shadow .18s,transform .18s;
+}
+.sidebar-featured:hover{
+  border-color:#34D399;transform:translateY(-1px);
+  box-shadow:0 12px 28px rgba(5,150,105,.12);
+}
+.sidebar-featured__badge{
+  display:inline-block;font-size:.65rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;
+  color:#047857;background:#ECFDF5;border-radius:6px;padding:4px 8px;margin-bottom:10px;
+}
+.sidebar-featured__num{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:1.2rem;font-weight:800;
+  color:#064E3B;letter-spacing:-.4px;margin-bottom:4px;
+}
+.sidebar-featured__meta{font-size:.8rem;color:#059669;line-height:1.5;}
+.sidebar-phones{display:flex;flex-direction:column;gap:8px;}
+.sidebar-phone{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  background:#fff;border:1px solid #E2E8F0;border-radius:11px;padding:12px 14px;
+  text-decoration:none;transition:border-color .15s,background .15s;
+}
+.sidebar-phone:hover{border-color:#94A3B8;background:#fff;}
+.sidebar-phone__num{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.92rem;font-weight:700;color:#0F172A;
+}
+.sidebar-phone__go{font-size:.78rem;font-weight:600;color:#64748B;}
+.sidebar-phone:hover .sidebar-phone__go{color:#0F172A;}
+.sidebar-email{
+  display:block;text-decoration:none;color:inherit;
+  background:#fff;border:1px solid #E2E8F0;border-left:3px solid #1D4ED8;
+  border-radius:12px;padding:14px 16px;
+  transition:border-color .15s,box-shadow .15s;
+}
+.sidebar-email:hover{border-color:#BFDBFE;border-left-color:#1D4ED8;box-shadow:0 6px 18px rgba(29,78,216,.08);}
+.sidebar-email__addr{
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:.92rem;font-weight:700;
+  color:#1E3A8A;word-break:break-word;margin-bottom:3px;
+}
+.sidebar-email__meta{font-size:.78rem;color:#64748B;}
+.sidebar-social{display:flex;gap:8px;flex-wrap:wrap;}
+.sidebar-social a{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:44px;height:40px;padding:0 14px;
+  background:#fff;border:1px solid #E2E8F0;border-radius:10px;
+  font-size:.8rem;font-weight:700;color:#334155;text-decoration:none;
+  transition:background .15s,border-color .15s,color .15s;
+}
+.sidebar-social a:hover{background:#0F172A;border-color:#0F172A;color:#fff;}
+.sidebar-demo{
+  background:#0F172A;border-radius:14px;padding:20px 18px;margin-top:2px;
+}
+.sidebar-demo h3{
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.05rem;
+  color:#fff;letter-spacing:-.3px;margin-bottom:8px;
+}
+.sidebar-demo p{font-size:.84rem;color:rgba(255,255,255,.62);line-height:1.65;margin-bottom:16px;}
+.sidebar-demo a{
+  display:inline-flex;align-items:center;
+  padding:10px 16px;background:#fff;color:#0F172A;border-radius:9px;
+  font-size:.84rem;font-weight:700;text-decoration:none;
+  transition:transform .15s,background .15s;
+}
+.sidebar-demo a:hover{background:#E2E8F0;transform:translateY(-1px);}
 
 /* Footer */
 .footer{background:#060612;padding:56px 0 24px;}
@@ -278,14 +337,12 @@
             2. Click "New Form" → name it "AM Technexus Contact"
             3. Copy your form ID (looks like: xrgopqwk)
             4. Replace YOUR_FORM_ID below with that ID
-            Emails will go to: amtechnexusofficial@gmail.com
+            Emails will go to the Formspree inbox linked to this form
           -->
           <form id="contactForm"
                 action="https://formspree.io/f/xjybeeqr"
                 method="POST">
 
-            <!-- Hidden fields for email routing -->
-            <input type="hidden" name="_replyto" value="amtechnexusofficial@gmail.com">
             <input type="hidden" name="_subject" value="New Enquiry, AM Technexus Labs Website">
 
             <div class="form-row">
@@ -335,71 +392,49 @@
       </div>
 
       <!-- SIDEBAR -->
-      <div class="contact-sidebar">
-        <a href="https://wa.me/918807810394" class="contact-card" target="_blank" rel="noreferrer">
-          <span class="contact-card-ic">💬</span>
-          <div>
-            <div class="contact-card-title">WhatsApp (Fastest)</div>
-            <div class="contact-card-val" style="color:#059669;">+91 88078 10394</div>
-            <div class="contact-card-sub">Reply under 15 min · any language</div>
+      <aside class="contact-sidebar">
+        <div class="sidebar-block">
+          <div class="sidebar-label">WhatsApp</div>
+          <a href="https://wa.me/918807810394" class="sidebar-featured" target="_blank" rel="noreferrer">
+            <div class="sidebar-featured__badge">Fastest reply</div>
+            <div class="sidebar-featured__num">+91 88078 10394</div>
+            <div class="sidebar-featured__meta">Usually under 15 minutes · English, Tamil, Hindi</div>
+          </a>
+          <div class="sidebar-phones" style="margin-top:10px;">
+            <a href="https://wa.me/917010762956" class="sidebar-phone" target="_blank" rel="noreferrer">
+              <span class="sidebar-phone__num">+91 70107 62956</span>
+              <span class="sidebar-phone__go">Chat →</span>
+            </a>
+            <a href="https://wa.me/918072263675" class="sidebar-phone" target="_blank" rel="noreferrer">
+              <span class="sidebar-phone__num">+91 80722 63675</span>
+              <span class="sidebar-phone__go">Chat →</span>
+            </a>
           </div>
-        </a>
-        <a href="https://wa.me/917010762956" class="contact-card" target="_blank" rel="noreferrer">
-          <span class="contact-card-ic">💬</span>
-          <div>
-            <div class="contact-card-title">WhatsApp</div>
-            <div class="contact-card-val" style="color:#1D4ED8;">+91 70107 62956</div>
-          </div>
-        </a>
-        <a href="https://wa.me/918072263675" class="contact-card" target="_blank" rel="noreferrer">
-          <span class="contact-card-ic">💬</span>
-          <div>
-            <div class="contact-card-title">WhatsApp</div>
-            <div class="contact-card-val" style="color:#1D4ED8;">+91 80722 63675</div>
-          </div>
-        </a>
-        <a href="mailto:support@amtechnexus.com" class="contact-card">
-          <span class="contact-card-ic">📧</span>
-          <div>
-            <div class="contact-card-title">Support Email</div>
-            <div class="contact-card-val" style="color:#5B21B6;">support@amtechnexus.com</div>
-            <div class="contact-card-sub">Reply within 2 hours</div>
-          </div>
-        </a>
-        <a href="mailto:amtechnexusofficial@gmail.com" class="contact-card">
-          <span class="contact-card-ic">✉️</span>
-          <div>
-            <div class="contact-card-title">Gmail</div>
-            <div class="contact-card-val" style="color:#DC2626;">amtechnexusofficial@gmail.com</div>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/amtechnexus/" class="contact-card" target="_blank" rel="noreferrer">
-          <span class="contact-card-ic">📸</span>
-          <div>
-            <div class="contact-card-title">Instagram</div>
-            <div class="contact-card-val" style="color:#E1306C;">@amtechnexus</div>
-          </div>
-        </a>
-        <a href="https://x.com/AMtechnexus" class="contact-card" target="_blank" rel="noreferrer">
-          <span class="contact-card-ic">𝕏</span>
-          <div>
-            <div class="contact-card-title">X / Twitter</div>
-            <div class="contact-card-val" style="color:#0F172A;">@AMtechnexus</div>
-          </div>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=100073104771786" class="contact-card" target="_blank" rel="noreferrer">
-          <span class="contact-card-ic">👍</span>
-          <div>
-            <div class="contact-card-title">Facebook</div>
-            <div class="contact-card-val" style="color:#1877F2;">AM Technexus Labs</div>
-          </div>
-        </a>
-        <div class="demo-box">
-          <h3>Book a Live Demo</h3>
-          <p>30-minute personalised walkthrough, we'll show exactly how the product works for your specific business, live on screen.</p>
-          <a href="https://wa.me/918807810394?text=Hi! I want to book a free demo of AM Technexus Labs." target="_blank" rel="noreferrer">WhatsApp to Book →</a>
         </div>
-      </div>
+
+        <div class="sidebar-block">
+          <div class="sidebar-label">Email</div>
+          <a href="mailto:support@amtechnexus.com" class="sidebar-email">
+            <div class="sidebar-email__addr">support@amtechnexus.com</div>
+            <div class="sidebar-email__meta">We aim to reply within 2 hours</div>
+          </a>
+        </div>
+
+        <div class="sidebar-block">
+          <div class="sidebar-label">Follow</div>
+          <div class="sidebar-social">
+            <a href="https://www.instagram.com/amtechnexus/" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://x.com/AMtechnexus" target="_blank" rel="noreferrer">X</a>
+            <a href="https://www.facebook.com/profile.php?id=100073104771786" target="_blank" rel="noreferrer">Facebook</a>
+          </div>
+        </div>
+
+        <div class="sidebar-demo">
+          <h3>Prefer a live walkthrough?</h3>
+          <p>Book a 30-minute demo and we’ll show how the product fits your business on a shared screen.</p>
+          <a href="https://wa.me/918807810394?text=Hi! I want to book a free demo of AM Technexus Labs." target="_blank" rel="noreferrer">WhatsApp to book →</a>
+        </div>
+      </aside>
 
     </div>
   </div>
