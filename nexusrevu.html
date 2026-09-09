@@ -24,6 +24,49 @@
 .footer__bottom span{font-size:.72rem;color:rgba(255,255,255,.18);}
 .footer__bottom div{display:flex;gap:18px;}
 .footer__bottom div a{font-size:.7rem;color:rgba(255,255,255,.18);text-decoration:none;}
+@media(max-width:900px){
+  .revu-steps{grid-template-columns:1fr 1fr !important;}
+  .revu-videos{grid-template-columns:1fr !important;}
+}
+@media(max-width:560px){
+  .revu-steps{grid-template-columns:1fr !important;}
+}
+.revu-play{
+  position:relative;display:block;width:100%;padding:0;border:none;background:#0f0f14;
+  cursor:pointer;text-align:left;aspect-ratio:16/9;overflow:hidden;
+}
+.revu-play img{
+  display:block;width:100%;height:100%;object-fit:cover;pointer-events:none;
+}
+.revu-play__overlay{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.28);transition:background .2s;
+}
+.revu-play:hover .revu-play__overlay{background:rgba(0,0,0,.38);}
+.revu-play__btn{
+  width:64px;height:64px;border-radius:50%;background:#fff;color:#9333EA;
+  display:inline-flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 28px rgba(0,0,0,.35);transition:transform .2s;
+}
+.revu-play:hover .revu-play__btn{transform:scale(1.06);}
+.revu-modal{
+  display:none;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.8);padding:16px;backdrop-filter:blur(4px);
+}
+.revu-modal.is-open{display:flex;}
+.revu-modal__panel{position:relative;width:100%;max-width:960px;}
+.revu-modal__close{
+  position:absolute;top:-44px;right:0;display:inline-flex;align-items:center;gap:6px;
+  background:none;border:none;color:rgba(255,255,255,.9);font-size:.875rem;font-weight:500;
+  cursor:pointer;padding:4px 8px;font-family:inherit;
+}
+.revu-modal__close:hover{color:#fff;}
+.revu-modal__frame{
+  aspect-ratio:16/9;width:100%;overflow:hidden;border-radius:12px;background:#000;
+  box-shadow:0 24px 64px rgba(0,0,0,.5);
+}
+.revu-modal__frame video{display:block;width:100%;height:100%;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 </style>
 </head>
 <body>
@@ -41,7 +84,7 @@
           <a href="nexusai.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusai-icon.png" alt=""></div><div><span class="drop-title">NexusAI</span><span class="drop-desc">AI chatbot &amp; automation</span></div></a>
           <a href="nexusbilling.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusbilling-icon.png" alt=""></div><div><span class="drop-title">NexusBilling</span><span class="drop-desc">Automobile workshop management</span></div></a>
           <a href="nexusapartments.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusapartments-icon.png" alt=""></div><div><span class="drop-title">NexusApartments</span><span class="drop-desc">Society management</span></div></a>
-          <a href="nexusrevu.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusrevu-icon.png" alt=""></div><div><span class="drop-title">NexusRevu</span><span class="drop-desc">Google reviews &amp; feedback loop</span></div></a>
+          <a href="nexusrevu.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusrevu-icon.png" alt=""></div><div><span class="drop-title">NexusRevu</span><span class="drop-desc">Human reviews, different each time</span></div></a>
           <a href="nexusbusiness.html" class="drop-item"><div class="drop-icon"><img src="assets/nexus-business-suite-icon.png" alt=""></div><div><span class="drop-title">NexusBusiness Suite</span><span class="drop-desc">Reviews &amp; social media</span></div></a>
           <a href="nexusseo.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusseo-icon.svg" alt=""></div><div><span class="drop-title">NexusSEO+</span><span class="drop-desc">SEO, AEO, GEO &amp; social media</span></div></a>
           <a href="nexusplay.html" class="drop-item"><div class="drop-icon"><img src="assets/nexusplay-icon.png" alt=""></div><div><span class="drop-title">NexusPlay</span><span class="drop-desc">Turf &amp; arena booking</span></div></a>
@@ -82,8 +125,8 @@
     <a href="index.html" style="display:inline-flex;align-items:center;gap:5px;color:#9333EA;font-weight:600;font-size:.85rem;text-decoration:none;margin-bottom:22px;">← Back to Home</a>
     <div class="product-icon" style="width:56px;height:56px;margin-bottom:18px;"><img src="assets/nexusrevu-icon.png" alt=""></div>
     <span class="eyebrow" style="color:#9333EA;">NEXUSREVU</span>
-    <h1 class="h1" style="margin-bottom:14px;">Google Reviews &amp; Feedback Loop</h1>
-    <p class="lead" style="max-width:480px;margin-bottom:32px;">Get more Google reviews, handle negative reviews internally.</p>
+    <h1 class="h1" style="margin-bottom:14px;">QR scan to Google-ready review</h1>
+    <p class="lead" style="max-width:560px;margin-bottom:32px;">Customers scan your QR, answer 3 of your questions, and get a review that feels human, different every time, ready to paste on Google. If the feedback is negative, WhatsApp to your business comes first so you can fix it privately.</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
       <a href="contact.html" style="padding:13px 30px;background:#9333EA;color:white;border-radius:9px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 4px 18px rgba(147,51,234,.35);">Get in touch</a>
       <a href="contact.html" style="padding:12px 28px;background:white;color:#111827;border:1.5px solid #E5E7EB;border-radius:9px;font-weight:600;font-size:.92rem;text-decoration:none;">Book a Demo</a>
@@ -93,19 +136,77 @@
 
 <section>
   <div class="wrap">
+    <h2 style="font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:#111827;margin-bottom:8px;letter-spacing:-.6px;">How it works</h2>
+    <p style="font-size:.92rem;color:#6B7280;line-height:1.7;max-width:560px;margin-bottom:28px;">Built for the counter. No app download. No complicated flow.</p>
+    <div class="revu-steps" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:56px;">
+      <div style="background:white;border:1px solid #E5E7EB;border-radius:14px;padding:22px 18px;">
+        <div style="font-family:var(--font-d);font-weight:800;font-size:.75rem;color:#9333EA;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Step 1</div>
+        <div style="font-family:var(--font-d);font-weight:700;font-size:1rem;color:#111827;margin-bottom:8px;">Scan the QR</div>
+        <p style="font-size:.84rem;color:#6B7280;line-height:1.65;margin:0;">Customer scans the QR at your counter or table. Opens instantly on their phone.</p>
+      </div>
+      <div style="background:white;border:1px solid #E5E7EB;border-radius:14px;padding:22px 18px;">
+        <div style="font-family:var(--font-d);font-weight:800;font-size:.75rem;color:#9333EA;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Step 2</div>
+        <div style="font-family:var(--font-d);font-weight:700;font-size:1rem;color:#111827;margin-bottom:8px;">Answer 3 questions</div>
+        <p style="font-size:.84rem;color:#6B7280;line-height:1.65;margin:0;">You set up to 10 questions. Each visit, they get a different set of 3, so no two reviews sound the same.</p>
+      </div>
+      <div style="background:white;border:1px solid #E5E7EB;border-radius:14px;padding:22px 18px;">
+        <div style="font-family:var(--font-d);font-weight:800;font-size:.75rem;color:#9333EA;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Step 3</div>
+        <div style="font-family:var(--font-d);font-weight:700;font-size:1rem;color:#111827;margin-bottom:8px;">A human-sounding review</div>
+        <p style="font-size:.84rem;color:#6B7280;line-height:1.65;margin:0;">From their answers, NexusRevu drafts a natural review, not a copy-paste template. They tap Post, Google opens, they paste and publish.</p>
+      </div>
+      <div style="background:white;border:1px solid #E5E7EB;border-radius:14px;padding:22px 18px;">
+        <div style="font-family:var(--font-d);font-weight:800;font-size:.75rem;color:#9333EA;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Step 4</div>
+        <div style="font-family:var(--font-d);font-weight:700;font-size:1rem;color:#111827;margin-bottom:8px;">Negative? WhatsApp first</div>
+        <p style="font-size:.84rem;color:#6B7280;line-height:1.65;margin:0;">If the draft is negative, WhatsApp to your business is the main option so you can resolve it. They can still post online if they want.</p>
+      </div>
+    </div>
+
+    <h2 style="font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:#111827;margin-bottom:8px;letter-spacing:-.6px;">See it in action</h2>
+    <p style="font-size:.92rem;color:#6B7280;line-height:1.7;max-width:560px;margin-bottom:24px;">Watch both paths: a human-sounding Google review, and what happens when feedback turns negative.</p>
+    <div class="revu-videos" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:56px;">
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;overflow:hidden;">
+        <div style="padding:16px 18px 12px;border-bottom:1px solid #F3F4F6;">
+          <div style="font-size:.7rem;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Positive path</div>
+          <div style="font-family:var(--font-d);font-weight:700;font-size:1rem;color:#111827;">Review generated &amp; ready to post</div>
+        </div>
+        <button type="button" class="revu-play" data-revu-video="assets/nexusrevu-positive.mp4" data-revu-title="Positive review demo" aria-label="Play positive review demo">
+          <img src="assets/nexusrevu-thumb-positive.png" alt="" width="1280" height="720" loading="lazy">
+          <span class="revu-play__overlay">
+            <span class="revu-play__btn" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </span>
+        </button>
+      </div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:16px;overflow:hidden;">
+        <div style="padding:16px 18px 12px;border-bottom:1px solid #F3F4F6;">
+          <div style="font-size:.7rem;font-weight:700;color:#DC2626;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;">Negative path</div>
+          <div style="font-family:var(--font-d);font-weight:700;font-size:1rem;color:#111827;">WhatsApp first, sort it privately</div>
+        </div>
+        <button type="button" class="revu-play" data-revu-video="assets/nexusrevu-negative.mp4" data-revu-title="Negative review WhatsApp demo" aria-label="Play negative review demo">
+          <img src="assets/nexusrevu-thumb-negative.png" alt="" width="1280" height="720" loading="lazy">
+          <span class="revu-play__overlay">
+            <span class="revu-play__btn" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+
     <h2 style="font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:#111827;margin-bottom:24px;letter-spacing:-.6px;">What's included</h2>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:48px;">
-      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Google review request links for customers</span></div>
-      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Reviews dashboard with ratings overview</span></div>
-      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Internal feedback loop for low ratings</span></div>
-      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Reply to Google reviews from one place</span></div>
-      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Alerts when a review needs attention</span></div>
-      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Reply rate and response time tracking</span></div>
+      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Your own QR for the counter or table</span></div>
+      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Set up to 10 questions, customers get a different 3 each time</span></div>
+      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Reviews that feel human, never the same twice</span></div>
+      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Post opens Google so they can paste and publish</span></div>
+      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">WhatsApp to your business when feedback is negative</span></div>
+      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Customer can still choose to post the review online</span></div>
     </div>
 
     <div style="background:#9333EA;border-radius:16px;padding:36px;text-align:center;margin-bottom:64px;">
       <h3 style="font-family:var(--font-d);font-weight:800;font-size:1.4rem;color:white;margin-bottom:10px;">Ready to try NexusRevu?</h3>
-      <p style="font-size:.9rem;color:rgba(255,255,255,.65);margin-bottom:24px;">We set it up for you and connect your Google Business profile.</p>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.65);margin-bottom:24px;">We set up your QR, questions, and WhatsApp path with you.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
         <a href="contact.html" style="padding:12px 28px;background:white;color:#9333EA;border-radius:9px;font-weight:700;font-size:.9rem;text-decoration:none;">Get in touch</a>
         <a href="https://wa.me/918807810394?text=Hi! I want to know more about NexusRevu." style="padding:11px 24px;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25);border-radius:9px;font-weight:600;font-size:.9rem;text-decoration:none;" target="_blank" rel="noreferrer">WhatsApp Us</a>
@@ -115,7 +216,63 @@
 </section>
 
 <div id="site-footer"></div>
+
+<div id="revu-video-modal" class="revu-modal" role="dialog" aria-modal="true" aria-labelledby="revu-video-modal-title">
+  <div class="revu-modal__panel">
+    <p id="revu-video-modal-title" class="sr-only">NexusRevu demo video</p>
+    <button type="button" id="revu-video-close" class="revu-modal__close" aria-label="Close video">
+      Close
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <div class="revu-modal__frame">
+      <video id="revu-video-lightbox" controls playsinline preload="none"></video>
+    </div>
+  </div>
+</div>
+
 <script src="assets/footer.js"></script>
 <script src="assets/main.js"></script>
+<script>
+(function () {
+  var modal = document.getElementById("revu-video-modal");
+  var closeBtn = document.getElementById("revu-video-close");
+  var video = document.getElementById("revu-video-lightbox");
+  var titleEl = document.getElementById("revu-video-modal-title");
+  var openers = document.querySelectorAll(".revu-play");
+  if (!modal || !closeBtn || !video || !openers.length) return;
+
+  openers.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var src = btn.getAttribute("data-revu-video");
+      var title = btn.getAttribute("data-revu-title") || "NexusRevu demo video";
+      if (!src) return;
+      titleEl.textContent = title;
+      video.src = src;
+      modal.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      var playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(function () {});
+      }
+    });
+  });
+
+  function closeModal() {
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+    modal.classList.remove("is-open");
+    document.body.style.overflow = "";
+  }
+
+  closeBtn.addEventListener("click", closeModal);
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+  });
+})();
+</script>
 </body>
 </html>
