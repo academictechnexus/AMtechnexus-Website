@@ -115,17 +115,64 @@
   margin-top:.55em;flex-shrink:0;
 }
 
-.np-phone-pair{display:flex;gap:20px;justify-content:center;align-items:flex-end;}
+.np-phone-pair{display:flex;gap:22px;justify-content:center;align-items:flex-end;}
 .np-device{
-  width:min(280px,44vw);
-  border-radius:28px;overflow:hidden;background:#111;
-  border:4px solid #1F2937;
-  box-shadow:0 24px 48px rgba(11,18,32,.18);
+  position:relative;
+  width:min(268px,42vw);
+  flex-shrink:0;
   transform:translateZ(0);
   backface-visibility:hidden;
+  filter:drop-shadow(0 22px 40px rgba(11,18,32,.22));
 }
-.np-device--offset{transform:translate3d(0,24px,0);}
-.np-device img,.np-desk-shot img{display:block;width:100%;height:auto;}
+.np-device--offset{transform:translate3d(0,28px,0);}
+.np-device__frame{
+  position:relative;
+  background:linear-gradient(160deg,#2a2d33 0%,#0c0d10 40%,#1a1c22 100%);
+  border-radius:42px;
+  padding:10px;
+  box-shadow:
+    inset 0 0 0 1.5px rgba(255,255,255,.12),
+    inset 0 0 0 4px #050506;
+}
+.np-device__frame::before,
+.np-device__frame::after{
+  content:"";position:absolute;background:#1a1c20;border-radius:3px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+}
+.np-device__frame::before{
+  left:-2px;top:18%;width:3px;height:12%;
+  box-shadow:
+    0 28px 0 0 #1a1c20,
+    0 54px 0 0 #1a1c20,
+    inset 0 0 0 1px rgba(255,255,255,.06);
+}
+.np-device__frame::after{
+  right:-2px;top:24%;width:3px;height:16%;
+}
+.np-device__screen{
+  position:relative;
+  overflow:hidden;
+  border-radius:32px;
+  background:#000;
+  isolation:isolate;
+}
+.np-device__island{
+  position:absolute;z-index:2;top:10px;left:50%;transform:translateX(-50%);
+  width:34%;height:22px;border-radius:999px;background:#0a0a0a;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+}
+.np-device__island::after{
+  content:"";position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  width:8px;height:8px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#1e293b 0%,#020617 70%);
+  box-shadow:0 0 0 1.5px #0a0a0a;
+}
+.np-device__home{
+  position:absolute;z-index:2;left:50%;bottom:8px;transform:translateX(-50%);
+  width:36%;height:4px;border-radius:999px;background:rgba(255,255,255,.35);
+}
+.np-device img{display:block;width:100%;height:auto;}
+.np-desk-shot img{display:block;width:100%;height:auto;}
 
 .np-desk-shot{
   border-radius:14px;overflow:hidden;
@@ -184,7 +231,11 @@
   .np-hero__actions .np-btn,
   .np-hero__actions .np-btn-outline{width:100%;justify-content:center;}
   .np-phone-pair{gap:12px;}
-  .np-device{width:min(180px,46vw);border-radius:22px;border-width:3px;}
+  .np-device{width:min(168px,44vw);}
+  .np-device__frame{border-radius:30px;padding:7px;}
+  .np-device__screen{border-radius:23px;}
+  .np-device__island{height:16px;top:7px;}
+  .np-device__home{bottom:6px;height:3px;}
   .np-device--offset{transform:translate3d(0,14px,0);}
 }
 </style>
@@ -274,10 +325,22 @@
       <div class="np-feature__visual">
         <div class="np-phone-pair">
           <div class="np-device">
-            <img src="assets/nexusplay-player-slots.png" alt="Player view of Green turf with cricket slots and live availability" width="738" height="1600" loading="lazy" decoding="async">
+            <div class="np-device__frame">
+              <div class="np-device__screen">
+                <span class="np-device__island" aria-hidden="true"></span>
+                <img src="assets/nexusplay-player-slots.png" alt="Player view of Green turf with cricket slots and live availability" width="738" height="1600" loading="lazy" decoding="async">
+                <span class="np-device__home" aria-hidden="true"></span>
+              </div>
+            </div>
           </div>
           <div class="np-device np-device--offset">
-            <img src="assets/nexusplay-player-booking.png" alt="Booking summary with book full slot and host open game options" width="738" height="1600" loading="lazy" decoding="async">
+            <div class="np-device__frame">
+              <div class="np-device__screen">
+                <span class="np-device__island" aria-hidden="true"></span>
+                <img src="assets/nexusplay-player-booking.png" alt="Booking summary with book full slot and host open game options" width="738" height="1600" loading="lazy" decoding="async">
+                <span class="np-device__home" aria-hidden="true"></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
