@@ -80,9 +80,7 @@
     '<div><h2 class="text-xs font-semibold uppercase tracking-wider text-zinc-300">Company</h2>' +
     '<nav class="mt-4 flex flex-col" aria-label="Company">' +
     '<a href="about.html" class="block py-1 text-sm text-zinc-400 transition-colors hover:text-white">About Us</a>' +
-    '<a href="case-studies.html" class="block py-1 text-sm text-zinc-400 transition-colors hover:text-white">Case Studies</a>' +
     '<a href="pricing.html" class="block py-1 text-sm text-zinc-400 transition-colors hover:text-white">Pricing</a>' +
-    '<a href="support.html" class="block py-1 text-sm text-zinc-400 transition-colors hover:text-white">Support &amp; Docs</a>' +
     '<a href="how-to-get-more-google-reviews.html" class="block py-1 text-sm text-zinc-400 transition-colors hover:text-white">How to get more Google reviews</a>' +
     '<a href="contact.html" class="block py-1 text-sm text-zinc-400 transition-colors hover:text-white">Contact</a>' +
     "</nav></div>" +
