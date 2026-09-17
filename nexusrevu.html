@@ -106,26 +106,22 @@
     padding-left:0;
   }
   .revu-journey__step{
-    display:grid;
-    grid-template-columns:40px minmax(0,1fr);
-    column-gap:14px;
-    row-gap:0;
-    padding:16px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    padding:20px 18px;
     background:#fff;
     border:1px solid #E5E7EB;
     border-radius:14px;
-    align-items:start;
   }
   .revu-journey__step:first-child,
   .revu-journey__step:last-child{
-    padding:16px;
+    padding:20px 18px;
   }
   .revu-journey__track{
-    grid-row:1 / -1;
-    grid-column:1;
-    margin:0;
-    align-items:flex-start;
-    padding-top:2px;
+    margin:0 0 12px;
+    justify-content:center;
   }
   .revu-journey__line{display:none;}
   .revu-journey__num{
@@ -135,19 +131,16 @@
     font-size:.9rem;
   }
   .revu-journey__phase{
-    grid-column:2;
-    margin:0 0 4px;
+    margin:0 0 6px;
   }
   .revu-journey__title{
-    grid-column:2;
-    margin-bottom:6px;
+    margin-bottom:8px;
   }
   .revu-journey__when{
-    grid-column:2;
-    margin-bottom:10px;
+    margin-bottom:12px;
   }
   .revu-journey__go{
-    grid-column:2;
+    justify-content:center;
   }
 }
 .revu-cta{
