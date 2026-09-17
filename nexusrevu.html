@@ -6,7 +6,13 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/android-chrome-192x192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<title>NexusRevu  |  AM Technexus Labs</title>
+<title>NexusRevu | How to Get More Google Reviews with QR | AM Technexus Labs</title>
+<meta name="description" content="How to get more Google reviews with NexusRevu: customers scan your QR, answer 3 questions, and post a human-sounding Google review in under a minute. Negative feedback goes to WhatsApp first.">
+<link rel="canonical" href="https://amtechnexus.com/nexusrevu.html">
+<meta property="og:title" content="NexusRevu | Get more Google reviews from a QR scan">
+<meta property="og:description" content="From QR to Google review in under a minute. Human-sounding drafts, different every time. Negative feedback goes to WhatsApp first.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amtechnexus.com/nexusrevu.html">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
@@ -27,6 +33,7 @@
 @media(max-width:900px){
   .revu-steps{grid-template-columns:1fr 1fr !important;}
   .revu-videos{grid-template-columns:1fr !important;}
+  .revu-howto{grid-template-columns:1fr !important;}
 }
 @media(max-width:560px){
   .revu-steps{grid-template-columns:1fr !important;}
@@ -67,7 +74,65 @@
 }
 .revu-modal__frame video{display:block;width:100%;height:100%;}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.faq-item{border:1px solid #E5E7EB;border-radius:12px;margin-bottom:10px;overflow:hidden;background:#fff;}
+.faq-q{padding:16px 20px;font-weight:600;font-size:.92rem;color:#111827;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+.faq-a{display:none;padding:0 20px 16px;font-size:.88rem;color:#374151;line-height:1.75;}
+.faq-item.open .faq-a{display:block;}
+.faq-item.open .faq-chev{transform:rotate(180deg);}
+.faq-chev{font-size:.75rem;color:#6B7280;transition:transform .25s;}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "NexusRevu",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "QR-based Google review tool that drafts human-sounding reviews and routes negative feedback to WhatsApp first.",
+  "url": "https://amtechnexus.com/nexusrevu.html",
+  "provider": {"@type": "Organization", "name": "AM Technexus Labs", "url": "https://amtechnexus.com"}
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How to get more Google reviews with NexusRevu?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Place your NexusRevu QR at the counter or table. Happy customers scan, answer 3 questions, get a natural review draft, and paste it on Google in under a minute."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do customers need to download an app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. They scan the QR and continue on their phone browser. No app download is required."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if the feedback is negative?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "WhatsApp to your business comes first so you can resolve it privately. The customer can still choose to post online if they want."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will every review sound the same?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. You set up to 10 questions. Each visit, customers get a different set of 3, so reviews stay human and varied."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <nav class="nav" id="nav">
@@ -126,7 +191,8 @@
     <div class="product-icon" style="width:56px;height:56px;margin-bottom:18px;"><img src="assets/nexusrevu-icon.png" alt=""></div>
     <span class="eyebrow" style="color:#9333EA;">NEXUSREVU</span>
     <h1 class="h1" style="margin-bottom:14px;">From QR to Google review in under a minute</h1>
-    <p class="lead" style="max-width:560px;margin-bottom:32px;">Customers scan your QR, answer 3 of your questions, and get a review that feels human, different every time, ready to paste on Google. If the feedback is negative, WhatsApp to your business comes first so you can fix it privately.</p>
+    <p class="lead" style="max-width:560px;margin-bottom:20px;">Customers scan your QR, answer 3 of your questions, and get a review that feels human, different every time, ready to paste on Google. If the feedback is negative, WhatsApp to your business comes first so you can fix it privately.</p>
+    <p style="font-size:.9rem;color:#6B7280;margin-bottom:28px;max-width:560px;">Looking for the full playbook? Read our guide on <a href="how-to-get-more-google-reviews.html" style="color:#9333EA;font-weight:700;text-decoration:none;">how to get more Google reviews</a>.</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
       <a href="contact.html" style="padding:13px 30px;background:#9333EA;color:white;border-radius:9px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 4px 18px rgba(147,51,234,.35);">Get in touch</a>
       <a href="contact.html" style="padding:12px 28px;background:white;color:#111827;border:1.5px solid #E5E7EB;border-radius:9px;font-weight:600;font-size:.92rem;text-decoration:none;">Book a Demo</a>
@@ -200,8 +266,50 @@
       <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Set up to 10 questions, customers get a different 3 each time</span></div>
       <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Reviews that feel human, never the same twice</span></div>
       <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Post opens Google so they can paste and publish</span></div>
-      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">WhatsApp to your business when feedback is negative</span></div>
-      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">Customer can still choose to post the review online</span></div>
+      <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">WhatsApp to your business when feedback is negative; customer can still choose to post online</span></div>
+    </div>
+
+    <h2 id="how-to-get-more-google-reviews" style="font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:#111827;margin-bottom:8px;letter-spacing:-.6px;">How to get more Google reviews with NexusRevu</h2>
+    <p style="font-size:.92rem;color:#6B7280;line-height:1.7;max-width:640px;margin-bottom:20px;">If you are searching for how to get more Google reviews, start with a process customers will actually finish. NexusRevu removes the slow parts: finding your listing, inventing wording, and forgetting to post later.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;" class="revu-howto">
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:18px;">
+        <div style="font-family:var(--font-d);font-weight:700;font-size:.98rem;color:#111827;margin-bottom:6px;">Ask at the right moment</div>
+        <p style="font-size:.86rem;color:#6B7280;line-height:1.65;margin:0;">Keep the QR at the counter, table, or bill so happy customers can act before they leave.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:18px;">
+        <div style="font-family:var(--font-d);font-weight:700;font-size:.98rem;color:#111827;margin-bottom:6px;">Make writing easy</div>
+        <p style="font-size:.86rem;color:#6B7280;line-height:1.65;margin:0;">Three short answers become a natural Google review draft they can paste and publish.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:18px;">
+        <div style="font-family:var(--font-d);font-weight:700;font-size:.98rem;color:#111827;margin-bottom:6px;">Keep reviews unique</div>
+        <p style="font-size:.86rem;color:#6B7280;line-height:1.65;margin:0;">Different question sets each visit mean reviews do not all sound the same.</p>
+      </div>
+      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:18px;">
+        <div style="font-family:var(--font-d);font-weight:700;font-size:.98rem;color:#111827;margin-bottom:6px;">Protect your reputation</div>
+        <p style="font-size:.86rem;color:#6B7280;line-height:1.65;margin:0;">Negative drafts go to WhatsApp first so you can resolve issues privately.</p>
+      </div>
+    </div>
+    <p style="font-size:.9rem;color:#6B7280;margin-bottom:40px;">For the longer playbook, read <a href="how-to-get-more-google-reviews.html" style="color:#9333EA;font-weight:700;text-decoration:none;">How to get more Google reviews</a>.</p>
+
+    <h2 style="font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:#111827;margin-bottom:8px;letter-spacing:-.6px;">Common questions</h2>
+    <p style="font-size:.92rem;color:#6B7280;line-height:1.7;max-width:560px;margin-bottom:20px;">Straight answers about getting more Google reviews with NexusRevu.</p>
+    <div style="max-width:720px;margin-bottom:48px;">
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How to get more Google reviews with NexusRevu? <span class="faq-chev">▼</span></div>
+        <div class="faq-a">Place your NexusRevu QR at the counter or table. Happy customers scan, answer 3 questions, get a natural review draft, and paste it on Google in under a minute.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do customers need to download an app? <span class="faq-chev">▼</span></div>
+        <div class="faq-a">No. They scan the QR and continue on their phone browser. No app download is required.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What happens if the feedback is negative? <span class="faq-chev">▼</span></div>
+        <div class="faq-a">WhatsApp to your business comes first so you can resolve it privately. The customer can still choose to post online if they want.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Will every review sound the same? <span class="faq-chev">▼</span></div>
+        <div class="faq-a">No. You set up to 10 questions. Each visit, customers get a different set of 3, so reviews stay human and varied.</div>
+      </div>
     </div>
 
     <div style="background:#9333EA;border-radius:16px;padding:36px;text-align:center;margin-bottom:64px;">
