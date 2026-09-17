@@ -107,7 +107,7 @@
     '<div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-zinc-500 sm:flex-row">' +
     "<p>© " +
     year +
-    " AM Technexus Labs Private Limited. All rights reserved.</p>" +
+    " AM Technexus Labs. All rights reserved.</p>" +
     '<nav class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1" aria-label="Legal">' +
     '<a href="privacy.html" class="transition-colors hover:text-zinc-300">Privacy Policy</a>' +
     '<span class="mx-2 text-zinc-600" aria-hidden="true">·</span>' +
