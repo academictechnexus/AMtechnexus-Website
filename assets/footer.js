@@ -108,11 +108,11 @@
     year +
     " AM Technexus Labs Private Limited. All rights reserved.</p>" +
     '<nav class="flex flex-wrap items-center justify-center gap-x-1 gap-y-1" aria-label="Legal">' +
-    '<a href="#" class="transition-colors hover:text-zinc-300">Privacy Policy</a>' +
+    '<a href="privacy.html" class="transition-colors hover:text-zinc-300">Privacy Policy</a>' +
     '<span class="mx-2 text-zinc-600" aria-hidden="true">·</span>' +
-    '<a href="#" class="transition-colors hover:text-zinc-300">Terms of Service</a>' +
+    '<a href="terms.html" class="transition-colors hover:text-zinc-300">Terms of Service</a>' +
     '<span class="mx-2 text-zinc-600" aria-hidden="true">·</span>' +
-    '<a href="#" class="transition-colors hover:text-zinc-300">Cookie Policy</a>' +
+    '<a href="cookies.html" class="transition-colors hover:text-zinc-300">Cookie Policy</a>' +
     "</nav></div></div></footer>";
     if (window.tailwind && typeof window.tailwind.refresh === "function") {
       window.tailwind.refresh();
