@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "lighthouse": {
+      "command": "npx",
+      "args": ["-y", "@danielsogl/lighthouse-mcp@latest"]
+    },
+    "seo-mcp": {
+      "command": "npx",
+      "args": ["-y", "seo-console-mcp"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "${userHome}/.config/seo-mcp/seo-mcp.key.json",
+        "SEO_MCP_PAGESPEED_KEY": "${env:SEO_MCP_PAGESPEED_KEY}"
+      }
+    }
+  }
+}
