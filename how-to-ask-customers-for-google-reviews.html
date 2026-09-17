@@ -6,11 +6,11 @@
 <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<title>How to Ask Customers for Google Reviews | AM Technexus Labs</title>
-<meta name="description" content="How to ask customers for Google reviews without sounding pushy: timing, scripts, staff habits, and a QR flow that makes posting easy.">
+<title>How to Ask for Google Reviews with NexusRevu | AM Technexus Labs</title>
+<meta name="description" content="How to ask customers for Google reviews without sounding pushy — plus how NexusRevu turns the ask into a finished post: 3 questions, human draft, paste on Google.">
 <link rel="canonical" href="https://amtechnexus.com/how-to-ask-customers-for-google-reviews.html">
-<meta property="og:title" content="How to Ask Customers for Google Reviews">
-<meta property="og:description" content="Simple scripts and timing tips for asking customers to leave a Google review.">
+<meta property="og:title" content="How to Ask Customers for Google Reviews with NexusRevu">
+<meta property="og:description" content="Scripts that work, and a QR flow that finishes the ask so customers actually post.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://amtechnexus.com/how-to-ask-customers-for-google-reviews.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +41,20 @@
 .guide-content a{color:#9333EA;font-weight:600;}
 .guide-callout{background:#FAF5FF;border:1px solid #E9D5FF;border-radius:14px;padding:20px 22px;margin:24px 0;}
 .guide-callout strong{color:#7C3AED;}
+.guide-diff{margin:24px 0;border:1px solid #E5E7EB;border-radius:14px;overflow:hidden;background:#fff;}
+.guide-diff__title{font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9333EA;padding:14px 18px 0;}
+.guide-diff__grid{display:grid;grid-template-columns:1fr 1fr;}
+.guide-diff__col{padding:16px 18px 18px;}
+.guide-diff__col+.guide-diff__col{border-left:1px solid #E5E7EB;background:#FAF5FF;}
+.guide-diff__label{font-size:.72rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;margin-bottom:8px;}
+.guide-diff__col:first-child .guide-diff__label{color:#9CA3AF;}
+.guide-diff__col+.guide-diff__col .guide-diff__label{color:#7C3AED;}
+.guide-diff__col ul{margin:0;padding-left:1.1rem;}
+.guide-diff__col li{font-size:.88rem;margin-bottom:6px;color:#374151;line-height:1.55;}
+@media(max-width:640px){
+  .guide-diff__grid{grid-template-columns:1fr;}
+  .guide-diff__col+.guide-diff__col{border-left:none;border-top:1px solid #E5E7EB;}
+}
 .guide-steps{display:grid;gap:12px;margin:18px 0 24px;}
 .guide-step{background:#fff;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:12px;padding:16px 18px;}
 .guide-step__n{font-size:.7rem;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#9333EA;margin-bottom:6px;}
@@ -150,9 +164,9 @@
 
 <section class="guide-hero">
   <div class="wrap">
-    <span class="eyebrow">Guide</span>
+    <span class="eyebrow">NexusRevu Guide</span>
     <h1 class="h1">How to ask customers for Google reviews</h1>
-    <p class="lead">A good ask is short, timely, and easy to complete. Here is how to request Google reviews in a way that feels natural for your team and your customers.</p>
+    <p class="lead">A good ask is short, timely, and easy to finish. The ask alone is not enough — customers still drop off at Maps and the blank page. <a href="nexusrevu.html" style="color:#9333EA;font-weight:700;text-decoration:none;">NexusRevu</a> turns “would you mind leaving a review?” into scan → 3 answers → paste on Google.</p>
     <p class="guide-meta">Updated 17 September 2026 · By AM Technexus Labs</p>
   </div>
 </section>
@@ -167,13 +181,13 @@
         <a href="#what-to-say">What to say</a>
         <a href="#staff">Train your team</a>
         <a href="#avoid">What not to do</a>
-        <a href="#nexusrevu">How NexusRevu helps</a>
+        <a href="#nexusrevu">Why NexusRevu stands out</a>
         <a href="#faq">FAQ</a>
       </aside>
       <article class="guide-content">
         <h2 id="why">Why asking works better than waiting</h2>
         <p>Most happy customers never leave a Google review on their own. Not because they dislike you — because life moves on the moment they leave. A clear, polite ask at the right time is usually what turns a good visit into a published review.</p>
-        <p>If you want more Google reviews, the ask is half the system. The other half is making posting easy. See also <a href="how-to-get-more-google-reviews.html">how to get more Google reviews</a> and <a href="google-review-qr-code-ideas.html">where to place a review QR</a>.</p>
+        <p>If you want more Google reviews, the ask is half the system. The other half is making posting easy enough that “yes” becomes a published review — not a forgotten promise. See also <a href="how-to-get-more-google-reviews.html">how to get more Google reviews</a> and <a href="google-review-qr-code-ideas.html">where to place a review QR</a>.</p>
 
         <h2 id="when">When to ask</h2>
         <ul>
@@ -186,11 +200,11 @@
         <p>Keep it short and specific. Examples:</p>
         <ul>
           <li>“If you had a good experience today, would you mind leaving a quick Google review? It helps other people find us.”</li>
-          <li>“Glad you liked it. A Google review would mean a lot — you can scan this QR and it only takes a minute.”</li>
+          <li>“Glad you liked it. Scan this QR — three short questions, then a draft you can paste on Google. Takes under a minute.”</li>
           <li>“Thanks for coming in. If anything was off, tell us here. If it went well, a Google review helps a lot.”</li>
         </ul>
         <div class="guide-callout">
-          <p style="margin:0;"><strong>Tip:</strong> Asking for feedback first feels more honest than only asking for a five-star review. Happy customers still post. Unhappy ones can be handled privately — see <a href="handle-negative-google-reviews.html">how to handle negative Google reviews</a>.</p>
+          <p style="margin:0;"><strong>Tip:</strong> Asking for feedback first feels more honest than only asking for a five-star review. With <a href="nexusrevu.html">NexusRevu</a>, unhappy drafts can go to WhatsApp first — see <a href="handle-negative-google-reviews.html">how to handle negative Google reviews</a>.</p>
         </div>
 
         <h2 id="staff">Train your team</h2>
@@ -202,8 +216,8 @@
           </div>
           <div class="guide-step">
             <div class="guide-step__n">2</div>
-            <h3>Put the QR within reach</h3>
-            <p>If staff have to dig for a link, they will skip the ask on busy days.</p>
+            <h3>Put the NexusRevu QR within reach</h3>
+            <p>If staff have to dig for a link, they will skip the ask on busy days. One counter QR that opens the NexusRevu flow is enough.</p>
           </div>
           <div class="guide-step">
             <div class="guide-step__n">3</div>
@@ -220,8 +234,34 @@
           <li>Do not only ask online customers and ignore walk-ins</li>
         </ul>
 
-        <h2 id="nexusrevu">How NexusRevu helps</h2>
-        <p><a href="nexusrevu.html">NexusRevu</a> turns the ask into a finished action: scan, answer 3 questions, get a natural draft, paste on Google. Staff do not need to coach people through Maps. Negative drafts can go to WhatsApp first.</p>
+        <h2 id="nexusrevu">Why NexusRevu stands out</h2>
+        <p>Staff should not have to coach customers through Google Maps. <a href="nexusrevu.html">NexusRevu</a> finishes the ask: scan, answer 3 of your questions, get a natural draft, paste on Google. Negative drafts can go to WhatsApp first.</p>
+        <div class="guide-diff">
+          <div class="guide-diff__title">A polite ask vs an ask customers finish</div>
+          <div class="guide-diff__grid">
+            <div class="guide-diff__col">
+              <div class="guide-diff__label">Ask only</div>
+              <ul>
+                <li>“Please leave us a Google review”</li>
+                <li>Customer must find your listing</li>
+                <li>Blank page — they say yes, then leave</li>
+                <li>Same canned text if you hand them a script</li>
+              </ul>
+            </div>
+            <div class="guide-diff__col">
+              <div class="guide-diff__label">Ask + NexusRevu</div>
+              <ul>
+                <li>“Scan this — takes under a minute”</li>
+                <li>QR opens your question flow instantly</li>
+                <li>3 answers → human-sounding draft → paste</li>
+                <li>Different questions each visit = unique reviews</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="guide-callout">
+          <p style="margin:0;"><strong>Watch the flow:</strong> demos of the positive path and WhatsApp-first negatives are on the <a href="nexusrevu.html">NexusRevu</a> page.</p>
+        </div>
 
         <h2 id="faq">Frequently asked questions</h2>
         <div class="faq-item open">
@@ -230,7 +270,7 @@
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What if customers say yes but never post? <span class="faq-chev">▼</span></div>
-          <div class="faq-a">They usually drop off because writing takes effort. Make the next step a QR scan with a ready draft, not a manual search.</div>
+          <div class="faq-a">They usually drop off because writing takes effort. With NexusRevu, the next step is a QR scan and three short answers — not a manual search and a blank Google box.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Should I ask every customer? <span class="faq-chev">▼</span></div>
@@ -259,10 +299,10 @@
           </div>
         </div>
         <div class="guide-cta">
-          <h2>Ready to get more Google reviews?</h2>
-          <p>Give your team a QR ask that customers can finish in under a minute.</p>
+          <h2>Make “yes” become a published review</h2>
+          <p>NexusRevu turns your staff’s ask into scan → 3 questions → natural draft → Google.</p>
           <div class="guide-cta__btns">
-            <a class="guide-cta__primary" href="nexusrevu.html">See NexusRevu</a>
+            <a class="guide-cta__primary" href="nexusrevu.html">See how NexusRevu works</a>
             <a class="guide-cta__ghost" href="contact.html">Book a demo</a>
           </div>
         </div>
