@@ -100,19 +100,54 @@
 @media(max-width:900px){
   .revu-journey{
     grid-template-columns:1fr;
-    gap:0;
-    border-left:2px solid #E9D5FF;
-    margin-left:17px;
+    gap:12px;
+    border-left:none;
+    margin-left:0;
     padding-left:0;
   }
   .revu-journey__step{
-    padding:0 0 28px 28px;
+    display:grid;
+    grid-template-columns:40px minmax(0,1fr);
+    column-gap:14px;
+    row-gap:0;
+    padding:16px;
+    background:#fff;
+    border:1px solid #E5E7EB;
+    border-radius:14px;
+    align-items:start;
   }
-  .revu-journey__step:last-child{padding-bottom:4px;}
-  .revu-journey__track{margin-bottom:12px;}
+  .revu-journey__step:first-child,
+  .revu-journey__step:last-child{
+    padding:16px;
+  }
+  .revu-journey__track{
+    grid-row:1 / -1;
+    grid-column:1;
+    margin:0;
+    align-items:flex-start;
+    padding-top:2px;
+  }
   .revu-journey__line{display:none;}
   .revu-journey__num{
-    position:absolute;left:-19px;top:0;
+    position:static;
+    width:40px;
+    height:40px;
+    font-size:.9rem;
+  }
+  .revu-journey__phase{
+    grid-column:2;
+    margin:0 0 4px;
+  }
+  .revu-journey__title{
+    grid-column:2;
+    margin-bottom:6px;
+  }
+  .revu-journey__when{
+    grid-column:2;
+    margin-bottom:10px;
+  }
+  .revu-journey__go{
+    grid-column:2;
   }
 }
 .revu-cta{
