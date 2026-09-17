@@ -33,12 +33,97 @@
 @media(max-width:900px){
   .revu-steps{grid-template-columns:1fr 1fr !important;}
   .revu-videos{grid-template-columns:1fr !important;}
-  .revu-howto{grid-template-columns:1fr !important;}
-  .revu-blogs{grid-template-columns:1fr !important;}
 }
 @media(max-width:560px){
   .revu-steps{grid-template-columns:1fr !important;}
 }
+.revu-journey{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:0;
+  margin-bottom:48px;
+  position:relative;
+}
+.revu-journey__step{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  padding:0 18px 4px;
+  text-decoration:none;
+  min-width:0;
+}
+.revu-journey__step:first-child{padding-left:0;}
+.revu-journey__step:last-child{padding-right:0;}
+.revu-journey__track{
+  display:flex;
+  align-items:center;
+  margin-bottom:16px;
+  position:relative;
+}
+.revu-journey__num{
+  width:36px;height:36px;border-radius:50%;
+  background:#9333EA;color:#fff;
+  font-family:var(--font-d),'Plus Jakarta Sans',sans-serif;
+  font-weight:800;font-size:.85rem;
+  display:inline-flex;align-items:center;justify-content:center;
+  flex-shrink:0;z-index:1;
+  transition:transform .2s,box-shadow .2s;
+}
+.revu-journey__step:hover .revu-journey__num{
+  transform:scale(1.06);
+  box-shadow:0 6px 18px rgba(147,51,234,.35);
+}
+.revu-journey__line{
+  flex:1;height:2px;background:linear-gradient(90deg,#D8B4FE,#E9D5FF);
+  margin-left:10px;
+}
+.revu-journey__step:last-child .revu-journey__line{display:none;}
+.revu-journey__phase{
+  font-size:.68rem;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;
+  color:#9333EA;margin-bottom:8px;
+}
+.revu-journey__title{
+  font-family:var(--font-d),'Plus Jakarta Sans',sans-serif;
+  font-weight:700;font-size:1rem;color:#111827;line-height:1.35;margin-bottom:8px;
+  transition:color .15s;
+}
+.revu-journey__step:hover .revu-journey__title{color:#7C3AED;}
+.revu-journey__when{
+  font-size:.84rem;color:#6B7280;line-height:1.55;margin:0 0 12px;flex:1;
+}
+.revu-journey__go{
+  font-size:.82rem;font-weight:700;color:#9333EA;
+  display:inline-flex;align-items:center;gap:4px;
+}
+.revu-journey__go span{transition:transform .15s;}
+.revu-journey__step:hover .revu-journey__go span{transform:translateX(3px);}
+@media(max-width:900px){
+  .revu-journey{
+    grid-template-columns:1fr;
+    gap:0;
+    border-left:2px solid #E9D5FF;
+    margin-left:17px;
+    padding-left:0;
+  }
+  .revu-journey__step{
+    padding:0 0 28px 28px;
+  }
+  .revu-journey__step:last-child{padding-bottom:4px;}
+  .revu-journey__track{margin-bottom:12px;}
+  .revu-journey__line{display:none;}
+  .revu-journey__num{
+    position:absolute;left:-19px;top:0;
+  }
+}
+.revu-cta{
+  border:1px solid #FDE68A;
+  border-radius:16px;
+  padding:36px;
+  text-align:center;
+  margin-bottom:64px;
+  background:#FEF3C7;
+}
+.revu-cta > *{position:relative;}
 .revu-play{
   position:relative;display:block;width:100%;padding:0;border:none;background:#0f0f14;
   cursor:pointer;text-align:left;aspect-ratio:16/9;overflow:hidden;
@@ -190,8 +275,7 @@
     <div class="product-icon" style="width:56px;height:56px;margin-bottom:18px;"><img src="assets/nexusrevu-icon.png" alt=""></div>
     <span class="eyebrow" style="color:#9333EA;">NEXUSREVU</span>
     <h1 class="h1" style="margin-bottom:14px;">From QR to Google review in under a minute</h1>
-    <p class="lead" style="max-width:560px;margin-bottom:20px;">Customers scan your QR, answer 3 of your questions, and get a review that feels human, different every time, ready to paste on Google. If the feedback is negative, WhatsApp to your business comes first so you can fix it privately.</p>
-    <p style="font-size:.9rem;color:#6B7280;margin-bottom:28px;max-width:560px;">Need the playbooks? Jump to <a href="#revu-guides" style="color:#9333EA;font-weight:700;text-decoration:none;">guides on getting more Google reviews</a>.</p>
+    <p class="lead" style="max-width:560px;margin-bottom:28px;">Customers scan your QR, answer 3 of your questions, and get a review that feels human, different every time, ready to paste on Google. If the feedback is negative, WhatsApp to your business comes first so you can fix it privately.</p>
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
       <a href="contact.html" style="padding:13px 30px;background:#9333EA;color:white;border-radius:9px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 4px 18px rgba(147,51,234,.35);">Get in touch</a>
       <a href="contact.html" style="padding:12px 28px;background:white;color:#111827;border:1.5px solid #E5E7EB;border-radius:9px;font-weight:600;font-size:.92rem;text-decoration:none;">Book a Demo</a>
@@ -268,52 +352,50 @@
       <div style="display:flex;align-items:center;gap:12px;background:white;border:1px solid #E5E7EB;border-left:3px solid #9333EA;border-radius:10px;padding:14px 18px;"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#9333EA" fill-opacity=".12"/><path d="M5 8l2 2 4-4" stroke="#9333EA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span style="font-size:.88rem;font-weight:500;color:#374151;">WhatsApp to your business when feedback is negative; customer can still choose to post online</span></div>
     </div>
 
-    <h2 id="how-to-get-more-google-reviews" style="font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:#111827;margin-bottom:8px;letter-spacing:-.6px;">How to get more Google reviews with NexusRevu</h2>
-    <p style="font-size:.92rem;color:#6B7280;line-height:1.7;max-width:640px;margin-bottom:20px;">If you are searching for how to get more Google reviews, start with a process customers will actually finish. NexusRevu removes the slow parts: finding your listing, inventing wording, and forgetting to post later.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;" class="revu-howto">
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:18px;">
-        <div style="font-family:var(--font-d);font-weight:700;font-size:.98rem;color:#111827;margin-bottom:6px;">Ask at the right moment</div>
-        <p style="font-size:.86rem;color:#6B7280;line-height:1.65;margin:0;">Keep the QR at the counter, table, or bill so happy customers can act before they leave.</p>
-      </div>
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:18px;">
-        <div style="font-family:var(--font-d);font-weight:700;font-size:.98rem;color:#111827;margin-bottom:6px;">Make writing easy</div>
-        <p style="font-size:.86rem;color:#6B7280;line-height:1.65;margin:0;">Three short answers become a natural Google review draft they can paste and publish.</p>
-      </div>
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:18px;">
-        <div style="font-family:var(--font-d);font-weight:700;font-size:.98rem;color:#111827;margin-bottom:6px;">Keep reviews unique</div>
-        <p style="font-size:.86rem;color:#6B7280;line-height:1.65;margin:0;">Different question sets each visit mean reviews do not all sound the same.</p>
-      </div>
-      <div style="background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:18px;">
-        <div style="font-family:var(--font-d);font-weight:700;font-size:.98rem;color:#111827;margin-bottom:6px;">Protect your reputation</div>
-        <p style="font-size:.86rem;color:#6B7280;line-height:1.65;margin:0;">Negative drafts go to WhatsApp first so you can resolve issues privately.</p>
-      </div>
-    </div>
-    <p style="font-size:.9rem;color:#6B7280;margin-bottom:40px;">Prefer the full playbooks? Browse the guides below.</p>
-
-    <h2 id="revu-guides" style="font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:#111827;margin-bottom:8px;letter-spacing:-.6px;">Guides to get more Google reviews</h2>
-    <p style="font-size:.92rem;color:#6B7280;line-height:1.7;max-width:560px;margin-bottom:20px;">Short reads that support the NexusRevu flow — asking, QR placement, and handling negatives.</p>
-    <div class="revu-blogs" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:48px;">
-      <a href="how-to-get-more-google-reviews.html" style="display:block;background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:20px 18px;text-decoration:none;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='#D8B4FE';this.style.boxShadow='0 8px 24px rgba(147,51,234,.08)';" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='none';">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9333EA;margin-bottom:8px;">Guide</div>
-        <div style="font-family:var(--font-d);font-weight:700;font-size:1rem;color:#111827;margin-bottom:6px;line-height:1.35;">How to get more Google reviews</div>
-        <p style="font-size:.86rem;color:#6B7280;line-height:1.6;margin:0;">The full playbook: ask timing, easy posting, and what actually grows reviews.</p>
+    <h2 id="revu-guides" style="font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:#111827;margin-bottom:8px;letter-spacing:-.6px;">The review growth path</h2>
+    <p style="font-size:.92rem;color:#6B7280;line-height:1.7;max-width:560px;margin-bottom:28px;">Four short guides that follow the NexusRevu system — from the ask to handling negatives.</p>
+    <nav class="revu-journey" aria-label="Google review guides">
+      <a class="revu-journey__step" href="how-to-ask-customers-for-google-reviews.html">
+        <div class="revu-journey__track">
+          <span class="revu-journey__num" aria-hidden="true">1</span>
+          <span class="revu-journey__line" aria-hidden="true"></span>
+        </div>
+        <div class="revu-journey__phase">Ask</div>
+        <div class="revu-journey__title">How to ask for Google reviews</div>
+        <p class="revu-journey__when">Use when staff need a natural script and timing.</p>
+        <span class="revu-journey__go">Read guide <span aria-hidden="true">→</span></span>
       </a>
-      <a href="how-to-ask-customers-for-google-reviews.html" style="display:block;background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:20px 18px;text-decoration:none;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='#D8B4FE';this.style.boxShadow='0 8px 24px rgba(147,51,234,.08)';" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='none';">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9333EA;margin-bottom:8px;">Guide</div>
-        <div style="font-family:var(--font-d);font-weight:700;font-size:1rem;color:#111827;margin-bottom:6px;line-height:1.35;">How to ask customers for Google reviews</div>
-        <p style="font-size:.86rem;color:#6B7280;line-height:1.6;margin:0;">What to say, when to ask, and how to train your team without sounding pushy.</p>
+      <a class="revu-journey__step" href="google-review-qr-code-ideas.html">
+        <div class="revu-journey__track">
+          <span class="revu-journey__num" aria-hidden="true">2</span>
+          <span class="revu-journey__line" aria-hidden="true"></span>
+        </div>
+        <div class="revu-journey__phase">QR</div>
+        <div class="revu-journey__title">Google review QR code ideas</div>
+        <p class="revu-journey__when">Use when deciding where the QR should live.</p>
+        <span class="revu-journey__go">Read guide <span aria-hidden="true">→</span></span>
       </a>
-      <a href="google-review-qr-code-ideas.html" style="display:block;background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:20px 18px;text-decoration:none;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='#D8B4FE';this.style.boxShadow='0 8px 24px rgba(147,51,234,.08)';" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='none';">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9333EA;margin-bottom:8px;">Guide</div>
-        <div style="font-family:var(--font-d);font-weight:700;font-size:1rem;color:#111827;margin-bottom:6px;line-height:1.35;">Google review QR code ideas</div>
-        <p style="font-size:.86rem;color:#6B7280;line-height:1.6;margin:0;">Where to place your QR — counter, table, receipt, exit — so people actually scan.</p>
+      <a class="revu-journey__step" href="how-to-get-more-google-reviews.html">
+        <div class="revu-journey__track">
+          <span class="revu-journey__num" aria-hidden="true">3</span>
+          <span class="revu-journey__line" aria-hidden="true"></span>
+        </div>
+        <div class="revu-journey__phase">Post</div>
+        <div class="revu-journey__title">How to get more Google reviews</div>
+        <p class="revu-journey__when">Use when you want the full growth playbook.</p>
+        <span class="revu-journey__go">Read guide <span aria-hidden="true">→</span></span>
       </a>
-      <a href="handle-negative-google-reviews.html" style="display:block;background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:20px 18px;text-decoration:none;transition:border-color .15s,box-shadow .15s;" onmouseover="this.style.borderColor='#D8B4FE';this.style.boxShadow='0 8px 24px rgba(147,51,234,.08)';" onmouseout="this.style.borderColor='#E5E7EB';this.style.boxShadow='none';">
-        <div style="font-size:.68rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#9333EA;margin-bottom:8px;">Guide</div>
-        <div style="font-family:var(--font-d);font-weight:700;font-size:1rem;color:#111827;margin-bottom:6px;line-height:1.35;">How to handle negative Google reviews</div>
-        <p style="font-size:.86rem;color:#6B7280;line-height:1.6;margin:0;">Catch unhappy feedback early, reply calmly, and keep growing genuine positives.</p>
+      <a class="revu-journey__step" href="handle-negative-google-reviews.html">
+        <div class="revu-journey__track">
+          <span class="revu-journey__num" aria-hidden="true">4</span>
+          <span class="revu-journey__line" aria-hidden="true"></span>
+        </div>
+        <div class="revu-journey__phase">Protect</div>
+        <div class="revu-journey__title">Handle negative Google reviews</div>
+        <p class="revu-journey__when">Use when you need WhatsApp-first for unhappy visits.</p>
+        <span class="revu-journey__go">Read guide <span aria-hidden="true">→</span></span>
       </a>
-    </div>
+    </nav>
 
     <h2 style="font-family:var(--font-d);font-weight:800;font-size:1.5rem;color:#111827;margin-bottom:8px;letter-spacing:-.6px;">Common questions</h2>
     <p style="font-size:.92rem;color:#6B7280;line-height:1.7;max-width:560px;margin-bottom:20px;">Straight answers about getting more Google reviews with NexusRevu.</p>
@@ -336,12 +418,12 @@
       </div>
     </div>
 
-    <div style="background:#9333EA;border-radius:16px;padding:36px;text-align:center;margin-bottom:64px;">
-      <h3 style="font-family:var(--font-d);font-weight:800;font-size:1.4rem;color:white;margin-bottom:10px;">Ready to try NexusRevu?</h3>
-      <p style="font-size:.9rem;color:rgba(255,255,255,.65);margin-bottom:24px;">We set up your QR, questions, and WhatsApp path with you.</p>
+    <div class="revu-cta">
+      <h3 style="font-family:var(--font-d);font-weight:800;font-size:1.4rem;color:#111827;margin-bottom:10px;">Ready to try NexusRevu?</h3>
+      <p style="font-size:.9rem;color:#4B5563;margin-bottom:24px;">We set up your QR, questions, and WhatsApp path with you.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a href="contact.html" style="padding:12px 28px;background:white;color:#9333EA;border-radius:9px;font-weight:700;font-size:.9rem;text-decoration:none;">Get in touch</a>
-        <a href="https://wa.me/918807810394?text=Hi! I want to know more about NexusRevu." style="padding:11px 24px;background:rgba(255,255,255,.12);color:white;border:1px solid rgba(255,255,255,.25);border-radius:9px;font-weight:600;font-size:.9rem;text-decoration:none;" target="_blank" rel="noreferrer">WhatsApp Us</a>
+        <a href="contact.html" style="padding:12px 28px;background:#9333EA;color:#fff;border-radius:9px;font-weight:700;font-size:.9rem;text-decoration:none;box-shadow:0 4px 14px rgba(147,51,234,.28);">Get in touch</a>
+        <a href="https://wa.me/918807810394?text=Hi! I want to know more about NexusRevu." style="padding:11px 24px;background:#fff;color:#111827;border:1.5px solid #E5E7EB;border-radius:9px;font-weight:600;font-size:.9rem;text-decoration:none;" target="_blank" rel="noreferrer">WhatsApp Us</a>
       </div>
     </div>
   </div>
