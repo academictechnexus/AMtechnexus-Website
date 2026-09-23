@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/logo-loop.css">
 <style>
 .logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0;margin-right:16px;}
 .footer__heading{font-size:.72rem;font-weight:700;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:14px;}
@@ -152,6 +153,30 @@
   background:#FEF3C7;
 }
 .revu-cta > *{position:relative;}
+.revu-logo-strip{
+  background:#fff;
+  border-top:1px solid #E5E7EB;
+  border-bottom:1px solid #E5E7EB;
+  padding:18px 0 22px;
+}
+.revu-logo-strip__label{
+  text-align:center;
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:#9CA3AF;
+  margin:0 0 10px;
+}
+.revu-logo-strip__host{
+  height:88px;
+  position:relative;
+  overflow:hidden;
+}
+@media(max-width:900px){
+  .revu-logo-strip{padding:14px 0 16px;}
+  .revu-logo-strip__host{height:76px;}
+}
 .revu-play{
   position:relative;display:block;width:100%;padding:0;border:none;background:#0f0f14;
   cursor:pointer;text-align:left;aspect-ratio:16/9;overflow:hidden;
@@ -307,6 +332,42 @@
     <div style="display:flex;gap:12px;flex-wrap:wrap;">
       <a href="contact.html" style="padding:13px 30px;background:#9333EA;color:white;border-radius:9px;font-weight:700;font-size:.92rem;text-decoration:none;box-shadow:0 4px 18px rgba(147,51,234,.35);">Get in touch</a>
       <a href="contact.html" style="padding:12px 28px;background:white;color:#111827;border:1.5px solid #E5E7EB;border-radius:9px;font-weight:600;font-size:.92rem;text-decoration:none;">Book a Demo</a>
+    </div>
+  </div>
+</section>
+
+<section class="revu-logo-strip">
+  <p class="revu-logo-strip__label">Valued customers</p>
+  <div class="revu-logo-strip__host">
+    <div
+      class="logoloop logoloop--horizontal logoloop--fade logoloop--scale-hover"
+      data-logo-loop
+      data-speed="100"
+      data-direction="left"
+      data-hover-speed="0"
+        style="--logoloop-gap:24px;--logoloop-logoHeight:48px;--logoloop-fadeColor:#ffffff;"
+      role="region"
+      aria-label="Valued customers"
+    >
+      <div class="logoloop__track">
+        <ul class="logoloop__list" data-logo-seq role="list">
+          <li class="logoloop__item" role="listitem">
+            <img src="assets/customer-abhi-restaurant.png" alt="Abhi Restaurant" width="140" height="80" loading="lazy" decoding="async" draggable="false">
+          </li>
+          <li class="logoloop__item" role="listitem">
+            <img src="assets/customer-baskin-robbins.png" alt="Baskin-Robbins" width="140" height="80" loading="lazy" decoding="async" draggable="false">
+          </li>
+          <li class="logoloop__item logoloop__item--dark" role="listitem">
+            <img src="assets/customer-naturolls.png" alt="Naturolls Live Ice Creams Cafe" width="160" height="48" loading="lazy" decoding="async" draggable="false">
+          </li>
+          <li class="logoloop__item" role="listitem">
+            <img src="assets/customer-golden-creeper.png" alt="Golden Creeper" width="72" height="100" loading="lazy" decoding="async" draggable="false">
+          </li>
+          <li class="logoloop__item logoloop__item--brand" role="listitem">
+            <img src="assets/customer-mimibooo.png" alt="mimibooo" width="120" height="120" loading="lazy" decoding="async" draggable="false">
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -474,6 +535,7 @@
 
 <script src="assets/footer.js"></script>
 <script src="assets/main.js"></script>
+<script src="assets/logo-loop.js"></script>
 <script>
 (function () {
   var modal = document.getElementById("revu-video-modal");
