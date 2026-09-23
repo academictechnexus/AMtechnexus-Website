@@ -75,11 +75,19 @@
 .logoloop__item--brand {
   background: #c52e3d;
   border-color: #c52e3d;
-  padding: 6px 10px;
+  padding: 4px 8px;
   overflow: hidden;
 }
 
-.logoloop__item--brand img {
+.logoloop__item--sage {
+  background: #60a76f;
+  border-color: #60a76f;
+  padding: 4px 8px;
+  overflow: hidden;
+}
+
+.logoloop__item--brand img,
+.logoloop__item--sage img {
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -91,6 +99,7 @@
 }
 
 .logoloop--scale-hover .logoloop__item--brand,
+.logoloop--scale-hover .logoloop__item--sage,
 .logoloop--scale-hover .logoloop__item--dark {
   overflow: hidden;
 }
@@ -131,9 +140,18 @@
 
 @media (max-width: 900px) {
   .logoloop {
-    --logoloop-gap: 16px;
-    --logoloop-slot-w: 140px;
-    --logoloop-slot-h: 64px;
+    --logoloop-gap: 14px;
+    --logoloop-slot-w: 132px;
+    --logoloop-slot-h: 68px;
+  }
+
+  .logoloop__item {
+    padding: 8px 10px;
+  }
+
+  .logoloop__item--brand,
+  .logoloop__item--sage {
+    padding: 3px 6px;
   }
 }
 
