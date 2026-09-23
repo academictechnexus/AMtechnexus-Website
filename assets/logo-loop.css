@@ -68,8 +68,10 @@
 }
 
 .logoloop__item--dark {
-  background: #111111;
-  border-color: #111111;
+  background: #020202;
+  border-color: #020202;
+  padding: 4px 8px;
+  overflow: hidden;
 }
 
 .logoloop__item--brand {
@@ -150,7 +152,8 @@
   }
 
   .logoloop__item--brand,
-  .logoloop__item--sage {
+  .logoloop__item--sage,
+  .logoloop__item--dark {
     padding: 3px 6px;
   }
 }
