@@ -73,12 +73,26 @@
 }
 
 .logoloop__item--brand {
-  background: #E11D48;
-  border-color: #E11D48;
+  background: #c52e3d;
+  border-color: #c52e3d;
+  padding: 6px 10px;
+  overflow: hidden;
+}
+
+.logoloop__item--brand img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .logoloop--scale-hover .logoloop__item {
   overflow: visible;
+}
+
+.logoloop--scale-hover .logoloop__item--brand,
+.logoloop--scale-hover .logoloop__item--dark {
+  overflow: hidden;
 }
 
 .logoloop--scale-hover .logoloop__item:hover img {
