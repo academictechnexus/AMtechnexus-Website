@@ -74,6 +74,10 @@
   overflow: hidden;
 }
 
+.logoloop__item--white {
+  background: #ffffff;
+}
+
 .logoloop__item--brand {
   background: #c52e3d;
   border-color: #c52e3d;
