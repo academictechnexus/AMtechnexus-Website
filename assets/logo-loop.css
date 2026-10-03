@@ -78,6 +78,11 @@
   background: #ffffff;
 }
 
+.logoloop__item--cream {
+  background: #faf9f5;
+  padding: 4px 6px;
+}
+
 .logoloop__item--brand {
   background: #c52e3d;
   border-color: #c52e3d;
@@ -157,7 +162,8 @@
 
   .logoloop__item--brand,
   .logoloop__item--sage,
-  .logoloop__item--dark {
+  .logoloop__item--dark,
+  .logoloop__item--cream {
     padding: 3px 6px;
   }
 }
