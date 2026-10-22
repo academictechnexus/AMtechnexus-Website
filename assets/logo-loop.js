@@ -110,12 +110,22 @@
       rafId = requestAnimationFrame(animate);
     }
 
-    root.addEventListener('mouseenter', function () {
-      isHovered = true;
-    });
-    root.addEventListener('mouseleave', function () {
-      isHovered = false;
-    });
+    var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+    if (window.PointerEvent) {
+      root.addEventListener('pointerenter', function (e) {
+        if (e.pointerType !== 'touch') isHovered = true;
+      });
+      root.addEventListener('pointerleave', function (e) {
+        if (e.pointerType !== 'touch') isHovered = false;
+      });
+    } else if (canHover) {
+      root.addEventListener('mouseenter', function () {
+        isHovered = true;
+      });
+      root.addEventListener('mouseleave', function () {
+        isHovered = false;
+      });
+    }
 
     onImagesReady(function () {
       updateDimensions();
