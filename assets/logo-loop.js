@@ -59,26 +59,6 @@
       }
     }
 
-    function onImagesReady(cb) {
-      var images = seq.querySelectorAll('img');
-      if (!images.length) {
-        cb();
-        return;
-      }
-      var remaining = images.length;
-      var done = function () {
-        remaining -= 1;
-        if (remaining <= 0) cb();
-      };
-      images.forEach(function (img) {
-        if (img.complete) done();
-        else {
-          img.addEventListener('load', done, { once: true });
-          img.addEventListener('error', done, { once: true });
-        }
-      });
-    }
-
     function animate(ts) {
       if (lastTs === null) lastTs = ts;
       var dt = Math.max(0, ts - lastTs) / 1000;
@@ -127,10 +107,8 @@
       });
     }
 
-    onImagesReady(function () {
-      updateDimensions();
-      start();
-    });
+    updateDimensions();
+    start();
 
     if (window.ResizeObserver) {
       var ro = new ResizeObserver(function () {
