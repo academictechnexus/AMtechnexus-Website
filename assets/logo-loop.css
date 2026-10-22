@@ -97,6 +97,13 @@
   overflow: hidden;
 }
 
+.logoloop__item--blue {
+  background: #14457e;
+  border-color: #14457e;
+  padding: 4px 8px;
+  overflow: hidden;
+}
+
 .logoloop__item--brand img,
 .logoloop__item--sage img {
   width: 100%;
@@ -111,6 +118,7 @@
 
 .logoloop--scale-hover .logoloop__item--brand,
 .logoloop--scale-hover .logoloop__item--sage,
+.logoloop--scale-hover .logoloop__item--blue,
 .logoloop--scale-hover .logoloop__item--dark {
   overflow: hidden;
 }
@@ -162,6 +170,7 @@
 
   .logoloop__item--brand,
   .logoloop__item--sage,
+  .logoloop__item--blue,
   .logoloop__item--dark,
   .logoloop__item--cream {
     padding: 3px 6px;
